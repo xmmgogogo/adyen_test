@@ -28,7 +28,7 @@ $str = iconv('utf-8', 'gb2312' ,$str);
 $result = mysqli_query($conn, "select * from payment");
 while($row = mysqli_fetch_array($result, MYSQLI_ASSOC))
 {
-    foreach($payment_default as $value) {
+    foreach($payment as $value) {
         $str .= $row[$value] . ',';
     }
 
