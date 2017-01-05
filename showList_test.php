@@ -9,13 +9,18 @@ include "config.php";
     <title>Document</title>
 </head>
 <link rel="shortcut icon" href="./ca/img/adyen/favicon.ico" type="image/ico"/>
-<link rel="stylesheet" type="text/css" href="./ca/css/adyen/style.css?e057" />
-<link rel="stylesheet" type="text/css" href="./ca/css/csr/csr.css?e057" />
-<link rel="stylesheet" type="text/css" href="./ca/css/csr/grid.css?e057" />
-<link rel="stylesheet" type="text/css" href="./ca/css/font.css?e057"/>
-<link rel="stylesheet" type="text/css" href="./ca/css/grid.css?e057" />
-<link rel="stylesheet" href="./ca/css/topnavigation.css?e057" type="text/css" />
-<link rel="stylesheet" href="./ca/css/fontastic/styles.css?e057" type="text/css" />
+<link rel="stylesheet" type="text/css" href="./ca/css/adyen/style.css" />
+<link rel="stylesheet" type="text/css" href="./ca/css/csr/csr.css" />
+<link rel="stylesheet" type="text/css" href="./ca/css/csr/grid.css" />
+<link rel="stylesheet" type="text/css" href="./ca/css/font.css"/>
+<link rel="stylesheet" type="text/css" href="./ca/css/grid.css" />
+<link rel="stylesheet" href="./ca/css/topnavigation.css" type="text/css" />
+<link rel="stylesheet" href="./ca/css/fontastic/styles.css" type="text/css" />
+
+<script src="./ca/js/ps.pack.js" type="text/javascript"></script>
+<script src="./ca/js/jquery.pack.js" type="text/javascript"></script>
+<script src="./ca/js/adyen/adyen.pack.js" type="text/javascript" ></script>
+
 <body class="no-menu backlink ca-ft-globalsearch">
 
 <style type="text/css">
@@ -161,9 +166,9 @@ include "config.php";
 <div id="ca-middlebarcontainer">
     <div id="ca-middlebar">
         <a href="/ca/ca/overview/default.shtml">
-            <img id="ca-mainlogo" style="height: 55px" src="https://ca-test.adyen.com/ca/css/csr/images/adyen-logo.condensed.hr.png?e057" alt="Logo" />
+            <img id="ca-mainlogo" style="height: 55px" src="https://ca-test.adyen.com/ca/css/csr/images/adyen-logo.condensed.hr.png" alt="Logo" />
         </a>
-        <img id="maintagline" src="https://ca-test.adyen.com/ca/img/adyen_tagline.png?e057" alt="Wherever people pay" />
+        <img id="maintagline" src="https://ca-test.adyen.com/ca/img/adyen_tagline.png" alt="Wherever people pay" />
     </div>
 </div>
 <div id="ca-bottombar"><div id="ca-bottombar2"></div></div>
@@ -197,19 +202,25 @@ include "config.php";
                 <table class="data wide highlight csr-table csr-list-table csr-configurable-table">
                     <caption class="list-filter csr-list-filter">
                         <div class="csr-configuration-list util-float-left">
-                            <a href="/ca/ca/payments/configurations.shtml">
+                            <a href="showList_test.php">
                                 <i class="icon-pencil"></i>
                                 Manage configurations                </a>
                             | &nbsp;
-                            <strong>Default</strong>
-                            | &nbsp;
-                            <a href="/ca/ca/payments/setConfiguration.shtml?configurationId=2755">POS</a>
+
+                            <?php
+                            if(!isset($_REQUEST['pos'])) {
+                                echo '<strong>Default</strong> | &nbsp;<a href="showList_test.php?pos">POS</a>';
+                            } else {
+                                echo '<a href="showList_test.php">Default</a> | &nbsp;<strong>POS</strong>';
+                            }
+                            ?>
                         </div>
-                        <form method="post" action="/ca/ca/payments/modifySearch.shtml?uxEvent=PAYMENT_LIST_SEARCH"><span style="vertical-align: middle;  line-height: 2em; font-size: 0.9em">
+                        <form method="post" action="/ca/ca/payments/modifySearch.shtml?uxEvent=PAYMENT_LIST_SEARCH">
+                            <span style="vertical-align: middle;  line-height: 2em; font-size: 0.9em">
             <input type="hidden" name="formHash" value="145fSCuiO+yd58kZApByiEQKoj8ivw=" />
 				Page 1
 							<b> | </b>
-			<a href="/ca/ca/payments/showList.shtml?clearFilter=true">
+			<a href="showList_test.php?clearFilter=true">
                 clear all filters
                 <i class="icon-filter csr-fcolor-red"></i>
             </a>
@@ -220,7 +231,13 @@ include "config.php";
                     <i class="icon-search"></i>
                 </button>
 						<b> | </b>
-			<a href="export_csv.php" title="maximum of 1000 records">
+            <?php
+            if(!isset($_REQUEST['pos'])) {
+                echo '<a href="export_csv.php" title="maximum of 1000 records">';
+            } else {
+                echo '<a href="export_csv.php?pos" title="maximum of 1000 records">';
+            }
+            ?>
                 download as CSV
                 <i class="icon-file-o"></i>
             </a>
@@ -238,19 +255,18 @@ include "config.php";
                                 <i class="icon-sort-asc" style="vertical-align: sub;"></i>
                             </a>
                             date
-                            <a href="/ca/ca/payments/filterDate.shtml?resourceKeyPrefix=creationDate&amp;displayWildcard=false&amp;filterField=creationDate"
-                            >
+                            <a href="/ca/ca/payments/filterDate.shtml?resourceKeyPrefix=creationDate&amp;displayWildcard=false&amp;filterField=creationDate">
                                 <i class="icon-filter "></i>
                             </a>
                         </th>
                         <th colspan="2">amount</th>
                         <th>method
-                            <a data-dialog="true" href="/ca/ca/payments/filterPMDetails.shtml?filterField=paymentDetails">
+                            <a data-dialog="true" href="#" onclick="openMethodPro()">
                                 <i class="icon-filter "></i>
                             </a>
                         </th>
                         <th>status
-                            <a data-dialog="true" href="/ca/ca/payments/filterDropdown.shtml?resourceKeyPrefix=paymentStatus&amp;displayWildcard=false&amp;filterField=status">
+                            <a data-dialog="true" href="#" onclick="openStatusPro()">
                                 <i class="icon-filter "></i>
                             </a>
                         </th>
@@ -273,7 +289,7 @@ include "config.php";
                         echo "<td>" . $row['Merchant Reference'] . "</td>";
                         echo "<td>" . $row['Account'] . "</td>";
                         echo "<td>" . $row['Creation Date'] . "</td>";
-                        echo "<td>" . $row['Value'] . "</td>";
+                        echo "<td colspan=\"2\">" . $row['Value'] . "</td>";
                         echo "<td>" . $row['Payment Method'] . "</td>";
                         echo "<td>" . $row['Status'] . "</td>";
                         echo "<td>" . $row['Fraud Scoring'] . "</td>";
@@ -301,6 +317,198 @@ include "config.php";
     </div>
 </div>
 </div>
+
+<div id="dialog-overlay" data-rel-hide="true" style="display: none;"></div>
+<div id="dialog-status" class="dialog csr-dialog" style="display: none; top: 52px;">
+    <div class="dialog-content"><div id="content">
+            <div id="contentwrapper">
+                <div id="subcontent">
+                    <h1 class="ca-pagetitle">Set a Filter on Payment Status</h1>
+                    <p style="width: 450px">Select the status of the payments you want to display. Setting this filter limits the search results to one month.</p>
+                    <div>
+                        <form method="get" action="showList_test.php">
+                            <input type="hidden" name="formHash" value="871YuVc3kSDgXmo+itUHak4RHQlov8=">
+                            <select name="filterValue">
+                                <option value=""></option>
+                                <option value="Authorised">Authorised</option>
+                                <option value="AuthorisedPending">AuthorisedPending</option>
+                                <option value="Cancelled">Cancelled</option>
+                                <option value="Refused">Refused</option>
+                                <option value="RefusedPayout">RefusedPayout</option>
+                                <option value="SentForSettle">SentForSettle</option>
+                                <option value="Settled">Settled</option>
+                                <option value="SettledInstallment">SettledInstallment</option>
+                                <option value="SettledInInstallments">SettledInInstallments</option>
+                                <option value="SettledBulk">SettledBulk</option>
+                                <option value="SettledExternally">SettledExternally</option>
+                                <option value="SettledExternallyWithInfo">SettledExternallyWithInfo</option>
+                                <option value="CaptureFailed">CaptureFailed</option>
+                                <option value="SentForRefund">SentForRefund</option>
+                                <option value="RefundAuthorised">RefundAuthorised</option>
+                                <option value="Refunded">Refunded</option>
+                                <option value="RefundedInstallment">RefundedInstallment</option>
+                                <option value="RefundedInInstallments">RefundedInInstallments</option>
+                                <option value="RefundedBulk">RefundedBulk</option>
+                                <option value="RefundedExternally">RefundedExternally</option>
+                                <option value="RefundedExternallyWithInfo">RefundedExternallyWithInfo</option>
+                                <option value="RefundedReversed">RefundedReversed</option>
+                                <option value="RefundFailed">RefundFailed</option>
+                                <option value="Expired">Expired</option>
+                                <option value="Chargeback">Chargeback</option>
+                                <option value="ChargebackExternally">ChargebackExternally</option>
+                                <option value="ChargebackExternallyWithInfo">ChargebackExternallyWithInfo</option>
+                                <option value="ChargebackReversed">ChargebackReversed</option>
+                                <option value="ChargebackReversedExternallyWithInfo">ChargebackReversedExternallyWithInfo</option>
+                                <option value="SentForPayout">SentForPayout</option>
+                                <option value="PayoutAuthorised">PayoutAuthorised</option>
+                                <option value="PayoutError">PayoutError</option>
+                                <option value="PayoutFailed">PayoutFailed</option>
+                                <option value="PaidOut">PaidOut</option>
+                                <option value="PaidOutExternally">PaidOutExternally</option>
+                                <option value="PaidOutExternallyWithInfo">PaidOutExternallyWithInfo</option>
+                                <option value="PaidOutReversed">PaidOutReversed</option>
+                                <option value="Received">Received</option>
+                                <option value="ReceivedPayout">ReceivedPayout</option>
+                                <option value="HandledExternally">HandledExternally</option>
+                                <option value="Error">Error</option>
+                            </select>
+                            <input type="hidden" name="filterField" value="status">
+                            <br><br>
+                            <input class="csr-button csr-submit-button" type="submit" value="Submit">
+                        </form>
+                    </div>
+
+                    <p style="width: 450px">
+                        Entering the blank status clears the filter.		</p>
+
+                </div>
+
+                <div class="bbarl">
+                    <div class="bbarr">
+                        <div class="bbar">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <script type="text/javascript">
+                require( [ 'util/Analytics' ], function ( A ) {
+                    A.pageView( {label: document.title, url: document.location.pathname, user_level: 'C'} );
+                } );
+            </script>
+
+        </div>
+    </div>
+    <div style="position: absolute; right: 10px; top: 5px; cursor: pointer; z-index: 9999;" onclick="closeStatusPro()">×</div>
+</div>
+<div id="dialog-method" class="dialog csr-dialog" style="display: none; top: 52px;">
+    <div class="dialog-content">
+        <div id="content">
+            <div id="contentwrapper">
+                <div id="subcontent">
+                    <h1 class="ca-pagetitle">Set a Filter on Payment Details</h1>
+                    <h3>Set a Filter on Card/Account number</h3>
+                    <p style="width: 450px">By entering a card number or account number and selecting the type of payment, you can retrieve only the payments which where made using this card or account.</p>
+                    <div>
+                        <form method="get" action="showList_test.php" autocomplete="off">
+                            <input type="hidden" name="formHash" value="354jZM6gO57BubYn8g1Fch5azlYcX8=">
+                            <input type="text" name="filterValue" size="40" autocomplete="nope">
+                            <select name="filterValue2">
+                                <option value="creditcard">Credit Card</option>
+                                <option value="ideal">iDeal</option>
+                                <option value="elv">ELV</option>
+                            </select>
+                            <input type="hidden" name="filterField" value="pan">
+                            <br><br>
+                            <input class="csr-button csr-submit-button" type="submit" value="Submit">
+                        </form>
+                    </div>
+                    <p style="width: 450px">
+                        Entering the blank search term clears the filter.	</p>
+                    <h3>Set a Filter on Payment Method</h3>
+                    <p style="width: 450px">Select the payment method of the payments you want to display.</p>
+                    <div>
+                        <form method="get" action="showList_test.php">
+                            <input type="hidden" name="formHash" value="200fqkAUwoiTzHxpLAXsKjASY1MM4A=">
+                            <select name="filterValue">
+                                <option value=""></option>
+                                <option value="amex" style="background-image: url('/ca/img/pm/amex_tiny.png'); background-repeat: no-repeat; padding-left: 30px; padding-top: 1px; height: 13px;"> amex</option>
+                                <option value="bankTransfer_IBAN" style="background-image: url('/ca/img/pm/bankTransfer_IBAN_tiny.png'); background-repeat: no-repeat; padding-left: 30px; padding-top: 1px; height: 13px;"> bankTransfer_IBAN</option>
+                                <option value="bcmc" style="background-image: url('/ca/img/pm/bcmc_tiny.png'); background-repeat: no-repeat; padding-left: 30px; padding-top: 1px; height: 13px;"> bcmc</option>
+                                <option value="diners" style="background-image: url('/ca/img/pm/diners_tiny.png'); background-repeat: no-repeat; padding-left: 30px; padding-top: 1px; height: 13px;"> diners</option>
+                                <option value="directEbanking" style="background-image: url('/ca/img/pm/directEbanking_tiny.png'); background-repeat: no-repeat; padding-left: 30px; padding-top: 1px; height: 13px;"> directEbanking</option>
+                                <option value="discover" style="background-image: url('/ca/img/pm/discover_tiny.png'); background-repeat: no-repeat; padding-left: 30px; padding-top: 1px; height: 13px;"> discover</option>
+                                <option value="dotpay" style="background-image: url('/ca/img/pm/dotpay_tiny.png'); background-repeat: no-repeat; padding-left: 30px; padding-top: 1px; height: 13px;"> dotpay</option>
+                                <option value="ebanking_FI" style="background-image: url('/ca/img/pm/ebanking_FI_tiny.png'); background-repeat: no-repeat; padding-left: 30px; padding-top: 1px; height: 13px;"> ebanking_FI</option>
+                                <option value="giropay" style="background-image: url('/ca/img/pm/giropay_tiny.png'); background-repeat: no-repeat; padding-left: 30px; padding-top: 1px; height: 13px;"> giropay</option>
+                                <option value="ideal" style="background-image: url('/ca/img/pm/ideal_tiny.png'); background-repeat: no-repeat; padding-left: 30px; padding-top: 1px; height: 13px;"> ideal</option>
+                                <option value="maestro" style="background-image: url('/ca/img/pm/maestro_tiny.png'); background-repeat: no-repeat; padding-left: 30px; padding-top: 1px; height: 13px;"> maestro</option>
+                                <option value="mc" style="background-image: url('/ca/img/pm/mc_tiny.png'); background-repeat: no-repeat; padding-left: 30px; padding-top: 1px; height: 13px;"> mc</option>
+                                <option value="sepadirectdebit" style="background-image: url('/ca/img/pm/sepadirectdebit_tiny.png'); background-repeat: no-repeat; padding-left: 30px; padding-top: 1px; height: 13px;"> sepadirectdebit</option>
+                                <option value="visa" style="background-image: url('/ca/img/pm/visa_tiny.png'); background-repeat: no-repeat; padding-left: 30px; padding-top: 1px; height: 13px;"> visa</option>
+                            </select>
+                            <input type="hidden" name="filterField" value="paymentMethod">
+                            <br><br>
+                            <input class="csr-button csr-submit-button" type="submit" value="Submit">
+                        </form>
+                    </div>
+                    <p style="width: 450px">
+                        Entering the blank payment method clears the filter.	</p>
+                </div>
+
+                <div class="bbarl">
+                    <div class="bbarr">
+                        <div class="bbar">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <script type="text/javascript">
+                require( [ 'util/Analytics' ], function ( A ) {
+                    A.pageView( {label: document.title, url: document.location.pathname, user_level: 'C'} );
+                } );
+            </script>
+
+        </div>
+    </div>
+    <div style="position: absolute; right: 10px; top: 5px; cursor: pointer; z-index: 9999;" onclick="closeMethodPro()">×</div>
+</div>
+<script type="text/javascript">
+    /******method*******/
+    function openMethodPro() {
+        document.getElementById('dialog-overlay').style.display = 'block';
+        document.getElementById('dialog-method').style.display = 'block';
+
+        if(document.getElementById('dialog')) {
+            document.getElementById('dialog').id = 'dialog-status';
+        }
+        document.getElementById('dialog-method').id = 'dialog';
+    }
+    function closeMethodPro() {
+        document.getElementById('dialog-overlay').style.display = 'none';
+        document.getElementById('dialog').style.display = 'none';
+    }
+
+    /******status*******/
+    function openStatusPro() {
+        document.getElementById('dialog-overlay').style.display = 'block';
+        document.getElementById('dialog-status').style.display = 'block';
+
+        if(document.getElementById('dialog')) {
+            document.getElementById('dialog').id = 'dialog-method';
+        }
+        document.getElementById('dialog-status').id = 'dialog';
+    }
+
+    function closeStatusPro() {
+        document.getElementById('dialog-overlay').style.display = 'none';
+        if(document.getElementById('dialog')) {
+            document.getElementById('dialog').style.display = 'none';
+        }
+    }
+</script>
 </body>
 </html>
 
