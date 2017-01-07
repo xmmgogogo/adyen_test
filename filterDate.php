@@ -1,6 +1,6 @@
 <?php
 /**
- * 基础订单查询页面
+ * 日期过滤页面
  * 2017-1-6 mm
  */
 
@@ -171,7 +171,7 @@ include "config.php";
 </div>
 <div id="ca-middlebarcontainer">
     <div id="ca-middlebar">
-        <a href="#">
+        <a href="/ca/ca/overview/default.shtml">
             <img id="ca-mainlogo" style="height: 55px" src="https://ca-test.adyen.com/ca/css/csr/images/adyen-logo.condensed.hr.png" alt="Logo" />
         </a>
         <img id="maintagline" src="https://ca-test.adyen.com/ca/img/adyen_tagline.png" alt="Wherever people pay" />
@@ -200,152 +200,62 @@ include "config.php";
         </div>
     </div>
     <div id="contentbg">
-    <div id="content">
-        <div id="contentwrapper">
+        <div id="content">
+            <div id="contentwrapper">
+                <div id="subcontent">
+                    <h1 class="ca-pagetitle">Restrict payment list to a date range</h1>
 
-            <div id="subcontent">
-                <h1 class="ca-pagetitle">Payment List</h1>
-                <table class="data wide highlight csr-table csr-list-table csr-configurable-table">
-                    <caption class="list-filter csr-list-filter">
-                        <div class="csr-configuration-list util-float-left">
-                            <a href="#" onclick="alert('暂无设置');">
-                                <i class="icon-pencil"></i>
-                                Manage configurations                </a>
-                            | &nbsp;
-
-                            <?php
-                            if(!isset($_REQUEST['pos'])) {
-                                echo '<strong>Default</strong> | &nbsp;<a href="showList.php?pos">POS</a>';
-                            } else {
-                                echo '<a href="showList.php">Default</a> | &nbsp;<strong>POS</strong>';
-                            }
-                            ?>
-                        </div>
+                    <p style="width: 450px">Specify two dates to restrict the search results. From is inclusive, while till is exclusive. To e.g. search for all payments made on the 22nd of December 2008, enter 2008-12-22 and 2008-12-23 as the two dates.</p>
+                    <div data-dialog-width="700">
                         <form method="get" action="showList.php">
-                            <input  type="hidden" size="25" name="filterField" value="PSPReference" />
-                            <span style="vertical-align: middle;  line-height: 2em; font-size: 0.9em">
-				Page 1
-							<b> | </b>
-			<a href="showList.php?clearFilter=true">
-                clear all filters
-                <i class="icon-filter csr-fcolor-red"></i>
-            </a>
-			<b> | </b>
+                            <input type="hidden" name="filterField" value="creationDate">
 
-				<!--<input id="spotlightsearchbox" type="text" size="25" name="query" placeholder="&lt;search for payments&gt;" />-->
-				<input id="spotlightsearchbox" type="text" size="25" name="filterValue" placeholder="&lt;search for payments&gt;" />
-				<button type="submit" class="csr-icon-button csr-button">
-                    <i class="icon-search"></i>
-                </button>
-						<b> | </b>
-            <?php
-            if(!isset($_REQUEST['pos'])) {
-                echo '<a href="export_csv.php" title="maximum of 1000 records">';
-            } else {
-                echo '<a href="export_csv.php?pos" title="maximum of 1000 records">';
-            }
-            ?>
-                download as CSV
-                <i class="icon-file-o"></i>
-            </a>
-					</span></form>
-                    </caption>
-                    <thead>
-                    <tr>
-                        <th>
-                            psp reference
-                        </th>
-                        <th>merchant reference</th>
-                        <th>account</th>
-                        <th title="">
-                            <a href="showList.php?sortDirection=<?php echo isset($_REQUEST['sortDirection']) && $_REQUEST['sortDirection'] == 'asc' ? 'desc' : 'asc'; ?>">
-                                <i class="icon-sort-asc" style="vertical-align: sub;"></i>
-                            </a>
-                            date
-                            <a href="filterDate.php">
-                                <i class="icon-filter "></i>
-                            </a>
-                        </th>
-                        <th colspan="2">amount</th>
-                        <th>method
-                            <a data-dialog="true" href="#" onclick="openMethodPro()">
-                                <i class="icon-filter "></i>
-                            </a>
-                        </th>
-                        <th>status
-                            <a data-dialog="true" href="#" onclick="openStatusPro()">
-                                <i class="icon-filter "></i>
-                            </a>
-                        </th>
-                        <th>fraud score
-                            <a data-dialog="true" href="#">
-                                <i class="icon-filter "></i>
-                            </a>
-                        </th>
-                    </tr>
+                            <input type="text" id="filterValue" size="25" name="filterValue" value="">
+                            <img alt="Calendar" onclick="new CalendarDateSelect( $(this).previous(), {valid_date_check:function(date) { return(date <= (new Date()).stripTime()) }, time:false, year_range:10} );" src="./ca/img/calendar.gif" style="border:0px; cursor:pointer;">
+                            till
 
-                    </thead>
-                    <tbody id="paymentTable">
-                    <?php
+                            <input type="hidden" name="filterField2" value="$filterField2">
+                            <input type="text" id="filterValue2" size="25" name="filterValue2" value="">
+                            <img alt="Calendar" onclick="new CalendarDateSelect( $(this).previous(), {valid_date_check:function(date) { return(date <= (getTomorrow()).stripTime()) }, time:false, year_range:10} );" src="./ca/img/calendar.gif" style="border:0px; cursor:pointer;">
 
-                    //基础字段设置
-                    $where = 1;
-                    if(isset($_REQUEST['filterField']) && $_REQUEST['filterField']) {
-                        if($_REQUEST['filterField'] == 'creationDate') {
-                            $where = $_REQUEST['filterField'] . '>=' . "'{$_REQUEST['filterValue']}' and " . $_REQUEST['filterField'] . '<=' . "'{$_REQUEST['filterValue2']}'";
-                        } else {
-                            $where = $_REQUEST['filterField'] . '=' . "'{$_REQUEST['filterValue']}'";
-                        }
+                            <span class="note">(e.g 2008-07-12 or 2008-07-12 22:05:00)</span>
+                            <br><br>
+                            <input class="csr-button-2 primary" type="submit" value="Submit">
+                        </form>
+                    </div>
+
+                    <p style="width: 450px">
+                        <a class="csr-button-2 secondary" href="showList.php">clear filter</a>
+                    </p>
+
+                </div>
+
+                <script src="./ca/js/calendar_date_select/calendar_date_select.js" type="text/javascript"></script>
+                <script type="text/javascript">
+                    function getTomorrow() {
+                        var now = new Date();
+                        var dayLength = 1*24*60*60*1000;
+                        var tomorrow = new Date(now.getTime()+dayLength);
+                        return tomorrow;
                     }
+                </script>
 
-                    //排序
-                    if(isset($_REQUEST['sortDirection'])) {
-                        $where .= ' order by creationDate ' . $_REQUEST['sortDirection'];
-                    }
-
-                    //查询
-                    $isEmpty = true;
-                    $result = mysqli_query($conn, "select * from payment WHERE {$where}");
-//                    echo "select * from payment WHERE {$where}";
-
-                    while($row = mysqli_fetch_array($result, MYSQLI_ASSOC))
-                    {
-                        echo "<tr>";
-                        echo "<td>" . $row['PSPReference'] . "</td>";
-                        echo "<td>" . $row['Merchant Reference'] . "</td>";
-                        echo "<td>" . $row['Account'] . "</td>";
-                        echo "<td>" . $row['creationDate'] . "</td>";
-                        echo "<td colspan=\"2\">" . $row['Value'] . "</td>";
-                        echo "<td>" . $row['paymentMethod'] . "</td>";
-                        echo "<td>" . $row['Status'] . "</td>";
-                        echo "<td>" . $row['Fraud Scoring'] . "</td>";
-                        echo "</tr>";
-
-                        global $isEmpty;
-                        $isEmpty = false;
-                    }
-                    ?>
-
-                    </tbody>
-                </table>
-
-                <?php
-                if($isEmpty) {
-                    echo "<p><b>No payments found for this account and the current filter settings.</b></p>";
-                }
-                ?>
-            </div>
-
-            <div class="bbarl">
-                <div class="bbarr">
-                    <div class="bbar">
+                <div class="bbarl">
+                    <div class="bbarr">
+                        <div class="bbar">
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
 
+            <script type="text/javascript">
+                require( [ 'util/Analytics' ], function ( A ) {
+                    A.pageView( {label: document.title, url: document.location.pathname, user_level: 'C'} );
+                } );
+            </script>
+
+        </div>
     </div>
-</div>
 </div>
 
 <div id="dialog-overlay" data-rel-hide="true" style="display: none;"></div>

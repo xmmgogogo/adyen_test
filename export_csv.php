@@ -1,4 +1,8 @@
 <?php
+/**
+ * csv文件导出功能
+ * 2017-1-6 mm
+ */
 
 include "config.php";
 
@@ -9,9 +13,10 @@ include "config.php";
 //];
 
 if(isset($_REQUEST['pos'])) {
-    $payment = ['PSP Reference', 'Merchant Reference', 'Account', 'Creation Date', 'TimeZone', 'POS Transation Date', 'Unique Terminal ID', 'Value', 'Currency', 'Payment Method', 'Status', 'Raw Acquirer Response', 'Issuer Country', 'Shopper Country', 'Entry Mode', 'CVM Performed', 'CVM Result', 'DCC Accepted', 'Offline'];
+//    $payment = ['PSP Reference', 'Merchant Reference', 'Account', 'Creation Date', 'TimeZone', 'POS Transation Date', 'Unique Terminal ID', 'Value', 'Currency', 'Payment Method', 'Status', 'Raw Acquirer Response', 'Issuer Country', 'Shopper Country', 'Entry Mode', 'CVM Performed', 'CVM Result', 'DCC Accepted', 'Offline'];
+    $payment = ['PSPReference', 'Merchant Reference', 'Account', 'creationDate', 'TimeZone', 'POS Transation Date', 'Unique Terminal ID', 'Value', 'Currency', 'paymentMethod', 'Status', 'Raw Acquirer Response', 'Issuer Country', 'Shopper Country', 'Entry Mode', 'CVM Performed', 'CVM Result', 'DCC Accepted', 'Offline'];
 } else {
-    $payment = ['PSP Reference', 'Merchant Reference', 'Account', 'Creation Date', 'TimeZone', 'Value', 'Currency', 'Payment Method', 'Status', 'Fraud Scoring'];
+    $payment = ['PSPReference', 'Merchant Reference', 'Account', 'creationDate', 'TimeZone', 'Value', 'Currency', 'paymentMethod', 'Status', 'Fraud Scoring'];
 }
 
 //$str = "姓名,性别,年龄" . PHP_EOL;
