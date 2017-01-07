@@ -12,7 +12,7 @@ include "config.php";
 <html lang="en">
 <head>
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-    <title>Document</title>
+    <title>Payment List</title>
 </head>
 <link rel="shortcut icon" href="./ca/img/adyen/favicon.ico" type="image/ico"/>
 <link rel="stylesheet" type="text/css" href="./ca/css/adyen/style.css" />

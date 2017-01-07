@@ -14,9 +14,9 @@ include "config.php";
 
 if(isset($_REQUEST['pos'])) {
 //    $payment = ['PSP Reference', 'Merchant Reference', 'Account', 'Creation Date', 'TimeZone', 'POS Transation Date', 'Unique Terminal ID', 'Value', 'Currency', 'Payment Method', 'Status', 'Raw Acquirer Response', 'Issuer Country', 'Shopper Country', 'Entry Mode', 'CVM Performed', 'CVM Result', 'DCC Accepted', 'Offline'];
-    $payment = ['PSPReference', 'Merchant Reference', 'Account', 'creationDate', 'TimeZone', 'POS Transation Date', 'Unique Terminal ID', 'Value', 'Currency', 'paymentMethod', 'Status', 'Raw Acquirer Response', 'Issuer Country', 'Shopper Country', 'Entry Mode', 'CVM Performed', 'CVM Result', 'DCC Accepted', 'Offline'];
+    $payment = array('PSPReference', 'Merchant Reference', 'Account', 'creationDate', 'TimeZone', 'POS Transation Date', 'Unique Terminal ID', 'Value', 'Currency', 'paymentMethod', 'Status', 'Raw Acquirer Response', 'Issuer Country', 'Shopper Country', 'Entry Mode', 'CVM Performed', 'CVM Result', 'DCC Accepted', 'Offline');
 } else {
-    $payment = ['PSPReference', 'Merchant Reference', 'Account', 'creationDate', 'TimeZone', 'Value', 'Currency', 'paymentMethod', 'Status', 'Fraud Scoring'];
+    $payment = array('PSPReference', 'Merchant Reference', 'Account', 'creationDate', 'TimeZone', 'Value', 'Currency', 'paymentMethod', 'Status', 'Fraud Scoring');
 }
 
 //$str = "姓名,性别,年龄" . PHP_EOL;
