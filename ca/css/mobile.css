@@ -1,0 +1,732 @@
+.crc {
+    font-family: 'Open Sans',sans-serif;
+    font-size: 14px;
+    font-weight: 300;
+}
+.csr-closed .csr-when-opened,
+.csr-opened .csr-when-closed {
+    display: none;
+}
+
+.csr-toggle-parent {
+    cursor: pointer;
+}
+
+.mca-header {
+    display: block;
+    color: white;
+    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#26733f+0,216159+50,246066+100 */ background: #26733f; /* Old browsers */
+    /* IE9 SVG, needs conditional override of 'filter' to 'none' */
+    background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMTAwJSIgeDI9IjEwMCUiIHkyPSIwJSI+CiAgICA8c3RvcCBvZmZzZXQ9IjAlIiBzdG9wLWNvbG9yPSIjMjY3MzNmIiBzdG9wLW9wYWNpdHk9IjEiLz4KICAgIDxzdG9wIG9mZnNldD0iNTAlIiBzdG9wLWNvbG9yPSIjMjE2MTU5IiBzdG9wLW9wYWNpdHk9IjEiLz4KICAgIDxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iIzI0NjA2NiIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgPC9saW5lYXJHcmFkaWVudD4KICA8cmVjdCB4PSIwIiB5PSIwIiB3aWR0aD0iMSIgaGVpZ2h0PSIxIiBmaWxsPSJ1cmwoI2dyYWQtdWNnZy1nZW5lcmF0ZWQpIiAvPgo8L3N2Zz4=);
+    background: -moz-linear-gradient(45deg, #26733f 0%, #216159 50%, #246066 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left bottom, right top, color-stop(0%, #26733f), color-stop(50%, #216159), color-stop(100%, #246066)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(45deg, #26733f 0%, #216159 50%, #246066 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(45deg, #26733f 0%, #216159 50%, #246066 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(45deg, #26733f 0%, #216159 50%, #246066 100%); /* IE10+ */
+    background: linear-gradient(45deg, #26733f 0%, #216159 50%, #246066 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#26733f', endColorstr='#246066', GradientType=1); /* IE6-8 fallback on horizontal gradient */
+}
+
+.mca-header-top {
+    text-align: center;
+    height: 40px;
+    line-height: 40px;
+}
+
+.mca-header a:link,
+.mca-header a:visited,
+.mca-header a:active,
+.mca-header a:hover,
+.mca-header a * {
+    color: inherit;
+    font-weight: normal;
+}
+
+.mca-header .mca-accounts {
+    height: 75px;
+    padding : 20px 0px;
+    text-align: center;
+    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#235444+0,1c4d4a+50,1d484a+100 */ background: #235444; /* Old browsers */
+    /* IE9 SVG, needs conditional override of 'filter' to 'none' */
+    background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIxMDAlIiB5Mj0iMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzIzNTQ0NCIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjUwJSIgc3RvcC1jb2xvcj0iIzFjNGQ0YSIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiMxZDQ4NGEiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
+    background: -moz-linear-gradient(left, #235444 0%, #1c4d4a 50%, #1d484a 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, right top, color-stop(0%, #235444), color-stop(50%, #1c4d4a), color-stop(100%, #1d484a)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(left, #235444 0%, #1c4d4a 50%, #1d484a 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(left, #235444 0%, #1c4d4a 50%, #1d484a 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(left, #235444 0%, #1c4d4a 50%, #1d484a 100%); /* IE10+ */
+    background: linear-gradient(to right, #235444 0%, #1c4d4a 50%, #1d484a 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#235444', endColorstr='#1d484a', GradientType=1); /* IE6-8 */
+}
+
+.mca-header .mca-accounts h1 {
+    margin: 0;
+    line-height: 60px;
+    font-size: 35px;
+    font-weight: 100;
+    height: 60px;
+    max-width: 100%;
+    overflow: hidden;
+}
+
+.mca-header .mca-accounts h1 a {
+    font-weight: 100;
+}
+
+.mca-header .mca-accounts .mca-link {
+    font-size: 20px;
+    color: #ccc;
+}
+
+.mca-header .mca-link.mca-active {
+    font-weight: bold;
+    color: white;
+}
+
+.mca-header .mca-accounts a {
+    text-decoration: none;
+}
+
+.mca-header .mca-widgets {
+    text-align: center;
+    padding: 30px 0px;
+}
+
+.mca-logo {
+    position: absolute;
+    right: 10px;
+    top: 9px;
+    height: 20px;
+}
+
+.mca-logo svg {
+    height: 20px;
+}
+
+.mca-logo path {
+    color: white;
+    fill: white;
+}
+
+.mca-logo img {
+    margin: 5px;
+}
+
+.mca-account-type {
+    line-height: 34px;
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 12px;
+    font-weight: 400;
+}
+
+html, .csr-mobile-page {
+    margin: 0;
+    padding: 0;
+}
+
+.mca-tabbed-navigation {
+    height: 44px;
+    line-height: 40px;
+    padding: 0 10px;
+    border-bottom: solid 1px #b3b3b3;
+}
+
+.mca-tabbed-navigation ul,
+.mca-tabbed-navigation ol,
+.mca-tabbed-navigation li {
+    position: relative;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    height: 40px;
+}
+
+.mca-tabbed-navigation li {
+    border-bottom: solid 4px white;
+    float: left;
+    margin-right: 20px;
+    padding: 0 10px;
+    font-weight: 400;
+}
+
+.mca-tabbed-navigation li.mca-active {
+    color: #3C8A2E;
+    border-color: #3C8A2E;
+}
+
+.mca-tabbed-navigation li.mca-active a {
+    color: #3C8A2E;
+    font-weight: 500;
+}
+
+a:link, a:active, a:hover, a:visited {
+    color: #4d4d4f;
+}
+
+.mca-tabbed-navigation a {
+    text-decoration: none;
+}
+
+.mca-last-week, .mca-week-before {
+    width: 3%;
+    position: absolute;
+    bottom: 0;
+    min-height: 4px;
+    background: white;
+}
+
+.mca-last-week {
+    background: rgba(255, 255, 255, 0.8);
+}
+
+.mca-week-before {
+    background: rgba(255, 255, 255, 0.5);
+}
+
+.mca-last-tx-count {
+    position: absolute;
+    left: 0;
+    padding-left: 110%;
+    border-top: solid 1px white;
+    border-color: rgba(255, 255, 255, 0.8);
+    bottom: 0;
+}
+
+.mca-last-tx-count span {
+    text-indent: 2px;
+    top: -2px;
+    font-size: 10px;
+    color: white;
+    padding-right: 5px;
+}
+
+.mca-header .mca-widget-tile .mca-widget-data-not-available,
+.mca-header .mca-payout-value {
+    font-size: 25px;
+    line-height: 40px;
+    color: white;
+    font-weight: 100;
+}
+
+.mca-header .mca-payout-value.mca-value-gte-m {
+    font-size: 22px;
+}
+
+.mca-header .mca-payout-value.mca-value-gte-100m {
+    font-size: 20px;
+}
+
+.mca-widget-tile {
+    padding: 10px 0;
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.mca-widget-label {
+    color: white;
+    color: rgba(255, 255, 255, 0.5);
+    font-weight: 400;
+    margin: 0px 5px;
+    font-size: 11px;
+    line-height: 1.3em;
+}
+
+.mca-vertical-bar-chart {
+    margin: 0 auto 10px auto;
+    width: 200px;
+    position: relative;
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.mca-vertical-bar-chart .mca-bar-label {
+    position: absolute;
+    bottom: -8px;
+    font-size: 8px;
+    font-weight: 400;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    line-height: 1em;
+}
+
+.mca-widget-tile-content {
+    min-height: 100px;
+}
+
+.mca-tile-with-chart-and-value {
+    text-align: center;
+}
+
+.mca-tile-with-chart-and-value svg,
+.mca-tile-with-chart-and-value .mca-payout-value {
+    display: inline-block;
+}
+
+.mca-tile-with-chart-and-value svg {
+    position: relative;
+    top: 4px;
+}
+
+.csr-full-page-content {
+    min-height: 100%;
+}
+
+/* Hamburger menu */
+.mca-account-select {
+    position: absolute;
+    top: 0;
+    left: 0;
+    color: white;
+    text-align: left;
+}
+
+.mca-account-select.csr-opened {
+    width: 100%;
+    height: 100%;
+    z-index: 1000;
+}
+
+.mca-account-select .mca-hamburger {
+    font-size: 20px;
+    color: rgba(255, 255, 255, 0.7);
+    font-weight: 400;
+    padding: 0 10px;
+    display: inline-block;
+    line-height: 40px;
+    height: 40px;
+}
+
+.mca-account-list {
+    text-align: left;
+    position: absolute;
+    top: 40px;
+    bottom: 0;
+    width: 100%;
+    left: 0;
+    overflow-x: hidden;
+    overflow-y: auto;
+    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#235444+0,1c4d4a+50,1d484a+100 */ background: #235444; /* Old browsers */
+    /* IE9 SVG, needs conditional override of 'filter' to 'none' */
+    background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIxMDAlIiB5Mj0iMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzIzNTQ0NCIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjUwJSIgc3RvcC1jb2xvcj0iIzFjNGQ0YSIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiMxZDQ4NGEiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
+    background: -moz-linear-gradient(left, #235444 0%, #1c4d4a 50%, #1d484a 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, right top, color-stop(0%, #235444), color-stop(50%, #1c4d4a), color-stop(100%, #1d484a)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(left, #235444 0%, #1c4d4a 50%, #1d484a 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(left, #235444 0%, #1c4d4a 50%, #1d484a 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(left, #235444 0%, #1c4d4a 50%, #1d484a 100%); /* IE10+ */
+    background: linear-gradient(to right, #235444 0%, #1c4d4a 50%, #1d484a 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#235444', endColorstr='#1d484a', GradientType=1); /* IE6-8 */
+}
+
+.mca-account-select ol,
+.mca-account-select li {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    line-height: 45px;
+    font-size: 20px;
+    font-weight: 100;
+}
+
+.mca-account-select .mca-account-list a {
+    text-decoration: none;
+    display: block;
+    font-weight: 100;
+    padding-left: 20px;
+    color: white;
+}
+
+.mca-account-select .mca-account-list a.mca-active {
+    font-weight: 400;
+    font-size: 26px;
+    padding-left: 10px;
+}
+
+/* Responsiveness */
+@media only screen and (orientation: landscape) {
+    .mca-header > .mca-widgets {
+        min-height: 160px;
+        padding: 10px;
+    }
+
+    .mca-widget-tile.mca-expected-payout-tile .mca-payout-value,
+    .mca-widget-tile.mca-authrate-tile .mca-payout-value {
+        padding-top: 25px;
+    }
+}
+
+@media only screen and (orientation: landscape) and (min-width: 841px) {
+    .mca-widget-tile.mca-authorisation-chart {
+        float: left;
+        width: 40%;
+        position: relative;
+    }
+
+    .mca-widget-tile.mca-expected-payout-tile,
+    .mca-widget-tile.mca-authrate-tile {
+        float: left;
+        width: 30%;
+        position: relative;
+    }
+
+    .mca-widget-tile.mca-expected-payout-tile:before,
+    .mca-widget-tile.mca-authrate-tile:before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 1px;
+        background: white;
+        background: rgba(255, 255, 255, 0.3);
+    }
+
+}
+
+@media only screen and (orientation: landscape) and (max-width: 840px) {
+    .mca-widget-tile.mca-authorisation-chart {
+        width: 100%;
+    }
+
+    .mca-widget-tile.mca-expected-payout-tile,
+    .mca-widget-tile.mca-authrate-tile {
+        float: left;
+        width: 50%;
+        position: relative;
+    }
+
+    .mca-widget-tile.mca-authrate-tile:before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 1px;
+        background: white;
+        background: rgba(255, 255, 255, 0.3);
+    }
+}
+
+@media only screen and (orientation: portrait) and (max-width: 700px) {
+    .mca-header > .mca-widgets.mca-widgets-MerchantAccount {
+        min-height: 310px;
+    }
+
+    .mca-header > .mca-widgets.mca-widgets-Company {
+        min-height: 230px;
+    }
+
+    .mca-widget-tile.mca-authorisation-chart {
+        width: 200px;
+        margin: 0 auto 30px auto;
+    }
+
+    .mca-widget-tile.mca-authorisation-chart .mca-widget-label {
+        margin: 5px 5%;
+        text-align: left;
+    }
+
+    .mca-widget-tile.mca-authrate-tile,
+    .mca-widget-tile.mca-expected-payout-tile {
+        float: left;
+        width: 50%;
+        position: relative;
+    }
+
+    .mca-widget-tile.mca-authrate-tile:before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 1px;
+        background: white;
+        background: rgba(255, 255, 255, 0.3);
+    }
+
+    .mca-widget-tile-content {
+        min-height: 50px;
+    }
+}
+
+@media only screen and (orientation: portrait) and (min-width: 701px) {
+    .mca-header > .mca-widgets {
+        min-height: 60px;
+    }
+
+    .mca-widget-tile {
+        width: 33%;
+        float: left;
+        position: relative;
+    }
+
+    .mca-vertical-bar-chart {
+        width: 90%;
+        margin: 0 auto;
+        max-width: 260px;
+    }
+
+    .mca-widget-tile.mca-expected-payout-tile:before
+    .mca-widget-tile.mca-authrate-tile:before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 1px;
+        background: white;
+        background: rgba(255, 255, 255, 0.5);
+    }
+}            #ca-portal #system_messages.ca-block .ca-content {
+                 background: white;
+                 padding: 10px 0 0 0;
+                 font-size: 12px;
+             }
+
+#system_messages {
+    position: relative;
+    padding-top: 10px;
+}
+
+.ca-add-link a {
+    position: absolute;
+    top: 4px;
+    right: 25px;
+    color: white;
+}
+
+.ca-edit-link a {
+    position: absolute;
+    top: 4px;
+    right: 5px;
+    color: white;
+}
+
+.ca-list-empty {
+    margin-bottom: 10px;
+    font-size: 12px;
+    line-height: 16px;
+}
+
+.ca-list-empty.separated {
+    margin-bottom: 0px;
+    padding-top: 0px;
+    padding-bottom: 10px;
+}
+
+.ca-list-empty p {
+    margin: 0;
+    padding-top: 10px;
+}
+
+.sm-item {
+    margin-bottom: 10px;
+    border-bottom: solid 1px #ccc;
+}
+
+.sm-header {
+    border-left: solid 5px #3C8A2E;
+    padding: 0px 10px 0px 32px;
+    min-height: 28px;
+    line-height: 16px;
+    position: relative;
+    overflow-x: hidden;
+    overflow-x: ellipsis;
+}
+
+.sm-item.csr-closed {
+    padding-bottom: 10px;
+}
+
+.sm-header.csr-collapse-link {
+    color: #4d4d4f;
+}
+
+.sm-message {
+    padding: 4px 37px;
+    background: #f4f4f4;
+    border-top: solid 5px white;
+}
+
+.sm-message .csr-panel-content {
+    padding: 5px 0px;
+    margin-top: 5px;
+}
+
+.sm-issue-start-date {
+    font-size: 10px;
+    clear: both;
+}
+
+.sm-message .sm-module {
+    float: left;
+    font-size: 10px;
+}
+
+.sm-message .sm-issue-close-date {
+    float: right;
+    font-size: 10px;
+    font-weight: 500;
+}
+
+.sm-item.sm-no-items-message {
+    margin-bottom: 5px;
+}
+
+.sm-item.sm-no-items-message .sm-header {
+    min-height: 0;
+    height: 24px;
+    line-height: 24px;
+    border-color: white;
+}
+
+.sm-message .sm-issue-start-date,
+.sm-header.csr-uncollapsed a,
+.sm-header.csr-uncollapsed {
+    font-weight: 600;
+}
+
+.sm-header i {
+    position: absolute;
+    left: 10px;
+    top: 8px;
+}
+
+.sm-counter {
+    float: right;
+    border: solid 1px #b3b3b3;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+    background: white;
+    color: #4d4d4f;
+    font-size: 9px;
+    line-height: 14px;
+    padding: 0px 4px;
+    font-weight: 500;
+    min-width: 16px;
+    display: inline-block;
+    text-align: center;
+    margin-left: 10px;
+    margin-top: 1px;
+}
+
+.sm-CRITICAL.sm-open .sm-counter {
+    background: white;
+    color: #4d4d4f;
+    border-color: white;
+}
+
+.sm-CRITICAL.sm-open .sm-header {
+    background-color: #94120F;
+    border-color: #94120F;
+    padding: 6px 10px 6px 32px;
+    color: white;
+}
+
+.sm-CRITICAL.sm-open .sm-header a {
+    color: white;
+}
+
+.sm-URGENT.sm-open .sm-header {
+    border-left-color: #F1Bf43
+}
+
+.sm-INFORMATIONAL.sm-open .sm-header {
+    border-left-color: #b3b3b3;
+}
+
+#system_messages h2.ca-horizontal-separator {
+    height: 10px;
+    margin-bottom: 10px;
+    position: relative;
+    overflow: visible;
+    color: #828282;
+    border-bottom: solid 1px #ccc;
+    line-height: 20px;
+    font-size: 10px;
+    text-align: center;
+}
+
+#system_messages h2.ca-horizontal-separator span {
+    margin: 0 auto;
+    background: white;
+    padding: 0 5px;
+}
+.mca-horizontal-separator {
+    /*height: 20px;*/
+    /*margin-bottom: 10px;
+    position: relative;
+    overflow: visible;
+    color:#828282;
+    border-bottom: solid 1px #ccc;*/
+    line-height: 20px;
+    font-size: 10px;
+    text-align: center;
+    background:#eaeaea;
+    color: #4d4d4f;
+    font-weight: 500;
+}
+
+.mca-horizontal-separator span {
+    /*margin: 0 auto;
+    background: white;
+    padding: 0 5px;*/
+}
+.ca-mobile-paymentlist ul,
+.ca-mobile-paymentlist ol,
+.ca-mobile-paymentlist li {
+    display: block;
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
+.ca-mobile-paymentlist .mca-payment {
+    min-height: 50px;
+    padding: 10px;
+    border-bottom: solid 1px #ccc;
+}
+.mca-payment .mca-payment-amount {
+}
+.mca-payment .mca-payment-amount,
+.mca-payment .mca-payment-logo {
+    float: right;
+    margin-left: 14px;
+    line-height: 50px;
+    font-size: 16px;
+    color: #4d4d4f;
+}
+.mca-payment .mca-payment-logo {
+    width: 40px;
+    font-weight: 400;
+}
+.mca-payment .mca-payment-logo img {
+    margin-top: 16px;
+    width: 30px;
+}
+.mca-payment .mca-payment-info {
+    float: left;
+    line-height: 16px;
+    color: #4d4d4f;
+    padding-top: 8px;
+}
+.mca-payment .mca-payment-status {
+    color: #4d4d4f;
+    font-weight: 400;
+}
+.ca-mobile-paymentlist .mca-no-payment {
+    padding: 10px 10px 0px 10px; /* padding bottom should be 10px less than padding top */
+    font-size: 11px;
+    font-weight: 400;
+    color: #888;
+}
+.mca-payment-date, .mca-payment-merchant {
+    font-size: 11px;
+    font-weight: 400;
+    color: #888;
+}
+.mca-payment-amount-unit {
+    display: inline-block;
+    width: 45px;
+    text-align: right;
+}
+.mca-payment-amount-quantity {
+    font-weight: 500;
+}
