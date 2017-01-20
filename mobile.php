@@ -1,5 +1,6 @@
 <?php
 include "common.php";
+$common = new common();
 
 //日期
 $week = ['S', 'M', 'T', 'W', 'T', 'F', 'S'];
@@ -12,7 +13,7 @@ $day = [];
 for($i = 0; $i < 14; $i++) {
     $del = 0 - $i;
     $key = date('w', strtotime($del . 'day'));
-    $result[] = array_sum(getRecentListByDate($del));
+    $result[] = array_sum($common->getRecentListByDate($del));
     $day[] = $week[$key];
 }
 
@@ -24,7 +25,7 @@ $maxResult = max($result);
 //var_dump($maxResult);
 
 //计算最近几天记录
-$getRecentListOrderByDate = getRecentListOrderByDate();
+$getRecentListOrderByDate = $common->getRecentListOrderByDate();
 //var_dump($getRecentListOrderByDate);
 ?>
 <html class="csr csr-t-adyen"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">

@@ -1,91 +1,73 @@
 <?php
-
-include "config.php";
-
 /**
- * 获取最近几天数据
- * @param $conn
- * @return array
+ * 添加公用方法类
+ * 1-18
  */
-function getRecentListByDate($del = -14) {
-    //获取链接
-    $conn = getConn();
+require(dirname(__FILE__). "/Library/PDO.class.php");
 
-    $curDay = strtotime($del . 'day');
+class common {
+    public $DB = null;
 
-    $data = [];
-    $lastDay = date('Y-m-d', $curDay);
-    $nowDay = date('Y-m-d', $curDay) . ' 23:59:59';
-
-    $where = "select * from payment WHERE creationDate < '{$nowDay}' and creationDate > '{$lastDay}'";
-    $result = mysqli_query($conn, $where);
-    while($row = mysqli_fetch_array($result, MYSQLI_ASSOC))
+    public function __construct()
     {
-        $data[] = $row['Value'];
+        //引入配置文件
+        $config = include "config.php";
+        $this->initConn($config['mysql_server_name'], $config['mysql_database'], $config['mysql_username'], $config['mysql_password']);
     }
 
-    return $data;
-}
-
-/**
- * 获取最近几天数据
- * @param $conn
- * @return array
- */
-function getRecentListOrderByDate($limit = 10) {
-    //获取链接
-    $conn = getConn();
-
-    $data = [];
-
-    $where = "select * from payment WHERE 1 ORDER BY creationDate DESC limit " . $limit;
-    $result = mysqli_query($conn, $where);
-    while($row = mysqli_fetch_array($result, MYSQLI_ASSOC))
-    {
-        $data[] = $row;
+    public function initConn($mysql_server_name, $mysql_database, $mysql_username, $mysql_password) {
+        if($this->DB === null) {
+            $this->DB = new Db($mysql_server_name, $mysql_database, $mysql_username, $mysql_password);
+        }
     }
 
-    return $data;
-}
+    /**
+     * 获取最近几天数据
+     * @param $conn
+     * @return array
+     */
+    public function getRecentListByDate($del = -114) {
+        $curDay = strtotime($del . 'day');
 
-/**
- * 获取最近几天数据
- * @param $conn
- * @return array
- */
-function getRecentList2($del = -14) {
-    //获取链接
-    $conn = getConn();
+        $data = [];
+        $lastDay = date('Y-m-d', $curDay);
+        $nowDay = date('Y-m-d', time()) . ' 23:59:59';
 
-    $data = [];
-    $nowDay = date('Y-m-d H:i:s');
-    $lastDay = date('Y-m-d H:i:s', strtotime($del . 'day'));
+        $where = "select * from payment WHERE creationDate < :creationDate_l and creationDate > :creationDate_b";
+        $result = $this->DB->query($where, array('creationDate_l' => $nowDay, 'creationDate_b' => $lastDay));
 
-    $where = "select * from payment WHERE creationDate < '{$nowDay}' and creationDate > '{$lastDay}'";
-    $result = mysqli_query($conn, $where);
-    while($row = mysqli_fetch_array($result, MYSQLI_ASSOC))
-    {
-        $data[] = $row;
+        foreach($result as $row) {
+            $data[] = $row['Value'];
+        }
+
+        return $data;
     }
 
-    return $data;
+    /**
+     * 获取最近几天数据
+     * @param $conn
+     * @return array
+     */
+    public function getRecentListOrderByDate($limit = 10) {
+        $data = [];
+
+        $where = "select * from payment WHERE 1 ORDER BY creationDate DESC limit " . $limit;
+        $result = $this->DB->query($where, array());
+
+        foreach($result as $row)
+        {
+            $data[] = $row;
+        }
+
+        return $data;
+    }
+
+    public function getOrderList($sql, $parameters = array()) {
+        return $this->DB->query($sql, $parameters);
+    }
 }
 
-//TODO
-function getConn() {
-    //后面主要使用普通的mysql调用原则 TODO
-    //后续调整为PDO模式，更有效合理
-
-    $mysql_server_name  = 'localhost';      //数据库服务器
-    $mysql_username     = 'root';           //数据库用户名
-    $mysql_password     = '';               //数据库密码
-    $mysql_database     = 'adyen';          //数据库名
-
-    //连接数据库
-    $conn = mysqli_connect($mysql_server_name, $mysql_username, $mysql_password, $mysql_database) or die("error connecting") ;
-
-    //数据库输出编码 应该与你的数据库编码保持一致
-    mysqli_query($conn, "set names 'utf8'");
-
-    return $conn;
-}
+//test
+//$test = new common();
+//$data = $test->getRecentListOrderByDate();
+//var_dump($data);

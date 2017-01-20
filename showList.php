@@ -4,7 +4,8 @@
  * 2017-1-6 mm
  */
 
-include "config.php";
+include "common.php";
+$common = new common();
 
 ?>
 
@@ -290,11 +291,15 @@ include "config.php";
 
                     //基础字段设置
                     $where = 1;
+                    $parameters = array();
+
                     if(isset($_REQUEST['filterField']) && $_REQUEST['filterField']) {
                         if($_REQUEST['filterField'] == 'creationDate') {
-                            $where = $_REQUEST['filterField'] . '>=' . "'{$_REQUEST['filterValue']}' and " . $_REQUEST['filterField'] . '<=' . "'{$_REQUEST['filterValue2']}'";
+                            $where = "creationDate >= :creationDate_l and creationDate <= :creationDate_b";
+                            $parameters = array('creationDate_l' => $_REQUEST['filterValue'], 'creationDate_b' => $_REQUEST['filterValue2']);
                         } else {
-                            $where = $_REQUEST['filterField'] . '=' . "'{$_REQUEST['filterValue']}'";
+                            $where = $_REQUEST['filterField'] . " = :name";
+                            $parameters = array('name' => $_REQUEST['filterValue']);
                         }
                     }
 
@@ -305,10 +310,8 @@ include "config.php";
 
                     //查询
                     $isEmpty = true;
-                    $result = mysqli_query($conn, "select * from payment WHERE {$where}");
-//                    echo "select * from payment WHERE {$where}";
-
-                    while($row = mysqli_fetch_array($result, MYSQLI_ASSOC))
+                    $result = $common->getOrderList("select * from payment WHERE {$where}", $parameters);
+                    foreach($result as $row)
                     {
                         echo "<tr>";
                         echo "<td>" . $row['PSPReference'] . "</td>";
