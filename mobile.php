@@ -74,7 +74,7 @@ $getRecentListOrderByDate = getRecentListOrderByDate();
 
                             $i = 0;
                                 foreach($result as $key => $value) {
-                                    $height = intval($value / $maxResult * 100);
+                                    $height = $maxResult ? intval($value / $maxResult * 100) : 0;
                                     echo '<div class="mca-vertical-bar mca-last-week" style="left: ' . $i . '%;height:' . $height . '%" title="' . $value . '">
                                     <span class="mca-bar-label">' . $day[$key] . '</span>
                                     </div>';
