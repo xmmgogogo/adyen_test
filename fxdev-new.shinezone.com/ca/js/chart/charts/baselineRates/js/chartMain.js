@@ -1,0 +1,1 @@
+require(["baselinerates/views/app"],function(a){return new a();});

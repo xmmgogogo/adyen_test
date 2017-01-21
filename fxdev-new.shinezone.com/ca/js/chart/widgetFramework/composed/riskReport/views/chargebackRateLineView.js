@@ -1,0 +1,3 @@
+define("chart/widgetFramework/composed/riskReport/views/chargebackRateLineView",["jquery","underscore","chart/widgetFramework/core/mixins/formats","util/ObjectSuper","chart/widgetFramework/chartTypes/lineChart"],function(f,b,e,c,a){var d=function(l,g,j){var i;
+var k={};var h=b.defaults(k,l);i=a(h,g,j);var m=c(i);i.renderYAxis=function(){m.renderYAxis();};i.getLabelName=function(n){return n[this.options.joinAttr];
+};return i;};return d;});

@@ -1,0 +1,2 @@
+define("charts/mobileConversion/js/models/authorisation",["jquery","underscore","backbone","backbonenested"],function(c,b,e,d){var a=e.NestedModel.extend({idAttribute:"name",defaults:{name:"",values:[],order:0}});
+return a;});

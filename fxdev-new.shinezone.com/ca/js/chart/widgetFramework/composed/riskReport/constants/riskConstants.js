@@ -1,0 +1,2 @@
+define("chart/widgetFramework/composed/riskReport/constants/riskConstants",["jquery"],function(b){var a={RECEIVED_TX_TOTAL:"receivedTxTotal",RECEIVED_TX_REVPRO_TOTAL:"receivedTxRevProTotal",RECEIVED_TX_GPM_TOTAL:"receivedTxGpmTotal"};
+return a;});

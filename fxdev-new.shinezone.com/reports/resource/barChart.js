@@ -1,0 +1,6 @@
+define("chart/widgetFramework/chartTypes/barChart",["jquery","underscore","d3","hogan","util/Functional","chart/widgetFramework/core/constants/WidgetConstants","chart/widgetFramework/core/constants/UIConstants","util/ObjectSuper","chart/widgetFramework/core/drivers/axisBaseView"],function(b,i,j,f,a,e,h,g,c){var d=function(q,k,o,m){var n;
+var p={};var l=i.defaults(q,p);n=c(l,k);var r=g(n);n.timeline=o;n.init=function(){r.init();};n.feedData=function(s){var t=r.feedData(s);
+if(this.timeline){this.configData.granularity=this.timeline.getGranularity();}return t;};n.renderData=function(){if(a.falsy(this.data)){this.hideCharts("no data to display");
+return;}var t=this,v=this.scales[this.options.xAttr],u=this.scales[this.options.yAttr];var s;if(this.options.variation===e.VERTICAL){s=this.barUtils.containerBarsVertical(this.chartGroup,this.getData(),this.getPrimaryDataJoin(),this.barPositioningFn,true).barVertical(this.options.yAttr,u,this.barSize);
+}else{s=this.barUtils.containerBarsHorizontal(this.chartGroup,this.getData(),this.getPrimaryDataJoin(),this.barPositioningFn,true).barHorizontal(this.options.xAttr,v,this.barSize);
+}this.addLabels();};n.addLabels=function(){};return n;};return d;});

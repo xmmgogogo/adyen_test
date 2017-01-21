@@ -1,0 +1,12 @@
+define("chart/widgetFramework/composed/chargebackReport/formatters/atvLineFormatter",["underscore","chartutil/domUtils","chartutil/stringutils","d3"],function(b,d,e,c){var a=function(i,f,h,j){var g={};
+g.data=i;g.options=f;g.formattedData={};g.comparator=null;g.reverseDirection=false;g.sortKey=null;g.timeline=h;g.id=j;g.formatData=function(){var k={};
+this.formattedData=this.calculateMetaData(this.data);if(window.console&&console.log){console.log("### atvLineFormatter::formatData:: this.formattedData=",this.formattedData);
+}return{config:k,chartData:this.formattedData};};g.calculateMetaData=function(o){var p=[];var m=[];var l=[];var n=[];var k=c.format(".4f");
+b.each(o,function(w){var q=+w.authorisedEurAmount/100;var v=+w.chargebackEurAmount/100;var s=+w.fraudNotificationsEurAmount/100;
+var t=(w.authorisedCount>0)?q/w.authorisedCount:0;p.push({date:w.date,value:t,name:w.dateStr});var u=(w.chargebackCount>0)?v/w.chargebackCount:0;
+m.push({date:w.date,value:u,name:w.dateStr});var r=(w.fraudNotificationsCount>0)?s/w.fraudNotificationsCount:0;l.push({date:w.date,value:r,name:w.dateStr});
+n.push({date:w.date,dateStr:w.dateStr,avgAuthorisedAmt:t,avgChargebackAmt:u,avgNofAmt:r,avgAuthorisedAmtCsv:+k(t),avgChargebackAmtCsv:+k(u),avgNofAmtCsv:+k(r)});
+});return{atvChartData:[{name:"Authorized",lineValues:p},{name:"Chargeback",lineValues:m},{name:"Notifications of fraud",lineValues:l}],atvRolloverData:n};
+};g.downloadCSV=function(){var m=this.formattedData.atvRolloverData;var k=["dateStr","avgAuthorisedAmtCsv","avgChargebackAmtCsv","avgNofAmtCsv"];
+var l=["Date","Authorized","Chargeback","Notifications of fraud"];d.createCSV(m,k,l,"AverageTransactionValues");};g.setRawData=function(k){this.data=k;
+};return g;};return a;});

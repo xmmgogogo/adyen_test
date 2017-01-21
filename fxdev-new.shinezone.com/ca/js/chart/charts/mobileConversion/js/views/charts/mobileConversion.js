@@ -1,0 +1,8 @@
+define("charts/mobileConversion/js/views/charts/mobileConversion",["jquery","underscore","backbone","chartlib/stackedbarchart","d3","chartlib/events/appstateevents","chartutil/numberutils"],function(g,b,h,c,d,e,f){var a=c.extend({el:".channel-conversion-chart",defaults:{yScale:"ordinal",totalLabelOffset:70,margin:{top:0,left:10,bottom:20,right:115},barPadding:0.1,xAttr:"total",yAttr:"name",joinAttr:"name",xNestAttr:"conversionRates",tooltip:true},addListeners:function(){if(this.collection){this.listenTo(this.collection,"sort",this.render);
+}h.on(e.RENDER_CHARTS,this.render);},renderTooltipContent:function(i){this.tip.html(function(k){var j=d.format("0,000");var l=j(k.value);
+if(typeof window.SVGElement==="undefined"){return"<strong>"+i.name+" - "+i.name+":</strong> <span>"+f.decimalFormatter(i.width*100)+"%</span>";
+}return"<strong>"+i.name+":</strong> <span>"+f.decimalFormatter(i.width*100)+"%</span> ("+l+" sessions)";});this.tip.direction("n");
+this.tip.offset([-10,0]);},renderXAxis:function(){this._super();this.xAxis.selectAll("text").attr("transform",function(){return"translate(0,7)";
+});},setYAxis:function(){this.axes.y=d.svg.axis().scale(this.scales.y).orient("right");},formatYAxis:function(){var i=this.axes.y;
+i.tickFormat(function(j){return(j.length>17)?g.trim(j).substring(0,14).trim(this)+"...":j;});},renderYAxis:function(){this._super();
+this.yAxis.attr("transform","translate("+(this.width+5)+",0)");}});return a;});

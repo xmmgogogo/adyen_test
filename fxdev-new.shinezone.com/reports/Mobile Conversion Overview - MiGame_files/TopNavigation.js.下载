@@ -1,0 +1,14 @@
+define("ca/TopNavigation",["jqueryExtended","util/Console"],function(c,d){var b=".ca-topnav-account-level .ca-topnav-panel",h=".ca-topnav-panel-push,.ca-topnav-panel-column";
+var a=d.getLog("ca/topNavigation");var g=c("body");var f=function(j){var k=j.clone();k.css("visibility","hidden");k.css("float","left");
+g.append(k);var i=k.outerWidth();k.remove();return i;};function e(i){this.$node=i.getNode();this.resizeColumns();this.bindToggle();
+this.bindBookmarkLinks();i.ready();}e.prototype.bindToggle=function(){var i=this,j=this.$node;j.on("capreferencesaved",function(k,l){if((l||"").match(/ca_sticky_navigation/)){j.find("#ca-top-navigation").loadEnriched(document.location.href.split("#")[0]+" #ca-top-navigation form",function(){i.resizeColumns();
+});}});};e.prototype.bindBookmarkLinks=function(){var i=this.$node,j=i.attr("data-add-bookmark"),k=i.attr("data-remove-bookmark");
+i.on("click","i[data-bookmark-account]",function(n){if(n.isDefaultPrevented()){return;}n.preventDefault();var m=c(n.target).closest("i[data-bookmark-account]"),l=m.attr("data-bookmark-account");
+require(["ui/Notification","util/Ajax"],function(p,o){o.get(j+"&accountKey="+encodeURIComponent(l)).then(function(){p.info("'"+l+"' was added to your bookmarks");
+m.attr("data-unbookmark-account",l).removeAttr("data-bookmark-account").removeClass("icon-bookmark-o").addClass("icon-bookmark");
+}).fail(function(){p.warn("Error while adding your bookmark. Please try again later");});});}).on("click","[data-unbookmark-account]",function(n){if(n.isDefaultPrevented()){return;
+}n.preventDefault();var m=c(n.target).closest("[data-unbookmark-account]"),l=m.attr("data-unbookmark-account");require(["ui/Notification","util/Ajax"],function(p,o){o.get(k+"&accountKey="+encodeURIComponent(l)).then(function(){p.info("'"+l+"' was removed from your bookmarks");
+m.attr("data-bookmark-account",l).removeAttr("data-unbookmark-account").removeClass("icon-bookmark").addClass("icon-bookmark-o");
+}).fail(function(){p.warn("Error while removing your bookmark.  Please try again later");});});}).find("[data-bookmark-account],[data-unbookmark-account]").css("cursor","pointer");
+};e.prototype.resizeColumns=function(){var i=this.$node;i.find(b).each(function(){var j=0;c(this).find(h).each(function(){j+=50+f(c(this));
+});c(this).css("min-width",j+"px");});};return e;});

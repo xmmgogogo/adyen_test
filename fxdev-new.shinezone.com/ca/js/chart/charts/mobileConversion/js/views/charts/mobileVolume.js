@@ -1,0 +1,6 @@
+define("charts/mobileConversion/js/views/charts/mobileVolume",["jquery","underscore","backbone","chartlib/barchart","d3","chartlib/events/appstateevents","chartutil/d3utils"],function(g,b,h,f,d,e,c){var a=f.extend({el:".channel-volume-chart",defaults:{yScale:"ordinal",totalLabelOffset:70,margin:{top:0,left:120,bottom:20,right:20},barPadding:0.1,xAttr:"total",yAttr:"name",joinAttr:"name",tooltip:true,showTipFromText:true},addListeners:function(){if(this.collection){this.listenTo(this.collection,"sort",this.render);
+}h.on(e.RENDER_CHARTS,this.render);},renderTooltipContent:function(k){var j=this;var i=d.format("0,000");var l=i(j.getX(k));
+this.tip.html(function(m){return"<strong>"+j.getY(k)+":</strong> <span>"+l+"</span> sessions";});this.tip.direction("n");
+this.tip.offset([-10,0]);},calibrateXScale:function(){this._super();this.scales.x.nice();},formatXAxis:function(){var i=this,j=this.axes.x;
+j.tickFormat(function(l,k){return c.thousandsFormatter(l,k,i.scales.x);});},renderXAxis:function(){this._super();this.xAxis.selectAll("text").attr("transform",function(){return"translate(0,7)";
+});}});return a;});

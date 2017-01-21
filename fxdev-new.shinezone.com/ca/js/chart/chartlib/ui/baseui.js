@@ -1,0 +1,11 @@
+define("chartlib/ui/baseui",["jquery","underscore","backbone","chartutil/cssutils"],function(d,b,e,a){var c=e.View.extend({constructor:function(){this.buttons=[];
+e.View.apply(this,arguments);},renderButtons:function(f){var g;d(this.buttons).each(function(h,i){i.removeClass("selected");
+g=i.find(".arrow");g.removeClass("selected");});if(!f){return;}f.addClass("selected");g=f.find(".arrow");g.addClass("selected");
+this.rotateArrow(g);},rotateArrow:function(h){var i=(this.collection.getReverseDirection())?180:0;var g=(this.collection.getReverseDirection())?0.5:0;
+var f=(this.collection.getReverseDirection())?0.5:0;a.rotateElement(h,i,g,f);},infoOver:function(g){var f=d(g.currentTarget);
+var h=d(f.attr("data-rel"));this.positionPanel(f,h);h.fadeTo(500,1);f.on("mouseout",{infoPanel:h},this.infoOut);},infoOut:function(f){var g=f.data.infoPanel;
+g.off();g.fadeTo(250,0);},infoShow:function(i){var k=d(".chart-info").hide();var g=d(i.currentTarget);var j=d(g.attr("data-rel"));
+this.positionPanel(g,j);j.fadeTo(500,1);var f=j.find("#removeBtn");var h=(f.length)?f:j;h.on("click",{infoPanel:j,closeElement:h},this.infoHide);
+},positionPanel:function(o){var m=20,j;var h=d(o);var g=h.position().left;var k=h.offset().left;var n=d(h.attr("data-rel"));
+var i=d(window).width();var l=n.width();var f=n.position().left;if(k+m+l>i){j=Number(g)-m-Number(l);}else{j=m;}n.css("left",(j+"px"));
+},infoHide:function(g){var h=g.data.infoPanel;var f=g.data.closeElement;f.off();h.fadeTo(250,0);}});return c;});

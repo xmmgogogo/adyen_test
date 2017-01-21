@@ -1,0 +1,4 @@
+define("chart/widgetFramework/composed/riskReport/rollovers/chargebackDistRollover",["jqueryExtended","underscore","d3","util/Functional","chartutil/domUtils","chart/widgetFramework/core/constants/UIConstants","util/ObjectSuper","chart/widgetFramework/core/constants/DataConstants","chart/widgetFramework/chartTypes/rollover","chart/widgetFramework/core/mixins/widgetScales"],function(b,i,k,a,f,h,g,e,c,j){var d=function(r,l,p,n){var o;
+var q={};var m=i.defaults(q,r);o=c(m,l);var s=g(o);o.getXScale=function(){var u=j.getDomainFromDataExtremes(this.data,this.options.joinAttr);
+var t=k.scale.linear().rangeRound([0,this.width]).domain(u);t.nice();return t;};o.enhanceTooltipData=function(v){var w=k.format("0,000");
+var u=v.x;var t=v.x+(v.dx-1);v.fraudScoreTT=u+" to "+t;v.chargebacksTT=w(v.y);};return o;};return d;});

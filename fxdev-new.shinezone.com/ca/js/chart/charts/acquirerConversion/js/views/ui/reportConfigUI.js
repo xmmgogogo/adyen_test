@@ -1,0 +1,7 @@
+define("charts/acquirerConversion/js/views/ui/reportConfigUI",["jquery","underscore","backbone","chartlib/events/appstateevents"],function(c,a,e,b){var d=e.View.extend({el:"#AcquirerConversionReportConfigUI",events:{"change #paymentMethod":"onPMChange","change #shopperInteraction":"onShopperInteractionChange","change #threeDSecure":"onThreeDChange"},initialize:function(){this._super(arguments);
+this.paymentMethod=this.setValue(this.$("#paymentMethod").val());this.shopperInteraction=this.setValue(this.$("#shopperInteraction").val());
+this.threeDSecure=this.setValue(this.$("#threeDSecure").val());},setValue:function(f){if(f==="all"){return"";}else{return f;
+}},onPMChange:function(f){this.paymentMethod=this.setValue(c(f.currentTarget).val());this.sendConfigData();},onShopperInteractionChange:function(f){this.shopperInteraction=this.setValue(c(f.currentTarget).val());
+this.sendConfigData();},onThreeDChange:function(f){this.threeDSecure=this.setValue(c(f.currentTarget).val());this.sendConfigData();
+},sendConfigData:function(f){e.trigger(b.CHANGE_REQUESTED);},getConfigObject:function(){return{paymentMethod:this.paymentMethod,shopperInteraction:this.shopperInteraction,threeDSecure:this.threeDSecure};
+}});return d;});

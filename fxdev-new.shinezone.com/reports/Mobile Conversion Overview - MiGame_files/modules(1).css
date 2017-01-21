@@ -1,0 +1,32 @@
+#d3canvas{margin-top:40px}.world{width:650px}.worldvolume-chart{width:500px}.panel .header h2{height:37px;padding-top:4px}
+.panel .header .world-button{font-family:'Open Sans',sans-serif;font-weight:bold;padding:0;margin:0 10px 0 0}
+.header>.arrow{margin-top:-27px;position:absolute;right:20px}.world-volume-total-text{position:absolute;top:12px;right:35px;width:215px;text-align:center;color:#999}
+.world-volume-total-text b{color:orange}.ca-chart-page .ui .sort-button{padding:0}.ca-chart-page .mob-conv-charts .ui .sort-region-button{margin-left:6px;width:60px}
+.mob-conv-charts{margin-top:20px}.conversion-channel,.mobile-device{width:1100px;margin-top:30px}.sales-channel{margin-top:0}
+.mobile-device .ui{width:100%}.ca-chart-page .ui .sort-atv-button{margin-left:460px}.mobile-device-rollover{width:1020px;height:171px;position:absolute;margin:-1px 0 0 15px}
+.mobile-device-rollover svg{background:transparent}.mobile-device-rollover .bar rect{fill:#529876!important;fill-opacity:0;transition:.2s fill-opacity ease-in-out}
+.mobile-device-rollover .bar rect:hover{fill-opacity:.2}.mobile-device-tooltip em{font-weight:bold;font-style:normal}dl{margin:5px 0 0 0}
+dt,dd{display:inline;line-height:1.2em}dd{margin-left:5px}.conversion-channel.authorisations{height:515px}.ca-chart-page .conversion-channel .ui{display:block}
+.ca-chart-page .ui.pm-tx{left:-71px}.ca-chart-page .chart-ui.sort-name-button{width:90px;left:-55px;position:relative}.ca-chart-page .chart-ui.sort-tx-button{position:relative;left:-7px;width:100px}
+.ca-chart-page .chart-ui.sort-volume-button{position:relative;width:75px;left:-78px}.ca-chart-page .chart-ui.sort-auth-button{margin-left:445px;width:90px}
+.ca-chart-page .chart-ui.sort-comp-button{width:90px}.ca-chart-page .chart-ui.sort-aban-button{width:90px}.conversion-info{width:190px;position:absolute;top:0;left:20px;z-index:1;display:none;text-align:center;color:#025770;font-size:11px;background:#f1f0e9;font-weight:600;padding:2px 4px}
+.device-info{width:150px}.auth-col{background:#a9d6a6;padding:0 2px}.aban-col{background:#cfd1d1;padding:0 2px}.comp-col{background:#75be9c;padding:0 2px}
+.conversion-channel .y.axis text{font-size:13px}.channel-volume-chart,.device-volume-chart{width:675px;height:200px;position:relative;left:5px;top:0;overflow:hidden;display:inline-block}
+.channel-conversion-chart,.device-conversion-chart{width:365px;height:200px;position:relative;left:40px;top:0;overflow:hidden;display:inline-block}
+.chart-volume-total-text{position:absolute;top:11px;right:50px;text-align:right;color:#6d6e72}.chart-volume-total-text b{color:orange}
+.chart-volume-total-text strong{font-weight:bold;color:#529876}.chart-volume-total-text span{font-size:11px}.csr-button.device-breakdown{top:11px;right:50px;position:absolute;padding:1px 0 1px 1px;background:0;color:#024d63;border:1px solid #024d63;display:none}
+.csr-button.device-breakdown:hover{color:#42707d;border:1px solid #42707d}.csr-button.device-breakdown:focus{color:#024d63;border:1px solid #024d63}
+.mobile-device-chart,.atv-chart{margin-left:15px;width:500px;height:170px;vertical-align:top;display:inline-block}.ui.mobile-authorisation-ui{margin:0;left:1025px;position:absolute;top:10px}
+.mobile-authorisation-info{width:300px;position:absolute;top:0;left:20px;z-index:1;display:none;color:#025770;font-size:12px;background:#f1f0e9;font-weight:400;padding:2px 6px}
+.bar .rect.iphone{fill:#d0e39e}.bar .rect.androidmobile{fill:#a9d6a6}.bar .rect.ipad{fill:#75be9c}.bar .rect.androidtablet{fill:#60a397}
+.bar .rect.windowsmobile{fill:#37638d}.bar .rect.ipod{fill:#3690c0}.bar .rect.blackberry{fill:#6baed6}.bar .rect.otherdevices{fill:#ccc}
+.mobile-authorisation-time-chart{margin-left:15px;margin-top:40px;width:1060px;height:425px;display:inline-block;vertical-align:top}
+.mobile-authorisation-time-chart .axis path,.mobile-authorisation-time-chart .axis line{stroke:#efefef}.chart-program-dot{fill:#fff;stroke:#000;stroke-width:2px}
+.chart-program.iphone .line{stroke:#d0e39e}.chart-program-label.iphone{fill:#d0e39e}.chart-program-dot.iphone{fill:#d0e39e;stroke:#d0e39e}
+.chart-program.androidmobile .line{stroke:#a9d6a6}.chart-program-label.androidmobile{fill:#a9d6a6}.chart-program-dot.androidmobile{fill:#a9d6a6;stroke:#a9d6a6}
+.chart-program.ipad .line{stroke:#75be9c}.chart-program-label.ipad{fill:#75be9c}.chart-program-dot.ipad{fill:#75be9c;stroke:#75be9c}
+.chart-program.androidtablet .line{stroke:#60a397}.chart-program-label.androidtablet{fill:#60a397}.chart-program-dot.androidtablet{fill:#60a397;stroke:#60a397}
+.chart-program.windowsmobile .line{stroke:#37638d}.chart-program-label.windowsmobile{fill:#37638d}.chart-program-dot.windowsmobile{fill:#37638d;stroke:#37638d}
+.chart-program.ipod .line{stroke:#3690c0}.chart-program-label.ipod{fill:#3690c0}.chart-program-dot.ipod{fill:#3690c0;stroke:#3690c0}
+.chart-program.blackberry .line{stroke:#6baed6}.chart-program-label.blackberry{fill:#6baed6}.chart-program-dot.blackberry{fill:#6baed6;stroke:#6baed6}
+.d3-tip .tooltip-text-sml{font-weight:normal;color:#6d6e72;font-size:11px}

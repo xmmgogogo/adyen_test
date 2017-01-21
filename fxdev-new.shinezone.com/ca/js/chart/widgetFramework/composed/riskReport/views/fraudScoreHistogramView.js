@@ -1,0 +1,7 @@
+define("chart/widgetFramework/composed/riskReport/views/fraudScoreHistogramView",["jquery","underscore","d3","util/Functional","chart/widgetFramework/core/constants/WidgetConstants","chart/widgetFramework/core/constants/UIConstants","util/ObjectSuper","chart/widgetFramework/chartTypes/histogramChart"],function(b,f,i,a,c,e,d,g){var h=function(l,n,q,p){var m;
+var j={};var r=f.defaults(j,l);m=g(r,n);var k=d(m);m.renderData=function(){this.barUtils.barSelectorStr=".bar-chargeback";
+this.barUtils.barClassStr="bar-chargeback";k.renderData();var s=m.options.threshold;if(a.notFalsy(s)||s===0){var x=this.scales[this.options.xAttr];
+var y=this.chartGroup.selectAll(".marker").data([this.data]);var w=y.enter().append("g").attr("class","marker");var v=w.append("line").attr("x1",function(z){return x(s);
+}).attr("y1",-20).attr("x2",function(z){return x(s);}).attr("y2",-20);var t=y.transition().delay(500).duration(500);var u=t.select("line").attr("y2",this.height);
+t.selectAll(".marker-text").attr("fill-opacity",1);}};var o=function(y,t,w,s,v,u){var x=y.append("text").attr("class","marker-text").attr("fill-opacity",0.000001).attr("x",function(z){return t(w)+s;
+}).attr("y",v).text(function(z){return u;});};return m;};return h;});

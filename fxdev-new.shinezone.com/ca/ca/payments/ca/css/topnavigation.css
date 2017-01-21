@@ -1,0 +1,19 @@
+#ca-top-navigation{padding-top:5px}.ca-topnav-account-level{position:relative;float:left;line-height:24px}.ca-topnav-account-level .ca-topnav-panel i{font-size:11px;color:#024d63;margin-right:4px;font-weight:100}
+.ca-topnav-account-level i.icon-caret-up,.ca-topnav-account-level i.icon-caret-left{color:#dadada;position:absolute;right:-1px;top:0;font-size:24px;display:none}
+.ca-topnav-account-level:hover i.icon-caret-up,.ca-topnav-account-level:hover i.icon-caret-left{display:block}.ca-topnav-account-level i.icon-caret-up{top:22px;right:18px}
+.ca-topnav-account-level .csr-button-2{padding-right:10px}.ca-topnav-account-level .csr-button-2 i{margin-left:10px;color:#024d63;position:relative}
+.ca-topnav-account-level .ca-topnav-panel{display:none;position:absolute;left:0;top:0;border:solid 1px #dadada;overflow:auto;background:#f0f0f0;padding:2px;padding-top:4px;padding-left:10px;padding-bottom:10px;z-index:1;white-space:nowrap}
+.ca-topnav-account-level:hover .ca-topnav-panel{display:block}.ca-topnav-account-level .ca-topnav-panel.as-dropdown{top:40px}
+.ca-topnav-account-level .ca-topnav-panel.as-dropdown .csr-button{display:none}.ca-topnav-account-level.no-alternatives .ca-topnav-panel{left:100%;top:0}
+.ca-topnav-account-level.no-alternatives .ca-topnav-panel-column{margin-left:10px}.ca-topnav-account-level.no-alternatives .ca-topnav-panel-push{display:none}
+.ca-topnav-account-level .ca-topnav-button-wrapper{padding:0 8px 6px 0;border:solid 1px white;float:left;z-index:2;top:0;position:relative}
+.ca-topnav-account-level:hover .ca-topnav-button-wrapper.with-panel{background:white;border-bottom:solid 1px #dadada;border-right:solid 1px #dadada}
+.ca-topnav-account-level:hover .ca-topnav-button-wrapper.with-panel.as-dropdown,.ca-topnav-account-level.no-alternatives:hover .ca-topnav-button-wrapper.with-panel{border-bottom:solid 1px white;border-right:solid 1px white}
+.ca-topnav-account-level .ca-topnav-panel-push{float:left;margin-bottom:10px}.ca-topnav-account-level .ca-topnav-panel-push .csr-button{visibility:hidden}
+.ca-topnav-account-level .ca-topnav-panel-column{float:left;margin-left:20px;margin-right:20px;line-height:24px}.ca-topnav-account-level .ca-status-label{display:inline-block;position:relative;padding:0 5px;line-height:17px;font-size:10px;margn-right:8px}
+.ca-topnav-account-level .with-panel .ca-status-label{display:inline-block;position:relative;left:-8px;padding:0 5px;top:-1px;margin-right:0}
+#ca-top-navigation form{display:inline-block}#ca-top-navigation .ca-toggle-stickynavigation{margin-top:-1px;clear:left;padding:10px 25px;background:white;margin-left:-10px;margin-right:-2px;margin-bottom:-10px}
+#ca-top-navigation .ca-topnav-bookmark-crumb{margin-top:-1px;clear:left;padding:10px 25px;margin-left:-10px;margin-right:-2px;font-size:12px}
+#ca-top-navigation .ca-topnav-bookmark-crumb i{margin:0 5px 0 10px}#ca-notification-icon-dock{position:absolute;top:15px;right:47px;z-index:301}
+#ca-news-message-icon,#ca-system-message-icon{position:relative;display:inline-block;width:25px;margin-left:10px}#ca-news-message-icon i,#ca-system-message-icon i{font-size:20px}
+#ca-news-message-icon .ca-news-messages-counter,#ca-system-message-icon .ca-system-messages-counter{position:absolute;top:-2px;right:-3px;font-size:10px;padding:1px 2px;display:block;line-height:12px;text-align:center;min-width:16px;border-radius:4px;-moz-border-radius:4px;-webkit-border-radius:4px}

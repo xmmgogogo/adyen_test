@@ -1,0 +1,16 @@
+define("chart/widgetFramework/composed/chargebackReport/rollovers/groupedBarRolloverBrushed",["jqueryExtended","underscore","d3","util/Functional","chartutil/domUtils","chart/widgetFramework/core/constants/UIConstants","util/ObjectSuper","chart/widgetFramework/core/constants/DataConstants","chart/widgetFramework/chartTypes/axisRollover"],function(c,i,j,a,f,h,g,e,d){function b(o,k){var m;
+var n={};var l=i.defaults(n,o);m=d(l,k);var p=g(m);m.init=function(){p.init();if(typeof this.options.allowScrolling==="undefined"){this.options.allowScrolling=false;
+}this.firstBrushPass=true;this.maxRowsForBrush=(this.options.numBars&&this.options.numBars>0)?this.options.numBars:10;};m.initRender=function(){p.initRender();
+m.mainGroup.append("defs").append("clipPath").attr("id","clip-bars-rollover").append("rect").attr("width",m.options.width-m.options.margin.left-m.options.margin.right).attr("height",m.options.height-m.options.margin.top-m.options.margin.bottom);
+};m.render=function(){m.doBrush=m.data.length>this.maxRowsForBrush;var r=this.$el.width();this.height=this.options.height-(this.options.margin.top+this.options.margin.bottom);
+var q=this.height+this.options.margin.top+this.options.margin.bottom;this.topSVG.attr("width",r+"px").attr("height",q+"px");
+j.select("#"+this.$el[0].id).transition().duration(500).style("height",q+"px");if(this.options.allowScrolling&&m.doBrush&&m.firstBrushPass){var s=j.behavior.zoom().on("zoom",null);
+this.mainGroup.call(s).on("wheel.zoom",function(){m.scrolling();}).on("mousedown.zoom",null).on("touchstart.zoom",null).on("touchmove.zoom",null).on("touchend.zoom",null);
+m.firstBrushPass=false;}if(m.doBrush){m.chartGroup.attr("clip-path","url(#clip-bars-rollover)").style("clip-path","url(#clip-bars-rollover)");
+}else{m.scales[m.options.yAttr].rangeBands([m.height,0],m.options.barPadding);}this.update();};m.updateScale=function(q){m.scales[m.options.yAttr].rangeBands(q.newScale,m.options.barPadding);
+m.update();};m.setBandSizes=function(){if(m.doBrush){this.barSize=this.vertBarSize=m.scales[m.options.yAttr].rangeBand();
+this.bandSize=this.barSize*(1+m.options.barPadding);}else{p.setBandSizes();}};m.scrolling=function(){var q=m.options.variation==="horizontal"?j.event.deltaY:j.event.deltaX;
+this.$el.trigger(h.CHART_TO_VIEW_EVENT,{type:"groupedBarChartScroll",data:q});};m.setTooltipsOnElements=function(){p.setTooltipsOnElements(true);
+};m.enhanceTooltipData=function(r){var s=j.format(",.0f");var q=j.format(",.2f");r.chargebackEurAmountTT=s(r.chargebackEurAmount);
+r.chargebackRateTT=q(r.chargebackRate);if(this.options.joinAttr==="countryName"){r.labelName=r.countryName;}else{if(this.options.joinAttr==="paymentMethodName"){r.labelName=r.paymentMethodName;
+}else{if(this.options.joinAttr==="acquirerName"){r.labelName=r.acquirerName;}}}};return m;}return b;});

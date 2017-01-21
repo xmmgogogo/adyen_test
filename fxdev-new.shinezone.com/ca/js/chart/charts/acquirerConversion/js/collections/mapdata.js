@@ -1,0 +1,5 @@
+define("charts/acquirerConversion/js/collections/mapdata",["d3","jquery","underscore","backbone","map/collections/mapdata","map/models/region"],function(b,e,a,g,d,c){var f=d.extend({formatRegion:function(j){var h=j.attr("toolText").match(/from\s(.*)/)[1];
+var i=j.attr("toolText").match(/([^\s]+)/)[0];i=(i)?Number(i):0;return new c({regionName:h,total:i,link:{statsType:j.attr("link")?j.attr("link").split(",")[1]:"",region:j.attr("link")?j.attr("link").split(",")[2]:""}});
+},loadRegion:function(i){this.loaded=e.Deferred();var h=a.pick(i.attributes,"statsType","region","ccs","granularity","bdate","edate","pmms","sis","threed");
+this.url=(i.get("stub"))?adyen.jsbase+"/chart/charts/acquirerConversion/dummy-data/world/map.xml?"+new Date().getTime():i.get("url")+e.param(h)+"&cb="+new Date().getTime();
+this.fetch({reset:true});}});return f;});

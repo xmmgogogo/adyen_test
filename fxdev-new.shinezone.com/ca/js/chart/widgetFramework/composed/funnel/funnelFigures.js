@@ -1,0 +1,11 @@
+define("chart/widgetFramework/composed/funnel/funnelFigures",["jquery","underscore","d3","hogan","util/Functional","chartutil/d3utils","util/ObjectSuper","chart/widgetFramework/chartTypes/barChart"],function(b,f,h,d,a,i,e,c){var g=function(p,j,n,l){var m;
+var o={};var k=f.defaults(o,p);m=c(k,j);var q=e(m);m.init=function(){q.init();this.stripLabel="spacer";};m.feedData=function(r){q.feedData(r);
+this.mainTypes=this.extraData;};m.renderYAxis=function(){q.renderYAxis();this.yAxesHolders[this.options.yAttr].attr("transform","translate(-80,0)").selectAll("text").style("text-anchor","start");
+var r=this;var s=this.yAxesHolders[this.options.yAttr].selectAll("text");f.each(s[0],function(v,u){var t=h.select(v);f.each(r.mainTypes,function(w){if(t.datum()===w){t.style("font-weight","500");
+t.style("fill","#000");}});});};m.renderData=function(){if(a.falsy(this.data)){this.hideCharts("no data to display");return;
+}var t=this,u=this.scales[this.options.yAttr];var r=h.format("0,000");var s=this.barUtils.containerBarsHorizontal(this.chartGroup,this.getData(),this.getPrimaryDataJoin(),this.barPositioningFn,true);
+var v=s.bars;v.update.select("text").transition().duration(500).attr("opacity",1).text(function(w){return(w.count!==-1)?r(w.count):"";
+});v.enter.append("text").attr("class",function(w){return i.getJoinAttrNoSpaces.call(t,w,"-");}).attr("x",125).attr("y",function(w){return u.rangeBand()/2;
+}).attr("dy",".35em").attr("opacity",0.000001).style("text-anchor","end").style("font-weight",function(w){return(w.main.toLowerCase()==="true")?"500":"300";
+}).style("fill",function(w){return(w.main.toLowerCase()==="true")?"#000":"#4d4d4f";}).transition().duration(500).attr("opacity",1).text(function(w){return(w.count!==-1)?r(w.count):"";
+});v.exit.select("text").transition().duration(500).style("opacity",0).remove();};return m;};return g;});

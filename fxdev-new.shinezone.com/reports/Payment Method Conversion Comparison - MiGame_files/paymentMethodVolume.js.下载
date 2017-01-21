@@ -1,0 +1,10 @@
+define("pmc/views/charts/paymentMethodVolume",["jquery","backbone","underscore","chartlib/barchart","d3","chartlib/events/appstateevents","chartutil/d3utils"],function(g,h,b,f,d,e,c){var a=f.extend({el:".pm-volume-chart",defaults:{yScale:"ordinal",totalLabelOffset:70,margin:{top:0,left:30,bottom:20,right:20},barPadding:0.1,barHeight:15,delay:750,xAttr:"total",yAttr:"pmName",joinAttr:"pmName",tooltip:true,showTipFromText:true},addListeners:function(){if(this.collection){this.listenTo(this.collection,"sort",this.render);
+}h.on(e.STATE_CHANGED,this.transitionOut,this);h.on(e.RENDER_CHARTS,this.render);},renderTooltipContent:function(k){var j=this;
+var i=d.format("0,000");var l=i(j.getX(k));this.tip.html(function(o){var m=j.getY(k);var n=":";if(m==="no selection"){n=" (user abandoned session before <br />selecting a payment method):";
+}return"<strong>"+m+"</strong>"+n+" <span>"+l+"</span> sessions";});this.tip.direction("n");this.tip.offset([-10,0]);},calibrateXScale:function(){this._super();
+this.scales.x.nice();},formatXAxis:function(){var i=this,j=this.axes.x;j.tickFormat(function(l,k){return c.thousandsFormatter(l,k,i.scales.x);
+});},renderXAxis:function(){this._super();this.xAxis.selectAll("text").attr("transform",function(){return"translate(0,7)";
+});},calibrateYScale:function(){this.scales.y.domain(this.collection.pluck(this.options.yAttr)).rangeBands([this.height,0],this.options.barPadding);
+},renderYAxis:function(){this._super();var i=this;this.yAxis.selectAll("text").attr("dx",7).text(function(m){var k=i.collection.get(m);
+if(k){var j=k.get("total");var l=i.scales.x(j);return(l<4)?"\u2139":"";}else{return"";}});},transitionOut:function(){this.xAxis.transition().duration(500).ease("exp-in-out").attr("transform","translate(0,0)");
+}});return a;});

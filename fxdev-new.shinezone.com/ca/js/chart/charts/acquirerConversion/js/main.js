@@ -1,0 +1,1 @@
+require(["charts/acquirerConversion/js/views/app"],function(a){new a();});

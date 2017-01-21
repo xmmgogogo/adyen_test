@@ -1,0 +1,7 @@
+define("chart/widgetFramework/composed/riskReport/views/fraudScoreStackedHistogramView",["jquery","underscore","d3","util/Functional","chart/widgetFramework/core/constants/WidgetConstants","chart/widgetFramework/core/constants/UIConstants","util/ObjectSuper","chart/widgetFramework/chartTypes/stackedHistogram"],function(c,g,i,b,d,f,e,h){var a=function(l,n,q,p){var m;
+var j={};var r=g.defaults(j,l);m=h(r,n);var k=e(m);m.renderData=function(){k.renderData();var s=m.options.threshold;if(b.notFalsy(s)||s===0){var x=this.scales[this.options.xAttr];
+var y=this.chartGroup.selectAll(".marker").data([this.data]);var w=y.enter().append("g").attr("class","marker");var v=w.append("line").attr("x1",function(z){return x(s);
+}).attr("y1",-20).attr("x2",function(z){return x(s);}).attr("y2",-20);o(w,x,s,5,-9,"Refused by RevenueProtect");o(w,x,s,170,-7,"\u203a");
+var t=y.transition().delay(500).duration(500);var u=t.select("line").attr("y2",this.height);t.selectAll(".marker-text").attr("fill-opacity",1);
+}};var o=function(y,t,w,s,v,u){var x=y.append("text").attr("class","marker-text").attr("fill-opacity",0.000001).attr("x",function(z){return t(w)+s;
+}).attr("y",v).text(function(z){return u;});};return m;};return a;});

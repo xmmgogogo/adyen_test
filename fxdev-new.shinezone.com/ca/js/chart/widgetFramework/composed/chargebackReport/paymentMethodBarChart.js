@@ -1,0 +1,15 @@
+define("chart/widgetFramework/composed/chargebackReport/paymentMethodBarChart",["jquery","underscore","d3","chart/widgetFramework/core/mixins/formats","hogan","util/Functional","util/ObjectSuper","chartutil/numberutils","chart/widgetFramework/chartTypes/barChart"],function(c,g,j,b,e,a,f,h,d){function i(m,p,r,q){var o;
+var k={};var s=g.defaults(k,m);o=d(s,p,r);var l=f(o);var n=false;o.init=function(){l.init();this.maxRowsForBrush=(this.options.numBars&&this.options.numBars>0)?this.options.numBars:10;
+};o.initRender=function(){l.initRender();setTimeout(function(){if(!n&&o.options.ranked){o.chartGroup.classed("barchart-ranked",true);
+}n=true;},100);o.textScale=j.scale.linear().domain([8,50]).range([11,5]).clamp(true);var t=o.mainGroup.append("defs");t.append("clipPath").attr("id","clip-bars-payment-method").append("rect").attr("width",o.options.width-o.options.margin.left-o.options.margin.right).attr("height",o.options.height-o.options.margin.top-o.options.margin.bottom);
+t.append("clipPath").attr("id","clip-y-axis-payment-method").append("rect").attr("clipPathUnits","objectBoundingBox").attr("x","-100%").attr("width","100%").attr("height",((o.options.height-o.options.margin.top-o.options.margin.bottom)/(o.options.height)*100)+"%");
+};o.render=function(){o.showCharts();o.doBrush=o.data.length>o.maxRowsForBrush;o.barUtils.transitionTime=o.doBrush?0:500;
+o.barUtils.delayTime=o.doBrush?0:500;var u=o.$el.width();o.height=o.options.height-(o.options.margin.top+o.options.margin.bottom);
+var t=o.height+o.options.margin.top+o.options.margin.bottom;o.topSVG.attr("width",u+"px").attr("height",t+"px");j.select("#"+o.$el[0].id).transition().duration(500).style("height",t+"px");
+if(o.doBrush){o.chartGroup.attr("clip-path","url(#clip-bars-payment-method)").style("clip-path","url(#clip-bars-payment-method)");
+o.axisGroup.select(".y.axis").attr("clip-path","url(#clip-y-axis-payment-method)").style("clip-path","url(#clip-y-axis-payment-method)");
+}else{o.scales[o.options.yAttr].rangeBands([o.height,0],o.options.barPadding);o.axisGroup.selectAll(".y.axis text").style("font-size",null);
+}o.update();};o.scrolling=function(){};o.updateScale=function(t){o.scales[o.options.yAttr].rangeBands(t.newScale,o.options.barPadding);
+o.axisGroup.selectAll(".y.axis text").style("font-size",o.textScale(t.numSelected));var u=j.max(o.data,function(v){return t.selected.indexOf(v[o.options.yAttr])>-1?v[o.options.xAttr]:0;
+});this.maxXScale=u;o.update();};o.setBandSizes=function(){if(o.doBrush){o.barSize=o.vertBarSize=o.scales[o.options.yAttr].rangeBand();
+o.bandSize=o.barSize*(1+o.options.barPadding);}else{l.setBandSizes();}};return o;}return i;});

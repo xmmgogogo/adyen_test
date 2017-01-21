@@ -1,0 +1,18 @@
+define("mfp/collections/mfpLevelsOverTimeData",["d3","jquery","underscore","backbone","mfp/models/fraudProgram","chartlib/events/appstateevents","chartlib/chartBaseEvents","chartutil/dateUtils_CET"],function(i,c,h,g,a,d,f,b){var e=g.Collection.extend({model:a,statsType:"MFP_PER_TIME_INTERVAL",granularity:"day",granularityFormats:{},year:"2014",total:0,countFlag:0,urlParamProps:["statsType","acq","granularity","bdate","edate"],hasData:false,deferredName:"mfpLevelsOverTimeData",localURL:"mfpOverTime_",defaultStubURL:"/chart/charts/merchantFraud/dummy-data/",extraURL:"",initialize:function(j){h.bindAll(this,"parse","loadData","onLoaded","onError");
+g.on(d.STATE_CHANGED,this.loadData);this.listenTo(this,"error",function(){this.trigger(f.DATA_FAILED);});if(j){this.statsType=j.statsType;
+}this.comparator="date";this.granularityFormats.day="%b %d";this.granularityFormats.week="%Y wk%W %w";this.granularityFormats.month="%b'%y";
+},loadData:function(l){this.loaded=c.Deferred();this.total=0;this.hasData=false;var j=h.pick(l.attributes,this.urlParamProps);
+j.statsType=this.statsType;this.beginYear=i.time.format("%Y-%m-%d").parse(l.get("bdate")).getFullYear();this.endYear=i.time.format("%Y-%m-%d").parse(l.get("edate")).getFullYear();
+this.granularity=l.get("granularity");var k=l.get("stubURL")?l.get("stubURL"):this.defaultStubURL;this.url=(l.get("stub"))?adyen.jsbase+k+this.localURL+this.granularity+this.extraURL+".xml?"+new Date().getTime():l.get("url")+c.param(j)+"&cb="+new Date().getTime();
+this.fetch({reset:true});},fetch:function(j){j||(j={});j.dataType="xml";j.success=this.onLoaded;j.error=this.onError;this._super(j);
+g.trigger(f.REGISTER_DEFERRED,this.loaded,this.deferredName,this);},parse:function(n){var k=this,l,o=[],m=true;var j="Visa Regional MFP";
+this.scaleDataArray=[];this.levelsDict={};c(n).find("dataset").each(function(p,q){o.push(c(q).attr("seriesName"));});h.forEach(o,function(t,s){k.levelsDict[t]||(k.levelsDict[t]=new a());
+k.levelsDict[t].set("name",t);var r=k.beginYear;var q;var p=k.levelsDict[t].get("values");c(n).find("category").each(function(A,x){var v=c(x);
+var y=v.attr("label");var B;if(k.granularity==="week"){var u=Number(y.replace("wk",""));B=b.getDateOfISOWeek(u,k.endYear);
+}else{B=i.time.format(k.granularityFormats[k.granularity]).parse(y);}if(q&&B.getMonth()<q.getMonth()){r=k.endYear;}q=B;B.setFullYear(r);
+if(k.granularity==="week"){var w=B.getDay();if(w!==0){b.roundToWeek(B);}}if(m){var C={date:B};k.scaleDataArray.push(C);}var z=c(n).find('[seriesName="'+t+'"]');
+z.find("set").each(function(F,D){if(F===A){var E=Number(c(D).attr("value"));k.total+=E;var H=c(D).attr("toolText");var G={date:B,rate:{name:t,value:E,description:H}};
+p.push(G);}});});m=false;});this.levelsDict=h.toArray(this.levelsDict);if(this.levelsDict.length&&this.total>0){this.hasData=true;
+}else{this.trigger(f.DATA_FAILED);return null;}return this.levelsDict;},onError:function(l,j,k){if(window.console&&console.log){console.log("MfpLevelsOverTimeData load error: ",l,j.getResponseHeader("content-type"),k);
+}this.loaded.reject(j);},onLoaded:function(){this.loaded.resolve();}});return e;},function(a){if(window.console&&console.log){console.log("APP JS ERROR =",a);
+}});

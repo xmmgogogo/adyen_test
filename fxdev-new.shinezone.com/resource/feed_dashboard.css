@@ -1,0 +1,50 @@
+.feed-dashboard {
+	width: auto;
+	min-width: 730px;
+	margin-left: 250px;
+}
+.feed-dashboard .container {
+	float: left;
+	width: 48%;
+	padding: 0;
+	margin: 0 1%;
+}
+.feed-dashboard .container .col-right {
+	background: #ffffff;
+}
+
+/* Feed */
+.container.container-feed {
+	float: left;
+	width: 40%;
+	height: 1200px;
+	overflow-y: auto;
+	padding: 0;
+	margin: 0;
+	background: #ffffff;
+	border: 1px solid #d1d5dd;
+}
+.container.container-feed h1 {
+	float: none;
+	padding: 0 24px;
+	margin: 32px 0;
+	border: none;
+	font-size: 24px;
+}
+/* /Feed */
+
+/* Dashboard */
+.container.container-dashboard {
+	float: left;
+	width: 58%;
+	padding: 0;
+	margin: 0 1%;
+}
+.container.container-dashboard h1 {
+	float: none;
+	padding: 0;
+	margin: 32px 0;
+	border: none;
+	font-size: 24px;
+}
+/* /Dashboard */

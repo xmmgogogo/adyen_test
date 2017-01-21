@@ -1,0 +1,3 @@
+define("chartutil/backbone/CollectionUtils",["jquery","underscore","backbone"],function(c,b,d){d.Collection.prototype.sumOf=function(e){return b.reduceRight(this.models,function(f,g){return f+g.get(e);
+},0);};var a={};a.cloneModels=function(h,g){var f=(typeof g!=="undefined")?g:false;var e=b.map(h.models,function(j){return j.clone();
+});if(f){var i=new d.Collection(e);return i;}else{return e;}};return a;});

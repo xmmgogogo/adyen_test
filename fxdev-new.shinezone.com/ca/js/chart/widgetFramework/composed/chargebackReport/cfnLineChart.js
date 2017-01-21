@@ -1,0 +1,3 @@
+define("chart/widgetFramework/composed/chargebackReport/cfnLineChart",["jquery","underscore","chart/widgetFramework/core/mixins/formats","util/ObjectSuper","chart/widgetFramework/chartTypes/lineChart"],function(f,c,e,d,b){var a=function(l,g,j){var i;
+var k={};var h=c.defaults(k,l);i=b(h,g,j);var m=d(i);i.renderYAxis=function(){m.renderYAxis();};i.getLabelName=function(n){return n[this.options.joinAttr];
+};return i;};return a;});

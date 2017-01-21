@@ -1,0 +1,11 @@
+define("chart/widgetFramework/composed/chargebackReport/rollovers/atvRollover",["jqueryExtended","underscore","d3","util/Functional","chartutil/domUtils","chart/widgetFramework/core/constants/UIConstants","util/ObjectSuper","chart/widgetFramework/core/constants/DataConstants","chart/widgetFramework/chartTypes/rollover"],function(c,i,j,a,f,h,g,e,d){var b=function(o,k){var m;
+var n={};var l=i.defaults(n,o);m=d(l,k);var p=g(m);m.init=function(){p.init();this.barUtils.setBarSelectorStr(".bar.atv-rollover");
+};m.renderData=function(){var q=this.options.centerBars;this.barUtils.chartWidth=this.width;this.barUtils.chartHeight=this.height;
+var r;r=this.barUtils.barPosition(q,this.bandSize,this.getXScale(),this.options.joinAttr);this.barUtils.containerBarsVertical(this.chartGroup,this.getData(),this.getPrimaryDataJoin(),r).fullBarVertical(2,"thin-bar").fullBarVertical(this.barSize,"dateStr");
+};m.tooltipOnMouseoverAction=function(r,q){this.sharedMouseAction(q,0.25,1);};m.tooltipOnMouseoutAction=function(r,q){this.sharedMouseAction(q,0,0);
+};m.sharedMouseAction=function(x,v,y){var s=x.find(".dateStr");var u=s.attr("data-id");var w=x.find(".thin-bar");j.select(w[0]).style("opacity",v);
+var t=["authorized","chargeback","notifications-of-fraud"],r,q;i.each(t,function(z){r=".atv-chart ."+z+' .line-holder-dot[data-id*="'+u+'"]';
+q=j.select(r).style("fill-opacity",y).style("stroke-opacity",y);});};m.positionTooltip=function(u,w,t,v,q,r,x){var s=u.top+t-q;
+var y=((u.left+w+10)-v)+(r/2);return{top:s,left:y};};m.enhanceTooltipData=function(s){var q=j.format(".2f");var r=new Date(s.date);
+var t=j.time.format("%Y-%m-%d");s.authorised=q(s.avgAuthorisedAmt);s.chargeback=q(s.avgChargebackAmt);s.nof=q(s.avgNofAmt);
+s.dateStr=t(r);};return m;};return b;});

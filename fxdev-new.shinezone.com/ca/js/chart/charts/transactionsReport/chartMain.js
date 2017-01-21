@@ -1,0 +1,1 @@
+require(["transactionsReport/views/app"],function(a){new a();});

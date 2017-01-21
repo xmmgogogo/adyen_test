@@ -1,0 +1,3 @@
+define("pmc/models/appstate",["d3","jquery","underscore","backbone","chartlib/models/appstate","chartlib/models/state","chartlib/events/appstateevents","chartutil/arrayutils","timeline/events/timelineEvents"],function(j,b,f,e,a,g,c,h,i){var d=a.extend({notifyStateChange:function(k){e.trigger(c.REQUEST_STATE_CHANGE,k);
+},addConfigValues:function(l,k){},setStubValues:function(k){k.set("stub",this.get("stub"));k.set("stubURL","/chart/charts/paymentMethods/dummy-data/");
+}});return d;},function(a){if(window.console&&window.console.log){window.console.log("APP JS ERROR =",a);}});

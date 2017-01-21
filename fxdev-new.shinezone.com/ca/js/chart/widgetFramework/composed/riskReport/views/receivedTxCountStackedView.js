@@ -1,0 +1,10 @@
+define("chart/widgetFramework/composed/riskReport/views/receivedTxCountStackedView",["jquery","underscore","d3","chart/widgetFramework/core/mixins/formats","hogan","util/Functional","util/ObjectSuper","chartutil/numberutils","chart/widgetFramework/chartTypes/stackedBar"],function(c,g,j,b,e,a,f,i,h){var d=function(n,p,s,r){var o,q,k;
+var l={};var t=g.defaults(l,n);o=h(t,p,s);var m=f(o);o.renderYAxis=function(){m.renderYAxis();};o.renderData=function(){m.renderData();
+if(c("#issuerCountry").val()!==""){this.hideCharts("no data to display: it is not possible to filter this data by Issuer Country");
+return;}if(a.falsy(this.data)){if(c("#issuerCountry").length===0||c("#issuerCountry").val()===""){this.hideCharts("no data to display");
+return;}}o.renderReceivedTxLabels();};o.init=function(){m.init();};o.renderReceivedTxLabels=function(){var v=g.last(this.data);
+var u=this.scales[this.options.yAttr];var w=function(y){var x=v.rates[y].startY;var A=v.rates[y].endY;var z=((A-x)/2)+x;var B=u(z);
+return B;};if(!q&&!k){q=this.chartGroup.append("text").attr("class","rev-protect").text("Routed through RevenueProtect").attr("dy",".35em");
+k=this.chartGroup.append("text").attr("class","guaranteed-pm").text("Guaranteed payment method").attr("dy",".35em");}if(this.data.length>1){q.attr("x",this.width+20);
+k.attr("x",this.width+20);}else{q.attr("x",t.width-260);k.attr("x",t.width-260);}if((w(0)-20)<w(1)){q.attr("y",(w(0)+15));
+}else{q.attr("y",w(0));}k.attr("y",w(1));};return o;};return d;});

@@ -1,0 +1,2 @@
+define("pmc/events/pmEvents",[],function(){var a={};a.COLLECTION_SORTED="pmc.events.pmEvents.collectionSorted";a.COUNTRIES_TOTAL="pmc.events.pmEvents.countriesTotal";
+a.VOLUME_TOTAL="pmc.events.pmEvents.volumeTotal";return a;});

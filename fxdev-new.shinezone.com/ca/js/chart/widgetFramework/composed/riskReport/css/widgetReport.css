@@ -1,0 +1,60 @@
+.csr-panel-2 .csr-panel-content-2{height:270px}g text{fill:#999;font-family:'Open Sans',sans-serif;font-size:13px;font-weight:400;line-height:21px}
+.bar rect.guaranteed-pm{fill:#afbecf}.bar rect.revenue-protect{fill:#8f8d8d}.legend-guaranteed-pm{background:#afbecf}.legend-revPro{background:#8f8d8d}
+.legend-chargebacks{background:#9c0909}.legend-other{background:#afbecf}.legend-authorized{background:#4b4b4b}.legend-refused-by-bank{background:#e5bfbf}
+.legend-refused-by-revPro{background:#c97979}.legend-refused-by-bank.line,.legend-authorized.line,.legend-refused-by-revPro.line,.legend-chargebacks.line{margin-bottom:3px}
+.x.axis text,.y.axis text{fill:#a6a6a6;shape-rendering:crispEdges;font-size:11px;text-transform:capitalize;font-family:"Open Sans",sans-serif}
+.csr-panel-2 .risk-ui-btns i{font-size:14px}.csr-panel-2 .risk-csv-download i{top:19px}.risk-csv-download.chargeback-download i{top:11px}
+.webkit .snapshot-icon,.ie .snapshot-icon{display:none}.csr-panel-2 i.risk-png-snapshot{right:35px;top:5px;color:#4c4c4c}
+.csr-panel-2 .risk-csv-download:hover,.csr-panel-2 i.risk-png-snapshot:hover{color:#9c9c9c!important;cursor:pointer}i.risk-png-snapshot.chargeback-line-snapshot{top:2px}
+.risk-checks-sort-title-holder{position:absolute;left:910px;top:45px}.risk-checks-legend-holder{position:absolute;left:910px;top:85px;width:200px}
+.risk-checks-legend-title{font-size:14px;color:#4c4c4c;line-height:14px;margin-bottom:2px}.risk-checks-explanation{font-size:11px;color:#a7a7a7;line-height:14px;margin-bottom:10px}
+.risk-checks-legend{width:10px;height:10px;display:inline-block}.risk-checks-legend.refused-by-bank,rect.stack.refused-by-bank{background-color:#e4bebe;fill:#e4bebe}
+.risk-checks-legend.refused-by-rev-pro,rect.stack.refused-by-risk{background-color:#c97878;fill:#c97878}.risk-checks-legend.refused-by-chargebacks,rect.stack.chargeback{background-color:#9b0909;fill:#9b0909}
+.risk-checks-legend.refused-by-authorized,.bar rect.stack.authorized,.risk-checks-legend.refused-by-authorised,.bar rect.stack.authorised{background-color:#4b4b4b;fill:#4b4b4b}
+.risk-checks-legend.refused-by-other,rect.stack.rest{background-color:#e3e3e3;fill:#e3e3e3}.risk-checks-legend.refused-total{border:1px solid #949494}
+.risk-checks-sort-btn{cursor:pointer;color:#949494;font-family:'Open Sans',sans-serif;font-size:13px;font-weight:400;line-height:21px}
+.risk-checks-sort-btn:hover{color:#4c4c4c}.risk-checks-sort-btn.active{color:#4c4c4c}circle{stroke-width:0;fill-opacity:0;stroke-opacity:0}
+.refused-by-revenueprotect .line{stroke:#c97979}.refused-by-revenueprotect circle{fill:#c97979;stroke:#c97979}text.refused-by-revenueprotect{fill:#c97979;font-size:14px}
+.refused-by-bank .line{stroke:#e5bfbf}.refused-by-bank circle{fill:#e5bfbf;stroke:#e5bfbf}text.refused-by-bank{fill:#e5bfbf;font-size:14px}
+.line-holder.chargeback .line{stroke:#9c0909}text.line-holder-label.chargeback{fill:#9c0909;font-size:14px}.chargeback-line circle{fill:#9c0909;stroke:#9c0909}
+.chargeback-panel .csr-collapse-link{cursor:default}.chargeback-panel .csr-collapse-caret{cursor:pointer}#timeline1{width:1100px;height:100px;background:#f4f4f4}
+.clock-holder{top:84px!important}.calendar{z-index:999!important}.no-data-text{width:50%;text-align:center}.csr-panel-2{margin-bottom:15px}
+.risk-report-panel{width:1100px;margin-top:20px}.risk-report-panel .chart-container{width:1100px;float:left;position:relative;margin-top:0;opacity:1}
+.panel .header>h2,li .header>h2{line-height:inherit}.risk-report-panel .panel .header>h2{height:40px}.info-wrapper{position:absolute;top:0;right:0;padding:10px 20px;color:#000;text-align:center;z-index:100}
+.info-wrapper:hover>.info-tooltip{display:block}.info-wrapper .icon-info-sign{font-size:16px;cursor:pointer}.info-tooltip{display:none;width:300px;padding:10px;background:#e7e8ea;position:absolute;top:40px;left:-235px}
+.info-tooltip p{margin:0}.info-tooltip .icon-caret-up{display:none}.info-tooltip:after{content:'';display:inline-block;border:10px solid transparent;border-bottom-color:#e7e8ea;position:absolute;bottom:100%;right:30px}
+.icon-info-circle{color:#e7e8ea;font-size:16px}.rev-protect-sub{font-size:11px}svg .line{stroke-width:2}#receivedTxCountStackedContent{height:280px}
+.received-tx-count-stacked-rollover{position:absolute;z-index:2}.received-tx-count-stacked-rollover svg,.received-tx-count-stacked svg{background:transparent}
+.received-tx-count-stacked{width:1070px;height:220px;position:absolute}.ca-chart-page .bar.rollover rect{fill:transparent}
+.ca-chart-page .bar.rollover rect:hover{fill:#999;opacity:.25}.report-description{width:1100px;padding:10px 30px 0 30px;margin-bottom:0;text-align:center;box-sizing:border-box}
+.report-description a{font-size:14px}.total-volume{display:inline;padding-right:30px;margin:0;color:#666;font-size:14px}
+.total-volume span{padding-left:5px;color:#000;font-size:18px;font-weight:400}#totalGuaranteed{color:#889aaf}#totalRevPro{color:#615f5f}
+#avgGuaranteed,#avgRevPro{font-size:14px;color:#666;font-weight:300}#receivedTxCountStackedContent,#refusalRateLineContent,#chargebackContent,.risk-tx-histogram,.risk-chargeback-histogram,#atvContent{min-height:180px}
+#chargebackContent{height:200px;padding:15px 20px}#refusalRateLinePanel{margin-bottom:0}#refusalRateLineContent{border-bottom:0}
+.risk-tx-histogram{margin-bottom:0}.risk-chargeback-histogram{margin-top:-37px}.csr-panel-content-2.risk-checks-content{top:10px;height:250px}
+.atv-panel{margin-top:15px}#atvContent{height:250px}#atvContent svg{background:transparent}.all-authorized-transactions .line{stroke:#4b4b4b}
+text.all-authorized-transactions{fill:#4b4b4b;font-size:14px}.all-authorized-transactions:hover{fill:#4b4b4b;font-size:14px}
+.all-authorized-transactions circle{fill:#4b4b4b;stroke:#4b4b4b}.atv-rollover,.atv-chart{position:absolute;z-index:1}.atv-rollover{z-index:2}
+.bar.atv-line-rollover rect{fill:transparent}.bar.atv-line-rollover rect.thin-bar{fill:#999;opacity:0}.atv-chart svg{background:transparent}
+.d3-tip{color:#a6a6a6;font-size:12px}.d3-tip-title{font-size:13px}.tip-dark{color:#4c4c4c}.tip-bold{font-weight:600}.widget-tooltip{z-index:103}
+.widget-tooltip>div{transform:translate(-50%,-100%);opacity:.95}.widget-tooltip>div.d3-tip.e{transform:translate(0%,-50%)}
+.widget-tooltip>div.d3-tip.top{transform:translate(0%,0%)}.d3-tip.e:after{top:50%;color:#f1f0e9}.d3-tip.e.no-arrow:after{content:none}
+.risk-checks-rollover-tooltip table{width:400px}.widget-tooltip .tt-row-no-visible{display:none}.widget-tooltip .tt-row-visible{display:table-row}
+.ca-chart-page .bar.received-tx-count-stacked-rollover rect,.ca-chart-page .bar.risk-checks-stacked-rollover rect{fill:transparent}
+.legend-wrapper{width:170px;position:absolute;font-size:10px;font-family:"Open Sans",sans-serif;color:#717171;right:-20px;top:70px}
+.legend{display:inline-block;height:10px;width:10px;margin-right:5px}.csr-button-2.icon.reset-line-icon{position:absolute;top:4px;left:0;color:#3c8a2e!important;display:none;background-color:rgba(255,255,255,0.7);padding-left:2px}
+.csr-button-2.icon.reset-line-icon:focus{color:#3c8a2e}.csr-button-2.icon.reset-line-icon:hover{color:#9c9c9c}.csr-button-2.icon.reset-line-icon i{font-size:14px}
+.ca-chart-page .stack.AFBECF{fill:#77bd9d}.ca-chart-page .stack.refused{fill:#ebebeb}.ca-chart-page .stack.received{fill:#ebebeb}
+.ui{margin-top:10px;margin-left:0;width:100%;background-color:#fff}.chart-type-buttons{margin-left:80px}.ca-chart-page .baseline.ui .type-button{padding:5px}
+.type-button.active{border:1px solid #509777}.tooltip-holder tr{height:18px}.baseline-rollover-tooltip{width:200px}.chargebacks-chart{display:inline-block}
+.chargebacks-chart.chargebacks-rates{float:right;margin-right:10px}.refusal-chargebacks-line-rollover,.fraud-score-rollover,.chargeback-dist-rollover{position:absolute;z-index:20}
+.refusal-chargebacks-line-rollover{position:absolute;top:365px;left:1px;padding:15px 20px}.bar.refusal-rate-line-rollover rect{fill:transparent}
+.bar.refusal-rate-line-rollover rect.thin-bar{fill:#999;opacity:0}.thin-bar.two{display:none}.chart-container{margin-bottom:15px}
+.refusal-rate-content,.notification-rates-content{padding:20px 20px 20px 40px}.report-panel-toggle{margin-right:65px}.fraud-panel-axis-title{position:relative;top:-30px;margin:0 auto;width:158px;color:#4c4c4c;font-weight:300}
+.y-axis-title{left:-455px;top:-186px}.histogram-chart-widget .bar rect{fill:#bcbcbc}.bar-chargeback rect{fill:#9c0909}.bar rect.over-threshold{fill:#7b0007}
+.marker line{stroke:#c97979;stroke-width:1px;shape-rendering:crispEdges;stroke-dasharray:4,2}.marker-text{font-weight:300;fill:#4c4c4c;font-size:13px;font-family:'Open Sans',sans-serif}
+.marker-text:nth-child(3){font-weight:300;fill:#909090;font-size:25px}.bar rect.stack.refused-by-risk-count{fill:#c97979}
+.bar rect.stack.refused-by-bank-count{fill:#e5bfbf}.histogram-chart-widget .bar .stack.authorised-count{fill:#afbecf}.chargeback-fraud-panel{margin-top:-58px}
+.risk-checks-stacked{position:relative}.risk-checks-stacked-rollover{position:absolute;z-index:2}.risk-checks-stacked-rollover svg{background:transparent}
+.received-tx-count-stacked-rollover .x.axis,.received-tx-count-stacked-rollover .y.axis,.risk-checks-stacked-rollover .x.axis,.risk-checks-stacked-rollover .y.axis{display:none}
+.risk-report-spinner{position:absolute;left:540px;top:75px}

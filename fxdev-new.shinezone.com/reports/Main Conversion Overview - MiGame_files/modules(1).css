@@ -1,0 +1,19 @@
+#d3canvas{margin-top:40px;width:1100px;float:left;position:relative}.companies-list{padding:0;margin:0;list-style-type:none;list-style-position:outside;-webkit-padding-start:0}
+.panel,.companies-list li{border:thin solid #e7e8ea;margin-top:0;display:block;position:relative}.panel .header>h2,li .header>h2{height:30px;background-color:#e7e8ea;font-family:'Open Sans',sans-serif;font-size:15px;font-weight:300;color:#6d6e72;padding-top:10px;padding-left:10px;margin:0;line-height:inherit}
+.panel .header .world-button{-webkit-appearance:none;font-size:15px;font-weight:300;color:#6d6e72;text-align:center;background:0;border:0;cursor:pointer}
+.world-volume-total-text{position:absolute;top:11px;right:35px;width:215px;text-align:center;color:#999}.world-volume-total-text b{color:orange}
+.ca-chart-page .ui{border:0;height:30px;margin-left:88px;display:inline-block}.country,.volumetime{height:225px}.world{display:block;width:650px}
+.panel.world .header,li .header{cursor:pointer}.panel.volumetime,.panel.country,.companies-list.company{width:1090px;margin-top:10px}
+.worldvolume-chart{margin-left:65px;width:500px;height:150px}.countryvolume-chart,.company-chart{width:675px;height:140px;margin-left:30px;overflow:hidden;display:inline-block;position:relative}
+.company-chart,.company .conversionrates-chart{margin-top:10px}.company .total-bar{height:16px;margin-top:-27px;margin-left:200px;position:absolute}
+.company .total-bar .chartbase-svg{background:0}.company .total-text{font-size:12px;color:#bad7d4}.conversionrates-chart{width:320px;height:140px;margin-left:30px;overflow:hidden;display:inline-block;position:relative}
+.volumetime-chart{width:675px;height:140px;margin-left:30px;margin-top:25px;overflow:hidden;display:inline-block;position:relative}
+.conversionpercentage-chart{width:320px;height:140px;margin-left:30px;margin-top:25px;overflow:hidden;display:inline-block;position:relative}
+.ca-chart-page .ui .sort-button{padding:0}.header>.arrow{width:0;height:0;border-left:6px solid transparent;border-right:6px solid transparent;border-top:10px solid #a5a9ac;margin-top:-27px;margin-left:95%;position:absolute;cursor:pointer}
+.ca-chart-page .ui .countryui.sort-auth-button,.ca-chart-page .ui .merchantui.sort-auth-button{margin-left:512px}g text{fill:#999}
+.axis path,.axis line{fill:none;stroke:#e1e2e3;shape-rendering:crispEdges}.x.axis text{fill:#8f9194;shape-rendering:crispEdges;font-size:11px}
+.y.axis text,.percentage-label{fill:#a0a2a5;shape-rendering:crispEdges;font-size:11px;text-transform:capitalize}.y.axis line{opacity:0}
+.countryvolume-chart .x.axis text{font-size:11px}.y.axis path,.volumetime-chart .x.axis path{opacity:0}.bar rect{fill:#529876;fill-opacity:1;/ / .85}
+.interactive-chart .bar.full.active:hover rect{fill:#396a53}.interactive-chart .bar.full.active:hover{fill:#396a53}.bar.hand-cursor:hover{cursor:pointer}
+.interactive-chart .y.axis text.active:hover{fill:#396a53;cursor:default}.interactive-chart .y.axis text.hand-cursor:hover{cursor:pointer}
+.bar rect.textTip{fill:#396a53}.stack{fill-opacity:1}

@@ -1,0 +1,3 @@
+define("charts/mobileConversion/js/models/appstate",["d3","jquery","underscore","backbone","chartlib/models/appstate","chartlib/models/state","chartlib/events/appstateevents"],function(d,f,c,h,g,b,e){var a=g.extend({addConfigValues:function(j,i){},setStubValues:function(i){i.set("stub",this.get("stub"));
+i.set("stubURL","/chart/charts/mobileConversion/dummy-data/");},notifyStateChange:function(i){h.trigger(e.REQUEST_STATE_CHANGE,i);
+}});return a;},function(a){if(window.console&&window.console.log){window.console.log("APP JS ERROR =",a);}});

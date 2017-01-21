@@ -1,0 +1,14 @@
+define("chart/widgetFramework/composed/riskReport/formatters/chargebackRateLineFormatter",["jqueryExtended","underscore","d3","chartutil/d3utils","util/Functional","chartutil/dateUtils_CET","chart/widgetFramework/core/constants/DataConstants","chartutil/domUtils","chartutil/stringutils"],function(a,h,i,j,c,e,f,g,d){var b=function(n,k,m,o){var l={};
+l.data=n;l.options=k;l.formattedData={};l.comparator=null;l.reverseDirection=false;l.sortKey=null;l.timeline=m;l.id=o;l.formatData=function(){var t=this.data.overall_statistics;
+var r={},p;if(c.falsy(t)){return[];}if(h.isArray(t)){var q=t;var w=this.timeline.getGranularity();var s=this.timeline.getDates();
+var u=1;var v=new Date(s[1].getFullYear(),s[1].getMonth(),s[1].getDate()-u);p=this.parseDates(q,w,[s[0],v]);}this.formattedData=this.calculateMetaData(p);
+if(this.sortKey){this.reverseDirection=!this.reverseDirection;this.sortData(this.sortKey,true);}if(window.console&&console.log){console.log("\n### chargebackRateLineFormatter::formatData:: this.formattedData=",this.formattedData);
+}return{config:r,chartData:this.formattedData};};l.calculateMetaData=function(q){var p=[];h.each(q,function(s){var r=(s.authorisedCount>0)?s.chargebackCount/s.authorisedCount:0;
+p.push({date:s.date,value:r*100,name:s.dateStr});});return[{name:"Chargeback",lineValues:p}];};l.parseDates=function(p,r,q){h.map(p,function(t){t.dateStr=t.date;
+var s=new Date(t.dateStr);t.date=e.trueRoundToDay(s,true);});return p;};l.sortData=function(p,r){this.sortKey=p;this.reverseDirection=!this.reverseDirection;
+var q=h.sortBy(this.formattedData,p);if(this.reverseDirection){q.reverse();}this.formattedData=q;if(r===true){return;}this.$el.trigger(f.FORMATTER_INFORM_WIDGET,{type:f.SORTED_DATA,data:this.formattedData});
+};l.compareFunction=function(p){return p[this.sortKey];};l.downloadCSV=function(){var r=this.createObjectForCSV();var p=["dateStr","chargebackPercent"];
+var q=["Date","Chargeback (%)"];g.createCSV(r,p,q,"ChargebackRate");};l.createObjectForCSV=function(){var r=i.format(",.4f");
+var t=this.formattedData;var q=t.length;var p=h.cloneDeep(t[0].lineValues);var s=d.camelCase(t[0].name);p=h.map(p,function(u){var v={dateStr:u.name};
+v[s+"Percent"]=+r(u.value);return v;});return p;};l.getData=function(){return(this.data)?this.data:this.formatData();};l.setRawData=function(p){this.data=p;
+};l.retrieveData=function(p){return this.data[p];};l.setOptions=function(p){this.options=p;};return l;};return b;});

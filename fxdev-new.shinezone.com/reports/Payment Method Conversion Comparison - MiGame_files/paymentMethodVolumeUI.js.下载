@@ -1,0 +1,7 @@
+define("pmc/views/ui/paymentMethodVolumeUI",["jquery","underscore","backbone","chartlib/ui/baseui","chartlib/chartBaseEvents"],function(d,a,f,c,e){var b=c.extend({el:"#paymentMethodVolumeUI",events:{"click .sort-volume-button":"sortOnVolume","click .sort-auth-button":"sortOnAuth","click .sort-comp-button":"sortOnComp","click .sort-aban-button":"sortOnAban","mouseover .chart-info-btn":"infoOver"},initialize:function(){this.listenTo(this.collection,"reset",this.render);
+f.on(e.RENDER_BUTTONS,this.renderButtons,this);this.volumeButton=this.$(".sort-volume-button");this.authButton=this.$(".sort-auth-button");
+this.compButton=this.$(".sort-comp-button");this.abanButton=this.$(".sort-aban-button");this.buttons.push(this.volumeButton);
+this.buttons.push(this.authButton);this.buttons.push(this.compButton);this.buttons.push(this.abanButton);},sortOnVolume:function(g){this.collection.sortByVolume();
+this.renderButtons(d(g.currentTarget));},sortOnAuth:function(g){this.collection.sortByAuth();this.renderButtons(d(g.currentTarget));
+},sortOnComp:function(g){this.collection.sortByComp();this.renderButtons(d(g.currentTarget));},sortOnAban:function(g){this.collection.sortByAban();
+this.renderButtons(d(g.currentTarget));}});return b;});

@@ -1,0 +1,35 @@
+#no_data {
+	color: #666666;
+	font: 300 50px/50px Lato,Arial;
+	letter-spacing: -0.03em;
+	margin-left: 37%;
+	margin-top: 90px;
+}
+#total {
+	width: 70%;
+	height: 300px;
+	margin:10px 10px 10px 0;
+	float:left;
+}
+#payout_report {
+	width:27%;
+	float:right;
+	height: 300px;
+	margin:10px 0 0 10px;
+}
+#hourly_charts {
+	width: 70%;
+	height: 300px;
+	margin:10px 10px 10px 0;
+	float:left;
+}
+#week_daily_charts {
+	width: 27%;
+	height: 300px;
+	margin:10px 0 0 10px;
+	float:right;
+}
+#js-payout-report-loader {
+	text-align: center;
+	margin-top: 90px;
+}

@@ -1,0 +1,15 @@
+define("chart/widgetFramework/components/Timeline",["jqueryExtended","ui/UIConstants","underscore","hogan","calendar/datepicker","text!chart/widgetFramework/components/timeline.html","timeline/views/timelineFacade","timeline/events/timelineEvents","chartutil/domUtils"],function(a,g,h,d,b,c,j,k,f){var e="color:darkorange;font-size:1em";
+var i=function(l){var m={};m.init=function(){this.loadCSS();this.template=d.compile(c);this.$el=l.getNode();this.id=this.$el.attr("id");
+this.mediator=this.$el.parent();var p=this.mediator.attr("data-widget");var o=this.mediator.attr("id");var n=this.mediator.attr("class");
+this.mediatorId=o.toLowerCase();if((p&&p.toLowerCase().indexOf("mediator")>-1)||(o&&o.toLowerCase().indexOf("mediator")>-1)||(n&&n.toLowerCase().indexOf("mediator")>-1)){this.mediator.on(g.WIDGET_APP_STARTUP,this.onAppStartup);
+}else{this.appStarted=true;}this.parameters=this.getParameters(l);this.timelineOptions=this.parameters.options;this.renderPromise=new a.Deferred();
+this.$el.widget().done(function(q){m.hasResolved=true;m.checkReady("promise");});f.removeDataAtrributes(this.$el,["options"]);
+};m.onAppStartup=function(){m.appStarted=true;m.checkReady("startup");};m.checkReady=function(n){if(this.appStarted&&this.hasResolved){this.render();
+this.renderPromise.resolve();}};m.getInstance=function(){return this;};m.loadCSS=function(){var n=document.createElement("link");
+n.type="text/css";n.rel="stylesheet";n.href="../../js/calendar/datepicker.css";document.getElementsByTagName("head")[0].appendChild(n);
+};m.getParameters=function(n){var q=n.getNode().data();var o;if(h.keys(q).length){o=q;}else{n.parameters.options=a.parseJSON(n.parameters.options);
+o=n.parameters;}var p={};if(h.keys(o).length){p.options=o.options;}else{throw"The parameters are not well defined"+o;}return p;
+};m.render=function(){var p=this.template.render();this.$el.html(p);var o=this.timelineOptions;var n=a({});n.on(k.TIMESPAN_SET,function(){var q=h.rest(arguments);
+m.currentTimeObj=[q];m.$el.trigger("timelineTimespanSet",m.currentTimeObj);});this.timeline=new j({uid:this.mediatorId,timeCollectionMode:o.timeCollectionMode,formatPeriod:o.formatPeriod,baseGranularity:o.baseGranularity,startPreset:o.startPreset,fixedExtent:o.fixedExtent,calendar:o.calendar,controls:o.controls,forceJumpFwd:o.forceJumpFwd,presets:o.presets,allowDynamicPresets:o.allowDynamicPresets,mondayWeek:o.mondayWeek,minStartDates:o.minStartDates,config:o.config,chartGranularity:o.chartGranularity,chartGranularityDisabled:o.chartGranularityDisabled,forceCET:o.forceCET,widgetContainer:n});
+};m.getData=function(){if(this.timeline){return this.timeline.getDates();}return;};m.init();l.ready();return m;};return i;
+});

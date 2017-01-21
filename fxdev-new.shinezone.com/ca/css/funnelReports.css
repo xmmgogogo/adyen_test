@@ -1,0 +1,22 @@
+.funnel-view-holder{position:absolute;top:34px}.funnel-explain{position:absolute;width:1100px;top:108px;left:16px;color:#848484}
+.no-data-text{position:absolute;top:25px}.mode-buttons-holder{visibility:hidden}.ca-report-with-sidepanel.funnel{top:-15px}
+.ca-report-with-sidepanel.funnel .clock-holder,.ca-report-with-sidepanel.funnel .clock{position:absolute}.ca-report-with-sidepanel.funnel .clock-holder{bottom:-33px}
+.ca-report-selected{margin-top:20px}#content{padding-top:0}.funnel-mediator-widget{height:740px;top:3px}.funnel-table{padding-right:0!important;margin-top:45px}
+.funnel-chart,.funnel-figures,.funnel-chart-rollover{position:absolute;top:110px}.funnel-chart-rollover{left:-91px}.funnel-chart{left:130px}
+.funnel-chart .x.axis line,.funnel-chart .axis path{stroke-opacity:.3}.funnel-chart .y.axis,.funnel-chart-rollover .y.axis{display:none}
+.funnel-figures .chartbase-svg,.funnel-chart-rollover .chartbase-svg{background:rgba(0,0,0,0)}.funnel-figures .y.axis text,.funnel-figures g text{font-size:13px;fill:#4d4d4f}
+.ca-chart-page .funnel-chart-rollover .bar.rollover rect{fill-opacity:0;fill:#15b43c}.funnel-chart-rollover .bar.rollover:hover rect{fill-opacity:.15}
+.funnel-chart-rollover .bar.rollover.external-hover rect{fill-opacity:.15}.ca-chart-page .bar rect.moto,.ca-chart-page .bar rect.contauth,.ca-chart-page .bar rect.pos,.ca-chart-page .bar rect.api,.ca-chart-page .bar rect.hpp,.ca-chart-page .bar rect.total{fill:#d2ede8}
+.ca-chart-page .bar rect.received{fill:#bae4dd}.ca-chart-page .bar rect.authorised{fill:#a4dcd1}.ca-chart-page .bar rect.sent-for-settlement{fill:#77cabb}
+.ca-chart-page .bar rect.settled{fill:#49b9a4}.ca-chart-page .bar rect.final-settled{fill:#1ca78d}.ca-chart-page .bar rect.abandoned,.ca-chart-page .bar rect.refused,.ca-chart-page .bar rect.error,.ca-chart-page .bar rect.cancelled,.ca-chart-page .bar rect.expired,.ca-chart-page .bar rect.chargeback,.ca-chart-page .bar rect.refunded{fill:#9b9b9b}
+.borders-blockers-holder{position:absolute;top:-35px}.funnel-border{width:1100px;position:absolute;left:0;pointer-events:none}
+.funnel-border h2{color:#000;font-size:18px;font-weight:300;padding-left:15px;line-height:18px;padding-top:5px;float:right}
+.funnel-border.sessions{top:126px}.funnel-border.sessions h2{margin-right:100px}.funnel-border.conversion-received{top:342px}
+.funnel-border.conversion-received h2{margin-top:-7px;margin-right:80px}.funnel-border.settlement{top:588px}.funnel-border.settlement h2{margin-top:-15px;margin-right:82px}
+.funnel-border.blocker{height:51px;background-color:#fff;border:0}.funnel-border.blocker.sessions-blocker{top:296px;height:73px}
+.funnel-border.blocker.conversion-blocker{top:434px;height:34px}.funnel-border.blocker.authorised-blocker{top:534px;height:72px}
+.funnel-border.blocker.settlement-blocker{top:734px;height:32px}.reports-list{position:absolute;top:140px;left:930px;width:170px}
+.report-group{position:absolute}.ecommerce-group{top:0}.conversion-group{top:194px}.authorised-group{top:315px}.settlement-group{top:430px}
+.final-group{top:568px}.csr-t-adyen .report-item{display:block;text-decoration:none;font-size:13px;color:#004967;line-height:16px}
+.csr-t-adyen .report-item:hover{color:#448cab}#funnelTable{position:absolute;top:800px}.baseline-rollover-tooltip.d3-tip{font-size:12px;line-height:14px}
+.baseline-rollover-tooltip.d3-tip ul{margin:5px 0 0 0}

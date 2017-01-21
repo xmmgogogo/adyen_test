@@ -1,0 +1,10 @@
+define("chart/widgetFramework/chartTypes/axisRollover",["jqueryExtended","underscore","d3","util/Functional","chartutil/domUtils","chart/widgetFramework/core/constants/UIConstants","util/ObjectSuper","chart/widgetFramework/core/constants/DataConstants","chart/widgetFramework/core/constants/WidgetConstants","chart/widgetFramework/core/drivers/axisBaseView"],function(c,j,k,a,g,i,h,f,e,d){function b(q,l){var n;
+var p={};var m=j.defaults(p,q);n=d(m,l);var r=h(n);var o=false;n.init=function(){r.init();this.barUtils.setBarSelectorStr(".bar.rollover");
+};n.initRender=function(){r.initRender();n.topSVG.style("background-color","rgba(0, 0, 0, 0)");n.axisGroup.remove();};n.renderData=function(){if(a.falsy(this.data)&&!o){return;
+}if(this.options.variation===e.VERTICAL){if(this.dimensionsYArray.length===0){this.barUtils.containerBarsVertical(this.chartGroup,this.getData(),this.getPrimaryDataJoin(),this.barPositioningFn,true).fullBarVertical(this.barSize);
+}else{this.barUtils.containerBarsVertical(this.chartGroup,this.getData(),this.getPrimaryDataJoin(),this.barPositioningFn,true).barVertical(this.options.yAttr,this.getYScale(),this.barSize);
+}}else{if(this.dimensionsXArray.length===0){this.barUtils.containerBarsHorizontal(this.chartGroup,this.getData(),this.getPrimaryDataJoin(),this.barPositioningFn,true).fullBarHorizontal(this.barSize);
+}else{this.barUtils.containerBarsHorizontal(this.chartGroup,this.getData(),this.getPrimaryDataJoin(),this.barPositioningFn,true).barHorizontal(this.options.xAttr,this.getXScale(),this.barSize);
+}}o=true;};n.setTooltipsOnElements=function(s){r.setTooltipsOnElements(s);};n.positionTooltip=function(t,v,y,s,x,u,w){return r.positionTooltip(t,v,y,s,x,u,w);
+};n.enhanceTooltipData=function(s){};n.tooltipOnMouseoverAction=function(){};n.tooltipOnMouseoutAction=function(s){};n.hideCharts=function(s){};
+return n;}return b;});

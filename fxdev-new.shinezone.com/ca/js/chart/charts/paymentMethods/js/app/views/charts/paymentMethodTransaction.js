@@ -1,0 +1,8 @@
+define("pmc/views/charts/paymentMethodTransaction",["jquery","backbone","underscore","d3","chartlib/basicChart","chartlib/events/appstateevents"],function(e,g,b,c,a,d){var f=a.extend({el:".pm-transaction-chart",defaults:{yScale:"ordinal",totalLabelOffset:15,margin:{top:0,left:125,bottom:20,right:0},barPadding:0.1,barHeight:15,xAttr:"total",yAttr:"pmName",joinAttr:"pmName"},addListeners:function(){if(this.collection){this.listenTo(this.collection,"sort",this.render);
+}g.on(d.RENDER_CHARTS,this.render);},setXScale:function(){},calibrateXScale:function(){},setXAxis:function(){},formatXAxis:function(){},renderXAxis:function(){},calibrateYScale:function(){this.scales.y.domain(this.collection.pluck(this.options.yAttr)).rangeBands([this.height,0],this.options.barPadding);
+},formatYAxis:function(){var h=this.axes.y;h.tickFormat(function(i){return(i.length>17)?e.trim(i).substring(0,14).trim(this)+"...":i;
+});},dataLoadError:function(){if(this.options.barHeight===null){this._super();return;}var j=this.height/2;var i=this.width/2;
+if(window.console&&console.log){console.log("### chartbase::dataLoadError ",this.el.className,"  top=",j);}if(j<=25){j=0;
+}var h=e('<div class="no-data-text"><text style="color: #ccc; font-size: 14px; position: relative; top:'+j+"px; left:"+i+'px;">no data to display</text></div>');
+this.$el.not(this.$el.has(".no-data-text")).prepend(h);this.$el.children().not(".no-data-text").hide();h.show();},render:function(){if(this.options.barHeight!==null){var i=(this.collection.length*this.options.barHeight)+this.options.margin.top+this.options.margin.bottom;
+c.select(this.el).transition().style("height",i+"px");}this._super();}});return f;});

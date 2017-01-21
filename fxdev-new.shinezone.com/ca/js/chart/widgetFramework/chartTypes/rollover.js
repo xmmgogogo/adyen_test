@@ -1,0 +1,13 @@
+define("chart/widgetFramework/chartTypes/rollover",["jqueryExtended","underscore","d3","chart/widgetFramework/core/mixins/barDrawingUtils","chart/widgetFramework/core/mixins/widgetScales","util/Functional","chartutil/domUtils","chart/widgetFramework/core/constants/WidgetConstants","util/ObjectSuper","chart/widgetFramework/core/drivers/baseView"],function(b,i,k,d,j,a,f,c,h,g){var e=function(n,q,s,r){var p;
+var l={};var t=i.defaults(n,l);p=g(t,q);var m=h(p);var o=false;p.init=function(){m.init();this.barUtils=d();this.barUtils.barSelectorStr=".bar.rollover";
+this.barUtils.barClassStr="bar rollover";this.bandSize=0;this.barSize=0;};p.setBandSizes=function(){if(a.notFalsy(this.data)){var u,v=this.getData();
+if(typeof v==="function"){u=v().length;}else{u=v.length;}if(this.options.variation===c.VERTICAL){this.bandSize=(this.width/u);
+this.barSize=this.horizBarSize=(this.bandSize*(1-this.options.barPadding));}else{this.bandSize=(this.height/u);this.barSize=this.vertBarSize=(this.bandSize*(1-this.options.barPadding));
+}}};p.initRender=function(){m.initRender();this.$el.find(".chartbase-svg").css("background-color","rgba(0,0,0,0)");};p.renderData=function(){if(a.falsy(this.data)&&!o){return;
+}var u=this.options.centerBars;this.barUtils.chartWidth=this.width;this.barUtils.chartHeight=this.height;var v;if(this.options.variation===c.VERTICAL){v=this.barUtils.barPosition(u,this.bandSize,this.getXScale(),this.options.joinAttr);
+this.barUtils.containerBarsVertical(this.chartGroup,this.getData(),this.getPrimaryDataJoin(),v).fullBarVertical(this.barSize,this.getBarId());
+}else{v=this.barUtils.barPosition(u,this.bandSize,this.getYScale(),this.options.joinAttr);this.barUtils.containerBarsHorizontal(this.chartGroup,this.getData(),this.getPrimaryDataJoin(),v).fullBarHorizontal(this.barSize,this.getBarId());
+}o=true;};p.getBarId=function(){return null;};p.getXScale=function(){return null;};p.getYScale=function(){return null;};p.setTooltipsOnElements=function(u){m.setTooltipsOnElements(u);
+};p.positionTooltip=function(v,x,A,u,z,w,y){return m.positionTooltip(v,x,A,u,z,w,y);};p.enhanceTooltipData=function(u){};
+p.tooltipOnMouseoverAction=function(){};p.tooltipOnMouseoutAction=function(u){};p.hideCharts=function(u){};return p;};return e;
+});

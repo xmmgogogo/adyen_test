@@ -1,0 +1,2 @@
+define("pmc/models/paymentMethod_Session",["jquery","underscore","backbone","backbonenested"],function(b,a,e,d){var c=e.NestedModel.extend({defaults:{pmName:"",total:0,order:0,countries:[],percentages:[]}});
+return c;});

@@ -1,0 +1,5 @@
+define("chart/widgetFramework/composed/riskReport/rollovers/fraudScoreRollover",["jqueryExtended","underscore","d3","util/Functional","chartutil/domUtils","chart/widgetFramework/core/constants/UIConstants","util/ObjectSuper","chart/widgetFramework/core/constants/DataConstants","chart/widgetFramework/chartTypes/rollover","chart/widgetFramework/core/mixins/widgetScales"],function(c,i,k,a,f,h,g,e,d,j){var b=function(r,l,p,n){var o;
+var q={};var m=i.defaults(q,r);o=d(m,l);var s=g(o);o.getXScale=function(){var u=j.getDomainFromDataExtremes(this.data,this.options.joinAttr);
+var t=k.scale.linear().rangeRound([0,this.width]).domain(u);t.nice();return t;};o.enhanceTooltipData=function(v){var w=k.format("0,000");
+var u=v.x;var t=v.x+(v.dx-1);v.fraudScoreTT=u+" to "+t;v.acceptedTT=w(v.stacksArray[2].frequency);v.refusedBankTT=w(v.stacksArray[1].frequency);
+v.refusedRiskTT=w(v.stacksArray[0].frequency);};return o;};return b;});

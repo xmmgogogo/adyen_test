@@ -1,0 +1,14 @@
+.clock-holder{top:90px!important}#d3canvas{margin-top:40px;width:100%;float:left;position:relative}.chartbase-svg{background:0}
+ul{padding:0;margin:0;list-style-type:none;list-style-position:outside}li{padding:0}.world{display:block;width:650px}.panel .header h2{height:37px;padding-top:4px}
+.panel .header .world-button{font-weight:bold;padding:0!important;margin-right:5px}.world-volume-total-text{position:absolute;top:12px;right:35px;width:215px;text-align:center;color:#999}
+.world-volume-total-text b{color:orange}.acquirer-overview,.acquirer-account-overview{margin-top:30px;width:1100px}.authorisation-requests-chart,.conversion-chart,.authorisation-requests-rollover-chart{height:200px;position:relative;left:5px;top:0;overflow:hidden;display:inline-block}
+.authorisation-requests-chart,.authorisation-requests-rollover-chart{width:790px}.rollover-bar{opacity:0}.rollover-bar:hover{fill-opacity:.25;opacity:.25}
+.rollover-bar.textTip{opacity:.25}.conversion-chart{width:260px}.authorisation-requests-chart{position:absolute;top:71px}
+.ca-chart-page .ui .sort-button{padding:0}.ca-chart-page .ui .sort-region-button{margin-left:6px;width:60px}.ca-chart-page .chart-ui.sort-auth-button{margin-left:603px;width:90px}
+.ca-chart-page .chart-ui.sort-refused-button{width:90px}.ca-chart-page .chart-ui.sort-requests-button{margin-left:110px}
+.acquirer-account-overview .ui,.acquirer-overview .ui{margin-left:16px}.conversion-info{width:190px;position:absolute;top:0;left:20px;z-index:1;display:none;text-align:center;color:#025770;font-size:11px;background:#f1f0e9;font-weight:600;padding:2px 4px}
+.device-info{width:150px}.auth-col{background:#a9d6a6;padding:0 2px}.aban-col{background:#cfd1d1;padding:0 2px}.comp-col{background:#75be9c;padding:0 2px}
+.conversion-channel .y.axis text{font-size:13px}.bar rect.refused{color:#cfd1d1;fill:#cfd1d1}.csr-table td.chart-options-cell{padding-left:7px}
+.csr-table td.chart-options-cell.drop{padding:0 23px 0 5px}.info-wrapper{position:absolute;top:2px;right:22px;padding:10px 20px;color:#024d63;z-index:999999999}
+.info-wrapper:hover>.info-tooltip{display:block}.info-wrapper .icon-info-circle{font-size:16px;cursor:pointer}.info-tooltip{display:none;width:148px;padding:10px;background:#f1f0e9;position:absolute;top:50px;left:-100px}
+.info-tooltip p{margin:0}.info-tooltip .icon-caret-up{display:none}.info-tooltip:after{content:'';display:inline-block;border:10px solid transparent;border-bottom-color:#f1f0e9;position:absolute;bottom:100%;right:33px}

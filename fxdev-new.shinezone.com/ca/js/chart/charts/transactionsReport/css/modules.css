@@ -1,0 +1,11 @@
+.txs-report,.txs-report-rollover{width:1100px;height:455px;position:relative;z-index:1}.txs-report-rollover{position:absolute;z-index:2}
+.txs-report-rollover svg{background-color:transparent}.bar rect{fill-opacity:0}.txs-report-error{color:orange;font-size:13px;position:absolute;width:100%;text-align:center;top:-25px}
+.txs-report-error a{color:orange;text-decoration:underline;cursor:pointer}em{font-weight:bold;font-style:normal}.axis path,.axis line{stroke:rgba(225,226,227,.5)}
+.chart-options-holder{margin-bottom:50px}.csr-panel{width:1100px}i.csr-collapse-caret{background:#eaeaea}.csr-panel-header.csr-collapse-link{text-indent:18px}
+#d3canvas,.chart-container{float:none;margin-top:37px}.csr-headers h2.csr-panel-header,.csr-panel-header{line-height:40px}
+.csr-panel-header{font-size:16px}.txs-report-header{display:inline;float:left}.csr-panel-content{padding:9px 18px 28px 0}
+.txs-report-totalvolume{display:inline}.csr-panel-header span{float:right;margin-right:120px}.csr-panel-header em{color:orange}
+.txs-report-tooltip em{padding-right:5px}.txs-report-tooltip tr{line-height:1.2em}.txs-report-tooltip td{border-collapse:collapse}
+.tip-rate{padding:0 10px}.chart-program-dot:hover{cursor:pointer}circle{opacity:.25!important}.selectedperiod circle,text.selectedperiod{fill:#03486d}
+.selectedperiod .line{stroke:#03486d}.previousperiod .line{stroke:#a9d6a6}.previousperiod circle,text.previousperiod{fill:#a9d6a6}
+.chart-program-label{font-size:12px}.timeline-component{margin-bottom:30px}

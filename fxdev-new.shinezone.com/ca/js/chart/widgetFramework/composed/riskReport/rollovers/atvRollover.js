@@ -1,0 +1,11 @@
+define("chart/widgetFramework/composed/riskReport/rollovers/atvRollover",["jqueryExtended","underscore","d3","util/Functional","chartutil/domUtils","chart/widgetFramework/core/constants/UIConstants","util/ObjectSuper","chart/widgetFramework/core/constants/DataConstants","chart/widgetFramework/chartTypes/rollover"],function(c,i,j,b,f,h,g,e,d){var a=function(q,k,o,m){var n;
+var p={};var l=i.defaults(p,q);n=d(l,k);var r=g(n);n.init=function(){r.init();this.barUtils.setBarSelectorStr(".bar.atv-line-rollover");
+};n.renderData=function(){var s=this.options.centerBars;this.barUtils.chartWidth=this.width;this.barUtils.chartHeight=this.height;
+var t;t=this.barUtils.barPosition(s,this.bandSize,this.getXScale(),this.options.joinAttr);this.barUtils.containerBarsVertical(this.chartGroup,this.getData(),this.getPrimaryDataJoin(),t).fullBarVertical(3,"thin-bar").fullBarVertical(this.barSize,"dateStr");
+};n.tooltipOnMouseoverAction=function(t,s){this.sharedMouseAction(s,0.25,1);};n.tooltipOnMouseoutAction=function(t,s){this.sharedMouseAction(s,0,0);
+};n.sharedMouseAction=function(z,x,A){var u=z.find(".dateStr");var w=u.attr("data-id");var y=z.find(".thin-bar");j.select(y[0]).style("opacity",x);
+var v=["all-authorized-transactions","refused-by-revenueprotect","refused-by-bank"],t,s;i.each(v,function(B){t=".atv-chart ."+B+' .line-holder-dot[data-id*="'+w+'"]';
+s=j.select(t).style("fill-opacity",A).style("stroke-opacity",A);});};n.enhanceTooltipData=function(u){var s=j.format(".2f");
+var t=new Date(u.date);var v=j.time.format("%Y-%m-%d");u.refusedByBank=s(u.refusedByBankEuroAvg);u.refusedByRevProtect=s(u.refusedByRevProEuroAvg);
+u.authorized=s(u.authorizedEuroAvg);u.dateStr=v(t);};n.positionTooltip=function(w,y,v,x,s,t,z){var u=w.top+v-s;var A=((w.left+y+10)-x)+(t/2);
+return{top:u,left:A};};return n;};return a;});

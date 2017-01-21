@@ -1,0 +1,43 @@
+.totals-box h3{color:#a6a6a6}.chargeback .line{stroke:#9c0909}.chargeback{fill:#9c0909}.ca-chart-page .bar rect.chargeback{fill:#9c0909}
+.legend-chargeback{background-color:#9c0909;color:#9c0909}.legend-nof{background-color:#d7a3a3;color:#d7a3a3}.bar .brush-selected{fill:#9c0909!important}
+.barchart-ranked rect{fill:#9c0909!important}.atv-chart .chargeback circle{fill:#9c0909;stroke:#9c0909}.notifications-of-fraud .line{stroke:#d7a3a3}
+.notifications-of-fraud{fill:#d7a3a3}.ca-chart-page .bar rect.notifications-of-fraud{fill:#d7a3a3}.legend-notifications-of-fraud{background-color:#d7a3a3;color:#d7a3a3}
+.authorized .line{stroke:#4c4c4c}.authorized{fill:#4c4c4c}.legend-authorized{background-color:#4c4c4c;color:#4c4c4c}.tip-dark{color:#4c4c4c}
+.d3-tip{color:#4c4c4c}.report-description h2{color:#4c4c4c}.atv-chart .authorized circle{fill:#4c4c4c;stroke:#4c4c4c}.grouped-bar-title-btn.active{color:#4c4c4c}
+.grouped-bar-title-btn.active .rank-icon{border-top:8px solid #4c4c4c}.report-description{border-bottom:1px solid #909090}
+.report-description h3{color:#909090}span.legend-chargeback{background:transparent}span.legend-notifications-of-fraud{background:transparent}
+.bar.atv-rollover rect{fill:transparent}.csr-panel-2 .csr-panel-header-2{background:#f2f2f2}.csr-panel-2 .csr-panel-content-2{border:1px solid #f2f2f2}
+.totals-box{border-left:1px solid #f2f2f2}.rank-icon{color:#d2d2d2}.grouped-bar-chart-holder .bar rect{fill:#bdbdbd}.grouped-bar-title-btn .arrow{border-top:8px solid #d2d2d2}
+.d3-tip.e:after{color:#f1f0e9}.legend-wrapper{color:#717171}.cfn-rollover .bar rect:hover{fill:#999}.bar.atv-rollover rect.thin-bar{fill:#999}
+.grouped-bar-rollover .bar rect:hover{fill:#999}.csr-radio-button,.csr-2 .toggle-button,.csr-2 .toggle-button.disabled{border:1px solid #e2e2e2;background:#fcfcfc}
+.grouped-bar-title-btn{color:#8e8e8e;border-bottom:1px #f2f2f2 solid}.bar .brush-unselected{fill:#f2f2f2!important}.csr-button-2.icon.reset-line-icon:focus{color:#3c8a2e}
+.csr-button-2.icon.reset-line-icon:hover{color:#9c9c9c}.csr-button-2.icon.reset-line-icon{background-color:rgba(255,255,255,0.7);color:#3c8a2e!important}
+.clock-holder{bottom:-85px}.chart-options-table{float:left}.chart-options-holder{position:relative;padding:5px 10px 5px 0;box-sizing:border-box}
+#countAmountText{display:inline-block}.toggle-container{display:inline-block;margin-left:199px}.toggle-container.count-amount{margin-top:2px}
+.toggle-label{position:absolute;right:225px;margin-top:5px;font-size:13px}.toggle-label.count-amount{top:43px}.chargebacks-fraud-panel{min-height:360px}
+#issuerCountryTitleText,#paymentMethodTitleText{width:auto}.toggle-container.granularity{position:absolute;top:5px;left:517px;width:350px}
+.toggle-title{float:right;margin-right:10px;font-weight:400;position:relative;top:-4px}#countryAcquirerPM-wrapper{padding:0}
+#countryBarContent,#acquirerBarContent,#paymentMethodBarContent{border:0}.csr-panel-2.small .csr-panel-header-2{padding:0 20px;font-size:14px}
+.chart-container{opacity:1}.csr-panel-2{margin-bottom:30px}.line{stroke-width:2}.csr-radio-button,.csr-2 .toggle-button,.csr-2 .toggle-button.disabled{float:right}
+.d3-tip{font-size:12px}.d3-tip-title{font-size:14px}.tip-bold{font-weight:600}.widget-tooltip{z-index:103}.tr-extra-height{line-height:1.3}
+.widget-tooltip>div{transform:translate(-50%,-100%);opacity:.95}.widget-tooltip>div.d3-tip.e{transform:translate(0%,-50%)}
+.widget-tooltip>div.d3-tip.e.top{transform:translate(0%,0%)}.d3-tip.e:after{top:50%}.d3-tip.e.no-arrow:after{content:none}
+.report-description-wrapper{width:1100px;text-align:center}.report-description{display:inline-block;margin:25px 0 5px 0;padding:0 15px}
+.report-description h2,.report-description h3{display:inline-block;margin:0}.report-description h2{margin-left:5px;font-size:21px;font-weight:400}
+.totals-chart{text-align:center}.totals-box{display:inline-block;width:24%}.totals-box:first-child{border:0}.totals-box h3{margin-top:0}
+.totals-box h2{font-size:28px;margin:10px 0 -4px 0}.cfn-header{margin:15px 30px 0 30px}.cfn-header:first-child{margin:0 30px 15px 30px}
+.legend-wrapper{width:170px;position:absolute;font-size:12px;right:20px;top:70px}.legend{display:inline-block;height:10px;width:10px;margin-right:5px}
+.legend-chargeback.line,.legend-authorized.line,.legend-notifications-of-fraud.line{margin-bottom:3px}.cfn-rollover{margin-top:-500px}
+.cfn-rollover .bar rect{fill-opacity:0}.cfn-rollover .bar rect:hover{fill-opacity:.25}.atv-content{height:250px}.atv-chart circle{stroke-width:0;fill-opacity:0;stroke-opacity:0}
+.atv-rollover,.atv-chart{position:absolute;z-index:1}.atv-rollover{z-index:2}.bar.atv-rollover rect.thin-bar{opacity:0}.grouped-bar-rollover{position:absolute;margin-top:0}
+.grouped-bar-tooltip tbody{vertical-align:inherit}.grouped-bar-rollover .bar rect{fill-opacity:0}.grouped-bar-rollover .bar rect:hover{fill-opacity:.25}
+.hideYaxis .y.axis,.hideXaxis .x.axis{display:none}.grouped-bar-title-holder{font-size:14px}.grouped-bar-title-btn{float:left;text-align:center;cursor:pointer;height:30px;line-height:24px;padding-bottom:6px}
+.grouped-bar-title-btn.active{font-weight:600}.count-title{margin-left:160px;margin-right:30px;width:220px}.amount-title,.rate-title{margin-left:30px;margin-right:30px;width:220px}
+.rank-icon{font-size:22px}.grouped-bar-title-btn .arrow{width:0;height:0;border-left:6px solid transparent;border-right:6px solid transparent;margin-right:5px;position:relative;transform:rotate(-180deg) translateX(-0.5px) translateY(1px)}
+.grouped-bar-title-btn .rank-icon{display:none}.grouped-bar-title-btn.active .rank-icon{display:inline-block}.grouped-bar-chart{float:left}
+.csr-panel-2.small.no-bottom-margin{margin-bottom:0}.grouped-bar-info-holder{margin-top:10px}.button-explanation,.brush-explanation{font-size:11px;color:#8e8e8e;margin-left:20px;float:left}
+.brush-explanation{right:15px;width:180px;position:absolute}.button-explanation.wide-button,.button-explanation.wide-button{margin-bottom:30px}
+.csr-button-2.icon.reset-line-icon{position:absolute;top:0;left:0;display:none;padding-left:2px}.csr-button-2.icon.reset-line-icon i{font-size:14px}
+.cfn-chart .csr-button-2.icon.reset-line-icon{top:310px}.csr-panel-2 .chargeback-ui-btns i{font-size:14px}.csr-panel-2 .chargeback-csv-download i{top:19px}
+.csr-panel-2 .chargeback-csv-download:hover,.csr-panel-2 i.chargeback-png-snapshot:hover{color:#9c9c9c!important;cursor:pointer}
+.csr-panel-2 .atv-csv-download i{top:2px;left:878px}

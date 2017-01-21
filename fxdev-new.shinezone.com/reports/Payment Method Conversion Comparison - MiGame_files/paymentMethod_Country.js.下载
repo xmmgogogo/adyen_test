@@ -1,0 +1,2 @@
+define("pmc/models/paymentMethod_Country",["jquery","underscore","backbone","backbonenested"],function(b,a,e,c){var d=e.NestedModel.extend({defaults:{parentPmName:"",country:"",total:0,order:0,numCountries:0,conversionRates:[],percentage:0}});
+return d;});

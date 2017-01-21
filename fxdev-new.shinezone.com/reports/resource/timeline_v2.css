@@ -1,0 +1,39 @@
+.chartbase-svg.timeline{background:0;position:relative;top:-30px}.timeline-component{position:relative;margin-top:42px;width:1100px;height:80px;background:#f4f4f4}
+.timeline-holder{width:1150px;height:70px}.timeline-ui{width:1100px;position:relative;top:-38px;color:#8b8b8c;font-size:12px;margin:0;float:left}
+.timeline-ui .clock-holder{margin:0;top:135px;left:487px;width:115px;font-size:13px;position:absolute;float:none}.mode-buttons-holder{float:left}
+.timeline-ui .calendar-holder{position:absolute;left:551px;margin:0 20px 0 0;width:295px}.timeline-ui .calendar-holder .datepick-icon{color:black;margin-top:0;vertical-align:baseline;float:none;margin-right:0}
+.timeline-ui .calendar-holder .datepick-error{position:absolute;top:36px;left:0;width:550px;margin:0;line-height:12px;font-size:12px;font-weight:400}
+.timeline-ui .calendar-holder .csr-table input[type=text]{border:0;width:80px;padding-top:4px;font-weight:600}.timeline-ui .csr-table{margin-bottom:0}
+.timeline-ui .csr-table.chart-options-table{margin-left:0}.timeline-ui .calendar-holder .csr-data-table{width:295px;border:0;height:32px}
+.timeline-ui .calendar-holder .csr-data-table td{background:#fff;font-size:11px;color:#656565;border:1px solid #d1d1d1;padding:0!important}
+.timeline-ui .calendar-holder .csr-data-table .date-picker-input-2{width:30px}.timeline-ui .calendar-holder .csr-data-table td:nth-child(3n+1){border-right:0;padding-left:5px!important;padding-top:2px!important}
+.timeline-ui .calendar-holder .csr-data-table td:nth-child(3n+2){border-left:none}.timeline-ui .calendar-holder .csr-data-table td:nth-child(3){border-top:1px solid #fff;border-bottom:1px solid #fff}
+.timeline-ui .csr-table td.chart-options-cell{padding:0}.timeline-controls-ui{position:relative;top:0;height:30px;width:1100px}
+.timeline .x.axis text{font-size:11px;font-family:'Open Sans',sans-serif;font-weight:normal;fill:#656565}
+.timeline .axis path{display:none}.timeline .axis line{fill:none;stroke:none;shape-rendering:crispEdges}.timeline .brush .extent{stroke:#4c4c4c;fill:none;shape-rendering:crispEdges}
+.timeline .resize rect{fill:#4c4c4c;fill-opacity:1;stroke:#4c4c4c;stroke-width:1px}.timeline .date-box{fill:#fff;stroke:none;shape-rendering:crispEdges}
+.timeline .date-box.selected{fill:#fcfcfc}.timeline .date-box-text{font-size:12px;font-family:'Open Sans',sans-serif;fill:#848484;font-weight:600}
+.timeline .date-box-text.hour{font-size:11px}.tl-config-opt.disabled{display:none}.timeline .date-box-text.minute{font-size:10px}
+.timeline .date-box-text.selected{fill:#000}.timeline .utc-time{display:none}.timeline .local-time{display:none}.blur{-webkit-filter:blur(1px);-moz-filter:blur(1px);-o-filter:blur(1px);-ms-filter:blur(1px);filter:blur(1px)}
+.chrome .gaussian-blur-x,.ff35 .gaussian-blur-x,.ff36 .gaussian-blur-x,.webkit .gaussian-blur-x{-webkit-filter:url(#f1);-moz-filter:url(#f1);-o-filter:url(#f1);-ms-filter:url(#f1);filter:url(#f1)}
+.translateBack{transform:translateX(1px)}.translateFwd{transform:translateX(-1px)}.csr-button.mode{position:relative;top:9px;padding:0 0 12px 0;background:0;font-size:14px;color:#656566;width:60px}
+.csr-button.mode:hover{background:0;color:#3c8a2e;box-shadow:none;-webkit-box-shadow:none;-moz-box-shadow:none;-ms-box-shadow:none}
+.csr-button.mode:focus{color:#656566}.csr-button.mode:focus:hover{color:#3c8a2e}.csr-t-smartpay .csr-button.mode{color:#4d4d4f!important}
+.csr-t-smartpay .ca-chart-page .ui .sort-button,.csr-t-smartpay .ca-chart-page .type-button,.csr-t-smartpay .csr-button.mode.disabled{color:#00a1e4!important}
+.csr-t-smartpay .csr-button.mode.disabled{border-color:#00a1e4}.csr-t-smartpay .chart-options-holder,.csr-t-smartpay .timeline-component{background:#f1f6fe}
+.csr-t-smartpay #d3canvas{margin-left:13px}.csr-button.mode.disabled{color:#3c8a2e;opacity:1;pointer-events:none;background:0;border-bottom:2px solid #3c8a2e}
+.csr-button.mode.disabled:hover,.csr-button.mode.disabled:focus{box-shadow:none;-webkit-box-shadow:none;-moz-box-shadow:none;-ms-box-shadow:none;color:#3c8a2e}
+.csr-button.mode i{pointer-events:none}.jump-period-buttons{position:relative;top:2px;left:14px;float:left;width:1100px;display:none;color:#8b8b8c}
+.csr-button.jump.period{width:115px;font-weight:300;background:rgba(0,0,0,0);font-size:11px;color:#656565;text-align:left;padding:4px 0}
+.csr-button.jump.period:hover{background:rgba(0,0,0,0);color:#bbb;box-shadow:none;-webkit-box-shadow:none;-moz-box-shadow:none}
+.csr-button.jump.period.back{margin-right:0}.csr-button.jump.period.fwd{text-align:right;float:right;margin-right:21px}.csr-button.jump.period.extent-start,.csr-button.jump.period.extent-end{margin-right:0;display:none;width:22px;text-align:center;left:680px;position:relative}
+.csr-button.jump.period.extent-start i{margin-right:0}.csr-button.jump.period.extent-end i{margin-right:3px}.csr-button.jump.period.disabled{color:#a0a0a0;opacity:.5;pointer-events:none}
+.preset-periods{position:relative;top:0;left:0;float:right;width:115px;display:none}.presets-jump-to{position:absolute;top:2px;left:-50px;font-size:12px;color:#626264}
+.chart-options-cell .field-dropdown.timeline-presets{width:115px;border:1px solid #d1d1d1}.timeline-ui .chart-options-cell .field-dropdown-select{padding-left:6px;height:30px;color:#656565;font-size:11px;font-family:'Open Sans',sans-serif}
+.timeline-ui .icon-sort-desc{top:-1px;right:4px}.ams-time-warning{color:#656565;position:relative;top:-19px;left:0;font-weight:normal;font-size:11px;display:none;width:210px;margin:0 auto;pointer-events:none}
+.csr-button.output-url{position:absolute;top:8px;left:230px;font-size:11px;width:100px;color:#656565;display:none}.csr-link-button.output-url:hover{color:#bbb;box-shadow:none;-webkit-box-shadow:none;-moz-box-shadow:none;-ms-box-shadow:none}
+.csr-link-button.output-url:focus{color:#8b8b8c}.clock-holder{position:absolute;bottom:-35px;left:550px;color:orange;display:none;font-weight:300;font-size:13px}
+.clock{left:88px;border:1px solid orange}.clock:before,.clock:after{background-color:orange}.loader-bar:before,.loader-bar:after,.loader-bar{height:10px;width:10px}
+.loader-bar{margin:40px auto}.loader-bar:before{left:-2em}.loader-bar:after{left:2em}.chart-options-holder.timeline-config{position:relative;top:0;left:0;float:right;width:115px;padding:0;border:0;display:none;margin-bottom:0;margin-left:5px}
+.timeline-config .csr-table td.chart-options-cell.drop{font-size:15px;padding-left:0}.chart-options-cell.chart-granularity-show{width:132px;text-align:right}
+.chart-options-cell .field-dropdown.timeline{width:115px;border:1px solid #d1d1d1}.icon-clock-o{display:none;position:absolute;top:117px;left:225px;cursor:pointer}

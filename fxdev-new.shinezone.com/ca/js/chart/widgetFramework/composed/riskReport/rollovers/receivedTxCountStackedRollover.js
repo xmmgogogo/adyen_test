@@ -1,0 +1,5 @@
+define("chart/widgetFramework/composed/riskReport/rollovers/receivedTxCountStackedRollover",["jqueryExtended","underscore","d3","util/Functional","chartutil/domUtils","chart/widgetFramework/core/constants/UIConstants","util/ObjectSuper","chart/widgetFramework/core/constants/DataConstants","chart/widgetFramework/composed/riskReport/constants/riskConstants","chart/widgetFramework/chartTypes/axisRollover"],function(d,j,k,b,g,i,h,f,a,e){var c=function(r,l,p,n){var o;
+var q={};var m=j.defaults(q,r);o=e(m,l);var s=h(o);o.init=function(){s.init();this.barUtils.setBarSelectorStr(".bar.received-tx-count-stacked-rollover");
+this.hasXAxis=!this.options.centerBars;};o.renderData=function(){if(d("#issuerCountry").val()!==""){this.$el.css("display","none");
+return;}else{this.$el.css("display","block");}s.renderData();};o.enhanceTooltipData=function(t){var u=k.format("0,000");t.guaranteedPaymentMethod=u(t[a.RECEIVED_TX_GPM_TOTAL])+" tx";
+t.RevProtect=u(t[a.RECEIVED_TX_REVPRO_TOTAL])+" tx";};return o;};return c;});

@@ -1,0 +1,2 @@
+define("timeline/collections/timelineData",["jquery","underscore","backbone","timeline/models/timelineState","chartutil/objectutils","chartlib/events/appstateevents","chartlib/chartBaseEvents","map/events/worldevents"],function(c,b,e,a){var d=e.Collection.extend({model:a,getValue:function(f){return this.at(0).get(f);
+},setValue:function(f,g){this.at(0).set(f,g);},getDates:function(){return this.at(0).get("extent");}});return d;});

@@ -1,0 +1,3 @@
+define("chart/widgetFramework/composed/chargebackReport/rollovers/cfnRollover",["jqueryExtended","underscore","d3","util/Functional","chartutil/domUtils","chart/widgetFramework/core/constants/UIConstants","util/ObjectSuper","chart/widgetFramework/core/constants/DataConstants","chart/widgetFramework/chartTypes/rollover"],function(c,i,j,a,f,h,g,e,d){var b=function(q,k,o,m){var n;
+var p={};var l=i.defaults(p,q);n=d(l,k);var r=g(n);n.positionTooltip=function(w,y,v,x,s,t,z){var u=w.top+v-10-s+(z/2);var A=((w.left+y+10)-x)+(t);
+return{top:u,left:A};};return n;};return b;});

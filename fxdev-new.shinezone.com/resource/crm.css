@@ -1,0 +1,38 @@
+.clearl {clear:left; padding:0; margin:0;}
+.clearb {clear:both; margin:0; padding:0; height:0; display:block; #display:compact;}
+.clearr {clear:right; padding:0; margin:0;}
+
+/* POPUP */
+.popup {position:absolute; z-index:150; top:103px; left:5%; right:5%; width:auto; background:url(/images/spacer_black.png) repeat; padding:8px;border:0;}
+.popup .in {background:#FFF; border:1px solid #999; padding:20px; position:relative; font:normal 13px Arial; color:#333;}
+.close {display:block; position:absolute; z-index:152; background:url(/images/icons.png) no-repeat -231px -5px; width:14px; height:14px; top:8px; right:8px; text-indent: -2000em; cursor:pointer;}
+.close:hover {background:url(/images/icons.png) no-repeat -252px -5px;}
+.popup .in h3 {font-size:18px; margin:0 0 15px 0;}
+
+.inquiry{width:400px;}
+.inquiry h2{font: bold 16px Arial; color:#000; margin:0 0 10px 0; line-height:18px;}
+.inquiry textarea, .inquiry_reply textarea{height:150px;width:font-size:12px;}
+.inquiry input[type=text] {margin-bottom:10px;}
+
+.inquiry_reply{width:100%;padding:30px 0 0}
+.inquiry_reply textarea{width:99%}
+
+.popup textarea {width:99%; /*margin:7px 0;*/ background:#F1F1F1; border:1px solid #DEDEDE; text-align:left;}
+.inquiry select {margin-bottom: 10px;}
+
+.message_area_success {background:#E2FFDE; padding:20px; float:left;}
+.message_area_error {background:#FFEDED; padding:20px; float:left;}
+.ten_px {font-size: 11px; color:#999;}
+
+.inquirydetails table td {font-size:12px; color:#333;}
+.inquirydetails table th {color:#666;}
+.inquirydetails {background:#D8E0F0; padding:10px;}
+
+.comment {margin:3px 0; background:#D8E0F0; padding:7px; position:relative; overflow:hidden;}
+.comment:after {content: ''; display: block; clear:both;}
+.comment .user2 {float:left; width:130px; font-size:11px; color:#333; border-right:1px dotted #CCC;}
+.comment .content { font:normal 12px Arial; color:#666; margin-left:140px;}
+.comment .content div {margin:0 0 7px 0;}
+.comment .completed {background:#459e45; float:left; font:bold 9px Arial; text-transform:uppercase; color:#FFF; padding:2px 5px; margin:7px 0 0 0;}
+.comment .gaveup {background:#e02121; float:left; font:bold 9px Arial; text-transform:uppercase; color:#FFF; padding:2px 5px; margin:7px 0 0 0;}
+.comment .user2 b {font:bold 13px Arial;}

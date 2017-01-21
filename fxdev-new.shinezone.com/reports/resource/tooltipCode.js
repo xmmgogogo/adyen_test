@@ -1,0 +1,14 @@
+define("chart/widgetFramework/core/drivers/tooltipCode",["jquery","underscore","d3","util/Functional","chartutil/domUtils"],function(f,a,c,b,e){var d=function(g){g.setupTooltip=function(m,k){this.setTooltip(m,k,f("body"));
+this.tooltipSelector=k.event.selector;this.tooltipEvent=k.event.type;var l=this.el.getBoundingClientRect();var j=document.body.scrollTop;
+var h=document.body.scrollLeft;var i={top:l.top+j,left:l.left+h};this.getTooltip().setPosition(i);this.setTooltipsOnElements();
+};g.setTooltipsOnElements=function(i){var k=(i===true)?g.width:g.horizBarSize;var h=g.height;var j=this.$el.find(this.tooltipSelector);
+j.off(this.tooltipEvent);j.off("mouseout");j.on(this.tooltipEvent,function(y){var q=f(this);var v=this.getBoundingClientRect();
+var z=e.getScrollTop();var r=e.getScrollLeft();var n=0;var p=0;if(f("html").hasClass("webkit")){var t=document.getElementsByTagName("html")[0];
+var x=t.className;var A=x.indexOf("webkit");var s=x.lastIndexOf("webkit");var o=x.substring(A,s);var u=o.replace(/[^0-9]/gi,"");
+if(u<601){n=100;p=100+(k/2);}}var m=g.positionTooltip(v,r,z,p,n,k,h);var l=a.cloneDeep(c.select(this).datum());g.tooltipOnMouseoverAction(l,q);
+var w=function(){g.tooltip.hide();g.tooltipOnMouseoutAction(l,q);};q.on("mouseout",function(){var B=g.tooltip.$container.is(":hover");
+if(!B){w();}});g.tooltip.$container.bind("mouseleave",function(){w();});g.enhanceTooltipData(l);g.getTooltip().render(m,l);
+g.postRender(l);});};g.setTooltip=function(j,i,h){this.tooltip=new j(i,h);};g.getTooltip=function(){return this.tooltip;};
+g.positionTooltip=function(l,n,k,m,h,i,o){var j=l.top+k-10-h;var p=((l.left+n)-m)+(i/2);return{top:j,left:p};};g.enhanceTooltipData=function(h){};
+g.tooltipOnMouseoverAction=function(h){};g.tooltipOnMouseoutAction=function(h){};g.postRender=function(h){};return g;};return d;
+});

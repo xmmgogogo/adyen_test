@@ -1,0 +1,8 @@
+define("chart/widgetFramework/chartTypes/stackedBar",["jquery","underscore","d3","hogan","util/Functional","util/ObjectSuper","chart/widgetFramework/core/drivers/axisBaseView","chart/widgetFramework/core/constants/UIConstants","chart/widgetFramework/core/constants/WidgetConstants","chartutil/d3utils"],function(c,h,k,e,b,f,i,g,d,j){var a=function(n,p,s,r){var o;
+var l={};var q="";var t=h.defaults(n,l);o=i(t,p);var m=f(o);o.timeline=s;o.init=function(){m.init();};o.feedData=function(u){var v=m.feedData(u);
+if(this.timeline){this.configData.granularity=this.timeline.getGranularity();}if(b.falsy(this.data)){return;}this.setNestedAttr(this.data);
+return v;};o.getStackData=function(){return function(u){return u[o.nestedAttr];};};o.getSecondaryDataJoin=function(){return this.getDataJoin("name");
+};o.renderData=function(){if(b.falsy(this.data)){this.hideCharts("no data to display");return;}var w=this,y=this.scales[this.options.xAttr],x=this.scales[this.options.yAttr],u=this.options.centerBars;
+var v;if(this.options.variation===d.VERTICAL){v=this.barUtils.containerBarsVertical(this.chartGroup,this.getData(),this.getPrimaryDataJoin(),this.barPositioningFn,true).stackVertical(this.getStackData(),this.getSecondaryDataJoin(),x,this.barSize);
+}else{v=this.barUtils.containerBarsHorizontal(this.chartGroup,this.getData(),this.getPrimaryDataJoin(),this.barPositioningFn,true).stackHorizontal(this.getStackData(),this.getSecondaryDataJoin(),y,this.barSize);
+}this.addLabels();return v;};o.addLabels=function(){};return o;};return a;});

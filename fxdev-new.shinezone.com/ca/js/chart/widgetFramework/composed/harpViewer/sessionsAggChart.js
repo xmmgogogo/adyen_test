@@ -1,0 +1,11 @@
+define("chart/widgetFramework/composed/harpViewer/sessionsAggChart",["jquery","underscore","d3","hogan","util/ObjectSuper","util/Functional","chart/widgetFramework/chartTypes/stackedBar"],function(h,d,g,b,f,e,c){var a=function(k,m,p,o){var l;
+var i={};var q=d.defaults(i,k);l=c(q,m);var j=f(l);l.setBandSizes=function(){j.setBandSizes();this.barSize=6;};l.setYScale=function(){j.setYScale();
+this.scales[this.options.yAttr].rangeBands([0,this.height],this.options.barPadding);};l.renderData=function(){j.renderData();
+if(e.falsy(this.data)){this.hideCharts("no data to display at this level of granularity");return;}var r=500;var u=this.barUtils.bars.bar.selectAll(".aggregate-texts").data(function(w){var v=w.totalsArray;
+return v;},function(v){return v.monthFmt;});var t=u.transition().duration(r);t.select(".agg-text.agg-auths-text").attr("fill-opacity",1).text(function(v){return v.auths;
+});t.select(".agg-text.agg-tx-text").attr("fill-opacity",1).text(function(v){return v.tx;});t.select(".agg-text.agg-authrate-text").attr("fill-opacity",1).text(function(v){return v.authRate;
+});var s=u.enter().append("g").attr("class","aggregate-texts").attr("transform",function(w){var v=-7;return"translate("+0+","+(v)+")";
+});s.append("text").attr("class","agg-text agg-auths-text").attr("fill-opacity",0.000001).transition().duration(r).attr("fill-opacity",1).text(function(v){return v.auths;
+});s.append("text").attr("class","agg-text agg-tx-text").attr("x",this.width/2).attr("fill-opacity",0.000001).style("text-anchor","middle").transition().duration(r).attr("fill-opacity",1).text(function(v){return v.tx;
+});s.append("text").attr("class","agg-text agg-authrate-text").attr("x",this.width).attr("fill-opacity",0.000001).style("text-anchor","end").transition().duration(r).attr("fill-opacity",1).text(function(v){return v.authRate;
+});this.barUtils.bars.exit.selectAll("text").attr("fill-opacity",0);};var n=function(r){};return l;};return a;});

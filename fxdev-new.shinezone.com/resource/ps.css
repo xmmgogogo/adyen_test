@@ -1,0 +1,416 @@
+@CHARSET "UTF-8";
+a.pm_wechat b {background-image:url(/images/ps_logos/pm_wechat.png?1) !important; background-position: 0 0 !important;}
+a.pm_neteller b {background-image:url(/images/ps_logos/pm_neteller.png?1) !important; background-position: 0 0 !important;}
+a.pm_paypal b {background-position:0 -242px;}
+a.pm_zong b {background-position:-107px -931px;}
+a.pm_zong.fr b {background-image:url(/images/ps_logos/pm_zong_fr.png?1); background-position:0 0 !important;}
+a.pm_zong.ph b {background-image:url(/images/ps_logos/pm_zong_ph.png?2); background-position:0 0 !important;}
+a.pm_mikroodeme b {background-image:url(/images/ps_logos/pm_mo.png?2) !important;}
+a.pm_daopay b {background-position:0 -461px;}
+a.pm_paymo b {background-position:0 -169px;}
+a.pm_paymo.fr b {background-image:url(/images/ps_logos/pm_paymo_fr.png?1); background-position:0 0 !important;}
+a.pm_socialgold b {background-position:0 -23px;}
+a.pm_googlecheckout b {background-position:0 -785px;}
+a.pm_amazon b {background-position:0 -712px;}
+a.pm_cc b {background-image:url(/images/ps_logos/pm_cc_default.png?1) !important;}
+a.pm_cc.us b {background-image:url(/images/pm9.png?11)!important; background-position:0 -23px;}
+a.pm_cc.jp b {background-image:url(/images/ps_logos/pm_cc_jp.png?11)!important; background-position:0 7px !important; background-size: 101%;}
+a.pm_cc.amex b {background-image:url(/images/pm9.png?11)!important; background-position:0 -388px!important;}
+a.pm_cc.amex.us b {background-image:url(/images/ps_logos/pm_cc.png?1)!important; background-position: 0!important;}
+a.pm_cc.amex.jp b {background-image:url(/images/ps_logos/pm_cc_jp.png?11)!important; background-position:0 7px !important; background-size: 101%;}
+a.pm_cceuro b {background-image:url(/images/ps_logos/pm_cc_default.png?1) !important;}
+a.pm_dummy b {background-image:url(/images/ps_logos/pm_dummy.png?1) !important;}
+a.pm_paymentwallcc b {background-position:0 -23px;}
+a.pm_ccbill b {background-position:-107px -96px;}
+a.pm_paypalcc b {background-position:0 -23px;}
+a.pm_cherrycredits b {background-image:url(/images/ps_logos/pm_cherrycredits.png?2) !important;background-position: 13px 8px !important; background-repeat: no-repeat;}
+a.pm_smscoin b {background-position:0 -858px;}
+a.pm_allopass b {background-position:0 -931px;}
+a.pm_paypaldirect b {background-position:0 -23px;}
+a.pm_moneybookers b {background-position:0 -534px;}
+a.pm_rixty b {background-image:url(/images/ps_logos/pm_rixty.png?1) !important;}
+a.pm_kwedit b {background-image:url(/images/ps_logos/pm_kwedit.png?1) !important;}
+a.pm_wallie b {background-position:-107px -388px;}
+a.pm_webbilling b {background-position:-107px -461px;}
+a.pm_todito b {background-image:url(/images/ps_logos/pm_todito.png?2) !important;background-position:11px 7px !important; background-repeat: no-repeat;}
+a.pm_topay b {background-image:url(/images/ps_logos/pm_2pay.png?1) !important;}
+a.pm_mobius b {background-image:url(/images/ps_logos/pm_mobius.png?1) !important;}
+a.pm_paysafecard b {background-position:-107px -23px;}
+a.pm_cuentadigital b {background-image:url(/images/ps_logos/pm_cuenta.png?1) !important;}
+a.pm_cashu b {background-image:url(/images/ps_logos/pm_cashu.png?2) !important;background-position:9px 5px !important; background-repeat: no-repeat;}
+a.pm_ukash b {background-position:-107px -242px;}
+a.pm_gudangvoucher b {background-image:url(/images/ps_logos/pm_gudangvoucher.png?2) !important;background-position:12px 6px !important; background-repeat: no-repeat;}
+a.pm_impulsepay b {background-image:url(/images/ps_logos/pm_impulsepay.png?1) !important;}
+a.pm_mol b {background-image:url(/images/ps_logos/pm_mol.png?2) !important;background-position:9px 6px !important; background-repeat: no-repeat;}
+a.pm_fasterpay b {background-position:-107px -461px;}
+a.pm_pay900 b {background-image:url(/images/ps_logos/pm_pay900.png?1) !important;}
+a.pm_wavegame b {background-image:url(/images/ps_logos/pm_wavegame.png?2) !important;background-position:11px 8px !important; background-repeat: no-repeat;}
+a.pm_vinapay b {background-image:url(/images/ps_logos/pm_vinapay.png?1) !important;}
+a.pm_dineromail b {background-image:url(/images/ps_logos/pm_dineromail.png?1) !important;}
+a.pm_ecocard b {background-position:-107px -639px;}
+a.pm_debitcard b {background-position:-107px -712px;}
+a.pm_clickandbuy b {background-position:-107px -785px;}
+a.pm_cartebleue b {background-image:url(/images/ps_logos/pm_cartebleue.png?1) !important;}
+a.pm_onecard b {background-image:url(/images/ps_logos/pm_onecard.png?2) !important;background-position:11px 7px !important; background-repeat: no-repeat;}
+
+a.pm_admeris b {background-image:url(/images/ps_logos/pm_interac.png?1) !important;}
+a.pm_mercadopago b {background-image:url(/images/ps_logos/pm_mercadopago.png?1); background-position: -2px -1px !important; background-repeat: no-repeat;}
+
+a.pm_sofortdirectdebit b {background-image:url(/images/ps_logos/pm_lastschrift.png?1) !important;}
+a.pm_paymofast b {background-position:0 -169px;}
+a.pm_paymofast.fr b {background-image:url(/images/ps_logos/pm_paymo_fr.png?1); background-position:0 0 !important;}
+a.pm_paymoslow b {background-position:0 -169px;}
+a.pm_paymoslow.fr b {background-image:url(/images/ps_logos/pm_paymo_fr.png?1); background-position:0 0 !important;}
+a.pm_dankort b {background-image:url(/images/ps_logos/pm_dankort.png?1) !important;}
+a.pm_cartasi b {background-image:url(/images/ps_logos/pm_cartasi.png?1) !important;}
+a.pm_enets b {background-image:url(/images/ps_logos/pm_enets.png?1) !important;}
+a.pm_postepay b {background-image:url(/images/ps_logos/pm_postepay.png?1) !important;}
+a.pm_nordeasolo b {background-image:url(/images/ps_logos/pm_nordeasolo.png?1) !important;}
+a.pm_przelewy b {background-image:url(/images/ps_logos/pm_przelewy24.png?1) !important;}
+a.pm_eps b {background-image:url(/images/ps_logos/pm_eps.png?1) !important;}
+a.pm_poli b  {background-image:url(/images/ps_logos/pm_poli.png?1) !important;}
+a.pm_mopay b {background-position:0 -388px;}
+a.pm_pinhall b {background-image:url(/images/ps_logos/pm_pinhall.png?1) !important;background-position:-2px 1px !important;background-repeat: no-repeat;}
+a.pm_gamania b {background-image:url(/images/ps_logos/pm_gash_wallet.png?1) !important;}
+a.pm_fortumo b {background-position:0 -96px;}
+a.pm_fortumo.at b {background-image:url(/images/ps_logos/pm_fortumo_at.png?1); background-position:0 0 !important;}
+a.pm_fortumo.fi b {background-image:url(/images/ps_logos/pm_fortumo_fi.png?1); background-position:0 0 !important;}
+a.pm_fortumo.hk b {background-image:url(/images/ps_logos/pm_fortumo_hk.png?1); background-position:0 0 !important;}
+a.pm_fortumo.ru b {background-image:url(/images/ps_logos/pm_fortumo_ru.png?1) !important; background-position:0 0 !important;}
+a.pm_fortumo.th b {background-image:url(/images/ps_logos/pm_fortumo_th.png?2); background-position:0 0 !important;}
+a.pm_fortumo.il b {background-image:url(/images/ps_logos/pm_fortumo_il.png?1) !important; background-position:4px -2px !important; background-repeat: no-repeat;}
+a.pm_fortumo.ec b {background-image:url(/images/ps_logos/pm_fortumo_ec.png?1) !important; background-position:4px -2px !important; background-repeat: no-repeat;}
+a.pm_fortumo.by b {background-image:url(/images/ps_logos/pm_fortumo_by.png?1) !important; background-position:4px -2px !important; background-repeat: no-repeat;}
+/*a.pm_jcb b {background-position:-107px -315px;}*/
+a.pm_moedasegura b {background-image:url(/images/ps_logos/pm_moedasegura.png?1) !important;}
+a.pm_przelewy24 b {background-image:url(/images/ps_logos/pm_przelewy24.png?1) !important;}
+a.pm_neosurf b {background-image:url(/images/ps_logos/pm_neosurf.png?2) !important;background-position:12px 6px !important; background-repeat: no-repeat;}
+a.pm_mobilefirst b {background-position:0 -639px;}
+a.pm_mobilefirst.ru b {background-image:url(/images/ps_logos/pm_mobilefirst_ru.png?1) !important; background-position:0 0 !important;}
+a.pm_mobilefirst.at b {background-image:url(/images/ps_logos/pm_mobilefirst_at.png?1); background-position:0 0 !important;}
+a.pm_mobilefirst.fi b {background-image:url(/images/ps_logos/pm_mobilefirst_fi.png?1); background-position:0 0 !important;}
+a.pm_mobilefirst.hk b {background-image:url(/images/ps_logos/pm_mobilefirst_hk.png?1); background-position:0 0 !important;}
+a.pm_mobilefirst.th b {background-image:url(/images/ps_logos/pm_mobilefirst_th.png?1); background-position:0 0 !important;}
+a.pm_mobilefirst.za b {background-image:url(/images/ps_logos/pm_mobilefirst_za.png?1); background-position:0 0 !important;}
+a.pm_mobilefirstfast b {background-position:0 -639px;}
+a.pm_mobilefirstfast.ru b {background-image:url(/images/ps_logos/pm_mobilefirst_ru.png?1) !important; background-position:0 0 !important;}
+a.pm_mobilefirstfast.at b {background-image:url(/images/ps_logos/pm_mobilefirst_at.png?1); background-position:0 0 !important;}
+a.pm_mobilefirstfast.fi b {background-image:url(/images/ps_logos/pm_mobilefirst_fi.png?1); background-position:0 0 !important;}
+a.pm_mobilefirstfast.hk b {background-image:url(/images/ps_logos/pm_mobilefirst_hk.png?1); background-position:0 0 !important;}
+a.pm_mobilefirstfast.th b {background-image:url(/images/ps_logos/pm_mobilefirst_th.png?1); background-position:0 0 !important;}
+a.pm_mobilefirstfast.za b {background-image:url(/images/ps_logos/pm_mobilefirst_za.png?1); background-position:0 0 !important;}
+
+a.pm_ongate b {background-image:url(/images/ps_logos/pm_ongate.png?1) !important;}
+a.pm_indomog b {background-image:url(/images/ps_logos/pm_indomog.png?2) !important;background-position:10px 7px !important; background-repeat: no-repeat;}
+a.pm_dotpay b {background-image:url(/images/ps_logos/pm_dotpay.png?1) !important;}
+a.pm_directpay b {background-position:-107px -461px;}
+a.pm_ideal b {background-image:url(/images/ps_logos/pm_ideal.png?2) !important;background-position:14px 6px !important; background-repeat: no-repeat;}
+a.pm_mycardcard b {background-image:url(/images/ps_logos/pm_mycardcard.png?1) !important;}
+a.pm_mycardwallet b {background-image:url(/images/ps_logos/pm_mycardwallet.png?1) !important;}
+a.pm_alipay b {background-image:url(/images/ps_logos/pm_alipay.png?2) !important;}
+a.pm_yamoney b {background-image:url(/images/ps_logos/pm_yamoney.png?1) !important;}
+a.pm_gamesilk b {background-image:url(/images/ps_logos/pm_gamesilk.png?1) !important;}
+a.pm_fanapay b {background-image:url(/images/ps_logos/pm_fanapay.png?1) !important;}
+a.pm_pagseguro b {background-image:url(/images/ps_logos/pm_pagseguro.png?1) !important;}
+a.pm_okspinoy b {background-image:url(/images/ps_logos/pm_okspinoy.png?1) !important;}
+a.pm_webmoney b {background-image:url(/images/ps_logos/pm_webmoney.png?2) !important;}
+a.pm_ticketsurf b {background-image:url(/images/ps_logos/pm_ticketsurf.png?1)!important; background-position: -1px 0 !important; background-repeat: no-repeat;}
+a.pm_giropay b {background-image:url(/images/ps_logos/pm_giropay.png?2) !important;}
+a.pm_boxpay b {background-image:url(/images/ps_logos/pm_boxpay.png?1) !important;}
+a.pm_rbkmoney b {background-image:url(/images/ps_logos/pm_rbkmoney.png?1) !important;}
+a.pm_eprepag b {background-image:url(/images/ps_logos/pm_eprepag.png?1) !important;}
+a.pm_infinivr b {background-position:-107px -858px;}
+a.pm_infinsms b {background-position:-107px -931px;}
+a.pm_atlasivr b {background-position:-107px -858px;}
+a.pm_rbkmoneycc b {background-position:0 -23px;} 
+a.pm_tutudo b {background-image:url(/images/ps_logos/pm_tutudo.png?1) !important;}
+a.pm_moneybookerscc b {background-position:0 -23px;}
+a.pm_mistercash b {background-image:url(/images/ps_logos/pm_mistercash.png?1) !important;}
+a.pm_zeevex b {background-image:url(/images/ps_logos/pm_zeevex.png?1) !important;}
+a.pm_trustpay b {background-position:-107px -461px;}
+a.pm_cashna b {background-image:url(/images/ps_logos/pm_cashna.png?1) !important;}
+a.pm_mazooma b {background-image:url(/images/ps_logos/pm_mazooma.png?1) !important;}
+a.pm_ach b {background-image:url(/images/ps_logos/pm_ach.png?1) !important;}
+a.pm_turkeybt b {background-image:url(/images/ps_logos/pm_turkeybt.png?4) !important;}
+a.pm_paybyme b {background-image: url(/images/ps_logos/pm_paybyme.png?2) !important;}
+a.pm_dotpaybzwbk b {background-image: url(/images/ps_logos/pm_dotpaybzwbk.png?2) !important;}
+a.pm_dotpaymt b {background-image: url(/images/ps_logos/pm_dotpaymt.png?2) !important;}
+a.pm_dotpaycc b {background-position:0 -23px;}
+a.pm_dotpaypkobp b {background-image: url(/images/ps_logos/pm_dotpaypkobp.png?2) !important;}
+a.pm_dotpaypekao b {background-image: url(/images/ps_logos/pm_dotpaypekao.png?2) !important;}
+a.pm_dotpayingb b {background-image: url(/images/ps_logos/pm_dotpayingb.png?2) !important;}
+a.pm_dotpayinteligo b {background-image: url(/images/ps_logos/pm_dotpayinteligo.png?2) !important;}
+a.pm_dotpayingbacc b {background-image: url(/images/ps_logos/pm_dotpayingbacc.png?2) !important;}
+a.pm_dotpaymb b {background-image: url(/images/ps_logos/pm_dotpaymb.png?2) !important;}
+a.pm_turkeycheck b {background-image:url(/images/ps_logos/pm_turkeycheck.png?3) !important;}
+a.pm_qiwibank b {background-image:url(/images/ps_logos/pm_qiwibank.png?1) !important;}
+a.pm_allopasslandline b {background-position:-107px -858px;}
+a.pm_qiwiwallet b {background-image:url(/images/ps_logos/pm_qiwiwallet.png?1) !important;}
+a.pm_mangirkart b {background-image:url(/images/ps_logos/pm_mangirkart.png?2) !important;}
+a.pm_megalink b {background-image:url(/images/ps_logos/pm_megalink.png?2) !important;}
+a.pm_boletobancario b {background-image:url(/images/ps_logos/pm_boletobancario_transparent.png?1); background-position:24px 3px; background-repeat: no-repeat; background-size: 60px 39px;}
+a.pm_ebanxtransfer b {background-image:url(/images/ps_logos/pm_ebanxtransfer.png?1); background-position:-1px 0px;}
+a.pm_bdophilippines b {background-image:url(/images/ps_logos/pm_bdophilippines.png?1); background-position:1px -1px;}
+
+a.pm_cc2 b {background-image:url(/images/ps_logos/pm_cc2.png?1) !important;}
+a.pm_allopasscc b {background-position:0 -23px;}
+a.pm_cartebleueallopass b {background-image:url(/images/ps_logos/pm_cartebleueallopass.png?1) !important;}
+a.pm_pwallet b {background-position:-107px -315px;}
+a.pm_gateway b {background-position:0 -23px;}
+a.pm_gateway.amex b {background-image:url(/images/pm9.png?11)!important; background-position:0 -388px!important;}
+a.pm_liqpay b {background-image:url(/images/ps_logos/pm_liqpay.png?3) !important;}
+a.pm_iplus.fr b {background-image:url(/images/ps_logos/pm_internet_plus.png?1) !important;}
+a.pm_iplus b {background-image:url(/images/ps_logos/pm_mobile_billing.png?1) !important;}
+a.pm_webmoneyjp b {background-image:url(/images/ps_logos/pm_webmoneyjp.png?1) !important;}
+a.pm_unionpay b {background-image:url(/images/ps_logos/pm_unionpay.png?2) !important;background-position:14px 6px !important; background-repeat: no-repeat;}
+a.pm_mobilegateway b {background-position:-107px -931px;}
+a.pm_mobilegateway.reorder b {background-image:url(/images/ps_logos/pm_mobilegateway.png?1); background-position: 0; background-repeat: no-repeat;}
+a.pm_pwsms b {background-position:-107px -931px;}
+a.pm_ccsmart b {background-image:url(/images/ps_logos/pm_ccsmart.png?2) !important;}
+a.pm_mobilegateway b {background-image:url(/images/ps_logos/pm_mobiamo.png?1) !important; background-position:4px 2px !important; background-repeat: no-repeat;}
+
+a.pm_mercadopagohiper b {background-image:url(/images/ps_logos/pm_hipercard.png?3) !important; background-position:0 0 !important;}
+a.pm_mercadopagoelo b {background-image:url(/images/ps_logos/pm_elo.png?3) !important; background-position:0 0 !important;}
+a.pm_mercadopagocartao b {background-image:url(/images/ps_logos/pm_mercadolivre.png?2) !important; background-position:0 0 !important;}
+a.pm_mercadopagoboleto b {background-image:url(/images/ps_logos/pm_boleto.png?2) !important; background-position:0 0 !important;}
+a.pm_mercadopagocc b  {background-position:0 -388px;}
+
+a.pm_sofortbanktransfer.at b {background-image:url(/images/ps_logos/pm_sofortbanktransfer.png?3) !important;background-position:0 0 !important;}
+a.pm_sofortbanktransfer.de b {background-image:url(/images/ps_logos/pm_sofortbanktransfer.png?3) !important;background-position:0 0 !important;}
+a.pm_sofortbanktransfer.ch b {background-image:url(/images/ps_logos/pm_sofortbanktransfer.png?3) !important;background-position:0 0 !important;}
+a.pm_sofortbanktransfer b  {background-image:url(/images/ps_logos/pm_sofortbanktransfer.png?3) !important;background-position:0 0 !important;}
+
+a.pm_epinpaymentsystem b {background-image:url(/images/ps_logos/pm_epinpaymentsystem.png) !important;background-position:0px 0px !important;}
+
+a.pm_cc3 b  {background-image:url(/images/ps_logos/pm_cc_default.png?1) !important;}
+a.pm_cc4 b  {background-image:url(/images/ps_logos/pm_cc_default.png?1) !important;}
+a.pm_cc4.us b  {background-image:url(/images/pm9.png?11) !important; background-position:0 -23px;}
+
+a.pm_coinbasebitcoin b {background-image:url(/images/ps_logos/pm_coinbasebitcoin.png?1); background-position:3px 0 !important; background-repeat: no-repeat;}
+a.pm_openbucks b {background-image:url(/images/ps_logos/pm_openbucks.png?3); background-position:3px 10px !important; background-repeat: no-repeat;}
+a.pm_vtc b {background-image:url(/images/ps_logos/pm_vtc.png?1); background-position:-1px -1px !important; background-repeat: no-repeat;}
+a.pm_safetypay b {background-image:url(/images/ps_logos/pm_safetypay.png?1); background-position:-2px -1px !important; background-repeat: no-repeat;}
+a.pm_safetypaycash b {background-image:url(/images/ps_logos/pm_safetypaycash.png?1); background-position:0 4px !important; background-repeat: no-repeat;}
+a.pm_vtctelcocard b {background-image:url(/images/ps_logos/pm_vtctelcocard.png?2); background-position:0 0 !important; background-repeat: no-repeat;}
+a.pm_latamcchipercard b {background-image:url(/images/ps_logos/pm_hipercard.png?3); background-position:0 0 !important;}
+a.pm_latamccelo b {background-image:url(/images/ps_logos/pm_elo.png?3); background-position:0 0 !important;}
+a.pm_latamcc b {background-image:url(/images/pm9.png?11)!important; background-position:0 -388px!important;}
+a.pm_latamcchipercard b {background-image:url(/images/ps_logos/pm_hipercard.png?3); background-position:0 0 !important;}
+a.pm_latamccelo b {background-image:url(/images/ps_logos/pm_elo.png?3); background-position:0 0 !important;}
+a.pm_astropaycard b {background-image:url(/images/ps_logos/pm_astropaycard.png?1); background-position:3px 1px !important; background-repeat: no-repeat;}
+a.pm_latambanktransfer b {background-position:-107px -461px !important;}
+a.pm_boleto b {background-image:url(/images/ps_logos/pm_boletobancario_transparent.png?1); background-position:24px 3px; background-repeat: no-repeat; background-size: 60px 39px;}
+a.pm_redpagos b {background-image:url(/images/ps_logos/pm_redpagos.png?1); background-position:-1px 1px !important; background-repeat: no-repeat;}
+a.pm_redcompra b {background-image:url(/images/ps_logos/pm_redcompra.png?1); background-position:-1px 0 !important; background-repeat: no-repeat;}
+a.pm_bcpperu b {background-image:url(/images/ps_logos/pm_bcpperu.png?1); background-position:-2px 0 !important; background-repeat: no-repeat;}
+a.pm_interbankperu b {background-image:url(/images/ps_logos/pm_interbankperu.png?1); background-position:-2px 0 !important; background-repeat: no-repeat;}
+a.pm_bbvaperu b {background-image:url(/images/ps_logos/pm_bbvaperu.png?1); background-position:-1px -1px !important; background-repeat: no-repeat;}
+a.pm_bancomermexico b {background-image:url(/images/ps_logos/pm_bancomermexico.png?1); background-position:-1px -1px !important; background-repeat: no-repeat;}
+a.pm_banamexmexico b {background-image:url(/images/ps_logos/pm_banamexmexico.png?1); background-position:-1px -2px !important; background-repeat: no-repeat;}
+a.pm_santandermexico b {background-image:url(/images/ps_logos/pm_santandermexico.png?1); background-position:-1px -2px !important; background-repeat: no-repeat;}
+a.pm_hsbcmexico b {background-image:url(/images/ps_logos/pm_hsbcmexico.png?1); background-position:0 0 !important; background-repeat: no-repeat;}
+a.pm_oxxo b {background-image:url(/images/ps_logos/pm_oxxo.png?1); background-position:-1px -1px !important; background-repeat: no-repeat;}
+a.pm_itau b {background-image:url(/images/ps_logos/pm_itau.png?1); background-position:-1px -1px !important; background-repeat: no-repeat;}
+a.pm_bradesco b {background-image:url(/images/ps_logos/pm_bradesco.png?1); background-position:-1px 0 !important; background-repeat: no-repeat;}
+a.pm_bancodobrasil b {background-image:url(/images/ps_logos/pm_bancodobrasil.png?1); background-position:-2px 1px !important; background-repeat: no-repeat;}
+a.pm_hsbcbrasil b {background-image:url(/images/ps_logos/pm_hsbcbrasil.png?1); background-position:0 0 !important; background-repeat: no-repeat;}
+a.pm_transferenciabancaria b {background-image:url(/images/ps_logos/pm_transferenciabancaria.png?2); background-position:-1px -2px !important; background-repeat: no-repeat;}
+a.pm_banktransfermexico b {background-image:url(/images/ps_logos/pm_banktransfermexico.png?1); background-position:-2px 0 !important; background-repeat: no-repeat;}
+a.pm_banktransferperu b {background-image:url(/images/ps_logos/pm_banktransferperu.png?1); background-position:-1px 0 !important; background-repeat: no-repeat;}
+a.pm_ccbrazil b {background-image:url(/images/pm9.png?11)!important; background-position:0 -388px!important;}
+a.pm_ccbrazilhipercard b {background-image:url(/images/ps_logos/pm_hipercard.png?3); background-position:0 0 !important;}
+a.pm_tenpay b {background-image:url(/images/ps_logos/pm_tenpay.png?4); background-position: 0 -1px !important; background-repeat: no-repeat;}
+a.pm_unipinexpress b {background-image:url(/images/ps_logos/pm_unipinexpress.png?2); background-position: -1px -3px !important; background-repeat: no-repeat;}
+a.pm_unipinwallet b {background-image:url(/images/ps_logos/pm_unipinwallet.png?1); background-position: -2px 0 !important; background-repeat: no-repeat;}
+a.pm_globewallet b {background-image:url(/images/ps_logos/pm_globewallet.png?1); background-position: 8px 4px !important; background-repeat: no-repeat;}
+a.pm_nganluong b {background-image:url(/images/ps_logos/pm_nganluong.png?1); background-position: 1px 10px !important; background-repeat: no-repeat;}
+a.pm_dineromailargentina b {background-image:url(/images/ps_logos/pm_dineromailargentina.png?1) !important;}
+a.pm_vcoincard b {background-image:url(/images/ps_logos/pm_vcoincard.png?2) !important; background-position: 0 0 !important;}
+a.pm_burgerking b {background-image:url(/images/ps_logos/pm_burgerking.png?1); background-position: 1px -2px !important; background-repeat: no-repeat;}
+a.pm_circlek b {background-image:url(/images/ps_logos/pm_circlek.png?1); background-position: -1px -1px !important; background-repeat: no-repeat;}
+a.pm_cvspharmacy b {background-image:url(/images/ps_logos/pm_cvspharmacy.png?1); background-position: 0 -2px !important; background-repeat: no-repeat;}
+a.pm_dollargeneral b {background-image:url(/images/ps_logos/pm_dollargeneral.png?1); background-position: 0 -1px !important; background-repeat: no-repeat;}
+a.pm_subway b {background-image:url(/images/ps_logos/pm_subway.png?2); background-position: -1px -1px !important; background-repeat: no-repeat;}a.pm_subway b {background-image:url(/images/ps_logos/pm_subway.png?1); background-position: -1px -1px !important; background-repeat: no-repeat;}
+a.pm_idealnl b {background-image:url(/images/ps_logos/pm_idealnl.png?1) !important;background-position:11px 6px !important; background-repeat: no-repeat;}
+a.pm_bancontact b {background-image:url(/images/ps_logos/pm_mistercash.png?1) !important;}
+a.pm_cclatam b {background-image:url(/images/pm9.png?11)!important; background-position:0 -388px!important;}
+a.pm_eprepagcard b {background-image:url(/images/ps_logos/pm_eprepagcard.png?2); background-position: -1px -2px !important; background-repeat: no-repeat;}
+a.pm_polipayments b  {background-image:url(/images/ps_logos/pm_polipayments.png?1) !important; background-position: 5px!important;}
+a.pm_evroset b {background-image:url(/images/ps_logos/pm_evroset.png?1)!important; background-position:1px -1px !important; background-repeat: no-repeat;}
+a.pm_svyasnoi b {background-image:url(/images/ps_logos/pm_svyasnoi.png?2)!important; background-position:1px -1px !important; background-repeat: no-repeat;}
+a.pm_turkpay b {background-image:url(/images/ps_logos/pm_turkpay.png?2)!important; background-position:1px -1px !important; background-repeat: no-repeat;}
+a.pm_itaubrazil b {background-image:url(/images/ps_logos/pm_itaubrazil.png?2)!important; background-position:1px -1px !important; background-repeat: no-repeat;}
+a.pm_bradescobrazil b {background-image:url(/images/ps_logos/pm_bradescobrazil.png?2)!important; background-position:1px -1px !important; background-repeat: no-repeat;}
+a.pm_bancobrazil b {background-image:url(/images/ps_logos/pm_bancobrazil.png?2)!important; background-position:1px -1px !important; background-repeat: no-repeat;}
+a.pm_banrisulbrazil b {background-image:url(/images/ps_logos/pm_banrisulbrazil.png?2)!important; background-position:0px 10px !important; background-repeat: no-repeat;}
+a.pm_brazilhsbc b {background-image:url(/images/ps_logos/pm_brazilhsbc.png?2)!important; background-position:1px -1px !important; background-repeat: no-repeat;}
+a.pm_amex b {background-image:url(/images/ps_logos/pm_amex.png?2)!important;  background-repeat: no-repeat;background-position: -2px -1px !important;}
+a.pm_paypost b {background-image:url(/images/ps_logos/pm_paypost.png?2)!important;  background-repeat: no-repeat;background-position: 1px;}
+a.pm_narvesen b {background-image:url(/images/ps_logos/pm_narvesen.png?2)!important;  background-repeat: no-repeat;background-position: 1px;}
+a.pm_perlas b {background-image:url(/images/ps_logos/pm_perlas.png?2)!important;  background-repeat: no-repeat;background-position: 1px;}
+a.pm_easypay b {background-image:url(/images/ps_logos/pm_easypay.png?2)!important;  background-repeat: no-repeat;background-position: 17px 8px!important;}
+a.pm_maxima b {background-image:url(/images/ps_logos/pm_maxima.png?2)!important;  background-repeat: no-repeat;}
+a.pm_btlithuania b {background-image:url(/images/ps_logos/pm_btlithuania.png?3)!important;  background-repeat: no-repeat; background-position: 1px;}
+a.pm_btlatvia b {background-image:url(/images/ps_logos/pm_btlatvia.png?3)!important;  background-repeat: no-repeat; background-position: 1px;}
+a.pm_btestonia b {background-image:url(/images/ps_logos/pm_btestonia.png?3)!important;  background-repeat: no-repeat; background-position: 1px;}
+a.pm_pagofacil b {background-image:url(/images/ps_logos/pm_pagofacil.png?1)!important;  background-repeat: no-repeat;}
+a.pm_rapipago b {background-image:url(/images/ps_logos/pm_rapipago.png?2)!important;  background-repeat: no-repeat;}
+a.pm_efecty b {background-image:url(/images/ps_logos/pm_efecty.png?2)!important;  background-repeat: no-repeat;}
+a.pm_davivienda b {background-image:url(/images/ps_logos/pm_davivienda.png?2)!important;  background-repeat: no-repeat;}
+
+a.pm_sepadirectdebit.de b {background-image:url(/images/ps_logos/pm_sepadirectdebit_de.png?3) !important;background-position:0 0 !important;}
+a.pm_sepadirectdebit b {background-image:url(/images/ps_logos/pm_sepadirectdebit.png?1)!important;  background-repeat: no-repeat;background-position: -2px -1px !important;}
+a.pm_mandiriclickpay b {background-image:url(/images/ps_logos/pm_mandiriclickpay.png?2)!important;  background-repeat: no-repeat;}
+a.pm_atmtransfer b {background-image:url(/images/ps_logos/pm_atmtransfer.png?2)!important;  background-repeat: no-repeat;}
+a.pm_minimart b {background-image:url(/images/ps_logos/pm_minimart.png?2)!important;  background-repeat: no-repeat;}
+
+a.pm_mandiriclickpay b {background-image:url(/images/ps_logos/pm_mandiriclickpay.png?3)!important;  background-repeat: no-repeat; background-position: -1px -1px !important;}
+a.pm_atmtransfer b {background-image:url(/images/ps_logos/pm_atmtransfer.png?4)!important;  background-repeat: no-repeat; background-position: 0px -1px !important;}
+a.pm_minimart b {background-image:url(/images/ps_logos/pm_minimart.png?4)!important;  background-repeat: no-repeat; background-position: -1px -2px !important;}
+a.pm_dokuwallet b {background-image:url(/images/ps_logos/pm_dokuwallet.png?2)!important;  background-repeat: no-repeat;}
+
+a.pm_chinagamingcards b {background-image:url(/images/ps_logos/pm_chinagamingcards.png?3) !important;background-position:0 0 !important;}
+a.pm_chinatelcocards b {background-image:url(/images/ps_logos/pm_chinatelcocards.png?3) !important;background-position:0 0 !important;}
+
+a.pm_pagoefectivo b {background-image:url(/images/ps_logos/pm_pagoefectivo.png?1)!important; background-position: -3px -1px !important; background-repeat: no-repeat;}
+a.pm_bancodechile b {background-image:url(/images/ps_logos/pm_bancodechile.png?1)!important; background-position: -1px -1px !important; background-repeat: no-repeat;}
+a.pm_banktransferargentina b {background-image:url(/images/ps_logos/pm_banktransferargentina.png?1)!important; background-position: -1px -1px !important; background-repeat: no-repeat;}
+
+a.pm_ipay88 b {background-image:url(/images/ps_logos/pm_ipay88.png?1)!important; background-position: -2px -1px !important; background-repeat: no-repeat;}
+a.pm_dragonpay b {background-image:url(/images/ps_logos/pm_dragonpay.png?1)!important; background-position: -2px -1px !important; background-repeat: no-repeat;}
+a.pm_paygarden b {background-image:url(/images/ps_logos/pm_paygarden.png?2)!important; background-position: -2px -1px !important; background-repeat: no-repeat;}
+
+a.pm_btpoland b {background-image:url(/images/ps_logos/pm_btpoland.png?2)!important; background-position: -2px 0 !important; background-repeat: no-repeat;}
+
+a.pm_btthailand b {background-image:url(/images/ps_logos/pm_btthailand.png?1)!important; background-position: -2px 0 !important; background-repeat: no-repeat;}
+
+a.pm_onetwothree b {background-image:url(/images/ps_logos/pm_onetwothree.png?1)!important; background-position: -1px -1px !important; background-repeat: no-repeat;}
+
+a.pm_paysbuy b {background-image:url(/images/ps_logos/pm_paysbuy.png?1)!important; background-position: -2px 0 !important; background-repeat: no-repeat;}
+a.pm_paysbuycash b {background-image:url(/images/ps_logos/pm_paysbuycash.png?1)!important; background-position: -2px 0 !important; background-repeat: no-repeat;}
+a.pm_allthegate b {background-image:url(/images/ps_logos/pm_allthegate.png?1)!important; background-position: -2px 0 !important; background-repeat: no-repeat;}
+a.pm_culturevoucher b {background-image:url(/images/ps_logos/pm_culturevoucher.png?1) !important;background-position:0 -1px !important;}
+a.pm_kftc b {background-image:url(/images/ps_logos/pm_kftc.png?3)!important; background-position: -2px 0 !important; background-repeat: no-repeat;}
+a.pm_happyvoucher b {background-image:url(/images/ps_logos/pm_happyvoucher.png?1)!important; background-position: -2px 0 !important; background-repeat: no-repeat;}
+a.pm_teencash b {background-image:url(/images/ps_logos/pm_teencash.png?1)!important; background-position: -2px 0 !important; background-repeat: no-repeat;}
+a.pm_tmoney b {background-image:url(/images/ps_logos/pm_tmoney.png?1)!important; background-position: -2px 0 !important; background-repeat: no-repeat;}
+a.pm_bookculture b {background-image:url(/images/ps_logos/pm_bookculture.png?1)!important; background-position: -2px 0 !important; background-repeat: no-repeat;}
+a.pm_eggmoney b {background-image:url(/images/ps_logos/pm_eggmoney.png?1)!important; background-position: -2px 0 !important; background-repeat: no-repeat;}
+a.pm_cashbee b {background-image:url(/images/ps_logos/pm_cashbee.png?1)!important; background-position: -2px 0 !important; background-repeat: no-repeat;}
+a.pm_oncash b {background-image:url(/images/ps_logos/pm_oncash.png?1)!important; background-position: -2px 0 !important; background-repeat: no-repeat;}
+a.pm_oxxomexico b {background-image:url(/images/ps_logos/pm_oxxomexico.png?1) !important; background-position: 0 0 !important;}
+a.pm_btnordic b {background-image:url(/images/ps_logos/pm_btnordic.png?1) !important; background-position: 0 0 !important;}
+a.pm_bitpay b {background-image:url(/images/ps_logos/pm_bitpay.png?1) !important; background-position: 0 0 !important;}
+a.pm_oxxomexico b {background-image:url(/images/ps_logos/pm_oxxomexico.png?1) !important; background-position: 0 0 !important;}
+a.pm_btcolombia b {background-image:url(/images/ps_logos/pm_btcolombia.png?1) !important; background-position: 0 0 !important;}
+a.pm_efectycolombia b {background-image:url(/images/ps_logos/pm_efectycolombia.png?1) !important; background-position: 0 0 !important;}
+a.pm_baloto b {background-image:url(/images/ps_logos/pm_baloto.png?1) !important; background-position: 0 0 !important;}
+a.pm_gana b {background-image:url(/images/ps_logos/pm_gana.png?1) !important; background-position: 0 0 !important;}
+a.pm_pse b {background-image:url(/images/ps_logos/pm_pse.png?1) !important; background-position: 0 0 !important;}
+a.pm_btperu b {background-image:url(/images/ps_logos/pm_btperu.png?1) !important; background-position: 0 0 !important;}
+a.pm_banktransferjapan b {background-image:url(/images/ps_logos/pm_banktransferjapan.png?1) !important; background-position: 0 0 !important;}
+a.pm_konbini b {background-image:url(/images/ps_logos/pm_konbini.png?1) !important; background-position: 0 0 !important;}
+a.pm_payeasy b {background-image:url(/images/ps_logos/pm_payeasy.png?1) !important; background-position: 0 0 !important;}
+a.pm_webmoneyjapan b {background-image:url(/images/ps_logos/pm_webmoneyjapan.png?1) !important; background-position: 0 0 !important;}
+a.pm_gameon b {background-image:url(/images/ps_logos/pm_gameon.png?1) !important; background-position: 0 0 !important;}
+a.pm_cceu b {background-image:url(/images/ps_logos/pm_cceu.png?1)!important; background-position: -2px 0 !important; background-repeat: no-repeat;}
+a.pm_bitcash b {background-image:url(/images/ps_logos/pm_bitcash.png?1)!important; background-position: -2px 0 !important; background-repeat: no-repeat;}
+a.pm_shetab b {background-image:url(/images/ps_logos/pm_shetab.png?1)!important; background-position: -2px 0 !important; background-repeat: no-repeat;}
+a.pm_boletopayments b {background-image:url(/images/ps_logos/pm_boletopayments.png?1)!important; background-position:24px 3px; background-repeat: no-repeat; background-size: 60px 39px;}
+a.pm_multibanco b {background-image:url(/images/ps_logos/pm_multibanco.png?1)!important; background-position: -2px 0 !important; background-repeat: no-repeat;}
+a.pm_btfinland b {background-image:url(/images/ps_logos/pm_btfinland.png?1)!important; background-position: -2px 0 !important; background-repeat: no-repeat;}
+a.pm_epspayments b {background-image:url(/images/ps_logos/pm_epspayments.png?1)!important; background-position: -2px 0 !important; background-repeat: no-repeat;}
+a.pm_mybank b {background-image:url(/images/ps_logos/pm_mybank.png?1)!important; background-position: -2px 0 !important; background-repeat: no-repeat;}
+a.pm_usbarcode b {background-image:url(/images/ps_logos/pm_usbarcode.png?1)!important; background-position: -2px 0 !important; background-repeat: no-repeat;}
+a.pm_idealpayments b {background-image:url(/images/ps_logos/pm_idealpayments.png?1) !important;background-position:11px 6px !important; background-repeat: no-repeat;}
+a.pm_webcash b {background-image:url(/images/ps_logos/pm_webcash.png?1)!important; background-position: -2px 0 !important; background-repeat: no-repeat;}
+a.pm_belfius b {background-image:url(/images/ps_logos/pm_belfius.png?1)!important; background-position: -2px 0 !important; background-repeat: no-repeat;}
+a.pm_kbc b {background-image:url(/images/ps_logos/pm_kbc.png?1)!important; background-position: -2px 0 !important; background-repeat: no-repeat;}
+a.pm_cbc b {background-image:url(/images/ps_logos/pm_cbc.png?1)!important; background-position: -2px 0 !important; background-repeat: no-repeat;}
+a.pm_alfaclick b {background-image:url(/images/ps_logos/pm_alfaclick.png?1)!important; background-position: -2px 0 !important; background-repeat: no-repeat;}
+a.pm_servipag b {background-image:url(/images/ps_logos/pm_servipag.png?1)!important; background-position: -2px 0 !important; background-repeat: no-repeat;}
+a.pm_teleingreso b {background-image:url(/images/ps_logos/pm_teleingreso.png?1)!important; background-position: -2px 0 !important; background-repeat: no-repeat;}
+a.pm_gatewaycartasi b {background-image:url(/images/ps_logos/pm_gatewaycartasi.png?1)!important; background-position: -2px 0 !important; background-repeat: no-repeat;}
+a.pm_gatewaycartebleu b {background-image:url(/images/ps_logos/pm_gatewaycartebleu.png?1)!important; background-position: -2px 0 !important; background-repeat: no-repeat;}
+a.pm_gatewaydankort b {background-image:url(/images/ps_logos/pm_gatewaydankort.png?1)!important; background-position: -2px 0 !important; background-repeat: no-repeat;}
+a.pm_gatewaypostepay b {background-image:url(/images/ps_logos/pm_gatewaypostepay.png?1)!important; background-position: -2px 0 !important; background-repeat: no-repeat;}
+a.pm_interac b {background-image:url(/images/ps_logos/pm_interac.png?1)!important; background-position: -2px 0 !important; background-repeat: no-repeat;}
+a.pm_mobilegateway.pm2_mobiamo_AL b {background-image:url(/images/widgets/mobiamo/logos/Mobiamo_Albania.png?2) !important; background-position: 4px 2px !important; background-repeat: no-repeat;}
+a.pm_mobilegateway.pm2_mobiamo_AR b {background-image:url(/images/widgets/mobiamo/logos/Mobiamo_Argentina.png?2) !important; background-position: 4px 2px !important; background-repeat: no-repeat;}
+a.pm_mobilegateway.pm2_mobiamo_AU b {background-image:url(/images/widgets/mobiamo/logos/Mobiamo_Australia.png?2) !important; background-position: 4px 2px !important; background-repeat: no-repeat;}
+a.pm_mobilegateway.pm2_mobiamo_AT b {background-image:url(/images/widgets/mobiamo/logos/Mobiamo_Austria.png?2) !important; background-position: 4px 2px !important; background-repeat: no-repeat;}
+a.pm_mobilegateway.pm2_mobiamo_AZ b {background-image:url(/images/widgets/mobiamo/logos/Mobiamo_Azerbaijan.png?2) !important; background-position: 4px 2px !important; background-repeat: no-repeat;}
+a.pm_mobilegateway.pm2_mobiamo_BH b {background-image:url(/images/widgets/mobiamo/logos/Mobiamo_Bahrain.png?2) !important; background-position: 4px 2px !important; background-repeat: no-repeat;}
+a.pm_mobilegateway.pm2_mobiamo_BY b {background-image:url(/images/widgets/mobiamo/logos/Mobiamo_Belarus.png?2) !important; background-position: 4px 2px !important; background-repeat: no-repeat;}
+a.pm_mobilegateway.pm2_mobiamo_BE b {background-image:url(/images/widgets/mobiamo/logos/Mobiamo_Belgium.png?2) !important; background-position: 4px 2px !important; background-repeat: no-repeat;}
+a.pm_mobilegateway.pm2_mobiamo_BO b {background-image:url(/images/widgets/mobiamo/logos/Mobiamo_Bolivia.png?2) !important; background-position: 4px 2px !important; background-repeat: no-repeat;}
+a.pm_mobilegateway.pm2_mobiamo_BA b {background-image:url(/images/widgets/mobiamo/logos/Mobiamo_Bosnia.png?2) !important; background-position: 4px 2px !important; background-repeat: no-repeat;}
+a.pm_mobilegateway.pm2_mobiamo_BR b {background-image:url(/images/widgets/mobiamo/logos/Mobiamo_Brazil.png?2) !important; background-position: 4px 2px !important; background-repeat: no-repeat;}
+a.pm_mobilegateway.pm2_mobiamo_BG b {background-image:url(/images/widgets/mobiamo/logos/Mobiamo_Bulgaria.png?2) !important; background-position: 4px 2px !important; background-repeat: no-repeat;}
+a.pm_mobilegateway.pm2_mobiamo_CA b {background-image:url(/images/widgets/mobiamo/logos/Mobiamo_Canada.png?2) !important; background-position: 4px 2px !important; background-repeat: no-repeat;}
+a.pm_mobilegateway.pm2_mobiamo_CL b {background-image:url(/images/widgets/mobiamo/logos/Mobiamo_Chile.png?2) !important; background-position: 4px 2px !important; background-repeat: no-repeat;}
+a.pm_mobilegateway.pm2_mobiamo_CO b {background-image:url(/images/widgets/mobiamo/logos/Mobiamo_Colombia.png?2) !important; background-position: 4px 2px !important; background-repeat: no-repeat;}
+a.pm_mobilegateway.pm2_mobiamo_CR b {background-image:url(/images/widgets/mobiamo/logos/Mobiamo_Costarica.png?2) !important; background-position: 4px 2px !important; background-repeat: no-repeat;}
+a.pm_mobilegateway.pm2_mobiamo_HR b {background-image:url(/images/widgets/mobiamo/logos/Mobiamo_Croatia.png?2) !important; background-position: 4px 2px !important; background-repeat: no-repeat;}
+a.pm_mobilegateway.pm2_mobiamo_CY b {background-image:url(/images/widgets/mobiamo/logos/Mobiamo_Cyprus.png?2) !important; background-position: 4px 2px !important; background-repeat: no-repeat;}
+a.pm_mobilegateway.pm2_mobiamo_CZ b {background-image:url(/images/widgets/mobiamo/logos/Mobiamo_Czech Republic.png?2) !important; background-position: 4px 2px !important; background-repeat: no-repeat;}
+a.pm_mobilegateway.pm2_mobiamo_DK b {background-image:url(/images/widgets/mobiamo/logos/Mobiamo_Denmark.png?2) !important; background-position: 4px 2px !important; background-repeat: no-repeat;}
+a.pm_mobilegateway.pm2_mobiamo_EC b {background-image:url(/images/widgets/mobiamo/logos/Mobiamo_Ecuador.png?2) !important; background-position: 4px 2px !important; background-repeat: no-repeat;}
+a.pm_mobilegateway.pm2_mobiamo_EG b {background-image:url(/images/widgets/mobiamo/logos/Mobiamo_Egypt.png?2) !important; background-position: 4px 2px !important; background-repeat: no-repeat;}
+a.pm_mobilegateway.pm2_mobiamo_EE b {background-image:url(/images/widgets/mobiamo/logos/Mobiamo_Estonia.png?2) !important; background-position: 4px 2px !important; background-repeat: no-repeat;}
+a.pm_mobilegateway.pm2_mobiamo_FI b {background-image:url(/images/widgets/mobiamo/logos/Mobiamo_Finland.png?2) !important; background-position: 4px 2px !important; background-repeat: no-repeat;}
+a.pm_mobilegateway.pm2_mobiamo_FR b {background-image:url(/images/widgets/mobiamo/logos/Mobiamo_France.png?2) !important; background-position: 4px 2px !important; background-repeat: no-repeat;}
+a.pm_mobilegateway.pm2_mobiamo_GE b {background-image:url(/images/widgets/mobiamo/logos/Mobiamo_Georgia.png?2) !important; background-position: 4px 2px !important; background-repeat: no-repeat;}
+a.pm_mobilegateway.pm2_mobiamo_DE b {background-image:url(/images/widgets/mobiamo/logos/Mobiamo_Germany.png?2) !important; background-position: 4px 2px !important; background-repeat: no-repeat;}
+a.pm_mobilegateway.pm2_mobiamo_GR b {background-image:url(/images/widgets/mobiamo/logos/Mobiamo_Greece.png?2) !important; background-position: 4px 2px !important; background-repeat: no-repeat;}
+a.pm_mobilegateway.pm2_mobiamo_HK b {background-image:url(/images/widgets/mobiamo/logos/Mobiamo_Hong Kong.png?2) !important; background-position: 4px 2px !important; background-repeat: no-repeat;}
+a.pm_mobilegateway.pm2_mobiamo_HU b {background-image:url(/images/widgets/mobiamo/logos/Mobiamo_Hungary.png?2) !important; background-position: 4px 2px !important; background-repeat: no-repeat;}
+a.pm_mobilegateway.pm2_mobiamo_IN b {background-image:url(/images/widgets/mobiamo/logos/Mobiamo_India.png?2) !important; background-position: 4px 2px !important; background-repeat: no-repeat;}
+a.pm_mobilegateway.pm2_mobiamo_ID b {background-image:url(/images/widgets/mobiamo/logos/Mobiamo_Indonesia.png?2) !important; background-position: 4px 2px !important; background-repeat: no-repeat;}
+a.pm_mobilegateway.pm2_mobiamo_IE b {background-image:url(/images/widgets/mobiamo/logos/Mobiamo_Ireland.png?2) !important; background-position: 4px 2px !important; background-repeat: no-repeat;}
+a.pm_mobilegateway.pm2_mobiamo_IL b {background-image:url(/images/widgets/mobiamo/logos/Mobiamo_Israel.png?2) !important; background-position: 4px 2px !important; background-repeat: no-repeat;}
+a.pm_mobilegateway.pm2_mobiamo_IT b {background-image:url(/images/widgets/mobiamo/logos/Mobiamo_Italy.png?2) !important; background-position: 4px 2px !important; background-repeat: no-repeat;}
+a.pm_mobilegateway.pm2_mobiamo_JP b {background-image:url(/images/widgets/mobiamo/logos/Mobiamo_Japan.png?2) !important; background-position: 4px 2px !important; background-repeat: no-repeat;}
+a.pm_mobilegateway.pm2_mobiamo_JO b {background-image:url(/images/widgets/mobiamo/logos/Mobiamo_Jordan.png?2) !important; background-position: 4px 2px !important; background-repeat: no-repeat;}
+a.pm_mobilegateway.pm2_mobiamo_KZ b {background-image:url(/images/widgets/mobiamo/logos/Mobiamo_Kazakhstan.png?2) !important; background-position: 4px 2px !important; background-repeat: no-repeat;}
+a.pm_mobilegateway.pm2_mobiamo_KE b {background-image:url(/images/widgets/mobiamo/logos/Mobiamo_Kenya.png?2) !important; background-position: 4px 2px !important; background-repeat: no-repeat;}
+a.pm_mobilegateway.pm2_mobiamo_KR b {background-image:url(/images/widgets/mobiamo/logos/Mobiamo_Korea.png?2) !important; background-position: 4px 2px !important; background-repeat: no-repeat;}
+a.pm_mobilegateway.pm2_mobiamo_KW b {background-image:url(/images/widgets/mobiamo/logos/Mobiamo_Kuwait.png?2) !important; background-position: 4px 2px !important; background-repeat: no-repeat;}
+a.pm_mobilegateway.pm2_mobiamo_LV b {background-image:url(/images/widgets/mobiamo/logos/Mobiamo_Latvia.png?2) !important; background-position: 4px 2px !important; background-repeat: no-repeat;}
+a.pm_mobilegateway.pm2_mobiamo_LT b {background-image:url(/images/widgets/mobiamo/logos/Mobiamo_Lithuania.png?2) !important; background-position: 4px 2px !important; background-repeat: no-repeat;}
+a.pm_mobilegateway.pm2_mobiamo_MK b {background-image:url(/images/widgets/mobiamo/logos/Mobiamo_Macedonia.png?2) !important; background-position: 4px 2px !important; background-repeat: no-repeat;}
+a.pm_mobilegateway.pm2_mobiamo_MY b {background-image:url(/images/widgets/mobiamo/logos/Mobiamo_Malaysia.png?2) !important; background-position: 4px 2px !important; background-repeat: no-repeat;}
+a.pm_mobilegateway.pm2_mobiamo_MX b {background-image:url(/images/widgets/mobiamo/logos/Mobiamo_Mexico.png?2) !important; background-position: 4px 2px !important; background-repeat: no-repeat;}
+a.pm_mobilegateway.pm2_mobiamo_MD b {background-image:url(/images/widgets/mobiamo/logos/Mobiamo_Moldova.png?2) !important; background-position: 4px 2px !important; background-repeat: no-repeat;}
+a.pm_mobilegateway.pm2_mobiamo_ME b {background-image:url(/images/widgets/mobiamo/logos/Mobiamo_Montenegro.png?2) !important; background-position: 4px 2px !important; background-repeat: no-repeat;}
+a.pm_mobilegateway.pm2_mobiamo_MA b {background-image:url(/images/widgets/mobiamo/logos/Mobiamo_Morocco.png?2) !important; background-position: 4px 2px !important; background-repeat: no-repeat;}
+a.pm_mobilegateway.pm2_mobiamo_NL b {background-image:url(/images/widgets/mobiamo/logos/Mobiamo_Netherlands.png?2) !important; background-position: 4px 2px !important; background-repeat: no-repeat;}
+a.pm_mobilegateway.pm2_mobiamo_NG b {background-image:url(/images/widgets/mobiamo/logos/Mobiamo_Nigeria.png?2) !important; background-position: 4px 2px !important; background-repeat: no-repeat;}
+a.pm_mobilegateway.pm2_mobiamo_NO b {background-image:url(/images/widgets/mobiamo/logos/Mobiamo_Norway.png?2) !important; background-position: 4px 2px !important; background-repeat: no-repeat;}
+a.pm_mobilegateway.pm2_mobiamo_OM b {background-image:url(/images/widgets/mobiamo/logos/Mobiamo_Oman.png?2) !important; background-position: 4px 2px !important; background-repeat: no-repeat;}
+a.pm_mobilegateway.pm2_mobiamo_PK b {background-image:url(/images/widgets/mobiamo/logos/Mobiamo_Pakistan.png?2) !important; background-position: 4px 2px !important; background-repeat: no-repeat;}
+a.pm_mobilegateway.pm2_mobiamo_PE b {background-image:url(/images/widgets/mobiamo/logos/Mobiamo_Peru.png?2) !important; background-position: 4px 2px !important; background-repeat: no-repeat;}
+a.pm_mobilegateway.pm2_mobiamo_PH b {background-image:url(/images/widgets/mobiamo/logos/Mobiamo_Philippines.png?2) !important; background-position: 4px 2px !important; background-repeat: no-repeat;}
+a.pm_mobilegateway.pm2_mobiamo_PL b {background-image:url(/images/widgets/mobiamo/logos/Mobiamo_Poland.png?2) !important; background-position: 4px 2px !important; background-repeat: no-repeat;}
+a.pm_mobilegateway.pm2_mobiamo_PT b {background-image:url(/images/widgets/mobiamo/logos/Mobiamo_Portugal.png?2) !important; background-position: 4px 2px !important; background-repeat: no-repeat;}
+a.pm_mobilegateway.pm2_mobiamo_QA b {background-image:url(/images/widgets/mobiamo/logos/Mobiamo_Qatar.png?2) !important; background-position: 4px 2px !important; background-repeat: no-repeat;}
+a.pm_mobilegateway.pm2_mobiamo_RO b {background-image:url(/images/widgets/mobiamo/logos/Mobiamo_Romania.png?2) !important; background-position: 4px 2px !important; background-repeat: no-repeat;}
+a.pm_mobilegateway.pm2_mobiamo_RU b {background-image:url(/images/widgets/mobiamo/logos/Mobiamo_Russia.png?2) !important; background-position: 4px 2px !important; background-repeat: no-repeat;}
+a.pm_mobilegateway.pm2_mobiamo_SA b {background-image:url(/images/widgets/mobiamo/logos/Mobiamo_Saudi-Arabia.png?2) !important; background-position: 4px 2px !important; background-repeat: no-repeat;}
+a.pm_mobilegateway.pm2_mobiamo_RS b {background-image:url(/images/widgets/mobiamo/logos/Mobiamo_Serbia.png?2) !important; background-position: 4px 2px !important; background-repeat: no-repeat;}
+a.pm_mobilegateway.pm2_mobiamo_SG b {background-image:url(/images/widgets/mobiamo/logos/Mobiamo_Singapore.png?2) !important; background-position: 4px 2px !important; background-repeat: no-repeat;}
+a.pm_mobilegateway.pm2_mobiamo_SK b {background-image:url(/images/widgets/mobiamo/logos/Mobiamo_Slovakia.png?2) !important; background-position: 4px 2px !important; background-repeat: no-repeat;}
+a.pm_mobilegateway.pm2_mobiamo_SI b {background-image:url(/images/widgets/mobiamo/logos/Mobiamo_Slovenia.png?2) !important; background-position: 4px 2px !important; background-repeat: no-repeat;}
+a.pm_mobilegateway.pm2_mobiamo_ZA b {background-image:url(/images/widgets/mobiamo/logos/Mobiamo_South-Africa.png?2) !important; background-position: 4px 2px !important; background-repeat: no-repeat;}
+a.pm_mobilegateway.pm2_mobiamo_ES b {background-image:url(/images/widgets/mobiamo/logos/Mobiamo_Spain.png?2) !important; background-position: 4px 2px !important; background-repeat: no-repeat;}
+a.pm_mobilegateway.pm2_mobiamo_SE b {background-image:url(/images/widgets/mobiamo/logos/Mobiamo_Sweden.png?2) !important; background-position: 4px 2px !important; background-repeat: no-repeat;}
+a.pm_mobilegateway.pm2_mobiamo_CH b {background-image:url(/images/widgets/mobiamo/logos/Mobiamo_Switzerland.png?2) !important; background-position: 4px 2px !important; background-repeat: no-repeat;}
+a.pm_mobilegateway.pm2_mobiamo_TW b {background-image:url(/images/widgets/mobiamo/logos/Mobiamo_Taiwan.png?2) !important; background-position: 4px 2px !important; background-repeat: no-repeat;}
+a.pm_mobilegateway.pm2_mobiamo_TH b {background-image:url(/images/widgets/mobiamo/logos/Mobiamo_Thailand.png?2) !important; background-position: 4px 2px !important; background-repeat: no-repeat;}
+a.pm_mobilegateway.pm2_mobiamo_TN b {background-image:url(/images/widgets/mobiamo/logos/Mobiamo_Tunisia.png?2) !important; background-position: 4px 2px !important; background-repeat: no-repeat;}
+a.pm_mobilegateway.pm2_mobiamo_TR b {background-image:url(/images/widgets/mobiamo/logos/Mobiamo_Turkey.png?2) !important; background-position: 4px 2px !important; background-repeat: no-repeat;}
+a.pm_mobilegateway.pm2_mobiamo_UA b {background-image:url(/images/widgets/mobiamo/logos/Mobiamo_Ukraine.png?2) !important; background-position: 4px 2px !important; background-repeat: no-repeat;}
+a.pm_mobilegateway.pm2_mobiamo_AE b {background-image:url(/images/widgets/mobiamo/logos/Mobiamo_United-Arab-Emirates.png?2) !important; background-position: 4px 2px !important; background-repeat: no-repeat;}
+a.pm_mobilegateway.pm2_mobiamo_GB b {background-image:url(/images/widgets/mobiamo/logos/Mobiamo_United-Kingdom.png?2) !important; background-position: 4px 2px !important; background-repeat: no-repeat;}
+a.pm_mobilegateway.pm2_mobiamo_UY b {background-image:url(/images/widgets/mobiamo/logos/Mobiamo_Uruguay.png?2) !important; background-position: 4px 2px !important; background-repeat: no-repeat;}
+a.pm_mobilegateway.pm2_mobiamo_VN b {background-image:url(/images/widgets/mobiamo/logos/Mobiamo_Vietnam.png?2) !important; background-position: 4px 2px !important; background-repeat: no-repeat;}

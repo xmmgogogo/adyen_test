@@ -1,0 +1,5 @@
+define("pmc/views/ui/paymentMethodTxUI",["jquery","underscore","backbone","chartlib/ui/baseui","chartlib/chartBaseEvents"],function(d,b,f,c,e){var a=c.extend({el:"#paymentMethodTxUI",events:{"click .sort-pm-button":"sortOnPaymentMethod","click .sort-tx-button":"sortOnTransaction"},initialize:function(){this.listenTo(this.collection,"reset",this.render);
+f.on(e.RENDER_BUTTONS,this.renderButtons,this);this.pmButton=this.$(".sort-pm-button");this.transactionButton=this.$(".sort-tx-button");
+this.buttons.push(this.pmButton);this.buttons.push(this.transactionButton);},sortOnPaymentMethod:function(g){this.collection.sortByPaymentMethod();
+this.renderButtons(d(g.currentTarget));},sortOnTransaction:function(g){this.collection.sortByTransaction();this.renderButtons(d(g.currentTarget));
+}});return a;});

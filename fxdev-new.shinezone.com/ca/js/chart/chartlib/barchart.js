@@ -1,0 +1,15 @@
+define("chartlib/barchart",["jquery","underscore","chartlib/basicChart","d3","chartlib/chartBaseEvents"],function(e,b,a,c,f){var d=a.extend({dataLoadError:function(){if(this.options.barHeight===null){this._super();
+return;}var i=this.height/2;var h=this.width/2;if(i<=25){i=0;}var g=e('<div class="no-data-text"><text style="color: #ccc; font-size: 14px; position: relative; top:'+i+"px; left:"+h+'px;">no data to display</text></div>');
+this.$el.not(this.$el.has(".no-data-text")).prepend(g);this.$el.children().not(".no-data-text").hide();g.show();},render:function(){if(this.options.barHeight!==null){var g=(this.collection.length*this.options.barHeight)+this.options.margin.top+this.options.margin.bottom;
+c.select(this.el).transition().style("height",g+"px");}this._super();},renderData:function(){var k=this,o=this.options,n=this.scales.x,l=this.scales.y,m=500;
+var j=this.svg.selectAll(".bar").data(this.collection.models,this.joinData);var i=j.enter().append("g").attr("class","bar full").attr("transform",function(p){return"translate(0,"+l(k.getY(p))+")";
+}).append("rect").attr("class",function(q){var p=k.getClassName(q);return"rect "+p;}).attr("width",0).attr("height",function(p){return l.rangeBand();
+});var g=j.transition().duration(m).attr("transform",function(p){return"translate(0,"+l(k.getY(p))+")";});g.select("rect").attr("height",function(p){return l.rangeBand();
+}).transition().duration(m).delay(500).ease("cubic-in-out").attr("width",function(p){return n(k.getX(p));});var h=j.exit().transition().duration(m).attr("transform",function(p){return"translate(0,"+k.height+")";
+});h.select("rect").attr("height",0);h.remove();if(this.options.tooltip){j.classed("active",true);i.on("mouseover",function(p){k.showTooltip(p,this,false);
+}).on("mouseout",function(p){k.hideTooltip(false);});}if(this.options.isClickable){i.on("click",k.onBarClicked);j.classed({"hand-cursor active":true});
+}return{bar:j,enter:i,update:g,exit:h};},showToolTip_fromText:function(h){var i=this.getElementFromAttrValue(".bar.full",this.options.yAttr,h);
+var g=i.select("rect");if(typeof window.SVGElement==="undefined"){window.clearTimeout(this.IE_tooltip_timeout);g=g.node();
+}this.showTooltip(i.datum(),g,true);return i;},textClicked:function(g){var h=this.getElementFromAttrValue(".bar.full",this.options.yAttr,g);
+h.select("rect").on("click")(h.datum());},getClassName:function(i){var g=this.getY(i);var h=g.toLowerCase().replace(/[\s\/]/g,"");
+return h;}});return d;},function(a){if(window.console&&console.log){console.log("APP JS ERROR =",a);}});

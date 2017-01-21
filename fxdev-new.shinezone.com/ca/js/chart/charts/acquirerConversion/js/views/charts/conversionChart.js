@@ -1,0 +1,6 @@
+adyen=window.adyen||{};adyen.jsbase=adyen.jsbase||"";var chartbase=(adyen.jsbase.length)?"/chart/":"";define("charts/acquirerConversion/js/views/charts/conversionChart",["d3","jquery","underscore","backbone","chartlib/stackedbarchart","chartlib/events/appstateevents","chartutil/numberutils"],function(d,g,a,h,c,e,f){var b=c.extend({defaults:{yScale:"ordinal",margin:{top:0,left:10,bottom:30,right:10},barPadding:0.1,xAttr:"total",yAttr:"name",joinAttr:"name",xNestAttr:"conversionRates",tooltip:true},addListeners:function(){if(this.collection){this.listenTo(this.collection,"sort",this.render);
+}h.on(e.RENDER_CHARTS,this.render);},renderTooltipContent:function(i){this.tip.html(function(k){var j=d.format("0,000");var l=j(k.value);
+if(typeof window.SVGElement==="undefined"){return"<strong>"+i.name+" - "+i.name+":</strong> <span>"+f.decimalFormatter(i.width*100)+"%</span>";
+}return"<strong>"+i.name+":</strong> <span>"+f.decimalFormatter(i.width*100)+"%</span> ("+l+" transactions)";});this.tip.direction("n");
+this.tip.offset([-10,0]);},renderXAxis:function(){this._super();this.xAxis.selectAll("text").attr("transform",function(){return"translate(0,7)";
+});},setYAxis:function(){},formatYAxis:function(){},renderYAxis:function(){}});return b;});

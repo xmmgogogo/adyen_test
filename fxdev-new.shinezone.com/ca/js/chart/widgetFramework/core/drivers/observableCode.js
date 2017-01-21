@@ -1,0 +1,13 @@
+define("chart/widgetFramework/core/drivers/observableCode",["lodash"],function(a){var b=function(h,g){var c={};var i={};var e=[];
+var d=false;var f="";h.getData=function(){return c;};h.setProperty=function(k,m,j){var l=this.getPendingChanges();if(c[k]!==m){l++;
+i[k]=m;c[k]=m;}if(l===0){return false;}if(typeof j==="undefined"||j){this.notify();}return true;};h.setProperties=function(m,k){var l=this.getPendingChanges();
+for(var j in m){if(m.hasOwnProperty(j)){if(this.setProperty(j,m[j],false)){l++;}}}if(l===0){return false;}if(typeof k==="undefined"||k){this.notify();
+}return true;};h.getPendingChanges=function(){var j=0;for(var k in i){if(i.hasOwnProperty(k)){j++;}}return j;};h.invalidate=function(j){i.__invalidate=j;
+this.notify();};h.getProperty=function(j){return c[j];};h.hasProperty=function(j){return(typeof c[j]!=="undefined");};h.registerObserver=function(o,q,l,r){if(r){f=l;
+d=true;}var p;if(typeof o==="function"){p=o;o={notify:p,id:l};}else{console.warn("[Observable] You are trying to register something other than a function as an observer. This won't work");
+return false;}if(this.deregisterObserver(p,true)){console.warn("[Observable] You are registering the same observer twice. We kindly removed the earlier observer, and re-registered it.");
+}if(q){o.notify(c);}e.push(o);if(d){var k=-1;for(var m=0,n=e.length;m<n;m++){if(e[m].id&&e[m].id===f){k=m;break;}}if(k>0){var j=e.splice(k,1);
+e.unshift(j[0]);}}return true;};h.deregisterObserver=function(k,j){for(var l=0,m=e.length;l<m;l++){if(e[l].notify===k){e.splice(l,1);
+return true;}}if(!j){console.warn("You are trying deregistering an observer that hasn't been previously registered as an observer.");
+}return false;};h.notify=function(){var k=i;i={};e.reverse();for(var j=e.length-1;j>-1;j--){if(typeof e[j]==="undefined"){continue;
+}e[j].notify(k,h.id);}e.reverse();};return h;};return b;});

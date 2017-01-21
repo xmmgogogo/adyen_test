@@ -1,0 +1,9 @@
+define("charts/mobileConversion/js/views/charts/atvPerDevice",["jquery","underscore","backbone","d3","chartlib/barchart","charts/mobileConversion/js/models/mobile","chartlib/events/appstateevents","chartutil/numberutils","chartutil/backbone/CollectionUtils"],function(d,i,h,j,b,c,e,g,f){var a=b.extend({defaults:{yScale:"ordinal",totalLabelOffset:5,margin:{top:0,left:140,bottom:30,right:30},barPadding:0,xAttr:"avgTxVal",yAttr:"name",joinAttr:"name"},mobileTotal:0,addListeners:function(){h.on(e.RENDER_CHARTS,this.render);
+if(this.collection){this.listenTo(this.collection,"sort",this.render);}},calibrateXScale:function(){var k=[];this.collection.forEach(function(l){k.push(Number(Number(l.get("avgTxVal")).toFixed(2)));
+});this.scales.x.domain([0,j.max(k)]).rangeRound([0,this.width]).nice();},setYScale:function(){this._super();this.scales.y.rangeRoundBands([this.height,0],this.options.barPadding);
+},renderXAxis:function(){this._super(arguments);this.svg.select(".x.axis").selectAll("text").attr("y",10);},renderYAxis:function(){},renderData:function(){var n=this,l=this.scales.x,p=this.scales.y;
+var o=this._super();o.bar.select("rect").transition().duration(500).delay(500).ease("cubic-in-out").attr("width",function(q){return(n.getY(q).toLowerCase()==="total")?0:l(n.getX(q));
+}).attr("height",function(q){return p.rangeBand();});var m=this.svg.selectAll(".percentage-label").data(this.collection.models,this.joinData);
+m.enter().append("text").attr("class","percentage-label").attr("y",function(q){return p(n.getY(q))+(p.rangeBand()/2);}).attr("x",function(q){return -n.options.totalLabelOffset;
+}).style("text-anchor","end");m.text(function(q){return n.getY(q)+" "+n.getX(q);}).transition().attr("y",function(q){return p(n.getY(q))+(p.rangeBand()/2+3);
+});var k=m.exit().transition().duration(1000).attr("y",500);k.remove();}});return a;});

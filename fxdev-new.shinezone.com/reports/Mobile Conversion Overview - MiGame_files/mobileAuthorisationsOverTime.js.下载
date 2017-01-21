@@ -1,0 +1,7 @@
+define("charts/mobileConversion/js/views/charts/mobileAuthorisationsOverTime",["jquery","underscore","backbone","backbonesuper","d3","chartlib/linechart2","chartlib/events/appstateevents"],function(f,a,h,c,b,e,d){var g=e.extend({el:".mobile-authorisation-time-chart",granularityFormats:{},defaults:{margin:{top:10,left:50,bottom:20,right:135},xAttr:"date",yAttr:"values",joinAttr:"name",percentile:false,yScale:"linear",barPadding:0,tooltip:true},initialize:function(){this.granularityFormats.day="%d";
+this.granularityFormats.day_start="%b %d";this.granularityFormats.week="wk %U";this.granularityFormats.week_start="%Y wk %U";
+this.granularityFormats.month="%b";this.granularityFormats.month_start="%Y %b";this._super(arguments);},addListeners:function(){h.on(d.RENDER_CHARTS,this.render);
+},setXScale:function(){this.scales.x=b.time.scale().range([0,this.width],this.options.barPadding);},formatYAxis:function(){this.axes.y.tickFormat(function(k,j){return(j>0)?k:b.format(".1f")(k)+"%";
+});},renderTooltipContent:function(i){this.tip.html(function(o){var n=o.rate.description;var m=o.rate.description.toLowerCase();
+var l=m.indexOf("(");if(l>-1){l-=1;}var k=n.substring(0,l);var j=n.substring(l+1);return"<strong>"+k+" </strong><br />"+j;
+});this.tip.direction("n");this.tip.offset([-10,0]);}});return g;});

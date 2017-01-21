@@ -1,0 +1,26 @@
+#d3canvas{margin-top:40px}.world{width:650px}.worldvolume-chart{width:500px}.panel .header h2{height:35px;padding-top:6px}
+.panel .header .world-button{font-family:'Open Sans',sans-serif;font-weight:bold;padding:0;margin:0 5px 0 0}
+.header>.arrow{margin-top:-27px}.world-volume-total-text{position:absolute;top:12px;right:35px;width:215px;text-align:center;color:#999}
+.world-volume-total-text b{color:orange}.ca-chart-page .ui .sort-button{padding:0}.ca-chart-page .pmc-charts .ui .sort-region-button{margin-left:6px;width:60px}
+.pmc-charts{margin-top:20px}.payment-methods{width:1100px;margin-top:30px}.ca-chart-page .payment-methods .ui{display:block}
+.ca-chart-page .ui.pm-tx{left:-63px;top:15px}.ca-chart-page .pm-ui.sort-pm-button{width:125px}.ca-chart-page .pm-ui.sort-tx-button{position:relative;left:-7px;width:137px}
+.ca-chart-page .ui.pm-volume{left:290px;top:-15px}.ca-chart-page .pm-ui.sort-volume-button{position:relative;left:-89px;width:75px}
+.ca-chart-page .pm-ui.sort-auth-button{margin-left:258px;width:90px}.ca-chart-page .pm-ui.sort-comp-button{width:90px}.ca-chart-page .pm-ui.sort-aban-button{width:90px}
+.conversion-info{width:130px;position:absolute;top:0;left:20px;z-index:1;display:none;text-align:center;color:#025770;font-size:11px;background:#f1f0e9;font-weight:600;padding:2px 4px}
+.auth-col{background:#a9d6a6;padding:0 2px}.aban-col{background:#cfd1d1;padding:0 2px}.comp-col{background:#75be9c;padding:0 2px}
+.pm-country-ui.legend{font-size:11px;position:relative;top:-2px;width:auto;border:0}.pm-country-ui.sort-auth-legend{color:#a9d6a6;margin-left:668px;width:85px}
+.pm-country-ui.sort-comp-legend{color:#75be9c;width:85px}.pm-country-ui.sort-aban-legend{color:#cfd1d1}.pm-country-ui .square{width:8px;height:8px;background:red;margin-left:10px;margin-right:5px;display:inline-block;position:relative}
+.pm-country-ui.sort-auth-legend .square{background:#a9d6a6}.pm-country-ui.sort-comp-legend .square{background:#75be9c}.pm-country-ui.sort-aban-legend .square{background:#cfd1d1}
+.pm-transaction-chart{width:225px;position:relative;left:26px;top:-10px;overflow:hidden;display:inline-block}.pm-transaction-chart text,.payment-methods .y.axis text,.payment-methods-country .y.axis text{font-size:13px}
+.pm-volume-chart svg{background:0}.pm-volume-chart .y.axis text{fill:#529876}.pm-volume-chart{width:500px;height:50px;position:relative;left:-34px;top:-10px;overflow:hidden;display:inline-block}
+.pm-volume-chart .bar .rect.noselection{fill:#cfd1d1}.pm-conversion-chart{width:365px;position:relative;left:-15px;top:-10px;overflow:hidden;display:inline-block}
+.payment-methods-country{width:1100px;height:450px;margin-top:30px}.pm-volume-total-text,.country-volume-total-text{position:relative;top:-28px;right:20px;float:right;width:500px;text-align:right;color:#6d6e72}
+.pm-volume-total-text{right:97px}.pm-volume-total-text b,.country-volume-total-text b{color:orange}.pm-volume-total-text strong,.country-volume-total-text strong{font-weight:bold;color:#529876}
+.pm-volume-total-text span,.country-volume-total-text span{font-weight:bold;color:#5e99bc}.pm-country.ui{display:block;position:relative;top:20px;color:#538a49;font-size:13px}
+.pm-country-ui{position:relative}.pm-country-ui.pm-text{left:-65px}.pm-country-ui.country-total-text{left:-44px}.pm-country-ui.country-volume-text{left:185px}
+.pm-country-ui.country-conversion-text{left:469px}.pm-country-chart{width:360px;height:350px;position:relative;left:0;top:25px;overflow:hidden;display:inline-block}
+.pm-country-chart-text{font-size:11px}.pm-country-chart.total{width:200px}.pm-country-chart.volume{width:250px}.pm-country-chart.barpie{width:250px}
+.pm-country-chart.conversion{left:10px}.interactive-chart .sub-bar.full.active:hover rect{fill:#396a53}.interactive-chart .sub-bar.full.active:hover{fill:#396a53}
+.pm-country-chart.barpie .bar-pie-rect-0{fill:#6baed6}.pm-country-chart.barpie .bar-pie-rect-1{fill:#9ecae1}.pm-country-chart.barpie .bar-pie-rect-2{fill:#c6dbef}
+.pm-country-chart.barpie .bar-pie-rect-3{fill:#d9e9f7}.pm-session-bar-pie-text{font-size:11px}.d3-tip .tooltip-text-sml{font-weight:normal;color:#6d6e72;font-size:11px}
+.download-button.world-snapshot{right:25px;display:none}.chrome .download-button.world-snapshot,.ff .download-button.world-snapshot{display:inline}

@@ -1,0 +1,8 @@
+define("chart/widgetFramework/chartTypes/stackedHistogram",["jquery","underscore","d3","hogan","util/Functional","util/ObjectSuper","chart/widgetFramework/core/drivers/axisBaseView","chart/widgetFramework/core/constants/UIConstants","chart/widgetFramework/core/constants/WidgetConstants","chartutil/d3utils"],function(c,h,k,e,b,f,i,g,d,j){var a=function(r,l,p,n){var o;
+var q={};var m=h.defaults(r,q);o=i(m,l);var s=f(o);o.timeline=p;o.feedData=function(t){var u=s.feedData(t);this.setNestedAttr(this.data);
+return u;};o.getStackData=function(){return function(t){return t[o.nestedAttr];};};o.getSecondaryDataJoin=function(){return this.getDataJoin("name");
+};o.renderData=function(){if(b.falsy(this.data)){this.hideCharts("no data to display");return;}var w=this.scales[this.options.xAttr],v=this.scales[this.options.yAttr];
+var u,t;if(this.options.variation===d.VERTICAL){u=this.barUtils.containerBarsVertical(this.chartGroup,this.getData(),this.getPrimaryDataJoin(),this.barPositioningFn,true).stackVertical(this.getStackData(),this.getSecondaryDataJoin(),v,this.barSize);
+t=o.options.xAttr;}else{u=this.barUtils.containerBarsHorizontal(this.chartGroup,this.getData(),this.getPrimaryDataJoin(),this.barPositioningFn,true).stackHorizontal(this.getStackData(),this.getSecondaryDataJoin(),w,this.barSize);
+t=o.options.yAttr;}if(b.notFalsy(this.options.threshold)||this.options.threshold===0){u.bars.enter.selectAll("rect").classed("over-threshold",function(x){if(x[t]>=o.options.threshold){return true;
+}return false;});}};return o;};return a;});

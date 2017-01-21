@@ -1,0 +1,17 @@
+define("chart/widgetFramework/composed/riskReport/formatters/stackedHistogramFormatter",["jqueryExtended","underscore","d3","util/Functional","chartutil/domUtils","chartutil/stringutils","chartutil/dateUtils_CET","chartutil/d3utils"],function(a,g,h,b,f,c,d,i){var e=function(m,j,l){var k={};
+k.data=m;k.options=j;k.formattedData={};k.comparator=null;k.reverseDirection=false;k.sortKey=null;k.timeline=l;k.formatData=function(){if(b.falsy(this.data.fraudScoreDistribution)){return[];
+}var r=this.data.fraudScoreDistribution;var u=[];var o=this.options.range[0];var p=this.options.range[1];var t=(p-o)/this.options.numBins;
+g.each(r,function(x){var w=x[k.options.accessor];if(w>=o&&w<=p){var v={dx:1,x:w,y:0};g.each(k.options.stacks,function(y){v[y]=x[y];
+});u.push(v);}});var n=h.range(o,p,t);var s=h.layout.histogram().range(k.options.range).bins(k.options.numBins)(n);var q=[];
+g.each(s,function(x){var v={x:x.x,dx:x.dx,y:0};g.each(k.options.stacks,function(z){v[z]=0;});var y=x.x+x.dx;var w=x.x;g.each(u,function(z){if(z.x<y&&z.x>=w){g.each(k.options.stacks,function(A){v[A]+=z[A];
+});}});q.push(v);});g.each(q,function(w){w.stacksArray=[];var v=0;g.each(k.options.stacks,function(z){var x=c.camelToDash(z);
+var y={name:x,x:w.x};y.frequency=w[z];if(x!=="authorised-count"){w.y+=y.frequency;}y.startY=v;y.endY=(x!=="authorised-count")?v+y.frequency:v;
+v=y.endY;w.stacksArray.push(y);});});this.formattedData=q;if(window.console&&console.log){console.log("\n### riskReportStackedHistogramFormatter::formatData:: this.formattedData=",this.formattedData);
+}return{chartData:this.formattedData};};k.sortData=function(n){this.sortKey=n;this.reverseDirection=!this.reverseDirection;
+var o=g.sortBy(this.formattedData,n);if(this.reverseDirection){o.reverse();}this.formattedData=o;return{chartData:this.formattedData};
+};k.compareFunction=function(n){return n[this.sortKey];};k.downloadCSV=function(){var p=this.createObjectForCSV();var n=["fraudScore","authorised-count","totalRefused","refused-by-risk-count","refused-by-bank-count"];
+var o=["Fraud score","Accepted transactions","Total refused transactions","Refused by RevenueProtect tx","Refused by bank tx"];
+f.createCSV(p,n,o,"FraudScoreDistributionOfTransactions");};k.createObjectForCSV=function(){var n=g.map(this.formattedData,function(o){var p={totalRefused:o.y};
+p.fraudScore=String(o.x)+" to "+String(o.x+(o.dx-1));g.each(o.stacksArray,function(q){p[q.name]=q.frequency;});return p;});
+return n;};k.getData=function(){return(this.data)?this.data:this.formatData();};k.setRawData=function(n){this.data=n;};k.retrieveData=function(n){return this.data[n];
+};return k;};return e;});

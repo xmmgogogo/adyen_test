@@ -1,0 +1,11 @@
+define("chart/widgetFramework/composed/chargebackReport/formatters/cfnRolloverFormatter",["underscore","d3","chart/widgetFramework/core/constants/DataConstants","chartutil/domUtils"],function(b,c,e,d){var a=function(i,f,h,j){var g={};
+g.data=i;g.options=f;g.formattedData={};g.comparator=null;g.reverseDirection=false;g.sortKey=null;g.timeline=h;g.id=j;g.dataType="count";
+g.formatData=function(){var k={};this.formattedData=this.calculateMetaData(this.data);if(window.console&&console.log){console.log("### cfnRolloverFormatter::formatData:: this.formattedData=",this.formattedData);
+}return{chartData:this.formattedData};};g.calculateMetaData=function(o){var n=[];var m=c.time.format("%Y-%m-%d");var k=c.format(".2f");
+var l=c.format(",g4f");b.each(o,function(s){var p=+s.authorisedEurAmount/100;var r=+s.chargebackEurAmount/100;var q=+s.fraudNotificationsEurAmount/100;
+if(g.dataType==="count"){n.push({date:m(s.date),chargebackValue:s.chargebackCount,chargebackVol:l(s.chargebackCount),nofValue:s.fraudNotificationsCount,nofVol:l(s.fraudNotificationsCount),chargebackRate:(s.chargebackCount>0)?k((s.chargebackCount/s.authorisedCount)*100):0,nofRate:(s.fraudNotificationsCount>0)?k((s.fraudNotificationsCount/s.authorisedCount)*100):0});
+}else{n.push({date:m(s.date),chargebackValue:r,chargebackAmt:"\u20AC"+l(r),nofValue:q,nofAmt:"\u20AC"+l(q),chargebackRate:(r>0)?k((r/p)*100):0,nofRate:(q>0)?k((q/p)*100):0});
+}});return n;};g.reformatData=function(k){this.dataType=k;var l=this.formatData();this.$el.trigger(e.FORMATTER_INFORM_WIDGET,{type:e.REFORMATTED_DATA,data:l});
+};g.downloadCSV=function(){var k=["date","chargebackValue","chargebackRate","nofValue","nofRate"];var l=["Date","Chargeback "+this.dataType,"Chargeback rate","Notifications of fraud "+this.dataType,"Notifications of fraud rate"];
+d.createCSV(this.formattedData,k,l,"ChargebacksAndFraudNotifications");};g.setRawData=function(k){this.data=k;};return g;
+};return a;});

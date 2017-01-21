@@ -1,0 +1,11 @@
+adyen=window.adyen||{};adyen.jsbase=adyen.jsbase||"";var chartbase=(adyen.jsbase.length)?"/chart/":"";define("charts/acquirerConversion/js/views/charts/requestsChart",["jquery","underscore","backbone","chartlib/barchart","chartlib/events/appstateevents","chartutil/numberutils","chartutil/backbone/CollectionUtils"],function(f,a,h,d,c,e,b){var g=d.extend({defaults:{yScale:"ordinal",totalLabelOffset:5,margin:{top:0,left:265,bottom:30,right:10},barPadding:0.2,xAttr:"percentage",yAttr:"name",joinAttr:"name",tooltip:false},addListeners:function(){if(this.collection){this.listenTo(this.collection,"sort",this.render);
+}h.on(c.RENDER_CHARTS,this.render);},calibrateXScale:function(){var i=[];this.collection.forEach(function(j){if(j.get("name").toLowerCase()!=="total"){i.push(Number(j.get("percentage").toFixed(2)));
+}});this.scales.x.domain([0,d3.max(i)]).rangeRound([0,this.width]).nice();},setXAxis:function(){this._super(arguments);this.axes.x.tickSize(-this.height).ticks(5).tickFormat(function(k,j){return(j>0)?(k*100):k+"%";
+});},renderXAxis:function(){this._super(arguments);this.svg.select(".x.axis").selectAll("text").attr("y",10);},renderYAxis:function(){},renderData:function(){var n=this,q=this.scales.x,o=this.scales.y,p=500;
+var r=this._super();r.bar.select("rect").transition().duration(500).delay(500).ease("cubic-in-out").attr("width",function(s){return(n.getY(s).toLowerCase()==="total")?0:q(n.getX(s));
+}).attr("height",function(s){return o.rangeBand();});var k=r.bar.selectAll(".percentage-label").data(function(t){var s=t.get("percentInArray");
+return s;},function(s){return s.percText;});var m=k.enter().append("text").attr("class","percentage-label").attr("transform",function(u){var t=-45;
+var s=10;return"translate("+t+","+(s)+")";}).text(function(s){return s.percText;});var i=k.transition().duration(p);i.select(".percentage-label").attr("fill-opacity",1).text(function(s){return s.percText;
+});var l=r.bar.exit().transition().duration(p).attr("transform",function(s){return"translate(0,"+n.height+")";});l.select("rect").attr("height",0);
+l.remove();var j=k.exit();j.remove();}});return g;},function(a){if(window.console&&window.console.log){window.console.log("APP JS ERROR =",a);
+}});

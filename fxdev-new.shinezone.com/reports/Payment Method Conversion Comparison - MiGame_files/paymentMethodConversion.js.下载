@@ -1,0 +1,10 @@
+define("pmc/views/charts/paymentMethodConversion",["jquery","backbone","underscore","chartlib/stackedbarchart","d3","chartutil/numberutils","chartlib/events/appstateevents"],function(g,h,b,c,d,f,e){var a=c.extend({el:".pm-conversion-chart",defaults:{yScale:"ordinal",totalLabelOffset:70,margin:{top:0,left:10,bottom:20,right:125},barPadding:0.1,barHeight:15,xAttr:"total",yAttr:"pmName",joinAttr:"pmName",xNestAttr:"conversionRates",tooltip:true},addListeners:function(){if(this.collection){this.listenTo(this.collection,"sort",this.render);
+}h.on(e.STATE_CHANGED,this.transitionOut,this);h.on(e.RENDER_CHARTS,this.render);},renderTooltipContent:function(i){this.tip.html(function(k){var j=d.format("0,000");
+var l=j(k.value);if(typeof window.SVGElement==="undefined"){return"<strong>"+i.pmName+" - "+i.name+":</strong> <span>"+f.decimalFormatter(i.width*100)+"%</span>";
+}return"<strong>"+i.name+":</strong> <span>"+f.decimalFormatter(i.width*100)+"%</span> ("+l+" sessions)";});this.tip.direction("n");
+this.tip.offset([-10,0]);},calibrateYScale:function(){this.scales.y.domain(this.collection.pluck(this.options.yAttr)).rangeBands([this.height,0],this.options.barPadding);
+},renderXAxis:function(){this._super();this.xAxis.selectAll("text").attr("transform",function(){return"translate(0,7)";});
+},setYAxis:function(){this.axes.y=d.svg.axis().scale(this.scales.y).orient("right");},formatYAxis:function(){var i=this.axes.y;
+i.tickFormat(function(j){return(j.length>17)?g.trim(j).substring(0,14).trim(this)+"...":j;});},renderYAxis:function(){this._super();
+this.yAxis.attr("transform","translate("+(this.width+5)+",0)");},transitionOut:function(){this.xAxis.transition().duration(500).delay(0).ease("exp-in-out").attr("transform","translate(0,0)");
+}});return a;});

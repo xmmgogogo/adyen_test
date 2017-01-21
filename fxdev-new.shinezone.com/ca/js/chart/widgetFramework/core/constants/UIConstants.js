@@ -1,0 +1,2 @@
+define("chart/widgetFramework/core/constants/UIConstants",["jquery"],function(b){var a={CHART_INITIALISED:"chartInitialised",CHART_UPDATED:"chartUpdated",WIDGET_CREATED:"widgetCreated",OBSERVABLE_CREATED:"observableCreated",WIDGET_APP_STARTUP:"widgetAppStartup",CHART_FIRST_RENDER:"chartFirstRender",CHART_TO_VIEW_EVENT:"chartToWidgetEvent",CHART_RENDERED:"chartRendered"};
+a.getNamespaced=function(d,c){if(typeof d!=="string"){return d;}return d.split(/\s+/g).join("."+c+" ")+"."+c;};return a;});

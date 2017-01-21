@@ -1,0 +1,1 @@
+require(["conversion/views/app"],function(a){return new a();});

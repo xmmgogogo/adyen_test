@@ -1,0 +1,2 @@
+define("charts/mobileConversion/js/views/ui/mobileAuthorisationUI",["jquery","underscore","backbone","chartlib/ui/baseui"],function(d,b,e,c){var a=c.extend({el:"#mobileAuthorisationsUI",events:{"mouseover .chart-info-btn":"infoOver"}});
+return a;});

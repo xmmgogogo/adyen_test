@@ -1,0 +1,6 @@
+define("charts/acquirerConversion/js/views/ui/uiBtns",["jquery","underscore","backbone","chartlib/ui/baseui","chartlib/chartBaseEvents"],function(d,b,f,c,e){var a=c.extend({events:{"click .sort-name-button":"sortOnName","click .sort-requests-button":"sortOnRequests","click .sort-auth-button":"sortOnAuth","click .sort-refused-button":"sortByRefused"},initialize:function(){this.listenTo(this.collection,"reset",this.render);
+f.on(e.RENDER_BUTTONS,this.renderButtons,this);this.registeredButtons={nameButton:this.$(".sort-name-button"),requestsButton:this.$(".sort-requests-button"),authButton:this.$(".sort-auth-button"),refusedButton:this.$(".sort-refused-button")};
+for(var g in this.registeredButtons){this.buttons.push(this.registeredButtons[g]);}},sortOnName:function(g){this.collection.sortBy("name");
+this.renderButtons(d(g.currentTarget));},sortOnRequests:function(g){this.collection.sortBy("percentage");this.renderButtons(d(g.currentTarget));
+},sortOnAuth:function(g){this.collection.sortBy("conversionRates","authorised");this.renderButtons(d(g.currentTarget));},sortByRefused:function(g){this.collection.sortBy("conversionRates","refused");
+this.renderButtons(d(g.currentTarget));}});return a;});

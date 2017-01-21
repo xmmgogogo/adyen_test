@@ -1,0 +1,8 @@
+define("chartlib/chartLoadQueue",["jquery","underscore","backbone","chartlib/events/appstateevents","chartlib/chartBaseEvents"],function(d,b,f,c,e){var a=f.Collection.extend({initialize:function(){f.on(c.REQUEST_STATE_CHANGE,this.addToQueue,this);
+f.on(e.DATA_LOADED,this.dataLoaded,this);},loadQueue:[],addToQueue:function(g){if(this.loadQueue.length===0){this.loadQueue.push(g);
+}else{if(this.loadQueue.length>0){this.loadQueue.length=1;this.loadQueue.push(g);}}if(window.console&&window.console.log){window.console.log("\n### ------------------------- chartLoadQueue::addToQueue:: this.loadQueue=",this.loadQueue);
+}if(this.loadQueue.length===1){this.loadData("addToQueue");}},dataLoaded:function(){this.loadQueue.shift();if(window.console&&window.console.log){window.console.log("\n### ------------------------- chartLoadQueue::dataLoaded:: this.loadQueue=",this.loadQueue);
+}if(this.loadQueue.length===0){if(window.console&&window.console.log){window.console.log("\n### ------------------------- chartLoadQueue::dataLoaded:: SEND RENDER CALL");
+}f.trigger(c.RENDER_CHARTS,"loadQueueRender");}else{if(this.loadQueue.length===1){this.loadData("dataLoaded");}}},loadData:function(h){var g=this.loadQueue[0];
+if(window.console&&window.console.log){window.console.log("\n### ------------------------- chartLoadQueue::loadData:: SEND LOAD DATA CALL requested by ",h);
+}f.trigger(c.STATE_CHANGED,g);}});return a;});

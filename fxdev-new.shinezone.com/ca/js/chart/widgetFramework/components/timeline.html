@@ -1,0 +1,107 @@
+<div id="timelineComponent" class="timeline-component">
+
+    <div id="timelineUI" class="timeline-ui">
+
+        <div id="timelineModeButtonsHolder" class="mode-buttons-holder">
+            <button id="monthsBtn" class="csr-button mode months">Months</button>
+            <button id="weeksBtn" class="csr-button mode weeks">Weeks</button>
+            <button id="daysBtn" class="csr-button mode days">Days</button>
+            <button id="hoursBtn" class="csr-button mode hours">Hours</button>
+            <button id="minutesBtn" class="csr-button mode minutes">Minutes</button>
+        </div>
+
+
+
+
+        <div id="timelineConfigUI" class="chart-options-holder timeline-config">
+            <table class="chart-options-table csr-table csr-data-table csr-data-input-table">
+                <tr>
+                    <td class="chart-options-cell drop">
+                        <div class="field-dropdown timeline">
+                            <select id="timelineChartGranularity" class="field-dropdown-select" name="filter.timeSliceType">
+
+                                <option class="tl-config-opt" data-rel="6" value="default">Show in...</option>
+                                <option class="tl-config-opt" data-rel="1" value="minute">Minutes</option>
+                                <option class="tl-config-opt" data-rel="2" value="hour">Hours</option>
+                                <option class="tl-config-opt" data-rel="3" value="day">Days</option>
+                                <option class="tl-config-opt" data-rel="4" value="week">Weeks</option>
+                                <option class="tl-config-opt" data-rel="5" value="month">Months</option>
+
+                            </select>
+                            <span class="icon-sort-desc"></span>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+
+
+
+        <div id="timelinePresets" class="preset-periods">
+
+
+            <div class="chart-options-cell">
+
+                <div class="field-dropdown timeline-presets">
+                    <select id="timelinePresetsSelect" class="field-dropdown-select">
+
+                        <option class="tl-preset-opt">Jump to...</option>
+
+                    </select>
+                    <span class="icon-sort-desc"></span>
+                </div>
+
+
+            </div>
+        </div>
+
+
+
+        <div id="calendarUI" class="calendar-holder calendar-ui">
+            <table class="csr-table csr-data-table csr-data-input-table">
+                <tr>
+                    <td width="30px">From</td>
+                    <td>
+                        <input id="datepickStart" name="bdate" type="text" />
+                        <i class="icon-calendar datepick-icon" id="datepickStart-icon"></i>
+                    </td>
+                    <td width="5px"></td>
+                    <td width="30px"  class="date-picker-input-2">To</td>
+                    <td>
+                        <input id="datepickEnd" name="edate" type="text" />
+                        <i class="icon-calendar datepick-icon" id="datepickEnd-icon"></i>
+                    </td>
+                </tr>
+            </table>
+            <div id="checkMessage" class="datepick-error"></div>
+        </div>
+
+
+    </div>
+
+
+
+    <div id="timelineHolder" class="timeline-holder"></div><!-- #timelineHolder -->
+
+    <div id="timelineControlsUI" class="timeline-controls-ui">
+
+        <div id="timelineControls" class="jump-period-buttons">
+            <button id="jumpBackBtn" class="csr-button jump period back" data-text="Jump timeline back" data-event="JUMP-PERIOD-BACK" title="Select previous period"><i class="icon-chevron-left"></i>previous 31 days</button>
+            <button id="jumpExtentStartBtn" class="csr-button jump period extent-start" title="Start timeline from start of current selection" data-event="JUMP-PERIOD-EXTENT-START"><i class="icon-arrow-right"></i>|</button>
+            <button id="jumpExtentEndBtn" class="csr-button jump period extent-end" title="Start timeline from end of current selection" data-event="JUMP-PERIOD-EXTENT-END">|<i class="icon-arrow-left"></i></button>
+            <button id="jumpFwdBtn" class="csr-button jump period fwd" data-text="Jump timeline forward" data-event="JUMP-PERIOD-FWD" title="Select next period">>next 31 days</button>
+        </div>
+
+        <div id="amsTimeWarning" class="ams-time-warning">Times shown are in Amsterdam CE(S)T&nbsp;&nbsp;</div>
+
+        <button id="outputURL" class="csr-button csr-link-button csr-reduce output-url" title="Append current timeline parameters to the URL in the address bar (CTRL+U)">Add-to-URL</button>
+
+    </div>
+
+    <div id="timelineLoader" class="clock-holder">
+        <div class="loader-bar"></div>
+    </div>
+
+
+</div>

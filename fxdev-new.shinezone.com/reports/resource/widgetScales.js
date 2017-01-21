@@ -1,0 +1,18 @@
+define("chart/widgetFramework/core/mixins/widgetScales",["d3","underscore","util/Functional","chartutil/dateUtils_CET"],function(c,a,b,e){var d={};
+d.getOrdinalXScale=function(f){return function(){this.scales[f]=c.scale.ordinal().rangeBands([0,this.width],this.options.barPadding,this.options.outerPadding);
+};};d.getLinearXScale=function(f){return function(){this.scales[f]=c.scale.linear().rangeRound([0,this.width]);};};d.getTimeXScale=function(f){return function(){this.scales[f]=c.time.scale().range([0,this.width]);
+};};d.getCalibrateOrdinalXScale=function(f){return function(){this.scales[f].domain(a.pluck(this.data,f));if(this.options.barWidth!==null){this.scales[f].rangeBands([0,this.width],this.options.barPadding,this.options.outerPadding);
+}};};d.getCalibrateLinearXScale=function(f,g){return function(){var h=d.getDomainFromDataExtremes(this.data,f,g.nestedXAttr);
+if(b.falsy(g.allowFullLinearRange)){h[0]=0;}else{if(h[0]>0){h[0]=0;}else{if(h[0]<0&&h[1]<0){h[1]=0;}}}if(this.maxXScale){h[1]=this.maxXScale;
+}this.scales[f].domain(h);if(g.niceScale){if(b.notFalsy(g.ticks)){this.scales[f].nice(g.ticks);}else{this.scales[f].nice();
+}}};};d.getCalibrateTimeXScale=function(f,g){return function(){var i=d.getDomainFromDataExtremes(this.data,f,g.nestedXAttr);
+this.scales[f].domain(i);if(!a.isDate(i[0])&&!a.isDate(i[1])){return;}if(this.configData&&this.configData.granularity==="day"){var k=e.assessDates(i[0],i[1],false);
+if(k.tzOffsetDiff<0){var h=this.scales[f].ticks(c.time[this.configData.granularity],1);var j=h[h.length-1].getHours();if(j!==0){var l=new Date(i[1].getFullYear(),i[1].getMonth(),i[1].getDate(),j);
+i[1]=l;this.scales[f].domain(i);}}}};};d.getOrdinalYScale=function(f){return function(){this.scales[f]=c.scale.ordinal().rangeBands([this.height,0],this.options.barPadding,this.options.outerPadding);
+};};d.getLinearYScale=function(f){return function(){this.scales[f]=c.scale.linear().rangeRound([this.height,0]);};};d.getCalibrateOrdinalYScale=function(f){return function(){this.scales[f].domain(a.pluck(this.data,f));
+if(this.options.barHeight!==null){this.scales[f].rangeBands([this.height,0],this.options.barPadding,this.options.outerPadding);
+}};};d.getCalibrateLinearYScale=function(f,g){return function(){var h=d.getDomainFromDataExtremes(this.data,f,g.nestedYAttr);
+if(b.falsy(g.allowFullLinearRange)){h[0]=0;}else{if(h[0]>0){h[0]=0;}}this.scales[f].domain(h);if(g.niceScale){if(b.notFalsy(g.ticks)){this.scales[f].nice(g.ticks);
+}else{this.scales[f].nice();}}};};d.getDomainFromDataExtremes=function(k,f,j){if(b.falsy(k)){return[0,0];}if(typeof j==="undefined"){j=null;
+}var i=(j!==null)?j:f;if(!a.isArray(k)){k=[k];}var g=a.pluck(k,i);g=a.map(g,function(l){if(a.isArray(l)){return a.pluck(l,f);
+}return l;});g=a.flatten(g);var h=[c.min(g),c.max(g)];return h;};return d;});

@@ -1,0 +1,3 @@
+define("chartutil/cssutils",["jquery"],function(b){var a={};a.rotateElement=function(e,f,d,c){var f=(typeof f==="undefined")?180:f,d=d||0,c=c||0;
+b(e).css({transform:"rotate("+f+"deg) translateX("+d+"px) translateY(-"+c+"px)"});return e;};a.rotateElement2=function(f,e,h,g){var i=(typeof e==="undefined")?180:e,d=h||0,c=g||0;
+b(f).css({transform:"rotate("+i+"deg) translateX("+d+"px) translateY("+c+"px)"});return f;};return a;});

@@ -1,0 +1,16 @@
+define("baselinerates/views/charts/baseLineRollOver",["jquery","underscore","backbone","d3","chartlib/vertbarchart","chartlib/events/appstateevents","chartutil/dateUtils_CET"],function(e,a,h,c,b,d,f){var g=b.extend({granularityFormats:{},defaults:{xScale:"ordinal",barPadding:0.2,margin:{top:5,right:50,bottom:20,left:50},tooltip:true},initialize:function(){this.granularityFormats.month=c.time.format.utc("%B");
+this.granularityFormats.week=function(i){return"wk "+i.getWeek();};this.granularityFormats.day=c.time.format.utc("%d/%m/%Y");
+this._super();},addListeners:function(){h.on(d.RENDER_CHARTS,this.render);},renderXAxis:function(){},renderYAxis:function(){},calibrateYScale:function(){this.scales.y.domain([0,c.max(this.collection.pluck(this.options.yAttr))]);
+},renderData:function(){var o=this,q=this.scales.x,p=this.scales.y,m=(this.width/o.collection.length),r=m*(1-this.options.barPadding),j=".bar.rollover";
+var n=this.svg.selectAll(j).data(o.collection.models,this.joinData);var l=n.enter().append("g").attr("class","bar rollover").attr("transform",function(t,s){return"translate("+((m*(s+1))-(m/2))+",0)";
+}).append("rect").attr("width",r).attr("height",function(s){return 0;}).attr("y",function(s){return o.height;}).attr("transform",function(t,s){return"translate(-"+(r/2)+",0)";
+});var k=n.transition().duration(500).attr("transform",function(t,s){return"translate("+((m*(s+1))-(m/2))+",0)";});k.select("rect").attr("width",r).attr("height",function(s){return o.height;
+}).attr("y",function(s){return 0;}).attr("transform",function(t,s){return"translate(-"+(r/2)+",0)";});if(this.options.tooltip){l.on("mouseover",function(s){o.showTooltip(s,this,false);
+}).on("mouseout",this.tip.hide).classed("active",true);}var i=n.exit().transition();i.attr("transform",function(s){return"translate(0,0)";
+}).select("rect").attr("width",0);i.remove();},renderTooltipContent:function(m){var j=this,i=c.format("n"),k=c.format(".1%"),l=this.collection.getGranularity();
+j.tip.html(function(o){var n="<div style='width:220px'>";n+="<div class='label csr-col two a'>date:</div><div class='value csr-col two a'>"+j.granularityFormats[l](o.get("date"))+"</div>";
+n+="<div class='label csr-col two a'>rate:</div><div class='value csr-col two a'>"+k(o.get("authRate")||0)+"</div>";n+="<div class='label csr-col two a'>7-day average:</div><div class='value csr-col two a'>"+k(o.get("averageRate"))+"</div>";
+n+="<div class='label csr-col two a'>authorisations:</div><div class='value csr-col two a'>"+i(o.get("authorisations"))+"</div>";
+n+="<div class='label csr-col two a'>total:</div><div class='value csr-col two a'>"+i(o.get("total"))+"</div>";n+="</div>";
+return n;});this.tip.attr("class","d3-tip");this.tip.direction("n");this.tip.offset([-10,0]);}});return g;},function(a){if(window.console&&window.console.log){window.console.log("APP JS ERROR =",a);
+}});

@@ -1,0 +1,2 @@
+define("charts/acquirerConversion/js/models/conversion",["jquery","underscore","backbone","backbonenested"],function(c,b,e,d){var a=e.NestedModel.extend({defaults:{name:"",total:0,conversionRates:[],percentage:0}});
+return a;});

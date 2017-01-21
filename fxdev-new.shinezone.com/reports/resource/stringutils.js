@@ -1,0 +1,14 @@
+define("chartutil/stringutils",[],function(){var a={};a.capitalSeparator=function(c){var e=c.match(/[A-Z][a-z]*/g);if(window.console&&console.log){console.log("### stringutils::capitalSeparator:: capitals=",e);
+}if(e[e.length-1].length<2){return c;}var b=e.join(" ").toLowerCase();var d=b.charAt(0).toUpperCase()+b.slice(1);return d;
+};a.camelToDash=function(c){var b=c.replace(/\W+/g,"-").replace(/([a-z\d])([A-Z])/g,"$1-$2");return b.toLowerCase();};a.camelToDash2=function(c){function b(d){return"-"+d.toLowerCase();
+}return c.replace(/[A-Z]/g,b);};a.capitaliseFirstLetter=function(b){return b.charAt(0).toUpperCase()+b.slice(1);};a.lowercaseFirstLetter=function(b){return b.charAt(0).toLowerCase()+b.slice(1);
+};a.capitaliseAllFirstLetters=function(f){var c=f.toLowerCase();var e=c.split(" ");for(var d=0,b=e.length;d<b;d++){e[d]=a.capitaliseFirstLetter(e[d]);
+}return e.join(" ");};a.camelCase=function(c){var b=a.capitaliseAllFirstLetters(c);b=a.replaceSpace(b);b=a.lowercaseFirstLetter(b);
+return b;};a.wordWrap=function(f,e,c){c=c||"\n";e=e||75;if(!f){return f;}if(f.length<=e){return f;}var d="(.{1,"+e+"})[a-z](?=[A-Z]\\S)|\\S+?(\\s|$)";
+var b=f.match(new RegExp(d,"g"));return b.join(c);};a.testWhite=function(b){var c=new RegExp(/^\s$/);return c.test(b.charAt(0));
+};a.testCapital=function(b){var c=new RegExp(/[A-Z]/);return c.test(b.charAt(0));};a.testUnderscore=function(b){var c=new RegExp(/\_/);
+return c.test(b.charAt(0));};a.getUrlParameter=function(b){var e=window.location.search.substring(1);var d=e.split("&");for(var c=0;
+c<d.length;c++){var f=d[c].split("=");if(f[0]===b){return f[1];}}};a.classNameFormatter=function(d){var c=(d).match(/[^\s]+/)[0].toLowerCase();
+var e=new RegExp(/(.*)(by)(.*)/);var b=c.match(e);if(b===null){return c;}var f=a.capitaliseFirstLetter(b[3]);return b[1]+f;
+};a.lowerCaseReplaceSpace=function(d,b){var c=b||"";return String(d).toLowerCase().replace(/\s/g,c);};a.replaceSpace=function(d,b){var c=b||"";
+return String(d).replace(/\s/g,c);};return a;});

@@ -1,0 +1,14 @@
+define("timeline/util/formatTicks",["jquery","chartutil/dateUtils_CET","timeline/util/timelineConstants"],function(b,d,a){var c={};
+c.formatTicks=function(m,f){var j=this;var h=0;var l=this.collection.getValue("forceCET");var g=j.getFormatPeriod();var e,k;
+if(f===0){if(l){if(g===a.__HOUR_FORMAT){h++;e=d.getAmsterdamDSTOffsetTime(m,true,false);k=d.timezoneShiftPseudoDate(m,e,false,"tick",h<1);
+j.oldDateForFormatting=k;return d.formatPseudoDate(k,a.__FORMAT_HOURS_PSEUDO);}else{if(g===a.__MINUTE_FORMAT){h++;e=d.getAmsterdamDSTOffsetTime(m,true,false);
+k=d.timezoneShiftPseudoDate(m,e,false,"tick",h<1);j.oldDateForFormatting=k;return d.formatPseudoDate(k,a.__FORMAT_MINUTES_PSEUDO);
+}else{j.oldDateForFormatting=m;return j.timeFormat(m);}}}else{j.oldDateForFormatting=m;return j.timeFormat(m);}}switch(g){case a.__MINUTE_FORMAT:if(l){h++;
+e=d.getAmsterdamDSTOffsetTime(m,true,false);k=d.timezoneShiftPseudoDate(m,e,false,"tick",h<1);if(k.utcHours!==j.oldDateForFormatting.utcHours){if(f<=2){j.hidePreviousTick(f);
+}j.oldDateForFormatting=k;return d.formatPseudoDate(k,a.__FORMAT_MINUTES_PSEUDO);}else{return"";}}else{if(m.getHours()!==j.oldDateForFormatting.getHours()){if(f<=4){j.hidePreviousTick(f);
+}j.oldDateForFormatting=m;return j.timeFormat(m);}else{return"";}}break;case a.__HOUR_FORMAT:if(l){h++;e=d.getAmsterdamDSTOffsetTime(m,true,false);
+k=d.timezoneShiftPseudoDate(m,e,false,"tick",h<1);if(k.date!==j.oldDateForFormatting.date){if(f<=3){j.hidePreviousTick(f);
+}j.oldDateForFormatting=k;return d.formatPseudoDate(k,a.__FORMAT_HOURS_PSEUDO);}else{return"";}}else{if(m.getDate()!==j.oldDateForFormatting.getDate()){if(f<=3){j.hidePreviousTick(f);
+}j.oldDateForFormatting=m;return j.timeFormat(m);}else{return"";}}break;case a.__DAY_FORMAT:case a.__WEEK_FORMAT:if(m.getFullYear()!==j.oldDateForFormatting.getFullYear()||m.getMonth()!==j.oldDateForFormatting.getMonth()){if(g===a.__DAY_FORMAT&&f===1){j.hidePreviousTick(f);
+}j.oldDateForFormatting=m;return j.timeFormat(m);}else{return"";}break;case a.__MONTH_FORMAT:if(m.getFullYear()!==j.oldDateForFormatting.getFullYear()){j.oldDateForFormatting=m;
+return j.timeFormat(m);}else{return"";}break;}};return c;});

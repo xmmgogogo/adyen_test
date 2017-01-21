@@ -1,0 +1,3 @@
+define("chart/widgetFramework/composed/riskReport/views/refusalRateLineView",["jquery","underscore","chartutil/d3utils","chart/widgetFramework/core/mixins/formats","util/ObjectSuper","chart/widgetFramework/chartTypes/lineChart"],function(g,b,e,f,d,a){var c=function(m,h,k){var j;
+var l={};var i=b.defaults(l,m);j=a(i,h,k);var n=d(j);j.renderYAxis=function(){n.renderYAxis();};j.getLabelName=function(o){return o[this.options.joinAttr];
+};return j;};return c;});

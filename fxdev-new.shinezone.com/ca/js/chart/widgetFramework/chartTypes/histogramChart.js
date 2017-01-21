@@ -1,0 +1,6 @@
+define("chart/widgetFramework/chartTypes/histogramChart",["jquery","underscore","d3","util/Functional","chart/widgetFramework/core/constants/WidgetConstants","chart/widgetFramework/core/constants/UIConstants","util/ObjectSuper","chart/widgetFramework/core/drivers/axisBaseView"],function(b,g,i,a,d,f,e,h){var c=function(p,j,n,l){var m;
+var o={};var k=g.defaults(p,o);m=h(k,j);var q=e(m);m.renderData=function(){if(a.falsy(this.data)){this.hideCharts("no data to display");
+return;}var u=this.scales[this.options.xAttr],t=this.scales[this.options.yAttr];var s,r;if(this.options.variation===d.VERTICAL){s=this.barUtils.containerBarsVertical(this.chartGroup,this.getData(),this.getPrimaryDataJoin(),this.barPositioningFn,true).barVertical(this.options.yAttr,t,this.barSize);
+r=m.options.xAttr;}else{s=this.barUtils.containerBarsHorizontal(this.chartGroup,this.getData(),this.getPrimaryDataJoin(),this.barPositioningFn,true).barHorizontal(this.options.xAttr,u,this.barSize);
+r=m.options.yAttr;}if(a.notFalsy(this.options.threshold)||this.options.threshold===0){s.bars.enter.selectAll("rect").classed("over-threshold",function(v){if(v[r]>=m.options.threshold){return true;
+}return false;});}};return m;};return c;});
