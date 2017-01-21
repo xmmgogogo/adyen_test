@@ -216,7 +216,7 @@ $common = new common();
 
                             <?php
                             if(!isset($_REQUEST['pos'])) {
-                                echo '<strong>Default</strong> | &nbsp;<a href="showList_pos.php?pos">POS</a>';
+                                echo '<strong>Default</strong> | &nbsp;<a href="showList.php?pos">POS</a>';
                             } else {
                                 echo '<a href="showList.php">Default</a> | &nbsp;<strong>POS</strong>';
                             }
@@ -267,6 +267,13 @@ $common = new common();
                                 <i class="icon-filter "></i>
                             </a>
                         </th>
+                        <th>
+                            <a href="showList.php?sortBy=posTransactionDate&sortDirection=asc">pos transaction date</a>
+                            <a data-dialog="true" href="showList.php?resourceKeyPrefix=posTransactionDate&displayWildcard=false&filterField=posTransactionDate">
+                                <i class="icon-filter "></i>
+                            </a>
+                        </th>
+                        <th>unique terminal id</th>
                         <th colspan="2">amount</th>
                         <th>method
                             <a data-dialog="true" href="#" onclick="openMethodPro()">
@@ -278,11 +285,14 @@ $common = new common();
                                 <i class="icon-filter "></i>
                             </a>
                         </th>
-                        <th>fraud score
-                            <a data-dialog="true" href="#">
-                                <i class="icon-filter "></i>
-                            </a>
-                        </th>
+                        <th>raw acquirer response</th>
+                        <th>issuer country</th>
+                        <th>shopper country</th>
+                        <th>POS Entry Mode</th>
+                        <th>CVM Performed</th>
+                        <th>CVM Result</th>
+                        <th>DCC Accepted</th>
+                        <th>Issuer Auth Code</th>
                     </tr>
 
                     </thead>
@@ -327,10 +337,20 @@ $common = new common();
                         echo "<td>" . $row['MerchantReferenceId'] . "</td>";
                         echo "<td>" . $row['CompanyAccount'] . "</td>";
                         echo "<td>" . $row['BookingDate'] . "</td>";
+                        echo "<td></td>";   //pos transaction date
+                        echo "<td></td>";   //unique terminal id
                         echo "<td colspan=\"2\">" . $row['MainAmount'] . "</td>";
-                        echo "<td>" . $row['PaymentMethod'] . "</td>";
+                        //echo "<td>" . $row['PaymentMethod'] . "</td>";
+                        echo '<td><img style="border: 1px solid #999; vertical-align: middle" src="./ca/img/pm/' . $row['PaymentMethod'] . '_tiny.png" title="' . $row['PaymentMethod'] . '" alt="' . $row['PaymentMethod'] . '"></td>';
                         echo "<td>" . $row['RecordType'] . "</td>";
-                        echo "<td>0</td>";
+                        echo "<td></td>";   //raw acquirer response
+                        echo "<td></td>";   //issuer country
+                        echo "<td></td>";   //shopper country
+                        echo "<td></td>";   //POS Entry Mode
+                        echo "<td></td>";   //CVM Performed
+                        echo "<td></td>";   //CVM Result
+                        echo "<td></td>";   //DCC Accepted
+                        echo "<td></td>";   //Issuer Auth Code
                         echo "</tr>";
 
                         global $isEmpty;

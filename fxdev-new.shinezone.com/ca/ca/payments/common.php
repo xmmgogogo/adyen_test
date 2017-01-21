@@ -69,12 +69,13 @@ class common {
      * @param $sql
      * @param array $parameters
      * @param string $orderBy
+     * @param int $limitFrom
      * @param int $limit
      * @return mixed
      */
-    public function getOrderList($sql, $parameters = array(), $orderBy = '', $limit = 1000) {
-        $todayTime = date('Y-m-d');
-        $sql .= ' and ' . "BookingDate <= '" . $todayTime . "' " . $orderBy . " limit 0, " . $limit;
+    public function getOrderList($sql, $parameters = array(), $orderBy = '', $limitFrom = 0, $limit = 1000) {
+        $todayTime = date('Y-m-d H:i:s');
+        $sql .= ' and ' . "BookingDate <= '" . $todayTime . "' " . $orderBy . " limit {$limitFrom}, " . $limit;
         var_dump($sql);
         return $this->DB->query($sql, $parameters);
     }

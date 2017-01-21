@@ -38,13 +38,18 @@ if(isset($_REQUEST['pos'])) {
     $payment = array('PspReferenceId', 'MerchantReferenceId', 'MerchantAccount', 'BookingDate', 'TimeZone', 'MainAmount', 'PaymentCurrency', 'PaymentMethod', 'Status', 'FraudScoring');
 }
 
-//$str = "姓名,性别,年龄" . PHP_EOL;
 //1，先进行标题行替换
-foreach($payment as $val) {
+foreach($payment as $key => $val) {
+    $tmpKey = $val;
+    if(isset($csvDownLoadMap[$val])) {
+        $tmpKey = $csvDownLoadMap[$val];
+    }
 
+    //标题
+    $str .= iconv('utf-8', 'gb2312' , $tmpKey) . ',';
 }
-$str = implode(',', $payment)  . PHP_EOL;
-$str = iconv('utf-8', 'gb2312' , $str);
+
+$str .= PHP_EOL;
 
 //排序
 $orderBy = '';
@@ -63,7 +68,6 @@ foreach($result as $row)
     $str .= PHP_EOL; //用引文逗号分开
 }
 
-$common->dump($result);die;
 $filename = 'paymentlist(' . date('YmdHi') . ').csv'; //设置文件名
 
 export_csv($filename, $str); //导出
