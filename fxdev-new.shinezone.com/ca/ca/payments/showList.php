@@ -7,6 +7,21 @@
 include "common.php";
 $common = new common();
 
+//分页
+$pageFromNumber = 1;
+if(isset($_REQUEST['pageNumber'])) {
+    $pageFromNumber = intval($_REQUEST['pageNumber']);
+}
+
+//判断是否有分页
+$isPageNext = false;
+$curPage = $pageFromNumber;
+//总页数
+$totalOrderNum = $common->countOrderList();
+if($totalOrderNum > $common->returnPageNum() * $pageFromNumber) {
+    $isPageNext = $pageFromNumber + 1;
+}
+
 ?>
 
 </<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
@@ -225,7 +240,12 @@ $common = new common();
                         <form method="get" action="showList.php">
                             <input  type="hidden" size="25" name="filterField" value="PspReferenceId" />
                             <span style="vertical-align: middle;  line-height: 2em; font-size: 0.9em">
-                Page 1
+                Page <?php echo $curPage;?>
+                                <?php
+                                if($isPageNext) {
+                                    echo '<a style="padding:0 5px;" href="showList.php?pageNumber=' . $isPageNext . '"><i class="icon-caret-right"></i></a>';
+                                }
+                                ?>
                             <b> | </b>
             <a href="showList.php?clearFilter=true">
                 clear all filters
@@ -311,7 +331,7 @@ $common = new common();
 
                     //查询
                     $isEmpty = true;
-                    $result = $common->getOrderList("select * from payment WHERE {$where}", $parameters, $orderBy);
+                    $result = $common->getOrderList("select * from payment WHERE {$where}", $parameters, $orderBy, $pageFromNumber);
 
                     //先默认用LOW的方法，遍历实现
                     $filterResultTmp = $filterResult = array();
@@ -340,6 +360,16 @@ $common = new common();
 
                     </tbody>
                 </table>
+
+                <!--分页代码-->
+                <div class="paging footer-paging">
+                    Page <?php echo $curPage;?>
+                    <?php
+                    if($isPageNext) {
+                        echo '<a style="padding:0 5px;" href="showList.php?pageNumber=' . $isPageNext . '"><i class="icon-caret-right"></i></a>';
+                    }
+                    ?>
+                </div>
 
                 <?php
                 if($isEmpty) {

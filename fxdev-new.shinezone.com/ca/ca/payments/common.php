@@ -8,6 +8,9 @@ require(dirname(__FILE__). "/Library/PDO.class.php");
 class common {
     public $DB = null;
 
+    //每一页1000条
+    const PAGE_NUM = 500;
+
     public function __construct()
     {
         //引入配置文件
@@ -62,6 +65,10 @@ class common {
         return $data;
     }
 
+    public function returnPageNum() {
+        return self::PAGE_NUM;
+    }
+
     /**
      * 获取当前订单详细
      * 1，默认时间限制
@@ -70,14 +77,23 @@ class common {
      * @param array $parameters
      * @param string $orderBy
      * @param int $limitFrom
-     * @param int $limit
      * @return mixed
      */
-    public function getOrderList($sql, $parameters = array(), $orderBy = '', $limitFrom = 0, $limit = 1000) {
+    public function getOrderList($sql, $parameters = array(), $orderBy = '', $limitFrom = 1) {
         $todayTime = date('Y-m-d H:i:s');
-        $sql .= ' and ' . "BookingDate <= '" . $todayTime . "' " . $orderBy . " limit {$limitFrom}, " . $limit;
-        var_dump($sql);
+        $sql .= ' and ' . "BookingDate <= '" . $todayTime . "' " . $orderBy . " limit " . ($limitFrom - 1) * self::PAGE_NUM . ", " . self::PAGE_NUM;
+//        var_dump($sql);
         return $this->DB->query($sql, $parameters);
+    }
+
+    /**
+     * 获取全部表单数量
+     * @return int
+     */
+    public function countOrderList() {
+        $result =  $this->DB->query("select count(*) as c from payment");
+
+        return $result[0]['c'];
     }
 
     /**
