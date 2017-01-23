@@ -39,18 +39,18 @@ function mapWorld8Region()
         "UN" => 0
     ];
 
-    $areaInfo =
-        [
-            "AS" => ['01', "Asia"] ,
-            "EU" => ['02', "Europe"] ,
-            "AF" => ['03', "Africa"] ,
-            "NA" => ['04', "North America"] ,
-            "SA" => ['05', "South America"] ,
-            "CA" => ['06', "Central America"] ,
-            "OC" => ['07', "Oceania"] ,
-            "ME" => ['08', "Middle East"] ,
-            "UN" => ['09', "Unknown Region"] ,
-        ];
+//    $areaInfo =
+//        [
+//            "AS" => ['01', "Asia"] ,
+//            "EU" => ['02', "Europe"] ,
+//            "AF" => ['03', "Africa"] ,
+//            "NA" => ['04', "North America"] ,
+//            "SA" => ['05', "South America"] ,
+//            "CA" => ['06', "Central America"] ,
+//            "OC" => ['07', "Oceania"] ,
+//            "ME" => ['08', "Middle East"] ,
+//            "UN" => ['09', "Unknown Region"] ,
+//        ];
 
 
     //引入通用库
@@ -180,7 +180,6 @@ function conversionPerPaymentMethod() {
 
         $Completed = isset($sessionFetchAllMethodStatus[$key]['Completed']) ? $sessionFetchAllMethodStatus[$key]['Completed'] : 0;
         $CompletedStr .= '<set value="' . $Completed . '" toolText="' . $key . ', ' . $Completed . ' Completed sessions 999%"/>' . PHP_EOL;
-
     }
 
 return <<<EOF
@@ -265,7 +264,7 @@ function paymentMethodsMainCountries() {
                 if(isset($areaSession[$val['status']])) {
                     $areaSession[$val['status']] += $val['session'];
                 } else {
-                    $areaSession[$val['status']] += $val['session'];
+                    $areaSession[$val['status']] = $val['session'];
                 }
             }
 
@@ -312,23 +311,320 @@ return <<<EOF
 EOF;
 }
 
-# 2 CONVERSION_SALES_CHANNEL_NORMALISED
 /**
-    statsType:CONVERSION_SALES_CHANNEL_NORMALISED
-    region:
-    granularity:day
-    bdate:2017-01-13
-    edate:2017-01-20
-    cb:1484882795911
- *  Referer:https://ca-live.adyen.com/ca/ca/conversion/mobileconversion2.shtml
+ * Payment Methods: Value, Volume and Conversion
+ * 1，每种支付方式的数据组合
+ * array (
+'Completed' =>
+    array (
+        '2017-01-19' => 830,
+        '2017-01-20' => 10,
+    ),
+    'Authorised' =>
+    array (
+        '2017-01-19' => 100,
+    ),
+    'Abandoned' =>
+    array (
+        '2017-01-19' => 10,
+    ),
+)
+ */
+function conversionPerTimeInterval() {
+    //引入通用库
+    $common = new common();
+    $sessionFetchAllMethodArea = $common->getAreaSession('status', 'session', 'date');//共多少满足条件的数量
+
+//    $common->dump($sessionFetchAllMethodArea);
+
+    //初始化
+    $categoryStr = $dataset['Authorised'] = $dataset['Completed'] = $dataset['Abandoned'] = '';
+
+
+    //设置日期
+    $bdate = $_REQUEST['bdate'];
+    $edate = $_REQUEST['edate'];
+
+    $time1 = strtotime($bdate); // 自动为00:00:00 时分秒 两个时间之间的年和月份
+    $time2 = strtotime($edate);
+
+    $dateList = array();
+    while( ($time1 = strtotime('+1 days', $time1)) <= $time2){
+        $dateList[] = date('Y-m-d', $time1);
+    }
+
+    //1，生成标题
+    foreach($dateList as $lastDate) {
+        $dateVal = date('M d', strtotime($lastDate));
+        $categoryStr .= '<category label="' . $dateVal . '"/>' . PHP_EOL;
+    }
+
+    //2，生成内容
+    foreach($sessionFetchAllMethodArea as $status => $payInfo) {
+        foreach($dateList as $curDate) {
+            if(isset($payInfo[$curDate])) {
+                $dataset[$status] .= '<set value="' . $payInfo[$curDate] . '" toolText="' . date('M d', strtotime($curDate)) . ', "/>' . PHP_EOL;
+            } else {
+                $dataset[$status] .= '<set value="' . 0 . '" toolText="' . date('M d', strtotime($curDate)) . ', "/>' . PHP_EOL;
+            }
+        }
+    }
+
+    return <<<EOF
+<?xml version="1.0" encoding="UTF-8" ?>
+<chart animation="1" palette="3" aboutMenuItemLabel="Adyen stacked column chart" aboutMenuItemLink="http://www.adyen.com" showLabels="0" showValues="0" caption="Conversion over time" showBorder="0" bgColor="FFFFFF" bgAlpha="0" canvasBorderColor="FFFFFF" plotBorderAlpha="0" showToolTip="1" yAxisMaxValue="0" showPercentValues="0" showPercentInToolTip="0" enableSmartLabels="1" plotGradientColor=" " decimals="1" use3DLighting="0" overlapColumns="0" showSum="0" showCanvasBg="0" divLineColor="666666" showLegend="0" useRoundEdges="0">
+  <styles>
+    <definition>
+      <style name="myHTMLFont" type="Font" isHTML="1"/>
+      <style name="captionFont" type="Font" size="12"/>
+      <style name="subCaptionFont" type="Font" size="10"/>
+    </definition>
+    <application>
+      <apply toObject="TOOLTIP" styles="myHTMLFont"/>
+      <apply toObject="CAPTION" styles="captionFont"/>
+      <apply toObject="SUBCAPTION" styles="subCaptionFont"/>
+    </application>
+  </styles>
+  <header>Sessions</header>
+  <categories>
+    {$categoryStr}
+  </categories>
+  <dataset seriesName="Authorised" color="8DDA00" showValues="0" includeInLegend="1">
+    {$dataset['Authorised']}
+  </dataset>
+  <dataset seriesName="Completed" color="ffde00" showValues="0" includeInLegend="1">
+    {$dataset['Completed']}
+  </dataset>
+  <dataset seriesName="Abandoned" color="F6780F" showValues="0" includeInLegend="1">
+    {$dataset['Abandoned']}
+  </dataset>
+</chart>
+EOF;
+}
+
+/**
+ * Payment Methods: Value, Volume and Conversion
+ * 1，每种支付方式的数据组合
+ * array (
+    'ShinezoneHk' =>
+    array (
+        'Completed' => 840,
+        'Authorised' => 100,
+        'Abandoned' => 10,
+    ),
+    'miniHK' =>
+    array (
+        'Completed' => 10,
+    ),
+    )
+ */
+function conversionPerMerchant() {
+    //引入通用库
+    $common = new common();
+    $sessionFetchAllMethodArea = $common->getAreaSession('account', 'session', 'status');//共多少满足条件的数量
+
+//    $common->dump($sessionFetchAllMethodArea);
+
+    //1，初始化
+    $totalSession = 0;
+    $categoryStr = '';
+
+    //2，生成内容
+    foreach($sessionFetchAllMethodArea as $account => $payInfo) {
+        $accountTotalSessions = array_sum($payInfo);
+        $totalSession += $accountTotalSessions;
+        $categoryStr .= '<category label="' . $account . '" value="' . $accountTotalSessions . '" Alpha="30" hoverText="&lt;B&gt;' . $accountTotalSessions . ' sessions from ' . $account . '&lt;/B&gt; (100.0%)">' . PHP_EOL;
+
+        foreach($payInfo as $status => $sessions) {
+            $categoryStr .=  '<category label="' . $status . '" value="' . $sessions . '" color="F6780F" hoverText="&lt;B&gt;' . $sessions . ' ' . $status . ' sessions&lt;/B&gt; (9.7%)"/>' . PHP_EOL;
+        }
+
+        $categoryStr .=  '</category>' . PHP_EOL;
+    }
+    return <<<EOF
+<?xml version="1.0" encoding="UTF-8" ?>
+<chart animation="0" aboutMenuItemLabel="Adyen chart" aboutMenuItemLink="http://www.adyen.com" showLabels="0" showValues="0" caption="Conversion of accounts per merchant" showBorder="0" bgColor="FFFFFF,FFFFFF" showPlotBorder="1" plotBorderColor="CCCCCC" baseFontSize="9" yAxisMaxValue="0" paletteColors="86e1ff,86cdff,86b8ff,86a4ff,8690ff,9086ff,a486ff,b886ff,cd86ff,e186ff,f586ff" useHoverColor="1" hoverFillColor="EEEEEE">
+  <styles>
+    <definition>
+      <style name="myHTMLFont" type="Font" isHTML="1"/>
+      <style name="captionFont" type="Font" size="12"/>
+      <style name="subCaptionFont" type="Font" size="16"/>
+    </definition>
+    <application>
+      <apply toObject="TOOLTIP" styles="myHTMLFont"/>
+      <apply toObject="CAPTION" styles="captionFont"/>
+      <apply toObject="SUBCAPTION" styles="subCaptionFont"/>
+    </application>
+  </styles>
+  <category label="Total" value="{$totalSession}" Alpha="40" hoverText="&lt;B&gt;&lt;U&gt;{$totalSession} sessions total&lt;/U&gt;&lt;/B&gt;">
+    {$categoryStr}
+  </category>
+</chart>
+EOF;
+}
+
+
+/**
+ * Payment Methods: Value, Volume and Conversion
+ * 1，每种支付方式的数据组合
+ *
+ */
+function conversionPerAcquiper() {
+    //引入通用库
+    $common = new common();
+    $sessionFetchAllMethodArea = $common->getAreaSession('account', 'session', 'status');//共多少满足条件的数量
+
+//    $common->dump($sessionFetchAllMethodArea);
+
+    //1，初始化
+    $totalSession = 0;
+    $categoryStr = '';
+
+    //2，生成内容
+    foreach($sessionFetchAllMethodArea as $account => $payInfo) {
+        $accountTotalSessions = array_sum($payInfo);
+        $totalSession += $accountTotalSessions;
+        $categoryStr .= '<category label="' . $account . '" value="' . $accountTotalSessions . '" Alpha="30" hoverText="&lt;B&gt;' . $accountTotalSessions . ' sessions from ' . $account . '&lt;/B&gt; (100.0%)">' . PHP_EOL;
+
+        foreach($payInfo as $status => $sessions) {
+            $categoryStr .=  '<category label="' . $status . '" value="' . $sessions . '" color="F6780F" hoverText="&lt;B&gt;' . $sessions . ' ' . $status . ' sessions&lt;/B&gt; (9.7%)"/>' . PHP_EOL;
+        }
+
+        $categoryStr .=  '</category>' . PHP_EOL;
+    }
+    return <<<EOF
+<?xml version="1.0" encoding="UTF-8" ?>
+<chart animation="1" palette="3" aboutMenuItemLabel="Adyen stacked column chart" aboutMenuItemLink="http://www.adyen.com" showLabels="0" showValues="0" caption="Conversion per Acquirer" showBorder="0" bgColor="FFFFFF" bgAlpha="0" canvasBorderColor="FFFFFF" plotBorderAlpha="0" showToolTip="1" yAxisMaxValue="100" showPercentValues="0" showPercentInToolTip="0" enableSmartLabels="1" plotGradientColor=" " decimals="1" numberSuffix="%" use3DLighting="0" overlapColumns="0" showSum="0" showCanvasBg="0" divLineColor="666666" showLegend="0" useRoundEdges="0">
+  <styles>
+    <definition>
+      <style name="myHTMLFont" type="Font" isHTML="1"/>
+      <style name="captionFont" type="Font" size="12"/>
+      <style name="subCaptionFont" type="Font" size="10"/>
+    </definition>
+    <application>
+      <apply toObject="TOOLTIP" styles="myHTMLFont"/>
+      <apply toObject="CAPTION" styles="captionFont"/>
+      <apply toObject="SUBCAPTION" styles="subCaptionFont"/>
+    </application>
+  </styles>
+  <header>Sessions</header>
+  <categories>
+    <category label="AdyenCUPExpressPay"/>
+  </categories>
+  <dataset seriesName="Authorised" color="8DDA00" showValues="0" includeInLegend="1">
+    <set value="100.0" toolText="Authorised, AdyenCUPExpressPay, 100.0% (1 transactions)"/>
+  </dataset>
+  <dataset seriesName="Refused" color="F6780F" showValues="0" includeInLegend="1">
+    <set value="0.0" toolText="Refused, AdyenCUPExpressPay, 0.0% (0 transactions)"/>
+  </dataset>
+</chart>
+EOF;
+}
+
+
+/**
+ * Payment Methods: Value, Volume and Conversion
+ * 1，每种支付方式的数据组合
+ *
+ */
+function conversionPerAcquiperAccount() {
+    //引入通用库
+    $common = new common();
+    $sessionFetchAllMethodArea = $common->getAreaSession('account', 'session', 'status');//共多少满足条件的数量
+
+//    $common->dump($sessionFetchAllMethodArea);
+
+    //1，初始化
+    $totalSession = 0;
+    $categoryStr = '';
+
+    //2，生成内容
+    foreach($sessionFetchAllMethodArea as $account => $payInfo) {
+        $accountTotalSessions = array_sum($payInfo);
+        $totalSession += $accountTotalSessions;
+        $categoryStr .= '<category label="' . $account . '" value="' . $accountTotalSessions . '" Alpha="30" hoverText="&lt;B&gt;' . $accountTotalSessions . ' sessions from ' . $account . '&lt;/B&gt; (100.0%)">' . PHP_EOL;
+
+        foreach($payInfo as $status => $sessions) {
+            $categoryStr .=  '<category label="' . $status . '" value="' . $sessions . '" color="F6780F" hoverText="&lt;B&gt;' . $sessions . ' ' . $status . ' sessions&lt;/B&gt; (9.7%)"/>' . PHP_EOL;
+        }
+
+        $categoryStr .=  '</category>' . PHP_EOL;
+    }
+    return <<<EOF
+<chart animation="1" palette="3" aboutMenuItemLabel="Adyen stacked column chart" aboutMenuItemLink="http://www.adyen.com" showLabels="0" showValues="0" caption="Conversion per Acquirer Account" showBorder="0" bgColor="FFFFFF" bgAlpha="0" canvasBorderColor="FFFFFF" plotBorderAlpha="0" showToolTip="1" yAxisMaxValue="100" showPercentValues="0" showPercentInToolTip="0" enableSmartLabels="1" plotGradientColor=" " decimals="1" numberSuffix="%" use3DLighting="0" overlapColumns="0" showSum="0" showCanvasBg="0" divLineColor="666666" showLegend="0" useRoundEdges="0">
+  <styles>
+    <definition>
+      <style name="myHTMLFont" type="Font" isHTML="1"/>
+      <style name="captionFont" type="Font" size="12"/>
+      <style name="subCaptionFont" type="Font" size="10"/>
+    </definition>
+    <application>
+      <apply toObject="TOOLTIP" styles="myHTMLFont"/>
+      <apply toObject="CAPTION" styles="captionFont"/>
+      <apply toObject="SUBCAPTION" styles="subCaptionFont"/>
+    </application>
+  </styles>
+  <header>Sessions</header>
+  <categories>
+    <category label="AdyenCUPExpressPay_ShineZoneHK (AdyenCUPExpressPay)"/>
+  </categories>
+  <dataset seriesName="Authorised" color="8DDA00" showValues="0" includeInLegend="1">
+    <set value="100.0" toolText="Authorised, AdyenCUPExpressPay_ShineZoneHK (AdyenCUPExpressPay), 100.0% (1 transactions)"/>
+  </dataset>
+  <dataset seriesName="Refused" color="F6780F" showValues="0" includeInLegend="1">
+    <set value="0.0" toolText="Refused, AdyenCUPExpressPay_ShineZoneHK (AdyenCUPExpressPay), 0.0% (0 transactions)"/>
+  </dataset>
+</chart>
+EOF;
+}
+
+/**
+    array (
+    'Visa' => 920,
+    'alipay' => 40,
+    )
+
+    array (
+    'Visa' =>
+        array (
+        'Completed' => 810,
+        'Authorised' => 100,
+        'Abandoned' => 10,
+        ),
+    'alipay' =>
+        array (
+        'Completed' => 40,
+        ),
+    )
  */
 function conversionSalesChannelNormalised() {
-    $types = [
-        'Authorised' => 4623 ,
-        'Completed'  => 16 ,
-        'Abandoned'  => 463
-    ];
-    return '<?xml version="1.0" encoding="UTF-8" ?>
+    //引入通用库
+    $common = new common();
+//    $sessionFetchAllMethod = $common->getAreaSession('method', 'session');//共多少比
+    $sessionFetchAllMethodStatus = $common->getAreaSession('method', 'session', 'status');//共多少满足条件的数量
+    $statusList = ['Authorised', 'Abandoned', 'Completed'];
+
+//    $common->dump($sessionFetchAllMethod);
+//    $common->dump($sessionFetchAllMethodStatus);
+
+    //初始化
+    $categoriesStr = $AuthorisedStr['Authorised'] = $AuthorisedStr['Abandoned'] = $AuthorisedStr['Completed'] = '';
+
+    foreach($sessionFetchAllMethodStatus as $method => $payInfo) {
+        //1，生成标题
+        $categoriesStr .= '<category label="' . $method . '"/>';
+
+        //2，当前总数
+        $totalSessions = array_sum($payInfo);
+        foreach($statusList as $status) {
+            $sessions = isset($payInfo[$status]) ? $payInfo[$status] : 0;
+            $TotalPercent = sprintf('%.2f', $sessions * 100 / $totalSessions);
+            $AuthorisedStr[$status] .= '<set value="' . $sessions . '" toolText="' . $status . ', ' . $method . ', ' . $TotalPercent . '% (' . $sessions . ' sessions)"/>' . PHP_EOL;
+        }
+    }
+
+    return <<<EOF
+<?xml version="1.0" encoding="UTF-8" ?>
 <chart animation="1" palette="3" aboutMenuItemLabel="Adyen stacked column chart" aboutMenuItemLink="http://www.adyen.com" showLabels="0" showValues="0" caption="Sales Channel Conversion" showBorder="0" bgColor="FFFFFF" bgAlpha="0" canvasBorderColor="FFFFFF" plotBorderAlpha="0" showToolTip="1" yAxisMaxValue="100" showPercentValues="0" showPercentInToolTip="0" enableSmartLabels="1" plotGradientColor=" " decimals="1" numberSuffix="%" use3DLighting="0" overlapColumns="0" showSum="0" showCanvasBg="0" divLineColor="666666" showLegend="0" useRoundEdges="0">
   <styles>
     <definition>
@@ -344,20 +640,21 @@ function conversionSalesChannelNormalised() {
   </styles>
   <header>Sessions</header>
   <categories>
-    <category label="eCommerce"/>
+    {$categoriesStr}
   </categories>
   <dataset seriesName="Authorised" color="8DDA00" showValues="0" includeInLegend="1">
-    <set value="90.6" toolText="Authorised, eCommerce, 90.6% (4623 sessions)"/>
+    {$AuthorisedStr['Authorised']}
   </dataset>
   <dataset seriesName="Completed" color="ffde00" showValues="0" includeInLegend="1">
-    <set value="0.3" toolText="Completed, eCommerce, 0.3% (16 sessions)"/>
+    {$AuthorisedStr['Completed']}
   </dataset>
   <dataset seriesName="Abandoned" color="F6780F" showValues="0" includeInLegend="1">
-    <set value="9.1" toolText="Abandoned, eCommerce, 9.1% (463 sessions)"/>
+    {$AuthorisedStr['Abandoned']}
   </dataset>
 </chart>
-';
+EOF;
 }
+
 function printInfo($info)
 {
     header("Content-type: text/xml;charset=UTF-8");
@@ -366,53 +663,43 @@ function printInfo($info)
     //header("Content-Disposition: attachment; filename=" . "fusion_chart.xml");
     echo $info;die;
 }
-# 3 MOBILE_ATV_PER_DEVICETYPE
+
 /**
-statsType:MOBILE_ATV_PER_DEVICETYPE
-region:
-granularity:day
-bdate:2017-01-13
-edate:2017-01-20
-cb:1484882795913
- *  Referer:https://ca-live.adyen.com/ca/ca/conversion/mobileconversion2.shtml
+ *不明白意思 TODO
  */
 function mobileATVPerDeviceType() {
-    return '<?xml version="1.0" encoding="UTF-8" ?>
-    <chart animation="1" palette="3" aboutMenuItemLabel="Adyen stacked column chart" aboutMenuItemLink="http://www.adyen.com" showLabels="0" showValues="0" caption="ATV per Device Type" showBorder="0" bgColor="FFFFFF" bgAlpha="0" canvasBorderColor="FFFFFF" plotBorderAlpha="0" showToolTip="1" yAxisMaxValue="0" showPercentValues="0" showPercentInToolTip="0" enableSmartLabels="1" plotGradientColor=" " decimals="2" forceDecimals="1" numberSuffix=" EUR" use3DLighting="0" overlapColumns="0" showSum="0" showCanvasBg="0" divLineColor="666666" showLegend="0" useRoundEdges="0">
-      <styles>
-        <definition>
-          <style name="myHTMLFont" type="Font" isHTML="1"/>
-          <style name="captionFont" type="Font" size="12"/>
-          <style name="subCaptionFont" type="Font" size="10"/>
-        </definition>
-        <application>
-          <apply toObject="TOOLTIP" styles="myHTMLFont"/>
-          <apply toObject="CAPTION" styles="captionFont"/>
-          <apply toObject="SUBCAPTION" styles="subCaptionFont"/>
-        </application>
-      </styles>
-      <header>Sessions</header>
-      <categories>
-        <category label="Other"/>
-      </categories>
-      <dataset seriesName="" color="91B2FF" showValues="0" includeInLegend="1">
-        <set value="58.01"/>
-      </dataset>
-    </chart>
-    ';
+    return <<<EOF
+<?xml version="1.0" encoding="UTF-8" ?>
+<chart animation="1" palette="3" aboutMenuItemLabel="Adyen stacked column chart" aboutMenuItemLink="http://www.adyen.com" showLabels="0" showValues="0" caption="ATV per Device Type" showBorder="0" bgColor="FFFFFF" bgAlpha="0" canvasBorderColor="FFFFFF" plotBorderAlpha="0" showToolTip="1" yAxisMaxValue="0" showPercentValues="0" showPercentInToolTip="0" enableSmartLabels="1" plotGradientColor=" " decimals="2" forceDecimals="1" numberSuffix=" EUR" use3DLighting="0" overlapColumns="0" showSum="0" showCanvasBg="0" divLineColor="666666" showLegend="0" useRoundEdges="0">
+  <styles>
+    <definition>
+      <style name="myHTMLFont" type="Font" isHTML="1"/>
+      <style name="captionFont" type="Font" size="12"/>
+      <style name="subCaptionFont" type="Font" size="10"/>
+    </definition>
+    <application>
+      <apply toObject="TOOLTIP" styles="myHTMLFont"/>
+      <apply toObject="CAPTION" styles="captionFont"/>
+      <apply toObject="SUBCAPTION" styles="subCaptionFont"/>
+    </application>
+  </styles>
+  <header>Sessions</header>
+  <categories>
+    <category label="Other"/>
+  </categories>
+  <dataset seriesName="" color="91B2FF" showValues="0" includeInLegend="1">
+    <set value="72.48"/>
+  </dataset>
+</chart>
+EOF;
 }
-# 4 CONVERSION_MOBILE_SHARE
+
 /**
-statsType:CONVERSION_MOBILE_SHARE
-region:
-granularity:day
-bdate:2017-01-13
-edate:2017-01-20
-cb:1484882795916
- *  Referer:https://ca-live.adyen.com/ca/ca/conversion/mobileconversion2.shtml
+ *不明白意思 TODO
  */
 function conversionMobileShare() {
-    return '<?xml version="1.0" encoding="UTF-8" ?>
+    return <<<EOF
+<?xml version="1.0" encoding="UTF-8" ?>
 <chart animation="1" palette="3" aboutMenuItemLabel="Adyen stacked area chart" aboutMenuItemLink="http://www.adyen.com" showLabels="1" showValues="0" caption="Share of Total Authorisations per Device" showBorder="0" bgColor="FFFFFF" bgAlpha="0" canvasBorderColor="FFFFFF" lineColor="C2C4C4" plotBorderAlpha="0" baseFontColor="555555" showToolTip="1" yAxisMaxValue="0" showPercentValues="0" showPercentInToolTip="0" enableSmartLabels="1" plotGradientColor=" " decimals="1" numberSuffix="%" use3DLighting="0" overlapColumns="0" showSum="0" showCanvasBg="0" divLineColor="666666" showLegend="0" useRoundEdges="0">
   <styles>
     <definition>
@@ -500,46 +787,54 @@ function conversionMobileShare() {
     <set value="0.0" toolText="Jan 19, Windows Mobile, 0.0% (0 authorisations)"/>
   </dataset>
 </chart>
-';
+EOF;
 }
 
-# 6 CONVERSION_MOBILE_DEVICETYPE_NORMALISED
 /**
-statsType:CONVERSION_MOBILE_DEVICETYPE_NORMALISED
-region:
-granularity:day
-bdate:2017-01-13
-edate:2017-01-20
-cb:1484882796256
- *  Referer:https://ca-live.adyen.com/ca/ca/conversion/mobileconversion2.shtml
+array (
+'Completed' => 850,
+'Authorised' => 100,
+'Abandoned' => 10,
+)
  */
 function conversionMobileDeviceTypeNormalised() {
-    return '<?xml version="1.0" encoding="UTF-8" ?>
-    <chart animation="1" palette="3" aboutMenuItemLabel="Adyen stacked column chart" aboutMenuItemLink="http://www.adyen.com" showLabels="0" showValues="0" caption="Conversion per Device type" showBorder="0" bgColor="FFFFFF" bgAlpha="0" canvasBorderColor="FFFFFF" plotBorderAlpha="0" showToolTip="1" yAxisMaxValue="100" showPercentValues="0" showPercentInToolTip="0" enableSmartLabels="1" plotGradientColor=" " decimals="1" numberSuffix="%" use3DLighting="0" overlapColumns="0" showSum="0" showCanvasBg="0" divLineColor="666666" showLegend="0" useRoundEdges="0">
-      <styles>
-        <definition>
-          <style name="myHTMLFont" type="Font" isHTML="1"/>
-          <style name="captionFont" type="Font" size="12"/>
-          <style name="subCaptionFont" type="Font" size="10"/>
-        </definition>
-        <application>
-          <apply toObject="TOOLTIP" styles="myHTMLFont"/>
-          <apply toObject="CAPTION" styles="captionFont"/>
-          <apply toObject="SUBCAPTION" styles="subCaptionFont"/>
-        </application>
-      </styles>
-      <header>Sessions</header>
-      <categories/>
-      <dataset seriesName="Authorised" color="8DDA00" showValues="0" includeInLegend="1"/>
-      <dataset seriesName="Completed" color="ffde00" showValues="0" includeInLegend="1"/>
-      <dataset seriesName="Abandoned" color="F6780F" showValues="0" includeInLegend="1"/>
-    </chart>
-    ';
+    //引入通用库
+    $common = new common();
+    $sessionFetchAllMethodStatus = $common->getAreaSession('status', 'session');//共多少满足条件的数量
+
+//    $common->dump($sessionFetchAllMethodStatus);
+
+    $Completed = isset($sessionFetchAllMethodStatus['Completed']) ? $sessionFetchAllMethodStatus['Completed'] : 0;
+    $Authorised = isset($sessionFetchAllMethodStatus['Authorised']) ? $sessionFetchAllMethodStatus['Authorised'] : 0;
+    $Abandoned = isset($sessionFetchAllMethodStatus['Abandoned']) ? $sessionFetchAllMethodStatus['Abandoned'] : 0;
+
+return <<<EOF
+<?xml version="1.0" encoding="UTF-8" ?>
+<chart animation="1" palette="3" aboutMenuItemLabel="Adyen stacked column chart" aboutMenuItemLink="http://www.adyen.com" showLabels="0" showValues="0" caption="Conversion per Device type" showBorder="0" bgColor="FFFFFF" bgAlpha="0" canvasBorderColor="FFFFFF" plotBorderAlpha="0" showToolTip="1" yAxisMaxValue="100" showPercentValues="0" showPercentInToolTip="0" enableSmartLabels="1" plotGradientColor=" " decimals="1" numberSuffix="%" use3DLighting="0" overlapColumns="0" showSum="0" showCanvasBg="0" divLineColor="666666" showLegend="0" useRoundEdges="0">
+  <styles>
+    <definition>
+      <style name="myHTMLFont" type="Font" isHTML="1"/>
+      <style name="captionFont" type="Font" size="12"/>
+      <style name="subCaptionFont" type="Font" size="10"/>
+    </definition>
+    <application>
+      <apply toObject="TOOLTIP" styles="myHTMLFont"/>
+      <apply toObject="CAPTION" styles="captionFont"/>
+      <apply toObject="SUBCAPTION" styles="subCaptionFont"/>
+    </application>
+  </styles>
+  <header>Sessions</header>
+  <categories/>
+  <dataset seriesName="Authorised" color="8DDA00" showValues="{$Authorised}" includeInLegend="1"/>
+  <dataset seriesName="Completed" color="ffde00" showValues="{$Completed}" includeInLegend="1"/>
+  <dataset seriesName="Abandoned" color="F6780F" showValues="{$Abandoned}" includeInLegend="1"/>
+</chart>
+EOF;
 }
 
 $params  = getInfo();
-$referer = $params['Referer'];
-$filename= parseUrl($referer);
+$referer = isset($params['Referer']) ? $params['Referer'] : '';
+$filename = $referer ? parseUrl($referer) : '';
 
 //if ($filename == 'mobileconversion2') // mobileconversion2.shtml chartxml
 {
@@ -547,6 +842,7 @@ $filename= parseUrl($referer);
         case 'MAP_WORLD_8REGION':
             $return = mapWorld8Region();
             break;
+        //新增，添加区域读取，全球地区固定设置，以下服务于 mobileconversion2.shtml
         case 'CONVERSION_SALES_CHANNEL_NORMALISED':
             $return = conversionSalesChannelNormalised();
             break;
@@ -559,7 +855,7 @@ $filename= parseUrl($referer);
         case 'CONVERSION_MOBILE_DEVICETYPE_NORMALISED':
             $return = conversionMobileDeviceTypeNormalised();
             break;
-        //新增，添加区域读取，全球地区固定设置
+        //新增，添加区域读取，全球地区固定设置，以下服务于 paymentmethods2.shtml
         case 'ATV_PER_PAYMENTMETHOD':
             $return = atvPerPaymentMethod();
             break;
@@ -580,8 +876,26 @@ $filename= parseUrl($referer);
         case 'MAP_UN':
             $return = mapWorld8RegionDetail();
             break;
+        //新增，添加区域读取，全球地区固定设置，以下服务于 overview2.shtml
+        case 'CONVERSION_PER_COUNTRY':
+            $return = conversionPerPaymentMethod();
+            break;
+        case 'CONVERSION_PER_TIMEINTERVAL':
+            $return = conversionPerTimeInterval();
+            break;
+        case 'CONVERSION_PER_MERCHANT':
+            $return = conversionPerMerchant();
+            break;
+        //新增，添加区域读取，全球地区固定设置，以下服务于 acquirer2.shtml
+        case 'CONVERSION_PER_ACQUIRER':
+            $return = conversionPerAcquiper();
+            break;
+        case 'CONVERSION_PER_ACQUIRER_ACCOUNT':
+            $return = conversionPerAcquiperAccount();
+            break;
         default:
             return $return = '';
     }
 }
+
 printInfo($return);

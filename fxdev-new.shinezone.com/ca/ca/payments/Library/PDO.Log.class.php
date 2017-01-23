@@ -11,7 +11,7 @@ class Log
 	{
 		$date = new DateTime();
 		$log  = $this->path . $date->format('Y-m-d') . "-" . md5($date->format('Y-m-d') . $fileSalt) . ".txt";
-		if (is_dir($this->path)) {
+		if (is_dir($this->path) && is_writable($log)) {
 			if (!file_exists($log)) {
 				$fh = fopen($log, 'a+') or die("Fatal Error !");
 				$logcontent = "Time : " . $date->format('H:i:s') . "\r\n" . $message . "\r\n";

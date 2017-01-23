@@ -1,4 +1,8 @@
 <?php
+error_reporting(E_ALL);
+ini_set('display_errors', 'On');
+date_default_timezone_set("Asia/shanghai");
+
 /**
  * 添加公用方法类
  * 1-18
@@ -82,7 +86,7 @@ class common {
     public function getOrderList($sql, $parameters = array(), $orderBy = '', $limitFrom = 1) {
         $todayTime = date('Y-m-d H:i:s');
         $sql .= ' and ' . "BookingDate <= '" . $todayTime . "' " . $orderBy . " limit " . ($limitFrom - 1) * self::PAGE_NUM . ", " . self::PAGE_NUM;
-//        var_dump($sql);
+//        var_dump($sql);1
         return $this->DB->query($sql, $parameters);
     }
 
@@ -142,9 +146,9 @@ class common {
     public function getAreaSession($filterKey = 'area', $searchKey = 'session', $doubleFilterKey = '') {
         //1，按照世界每个州来分
         //2，按照国家来分
-        $keySave = ['area', 'country', 'method', 'amount'];
+        $keySave = ['area', 'country', 'method', 'amount', 'status', 'account'];
         if(!in_array($filterKey, $keySave)) {
-            die('key send error!');
+            die('common.php -> key send error!');
         }
 
         //TODO 优化，看能否直接查询
