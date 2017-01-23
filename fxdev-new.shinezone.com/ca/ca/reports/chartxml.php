@@ -463,35 +463,61 @@ function conversionPerMerchant() {
 EOF;
 }
 
-
 /**
- * Payment Methods: Value, Volume and Conversion
- * 1，每种支付方式的数据组合
+ * Percentage of authorisation requests and Conversion per acquirer
+array (
+    'AdyenCUPExpressPay' =>
+    array (
+        0 =>
+        array (
+        'Id' => 1,
+        'date' => '2017-01-22',
+        'acquirer' => 'AdyenCUPExpressPay',
+        'acount' => 0,
+        'method' => 'CUP',
+        'Request' => 1000,
+        'Aurhorised' => 900,
+        'Refused' => 100,
+    ),
+    1 =>
+        array (
+        ...
+        ),
+    ),
+    'AdyenVisaExpressPay' =>
+    array (
+    ...
+    ),
+)
  *
  */
 function conversionPerAcquiper() {
     //引入通用库
     $common = new common();
-    $sessionFetchAllMethodArea = $common->getAreaSession('account', 'session', 'status');//共多少满足条件的数量
+    $sessionFetchAllAcquiper = $common->getAcquirerAccount('acquirer', 'transaction', 'status');//共多少满足条件的数量
 
-//    $common->dump($sessionFetchAllMethodArea);
+//    $common->dump($sessionFetchAllAcquiper);
 
     //1，初始化
-    $totalSession = 0;
-    $categoryStr = '';
+    $categoriesStr = $AuthorisedStr['Authorised'] = $AuthorisedStr['Refused'] = '';
 
     //2，生成内容
-    foreach($sessionFetchAllMethodArea as $account => $payInfo) {
-        $accountTotalSessions = array_sum($payInfo);
-        $totalSession += $accountTotalSessions;
-        $categoryStr .= '<category label="' . $account . '" value="' . $accountTotalSessions . '" Alpha="30" hoverText="&lt;B&gt;' . $accountTotalSessions . ' sessions from ' . $account . '&lt;/B&gt; (100.0%)">' . PHP_EOL;
+    $statusList = ['Authorised', 'Refused'];
 
-        foreach($payInfo as $status => $sessions) {
-            $categoryStr .=  '<category label="' . $status . '" value="' . $sessions . '" color="F6780F" hoverText="&lt;B&gt;' . $sessions . ' ' . $status . ' sessions&lt;/B&gt; (9.7%)"/>' . PHP_EOL;
+    foreach($sessionFetchAllAcquiper as $method => $payInfo) {
+        //1，生成标题
+        $categoriesStr .= '<category label="' . $method . '"/>';
+
+        //2，当前总数
+        $totalSessions = array_sum($payInfo);
+        foreach($statusList as $status) {
+            $sessions = isset($payInfo[$status]) ? $payInfo[$status] : 0;
+            $TotalPercent = sprintf('%.2f', $sessions * 100 / $totalSessions);
+
+            $AuthorisedStr[$status] .= '<set value="' . $TotalPercent . '" toolText="' . $status . ', ' . $method . ', ' . $TotalPercent . '% (' . $sessions . ' transactions)"/>' . PHP_EOL;
         }
-
-        $categoryStr .=  '</category>' . PHP_EOL;
     }
+
     return <<<EOF
 <?xml version="1.0" encoding="UTF-8" ?>
 <chart animation="1" palette="3" aboutMenuItemLabel="Adyen stacked column chart" aboutMenuItemLink="http://www.adyen.com" showLabels="0" showValues="0" caption="Conversion per Acquirer" showBorder="0" bgColor="FFFFFF" bgAlpha="0" canvasBorderColor="FFFFFF" plotBorderAlpha="0" showToolTip="1" yAxisMaxValue="100" showPercentValues="0" showPercentInToolTip="0" enableSmartLabels="1" plotGradientColor=" " decimals="1" numberSuffix="%" use3DLighting="0" overlapColumns="0" showSum="0" showCanvasBg="0" divLineColor="666666" showLegend="0" useRoundEdges="0">
@@ -509,47 +535,114 @@ function conversionPerAcquiper() {
   </styles>
   <header>Sessions</header>
   <categories>
-    <category label="AdyenCUPExpressPay"/>
+    {$categoriesStr}
   </categories>
   <dataset seriesName="Authorised" color="8DDA00" showValues="0" includeInLegend="1">
-    <set value="100.0" toolText="Authorised, AdyenCUPExpressPay, 100.0% (1 transactions)"/>
+    {$AuthorisedStr['Authorised']}
   </dataset>
   <dataset seriesName="Refused" color="F6780F" showValues="0" includeInLegend="1">
-    <set value="0.0" toolText="Refused, AdyenCUPExpressPay, 0.0% (0 transactions)"/>
+    {$AuthorisedStr['Refused']}
   </dataset>
 </chart>
 EOF;
 }
 
-
 /**
  * Payment Methods: Value, Volume and Conversion
  * 1，每种支付方式的数据组合
- *
+    array (
+    'ShineZoneHK' =>
+    array (
+        'AdyenCUPExpressPay' =>
+        array (
+        0 =>
+        array (
+        'Id' => 1,
+        'date' => '2017-01-22',
+        'acquirer' => 'AdyenCUPExpressPay',
+        'account' => 'ShineZoneHK',
+        'method' => 'CUP',
+        'status' => 'Authorised',
+        'transaction' => 1000,
+        ),
+        ),
+        'AdyenVisaExpressPay' =>
+        array (
+        0 =>
+        array (
+        'Id' => 2,
+        'date' => '2017-01-22',
+        'acquirer' => 'AdyenVisaExpressPay',
+        'account' => 'ShineZoneHK',
+        'method' => 'Visa',
+        'status' => 'Refused',
+        'transaction' => 10,
+        ),
+    ),
+    'miniHK' =>
+    array (
+        'AdyenVisaExpressPay' =>
+        array (
+        0 =>
+        array (
+        'Id' => 5,
+        'date' => '2017-01-20',
+        'acquirer' => 'AdyenVisaExpressPay',
+        'account' => 'miniHK',
+        'method' => 'Visa',
+        'status' => 'Authorised',
+        'transaction' => 300,
+        ),
+        ),
+        'AdyenCUPExpressPay' =>
+        array (
+        0 =>
+        array (
+        'Id' => 6,
+        'date' => '2017-01-20',
+        'acquirer' => 'AdyenCUPExpressPay',
+        'account' => 'miniHK',
+        'method' => 'CUP',
+        'status' => 'Refused',
+        'transaction' => 1000,
+        ),
+        ),
+    ),
+)
  */
 function conversionPerAcquiperAccount() {
     //引入通用库
     $common = new common();
-    $sessionFetchAllMethodArea = $common->getAreaSession('account', 'session', 'status');//共多少满足条件的数量
+    $sessionFetchAllStatus = $common->getAcquirerAccount('status', 'transaction');//统计全部status，合并的总数
+    $sessionFetchAllAcquiper = $common->getAcquirerAccount('account', '', 'acquirer');//共多少满足条件的数量
 
-//    $common->dump($sessionFetchAllMethodArea);
+//    $common->dump($sessionFetchAllStatus);
+//    $common->dump($sessionFetchAllAcquiper);
 
     //1，初始化
-    $totalSession = 0;
-    $categoryStr = '';
+    $categoriesStr = $dataStr = [];
 
-    //2，生成内容
-    foreach($sessionFetchAllMethodArea as $account => $payInfo) {
-        $accountTotalSessions = array_sum($payInfo);
-        $totalSession += $accountTotalSessions;
-        $categoryStr .= '<category label="' . $account . '" value="' . $accountTotalSessions . '" Alpha="30" hoverText="&lt;B&gt;' . $accountTotalSessions . ' sessions from ' . $account . '&lt;/B&gt; (100.0%)">' . PHP_EOL;
+    foreach($sessionFetchAllAcquiper as $account => $payInfo) {
+        foreach($payInfo as $acquirerName => $acquirerInfo) {
+            //1，生成标题
+            $categoriesStr[$acquirerName . '_' . $account] = '<category label="' . $acquirerName . '_' . $account . ' (' . $acquirerName . '_' . $account . ')"/>';
 
-        foreach($payInfo as $status => $sessions) {
-            $categoryStr .=  '<category label="' . $status . '" value="' . $sessions . '" color="F6780F" hoverText="&lt;B&gt;' . $sessions . ' ' . $status . ' sessions&lt;/B&gt; (9.7%)"/>' . PHP_EOL;
+            foreach($acquirerInfo as $vInfo) {
+                //2，生成内容
+                $sessions = $vInfo['transaction'];
+                $status = $vInfo['status'];
+                $newAccount = $acquirerName . '_' . $account;
+                $TotalPercent = sprintf('%.2f', $sessions * 100 / $sessionFetchAllStatus[$status]); //当前交易数量 / 当前status总量
+                $dataStr[$status][] = '<set value="' . $TotalPercent . '" toolText="' . $status . ', ' . $newAccount . ' (' . $acquirerName . '), ' . $TotalPercent . '% (' . $sessions . ' transactions)"/>';
+            }
         }
-
-        $categoryStr .=  '</category>' . PHP_EOL;
     }
+
+    //2，组装数据
+    $categoriesStr = implode(PHP_EOL, $categoriesStr);
+    $AuthorisedStr['Authorised'] = implode(PHP_EOL, $dataStr['Authorised']);
+    $AuthorisedStr['Refused'] = implode(PHP_EOL, $dataStr['Refused']);
+
     return <<<EOF
 <chart animation="1" palette="3" aboutMenuItemLabel="Adyen stacked column chart" aboutMenuItemLink="http://www.adyen.com" showLabels="0" showValues="0" caption="Conversion per Acquirer Account" showBorder="0" bgColor="FFFFFF" bgAlpha="0" canvasBorderColor="FFFFFF" plotBorderAlpha="0" showToolTip="1" yAxisMaxValue="100" showPercentValues="0" showPercentInToolTip="0" enableSmartLabels="1" plotGradientColor=" " decimals="1" numberSuffix="%" use3DLighting="0" overlapColumns="0" showSum="0" showCanvasBg="0" divLineColor="666666" showLegend="0" useRoundEdges="0">
   <styles>
@@ -566,13 +659,13 @@ function conversionPerAcquiperAccount() {
   </styles>
   <header>Sessions</header>
   <categories>
-    <category label="AdyenCUPExpressPay_ShineZoneHK (AdyenCUPExpressPay)"/>
+    {$categoriesStr}
   </categories>
   <dataset seriesName="Authorised" color="8DDA00" showValues="0" includeInLegend="1">
-    <set value="100.0" toolText="Authorised, AdyenCUPExpressPay_ShineZoneHK (AdyenCUPExpressPay), 100.0% (1 transactions)"/>
+    {$AuthorisedStr['Authorised']}
   </dataset>
   <dataset seriesName="Refused" color="F6780F" showValues="0" includeInLegend="1">
-    <set value="0.0" toolText="Refused, AdyenCUPExpressPay_ShineZoneHK (AdyenCUPExpressPay), 0.0% (0 transactions)"/>
+    {$AuthorisedStr['Refused']}
   </dataset>
 </chart>
 EOF;
@@ -600,11 +693,9 @@ EOF;
 function conversionSalesChannelNormalised() {
     //引入通用库
     $common = new common();
-//    $sessionFetchAllMethod = $common->getAreaSession('method', 'session');//共多少比
-    $sessionFetchAllMethodStatus = $common->getAreaSession('method', 'session', 'status');//共多少满足条件的数量
+    $sessionFetchAllMethodStatus = $common->getAreaSession('channel', 'session', 'status');//共多少满足条件的数量
     $statusList = ['Authorised', 'Abandoned', 'Completed'];
 
-//    $common->dump($sessionFetchAllMethod);
 //    $common->dump($sessionFetchAllMethodStatus);
 
     //初始化
