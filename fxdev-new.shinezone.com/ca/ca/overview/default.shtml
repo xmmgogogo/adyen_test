@@ -1,0 +1,1486 @@
+
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" class="csr-t-adyen csr csr-condensed ajax-false ajax- csr-level-2" data-csr-level="2">
+<head>
+    <title>Home - Adyen PSP System</title>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="content-style-type" content="text/css" />
+    <meta http-equiv="imagetoolbar" content="no" />
+    <meta content="TRUE" name="MSSmartTagsPreventParsing" />
+
+
+    <link rel="shortcut icon" href="/ca/img/adyen/favicon.ico" type="image/ico"/>
+    <link rel="stylesheet" type="text/css" href="/ca/css/adyen/style.css?9326" />
+
+    <link rel="stylesheet" type="text/css" href="/ca/css/csr/csr.css?9326" />
+
+
+    <link rel="stylesheet" type="text/css" href="/ca/css/csr/grid.css?9326" />
+    <link rel="stylesheet" type="text/css" href="/ca/css/font.css?9326"/>
+
+    <link rel="stylesheet" type="text/css" href="/ca/css/grid.css?9326" />
+
+    <link rel="alternate" title="Payments Per Hour RSS" href="https://ca-live.adyen.com/reports/token/rss/lasttx/Company/ShineZone/?user=admin%40Company.ShineZone&amp;amp%3Bkey=1481614226166&amp;amp%3Btoken=rMfe%2Fs%2F8oAugc%2B9JJVIwGoFYPfk%3D" type="application/rss+xml" />
+    <link rel="alternate" title="Authorised Volume RSS" href="https://ca-live.adyen.com/reports/token/rss/authorisedtxrss/Company/ShineZone/?user=admin%40Company.ShineZone&amp;amp%3Bkey=1481614226166&amp;amp%3Btoken=rMfe%2Fs%2F8oAugc%2B9JJVIwGoFYPfk%3D" type="application/rss+xml" />
+    <link rel="alternate" title="System Messages RSS" href="https://ca-live.adyen.com/reports/token/rss/systemmessagesrss/Company/ShineZone/?user=admin%40Company.ShineZone&amp;amp%3Bkey=1481614226166&amp;amp%3Btoken=rMfe%2Fs%2F8oAugc%2B9JJVIwGoFYPfk%3D" type="application/rss+xml" />
+
+    <link href="/ca/css/csr/grid.css?9326" type="text/css" rel="stylesheet" />
+    <link href="/ca/js/chart/charts/timeline/css/timeline_v2.css?9326" type="text/css" rel="stylesheet" />
+    <link href="/ca/js/chart/chartlib/css/modules.css?9326" type="text/css" rel="stylesheet" />
+
+
+
+    <script type="text/javascript">
+        (function(console) {
+            function printMe() {
+                if(console && console.warn) {
+                    console.warn("%c [JSS-SX01] This is a browser feature intended for developers.\n\t\t\tIf someone has requested you to copy-paste something in here,\n\t\t\tthey might be trying to hack or scam you.", "color:red;font-size:2em");
+                } else {
+                    setTimeout(printMe, 500);
+                }
+            }
+            //printMe();
+        }(window.console));
+        (function(w) {
+            try {var c = console; Object.defineProperty(w, "console", {get: function() { if(c._commandLineAPI) {throw "[JSS-SX02] Sorry, the script console is deactivated";} return c;},set: function(nc) {c = nc;}});} catch (ignore) {}})(window);
+        adyen = window.adyen = window.adyen || {};
+        adyen.base = adyen.base || "/ca/";
+        adyen.jsbase = adyen.jsbase || "/ca/js";
+        adyen.imgbase = adyen.imgbase || "/ca/img";
+        adyen.cssbase = adyen.cssbase || "/ca/css";
+        adyen.currentAccountType = adyen.currentAccountType || "Company";
+        adyen.tz = adyen.tz || {};
+        adyen.tz.amsterdamOffset = 3600000;
+        adyen.tz.userTimeZoneCode = "Europe/Amsterdam";
+        adyen.config = adyen.config || {};
+        adyen.config.bookmarksUrl = "/ca/ca/accounts/bookmarksJSON.php?accountCode=ShineZone&amp;ignoresaverequest=true"
+        adyen.config.bookmarksUrlWithVolumes = "/ca/ca/accounts/bookmarksJSON.php?accountCode=ShineZone&ignoresaverequest=true&retrieveStats=true";
+
+        adyen.config.navToDefault = "/ca/ca/accounts/choose.php";
+        adyen.config.navToPsp = "/ca/ca/overview/default.shtml";
+        adyen.config.navToCompany = "/ca/ca/overview/default.shtml";
+        adyen.config.navToMerchantAccount = "/ca/ca/overview/default.shtml";
+
+
+        adyen.searchmodes= [
+            {
+                description: "Payment Search",
+                type: "Payments",
+                action: "/ca/ca/payments/modifySearch.shtml?uxEvent=PAYMENT_POWER_SEARCH",
+                hint: "payment",
+                hotKey: "p"
+            }
+            , {
+                description: "Bank Reference Search",
+                type : "Bank Reference",
+                action: "/ca/ca/payments/merchantSearchOffer.shtml?uxEvent=M_OFFER_POWER_SEARCH",
+                hint: "bankReference",
+                hotKey: "b"
+            }
+        ];
+    </script>
+
+
+
+    <!--[if lte IE 8]>
+    <script type="text/javascript">
+        document.createElement('section');
+    </script>
+    <![endif]-->
+
+
+
+    <!--[if lte IE 8]><script src="/ca/js/lib/json2.js"></script><![endif]-->
+
+
+
+
+    <script src="/ca/js/jquery.pack.js?9326" type="text/javascript"></script>
+    <!--[if lte IE 8]>
+    <script src="/ca/js/charts.pack.ie.js?9326" type="text/javascript" ></script>
+    <![endif]-->
+    <!--[if gte IE 9]><!-->
+    <script src="/ca/js/charts.pack.js?9326" type="text/javascript" ></script>
+    <!--<![endif]-->
+    <script src="/ca/js/adyen/adyen.pack.js?9326" type="text/javascript" ></script>
+
+
+</head>
+
+
+
+<body class="csr-page csr-overview-page overview-page no-menu ca-chart-page ca-ft-globalsearch">
+
+<style type="text/css">
+    .ca-get-feedback,
+    .ca-get-feedback * {
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+    }
+
+    .ca-get-feedback {
+        position: fixed;
+        bottom: 15px;
+        left: 15px;
+        z-index: 1000001;
+    }
+
+    .ca-get-feedback__button {
+        -webkit-border-radius: 20px;
+        -moz-border-radius: 20px;
+        border-radius: 20px;
+        padding: 10px 20px;
+
+        background: #4c4c4c;
+        color: #ffffff;
+        cursor: pointer;
+        line-height: 20px;
+    }
+
+    .ca-get-feedback__button .icon-commenting {
+        font-size: 18px;
+    }
+
+    .ca-get-feedback__button-text {
+        display: none;
+        margin-left: 5px;
+    }
+
+    .ca-get-feedback__button:hover .ca-get-feedback__button-text {
+        position: relative;
+        top: -3px;
+
+        display: inline-block;
+    }
+
+    .ca-get-feedback__form-container {
+        position: absolute;
+        top: -210px;
+
+        border: 1px solid #cfcfcf;
+        -webkit-border-radius: 5px;
+        -moz-border-radius: 5px;
+        border-radius: 5px;
+        height: 200px;
+        padding: 25px 20px 15px 20px;
+        width: 390px;
+
+        background: #ffffff;
+    }
+
+    .ca-get-feedback__form {
+        position: relative;
+
+        height: 100%;
+    }
+
+    .ca-get-feedback__form .icon-times-circle {
+        position: absolute;
+        top: -12.5px;
+        right: -12.5px;
+
+        color: #4c4c4c;
+        cursor: pointer;
+        font-size: 16px;
+    }
+
+    .ca-get-feedback__form .csr-button-2.submit,
+    .ca-get-feedback__form .csr-button-2.next {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+    }
+
+    .ca-get-feedback__form .csr-button-2.previous {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+    }
+
+    .ca-get-feedback__form .csr-label-2 {
+        font-size: 14px;
+        padding: 0;
+        width: 100%;
+    }
+
+    .ca-get-feedback__comments .csr-textarea-2 {
+        margin-top: 10px;
+        width: 100%;
+    }
+
+    .ca-get-feedback__comments-email {
+        font-size: 11px;
+    }
+
+    .ca-get-feedback__rating .rating-list {
+        border-left: 1px solid #4c4c4c;
+        margin: 20px 0 0 0;
+        padding: 0;
+
+        list-style: none;
+    }
+
+    .ca-get-feedback__rating .rating-list li {
+        border: 1px solid #4c4c4c;
+        border-left: 0;
+        float: left;
+        width: 10%;
+
+        cursor: pointer;
+        line-height: 30px;
+        list-style-type: none;
+        text-align: center;
+    }
+
+    .ca-get-feedback__rating .rating-list li:hover {
+        background: #eeeeee;
+    }
+
+    .ca-get-feedback__rating .rating-list li.active {
+        background: #024d63;
+        color: #ffffff;
+    }
+
+    .util-hidden {
+        display: none;
+    }
+
+</style>
+
+
+<div class="ca-get-feedback">
+    <div class="ca-get-feedback__button">
+        <i class="icon-commenting"></i>
+        <span class="ca-get-feedback__button-text">Feedback</span>
+    </div>
+    <div class="ca-get-feedback__form-container util-hidden">
+        <form action="" class="ca-get-feedback__form">
+            <i class="icon-times-circle close-form-js"></i>
+            <input type="hidden" name="score" class="csr-input-2 util-hidden" value="-1"/>
+            <div class="ca-get-feedback__comments ">
+                <label class="csr-label-2">What feedback do you have for us about this page?</label>
+                <div class="ca-get-feedback__comments-email">For support requests, please email <a href="mailto:support@adyen.com">support@adyen.com</a></div>
+                <textarea name="comment" class="csr-textarea-2"></textarea>
+                <button type="button" class="csr-button-2 primary submit">Submit</button>
+            </div>
+            <div class="ca-get-feedback__thankyou util-hidden">
+                Thank you for sharing your experiences.<br/>
+                This window will close automatically in 5 seconds.            </div>
+        </form>
+    </div>
+</div>
+
+<script type="text/javascript">
+    require( [ 'jquery', 'Constants', 'util/Ajax' ], function ( jq, Constants, Ajax ) {
+
+        var form = jq( '.ca-get-feedback__form' ),
+                button = jq( '.ca-get-feedback__button' ),
+                formContainer = jq( '.ca-get-feedback__form-container' ),
+                closeForm = jq( '.close-form-js' ),
+                classHidden = 'util-hidden',
+                classActive = 'active',
+                ratingListItem = jq( '.rating-list li' ),
+                ratingListItemCheckbox = ratingListItem.find( '.csr-input-checkbox-2' ),
+                commentsContainer = jq( '.ca-get-feedback__comments' ),
+                commentsButtonPrevious = commentsContainer.find( '.csr-button-2.previous' ),
+                ratingContainer = jq( '.ca-get-feedback__rating' ),
+                ratingButtonNext = ratingContainer.find( '.csr-button-2.next' ),
+                submitButton = form.find( '.csr-button-2.submit' ),
+                thankyouContainer = jq( '.ca-get-feedback__thankyou' );
+
+        button.on( 'click', function () {
+            formContainer.toggleClass( classHidden );
+        } );
+
+        closeForm.on( 'click', function () {
+            formContainer.addClass( classHidden );
+        } );
+
+        ratingListItem.on( 'click', function () {
+            var checkbox = jq( this ).find( '.csr-input-checkbox-2' );
+
+            ratingListItemCheckbox.prop( 'checked', false );
+            ratingListItem.removeClass( classActive );
+            jq( this ).addClass( classActive );
+            checkbox.prop( 'checked', true );
+        } );
+
+        commentsButtonPrevious.on( 'click', function () {
+            commentsContainer.hide();
+            ratingContainer.show();
+        } );
+
+        ratingButtonNext.on( 'click', function () {
+            ratingContainer.hide();
+            commentsContainer.show();
+        } );
+
+        submitButton.on( 'click', function () {
+
+            var data = {
+                "formHash" : "955WFZ/2oWU6MbyDSW3Pz/TBakm/iE=",
+                "pageUrl" : "/ca/ca/overview/default.shtml"
+            };
+            commentsContainer.hide();
+            thankyouContainer.show();
+
+            var formData = form.serializeArray();
+
+            while (formData.length > 0) {
+                var item = formData.shift();
+                if (item.name === 'score' || item.name === 'comment') {
+                    data[item.name] = item.value;
+                }
+            }
+
+            if (data.comment && data.pageUrl) {
+                Ajax.post( "/ca/ca/customer-excellence/pagefeedback/submit.shtml", data );
+            }
+
+            setTimeout( function () {
+                formContainer.addClass( classHidden );
+                thankyouContainer.hide();
+                commentsContainer.show();
+
+            }, 5000 );
+        } );
+
+    } );
+</script>
+
+<div id="ca-topbar">
+    <div class="iefillerdiv"></div>
+</div>
+<div id="ca-middlebarcontainer">
+    <div id="ca-middlebar">
+        <a href="/ca/ca/overview/default.shtml">
+            <img id="ca-mainlogo" style="height: 55px" src="/ca/css/csr/images/adyen-logo.condensed.hr.png?9326" alt="Logo" />
+        </a>
+        <img id="maintagline" src="/ca/img/adyen_tagline.png?9326" alt="Wherever people pay" />
+    </div>
+</div>
+<div id="ca-bottombar"><div id="ca-bottombar2"></div></div>
+
+
+<script type="text/javascript">
+    window.adyen && adyen.monitorActiveAccount && adyen.monitorActiveAccount(adyen.currentAccount="Company.ShineZone");
+</script>
+<div class="session">
+    <ul class="link-list">
+        <li class="link-userprofile">
+            <div class="user-profile-icons">
+                <i class="icon-user"></i>
+            </div>
+            <ul class="link-list-submenu">
+                <li class="user-profile-name">
+                    <i class="icon-sort-asc"></i>
+                    admin
+                </li>
+                <li>
+                    <a class="icon" href="/ca/ca/config/edituser.shtml?changeOwnCredentials=true"> <i class="icon-lock"></i> <span> User Account Details </span> </a>
+                </li>
+                <li class="link-logout">
+                    <a class="icon" href="/ca/logoff.shtml" title="Sign Out"> <i class="icon-sign-out"></i> <span>Sign out</span> </a>
+                </li>
+                <li class="version-reference">
+                    <a class="icon" href="/ca/ca/accounts/choose.shtml?chooseUserAccount=true"> <i class="icon-bookmark"></i><span>Bookmarks</span></a>
+                </li>
+            </ul>
+        </li>
+    </ul>
+</div>
+
+<div id="power-search">
+    <form action="#" class="power-search-container" method="post">
+        <input type="hidden" name="formHash" value="081sW5a7K7Jg/eEm0HwHmgmjcYlPYo=" />
+        <div class="power-search-query">
+            <input type="search" accesskey="q" name="query" class="ps-new-query csr-input-2" id="ps-query" />
+                        <span class="when-opened">
+                                    <input type="submit" class="csr-button-2 secondary ps-search-button" value="search" />
+                            </span>
+        </div>
+        <div class="power-search-tools when-opened">
+            <div class="power-search-types">
+            </div>
+        </div>
+    </form>
+    <div class="power-search-inactive">
+        <div class="power-search-options"></div>
+        <div class="xpower-search-hint"></div>
+    </div>
+    <div style="display:none" class="template">
+        <script type="text/template" id="ps-searchtype">
+            <div class="ps-searchoption" data-type="searchType">
+                <select name="searchType" class="csr-selectbox-2">
+                    <option selected="selected" value="accountNumber">Account number/IBAN</option>
+                    <option value="branchCode">Bank/Branch code</option>
+                    <option value="description">Description</option>
+                </select>
+            </div>
+        </script>
+        <script type="text/template" id="ps-accountTypeCompany">
+            <input type="hidden" id="accountTypeCode" name="accountTypeCode"  value="Company"/>
+        </script>
+        <script type="text/template" id="ps-accountTypeMerchantAccount">
+            <input type="hidden" id="accountTypeCode" name="accountTypeCode"  value="MerchantAccount"/>
+        </script>
+        <script type="text/template" id="ps-offersearchtype">
+            <select name="searchType" class="csr-selectbox-2"><option selected="selected" value="pspref">Psp reference</option><option value="merchantref">Merchant reference / Description</option><option value="email">Shopper e-mail</option></select>
+        </script>
+        <script type="text/template" id="ps-offertxtype">
+            <select name="txTypeCode" class="csr-selectbox-2">
+                <option value="Offer">Offer</option>
+                <option value="Order">Order</option>
+                <option value="Payment">Payment</option>
+                <option value="Capture">Capture</option>
+                <option value="Dispute">Dispute</option>
+                <option value="DisputeEvent">DisputeEvent</option>
+                <option value="BankInstruction">BankInstruction</option>
+                <option value="BankStatement">BankStatement</option>
+                <option value="CompanyPayout">CompanyPayout</option>
+                <option value="MerchantPayout">MerchantPayout</option>
+                <option value="EpaLine">EpaLine</option>
+            </select>
+        </script>
+    </div>
+    <div class="power-search-suggestions auto_complete" id="ps-suggestions"></div>
+</div>
+<div id="ca-merchantlogo">
+    <a href="/ca/ca/accounts/manage.shtml"><img height="30" width="130" src="/ca/ca/image.php?name=accountLogo&amp;mimeType=image%2Fpng&amp;cachingId=Company.ShineZone" alt="merchantlogo"/></a>
+</div>
+<div id="ca-notification-icon-dock">
+</div>
+
+
+<div id="ca-accountnavigation" class="size-2" data-widget="ca/TopNavigation" data-add-bookmark="/ca/ca/config/modifyuseraccount.shtml?modification=add" data-remove-bookmark="/ca/ca/config/modifyuseraccount.shtml?modification=remove">
+    <link rel="stylesheet" href="/ca/css/topnavigation.css?9326" type="text/css" />
+
+    <div id="ca-top-navigation">
+
+        <form action="/ca/ca/accounts/preferences/save.shtml" method="post" data-widget="ui/SavePreference">
+            <input type="hidden" name="formHash" value="775Vb1+5Bv4T87lqQInzsSF7bP9PVM=" />
+
+
+
+
+
+
+
+
+
+
+
+
+            <div class="ca-topnav-account-level  no-alternatives" style="z-index:0">
+
+
+
+
+
+
+
+
+
+                <div class="ca-topnav-button-wrapper with-panel ">
+
+                    <a class="csr-button-2 border with-panel " href="/ca/ca/overview/default.shtml?setActiveAccountKey=Company.ShineZone">
+
+
+
+
+                        ShineZone
+
+                        <i class="icon-chevron-right"></i>
+                    </a>
+                </div>
+
+
+                <div class="ca-topnav-panel ">
+
+
+                    <div class="ca-topnav-panel-column">
+
+
+                        <div>
+                            <a href="/ca/ca/overview/default.shtml?setActiveAccountKey=MerchantAccount.ShineZoneHK">
+                                ShineZoneHK
+                            </a>
+                        </div>
+                    </div>
+
+
+
+                    <div class="ca-toggle-stickynavigation csr-panel-content separated" id="ca-toggle-stickynavigation">
+                        <input type="hidden" name="preferences.ca_sticky_navigation" value="yes" />
+                        <button type="submit" class="csr-button csr-link-button">
+                            <i class="icon-square-o csr-fcolor-grey"></i>
+                            Stay in the same section when I change accounts
+                        </button>
+                    </div>
+
+                </div>
+
+            </div>
+        </form>
+    </div>                </div>
+
+
+<div id="ca-maincontent">
+    <div id="ca-boxleft">
+
+
+
+        <div id="menu">
+            <ul class="nav">
+                <li   class="activelink"  ><a href="/ca/ca/overview/default.shtml">Home</a></li>
+                <li ><a href="/ca/ca/payments/showList.shtml">Payments</a></li>
+                <li ><a href="/ca/ca/accounts/choose.shtml">Accounts</a></li>
+                <li ><a href="/ca/ca/reports/dashboard.shtml">Reports</a></li>
+                <li ><a href="/ca/ca/disputes/showList.shtml">Disputes</a></li>
+                <li ><a href="/ca/ca/skin/skinslive.shtml">Skins</a></li>
+                <li ><a href="/ca/ca/config/choose.shtml">Settings</a></li>
+                <li ><a href="/ca/ca/risk/choose.shtml">RevenueProtect</a></li>
+                <li ><a href="/ca/ca/pos/posoverview.shtml?accountCode=ShineZone&amp;accountTypeCode=Company">Point of sale</a></li>
+                <li ><a href="/ca/ca/revenueaccelerate/overview.shtml">RevenueAccelerate</a></li>
+                <li ><a href="/ca/ca/support/start.shtml">Support</a></li>
+            </ul>
+        </div>			</div>
+    <div id="contentbg">
+        <div id="content">
+            <div id="contentwrapper">
+                <div id="subcontent" >
+                    <div class="ca-portal-toolbox" style="float: right; text-align: right; font-size: 0.8em;">
+                        <span class="ca-topright">
+		    <a href="/ca/ca/overview/default.shtml?configure=true" title="Configure this page">
+                <img src="/ca/img/icons/layout_edit.png" alt="Edit Layout"/> Customise this page </a>
+		    </span>
+                    </div>
+                    <h1 class="ca-pagetitle">Welcome </h1>
+                    <div id="ng-app" ng-app="adyen">
+                        <div id="ca-portal" class="ca-portal" data-widget="ca/Dashboard?allowDrag=no" data-save-url="/ca/ca/config/changeHomePage.shtml">
+                            <div class="ca-portal-column ca-portal-dock" id="ca-portal-column-block-list" style="display:none">
+                            </div>
+
+                            <style type="text/css">
+                                .pg-show-permissions {
+                                    display: none;
+                                }
+                                .ca-block-controls {
+                                    float:right;
+                                }
+                                .ca-block-control {
+                                    visibility: hidden;
+                                    margin: 0px 2px;
+                                    display: inline-block;
+                                }
+                                .ca-block-controls .ca-block-control a,
+                                .ca-block-controls a.ca-block-control {
+                                    color: #cccccc;
+                                }
+                                .ca-block-controls .ca-block-control {
+                                    visibility: visible;
+                                }
+                            </style>
+                            <div class="ca-portal-column ca-portal-dashboard-column " id="ca-portal-column-1">
+                                <div class="ca-portal-column-base"> [ column 1 ] </div>
+                                <div id="last_24hours_guage" class="ca-block">
+                                    <h3 class="ca-handle">
+				                <span class="ca-block-controls">
+                    <a class="ca-block-remove" data-target="#ca-portal-column-block-list" style="float:right; margin-right: 5px; color: #ccc"><i class="icon-times"></i></a>
+				                </span>
+                                        Authorisations Last 24 Hours
+                                    </h3>
+                                    <div class="ca-content">
+                                        <style type="text/css">
+                                            #legacy-support-gauge {
+                                                height: 107px;
+                                                width: 206px;
+                                                margin: 20px auto 20px auto;
+                                                background : url('/ca/images/legacy-support/ca_gauge0procent.png') no-repeat;
+                                                position: relative;
+                                            }
+                                            #legacy-support-gauge.ca-percentage-20 {
+                                                background-image : url('/ca/images/legacy-support/ca_gauge20procent.png');
+                                            }
+                                            #legacy-support-gauge.ca-percentage-40 {
+                                                background-image : url('/ca/images/legacy-support/ca_gauge40procent.png');
+                                            }
+                                            #legacy-support-gauge.ca-percentage-60 {
+                                                background-image : url('/ca/images/legacy-support/ca_gauge60procent.png');
+                                            }
+                                            #legacy-support-gauge.ca-percentage-80 {
+                                                background-image : url('/ca/images/legacy-support/ca_gauge80procent.png');
+                                            }
+                                            #legacy-support-gauge.ca-percentage-100 {
+                                                background-image : url('/ca/images/legacy-support/ca_gauge100procent.png');
+                                            }
+                                            #legacy-support-gauge .ca-min, #legacy-support-gauge .ca-max, #legacy-support-gauge .ca-value {
+                                                position: absolute;
+                                                bottom: -18px;
+                                                text-align: center;
+                                                width: 80px;
+                                                line-height: 1em;
+                                            }
+                                            #legacy-support-gauge .ca-min {
+                                                left: 0;
+                                                margin-left: -20px;
+                                            }
+                                            #legacy-support-gauge .ca-max {
+                                                right: 0;
+                                                margin-right: -20px;
+                                            }
+                                            #legacy-support-gauge .ca-value {
+                                                left: 50%;
+                                                margin-left: -40px;
+                                                font-size: 2em;
+                                                font-weight: 400;
+                                                line-height: 1em;
+                                            }
+
+                                        </style>
+
+                                        <div id="legacy-support-gauge">
+
+                                        </div>
+
+                                        <script type="text/javascript">
+                                            require(['jquery', 'util/Number'], function(jQuery, NumberUtil) {
+                                                jQuery.get( '/ca/ca/reports/chartdata/speedometer.php?random=1485182173132")' ).then( function ( data, status, xhr ) {
+                                                    var text = xhr.responseText,
+                                                            min = 0,
+                                                            percentage = 0,
+                                                            value = parseInt( (text.match( /dial value\D+(\d+)/ ) || [ 0, 0 ])[ 1 ] || "0", 10 )
+                                                    max = Math.pow( value, 1 + Math.floor( Math.log( value ) / Math.log( value ) ) );
+                                                    if ( value < max * 0.2 ) {
+                                                        max = 0.2 * max;
+                                                    } else if ( value < max * 0.5 ) {
+                                                        max = 0.5 * max;
+                                                    }
+                                                    percentage = 20 * Math.round( 5 / (max - min) * (value - min) );
+                                                    jQuery( '#legacy-support-gauge' )
+                                                            .addClass( 'ca-percentage-' + percentage )
+                                                            .attr( 'title', NumberUtil.numberWithCommas( value ) )
+                                                            .append( '<span class="ca-min">' + NumberUtil.roundToThousands( min ) + '</span>' )
+                                                            .append( '<span class="ca-max">' + NumberUtil.roundToThousands( max ) + '</span>' )
+                                                            .append( '<span class="ca-value">' + NumberUtil.roundToThousands( value ) + '</span>' );
+                                                } );
+                                            });
+                                        </script>
+                                    </div>
+                                </div>
+
+
+
+
+
+
+                                <div id="authorised_payments_rss" class="ca-block">
+                                    <h3 class="ca-handle">
+				                <span class="ca-block-controls">
+
+
+                    <a class="ca-block-remove" data-target="#ca-portal-column-block-list" style="float:right; margin-right: 5px; color: #ccc"><i class="icon-times"></i></a>
+									<a href="https://ca-live.adyen.com/reports/token/rss/authorisedtxrss/Company/ShineZone/?user=admin%40Company.ShineZone&amp;key=1481614226166&amp;token=rMfe%2Fs%2F8oAugc%2B9JJVIwGoFYPfk%3D" title="subscribe to this information"><i class="icon-rss-square" style="text-indent: 0; color: #F1Bf43;"></i></a>
+				                </span>
+                                        Authorised Payments Volume
+                                    </h3>
+                                    <div class="ca-content">
+                                        <ul class="rsswidget">
+                                            <li>
+                                                2017-01-22 USD 321973.00, 1287tx (avg USD 250.17)
+                                            </li>
+                                            <li>
+                                                2017-01-21 USD 301429.00, 1221tx (avg USD 246.87)
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+
+
+
+
+
+
+                                <div id="authorised_payments_per_merchant_rss" class="ca-block">
+                                    <h3 class="ca-handle">
+				                <span class="ca-block-controls">
+
+
+                    <a class="ca-block-remove" data-target="#ca-portal-column-block-list" style="float:right; margin-right: 5px; color: #ccc"><i class="icon-times"></i></a>
+									<a href="https://ca-live.adyen.com/reports/token/rss/authorisedtxrss_per_merchant/Company/ShineZone/?user=admin%40Company.ShineZone&amp;key=1481614226166&amp;token=rMfe%2Fs%2F8oAugc%2B9JJVIwGoFYPfk%3D" title="subscribe to this information"><i class="icon-rss-square" style="text-indent: 0; color: #F1Bf43;"></i></a>
+				                </span>
+                                        Authorised Payments Volume Per Merchant
+                                    </h3>
+                                    <div class="ca-content">
+                                        <ul class="rsswidget">
+                                            <li>
+                                                2017-01-22 ShineZoneHK USD 321973.00, 1287tx (avg USD 250.17)
+                                            </li>
+                                            <li>
+                                                2017-01-21 ShineZoneHK USD 301429.00, 1221tx (avg USD 246.87)
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+
+
+
+
+
+
+                                <div id="ng_authorisations_per_day" class="ca-block">
+                                    <h3 class="ca-handle">
+				                <span class="ca-block-controls">
+
+
+                    <a class="ca-block-remove" data-target="#ca-portal-column-block-list" style="float:right; margin-right: 5px; color: #ccc"><i class="icon-times"></i></a>
+				                </span>
+                                        Authorisations Per Day
+                                    </h3>
+                                    <div class="ca-content">
+                                        <div class="ajax-widget">
+                                            <div ng-include src="'/ca/js/ng/apps/AuthorisationsPerDay/index.html?9326'">Your widget is loading</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="ca-portal-add-widget">
+                                    <div style="display: none;"><a style="" href="/ca/ca/overview/default.shtml?configure=true"><i class="icon-plus"></i></a></div>
+                                </div>
+                            </div>
+                            <div class="ca-portal-column ca-portal-dashboard-column " id="ca-portal-column-2">
+                                <div class="ca-portal-column-base"> [ column 2 ] </div>
+                                <div id="login_info" class="ca-block">
+                                    <h3 class="ca-handle">
+				                <span class="ca-block-controls">
+                    <a class="ca-block-remove" data-target="#ca-portal-column-block-list" style="float:right; margin-right: 5px; color: #ccc"><i class="icon-times"></i></a>
+				                </span>
+                                        Login Info
+                                    </h3>
+                                    <div class="ca-content">
+                                        <div style="margin:10px 0">
+                                            You are logged in under the <span style="color:black">ShineZone</span>
+                                            Company account.<br />
+                                            Your last login was on <b>2017-01-23 15:05:28 CET</b>.
+                                        </div>
+                                    </div>
+                                </div>
+                                <div id="system_overview" class="ca-block">
+                                    <h3 class="ca-handle">
+				                <span class="ca-block-controls">
+                    <a class="ca-block-remove" data-target="#ca-portal-column-block-list" style="float:right; margin-right: 5px; color: #ccc"><i class="icon-times"></i></a>
+				                </span>
+                                        System Overview
+                                    </h3>
+                                    <div class="ca-content">
+                                        <style type="text/css">
+                                            #system_overview.ca-block .ca-content {
+                                                padding: 0;
+                                            }
+                                        </style>
+
+                                        <div class="data-keep-alive-wrapper" data-keep-alive="25000,system_overview" data-widget="widgets/SystemOverview">
+                                            <div class="data-keep-alive-content">
+                                                <table class="csr-table csr-list-table condensed">
+                                                    <tbody>
+                                                    <tr>
+                                                        <th class="row">
+                                                            Current system time:
+                                                        </th>
+                                                        <td>
+                                                            2017-01-23 15:36:13 CET
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th class="row">
+                                                            Backoffice up-to-date till:
+                                                        </th>
+                                                        <td>
+                                                            <span title="All payments made till this time are listed in the payments list. Newer payments may not be visible yet.">2017-01-23 10:35:33 CET</span>
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <div id="ng_bookmark" class="ca-block">
+                                    <h3 class="ca-handle">
+				                <span class="ca-block-controls">
+                    <a class="ca-block-remove" data-target="#ca-portal-column-block-list" style="float:right; margin-right: 5px; color: #ccc"><i class="icon-times"></i></a>
+				                </span>
+                                        Bookmarks
+                                    </h3>
+                                    <div class="ca-content">
+                                        <style type="text/css">
+                                            #ng_bookmark_volumes .pg-bookmark-link,
+                                            #ng_bookmark .pg-bookmark-link {
+                                                max-width: 140px;
+                                                overflow: hidden;
+                                                display: inline-block;
+                                                text-overflow: ellipsis;
+                                            }
+                                        </style>
+                                        <div data-widget="ui/ServiceRendering" data-service-url="facade://pg/bookmarks/getBookmarks">
+                                            <script type="application/json" data-name="initialData">
+                                                {"loading" : "true"}
+                                            </script>
+                                            <script type="text/template">
+                                                {{#loading}}
+                                                <div>Your bookmarks are loading</div>
+                                                {{/loading}}
+                                                {{^loading}}
+                                                {{^bookmarks.length}}
+                                                <div>You don't have any accounts bookmarked</div>
+                                                {{/bookmarks.length}}
+                                                {{#bookmarks.length}}
+                                                <div class="csr-col two a">
+                                                    {{#bookmarksLeft}}
+                                                    {{>bookmarkLink }}
+                                                    {{/bookmarksLeft}}
+                                                </div>
+                                                <div class="csr-col two a">
+                                                    {{#bookmarksRight}}
+                                                    {{>bookmarkLink }}
+                                                    {{/bookmarksRight}}
+                                                </div>
+                                                <div class="csr-clear"></div>
+
+                                                {{/bookmarks.length}}
+
+                                                {{#current.addUrl}}
+                                                <p>
+                                                    <a class="csr-button-2 secondary" ng-click="addCurrent($event)" href={{current.addUrl}}">Add '{{current.name}}'</a>
+                                                </p>
+                                                {{/current.addUrl}}
+                                                {{/loading}}
+                                            </script>
+
+                                            <script type="text/template" data-template-id="bookmarkLink">
+                                                <div>
+                                                    {{#stats}}
+                                                    <span data-widget="pg/bookmarks/sparkline">{{stats}}</span>
+                                                    {{/stats}}
+                                                    <a class="pg-bookmark-link" href="{{url}}">{{name}}</a>
+                                                </div>
+                                            </script>
+                                        </div>
+
+                                        <script src="/ca/js/jquery.sparkline-2.1.2.js"></script>
+                                        <script type="text/javascript">
+                                            define('pg/bookmarks', ['jquery', 'util/Ajax'], function(jquery, Ajax) {
+
+                                                var service = {};
+
+                                                service.getBookmarks = function() {
+                                                    var prom = new jquery.Deferred();
+
+
+                                                    Ajax.getJSON('/ca/ca/accounts/bookmarksJSON.php?accountCode=ShineZone&ignoresaverequest=true').then(
+                                                            function(data) {
+
+                                                                if (data.bookmarks) {
+
+                                                                    var middle = Math.ceil(data.bookmarks.length/2);
+
+                                                                    data.bookmarksLeft = data.bookmarks.slice(0, middle);
+                                                                    data.bookmarksRight = data.bookmarks.slice(middle);
+                                                                }
+
+                                                                prom.resolve(data);
+                                                            },
+                                                            function(err) {
+                                                                prom.reject(err);
+                                                            }
+                                                    );
+
+                                                    return prom.promise();
+                                                };
+
+                                                return service;
+                                            });
+
+                                            define('pg/bookmarks/sparkline', ['jquery'], function(jquery) {
+                                                return function(widgetApi) {
+                                                    if (widgetApi.getNode().text() === '?') {
+                                                        var parent = widgetApi.getNode().parents('[data-widget]');
+                                                        parent.widget().then(function(w) {
+                                                            var reload = (new Date().getTime() % 1000);
+                                                            setTimeout(function() {
+                                                                w.instance.setParameter( "reload", reload );
+                                                            }, 1000);
+                                                        });
+                                                    }
+                                                    widgetApi.getNode().sparkline( 'html', {width: 40, height: 12, lineColor: csr.palette.green, fillColor: false, spotRadius: 0} );
+
+                                                    widgetApi.ready();
+                                                }
+                                            })
+                                        </script>
+                                    </div>
+                                </div>
+
+
+
+
+
+
+                                <div id="mobile_link_widget" class="ca-block">
+                                    <h3 class="ca-handle">
+				                <span class="ca-block-controls">
+
+
+                    <a class="ca-block-remove" data-target="#ca-portal-column-block-list" style="float:right; margin-right: 5px; color: #ccc"><i class="icon-times"></i></a>
+				                </span>
+                                        Mobile View
+                                    </h3>
+                                    <div class="ca-content">
+                                        <div style="position:relative">
+
+                                            <style type="text/css">
+                                                #mobile_link_widget.ca-block .ca-content {
+                                                    padding: 0;
+                                                    background: white;
+                                                }
+
+                                                #mobile_link_widget form {
+                                                    margin: 0 0 10px 0;
+                                                }
+
+                                                #mobile_link_widget input.fillout {
+                                                    width: 160px;
+                                                    display: inline-block;
+                                                }
+                                                #mobile_link_widget input {
+                                                    font-size: 11px;
+                                                }
+
+                                                #mobile_link_widget .csr-col.left {
+                                                    width: 50%;
+                                                }
+                                                #mobile_link_widget .csr-col.right {
+                                                    width: 50%;
+                                                    float: right;
+                                                }
+
+                                            </style>
+                                            <div  class="csr-col left">
+                                                <form class="csr-form" method="post" action="/ca/ca/reports/sendmobilelink.shtml">
+                                                    <input type="hidden" name="formHash" value="494dV4L6JdP/6uCBysTdeMq/0bZFkU=" />
+                                                    <div style="height: 200px">
+                                                        <script type="text/javascript">
+                                                            function updateWidgetQRCode(link) {
+                                                                var img = document.getElementById("mobile-link-widget-qrcode");
+                                                                if (img) {
+                                                                    jQuery(img.parentNode.parentNode).animate({height:200});
+                                                                    jQuery(link.parentNode ).hide();
+                                                                    img.src = "/ca/ca/reports/sendmobilelink.shtml?formHash=432JR5fP2AXVtP%2FIfOwD%2BEe4AsMECk%3D&generateQR=true";
+                                                                }
+                                                            }
+                                                        </script>
+                                                        <div style="padding-top: 80px;padding-left: 20px;">
+                                                            <input type="button" class="csr-button-2 secondary fillout" onclick="updateWidgetQRCode(this); return false;" name="qr" value="Scan QR Code to go mobile" />
+                                                        </div>
+                                                        <div style="overflow:hidden;position:relative; text-align:center">
+                                                            <div style="width:100%; position:absolute; top: 30px;">The QRC code is being loaded.</div>
+                                                            <div style="width:100%; position:absolute; top: 0; left: 0">
+                                                                <img id="mobile-link-widget-qrcode" src="/ca/img/pixel_transparent.gif" alt="qrcode" />
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <div style="padding: 0 20px">
+                                                        <div>
+                                                            <div style="position:relative; margin-top:10px">
+                                                                <input type="text" class="csr-input-2 fillout" name="emailAddress" placeholder="or get a link via E-mail" />
+                                                                <input type="hidden" name="formHash" value="960KEThRsauVInPBCuJ4hVoGhz1fJs=" />
+                                                            </div>
+                                                            <div style="position:relative; margin-top:10px">
+                                                                <input type="submit" name="send" class="csr-button-2 secondary" value="Send"/>
+                                                            </div>
+                                                        </div>
+
+                                                        <div style="font-size:smaller; padding-top:10px; line-height:14px">If you see the login page, please <a data-dialog="true" href="/ca/ca/config/renewtoken.shtml">re-authenticate</a>.</div>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                            <div class="csr-col right">
+                                                <div style="margin:10px 5px">
+                                                    <img src="/ca/img/dashboards/phone_widget_X1.png" width="100%" alt="Mobile CA preview" />
+                                                </div>
+                                            </div>
+                                            <div class="csr-clear"></div>
+
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                                <div class="ca-portal-add-widget">
+                                    <div style="display: none;"><a style="" href="/ca/ca/overview/default.shtml?configure=true"><i class="icon-plus"></i></a></div>
+                                </div>
+
+                            </div>
+                            <div class="ca-portal-column ca-portal-dashboard-column " id="ca-portal-column-3">
+                                <div class="ca-portal-column-base"> [ column 3 ] </div>
+
+
+
+
+
+
+
+
+
+                                <div id="system_messages" class="ca-block">
+                                    <h3 class="ca-handle">
+				                <span class="ca-block-controls">
+
+                                            <a
+                                                    href="/ca/ca/systemmessage/editsystemmessagesubscription.shtml"
+                                                    class="ca-block-control ${widgetButton.cssClass}"
+
+
+                                            ><i class="icon-cog"></i></a>
+
+                    <a class="ca-block-remove" data-target="#ca-portal-column-block-list" style="float:right; margin-right: 5px; color: #ccc"><i class="icon-times"></i></a>
+				                </span>
+                                        System Messages
+                                    </h3>
+                                    <div class="ca-content">
+                                        <style type="text/css">
+                                            #ca-portal #system_messages.ca-block .ca-content {
+                                                background: white;
+                                                padding: 10px 0 0 0;
+                                                font-size: 12px;
+                                            }
+
+                                            #system_messages {
+                                                position: relative;
+                                            }
+
+                                            #system_messages .ca-add-link a {
+                                                position: absolute;
+                                                top: 8px;
+                                                right: 25px;
+                                                color: #4d4d4f;
+                                            }
+
+                                            #system_messages .ca-edit-link a {
+                                                position: absolute;
+                                                top: 8px;
+                                                right: 8px;
+                                                color: #4d4d4f;
+                                            }
+                                            .ca-edit-mode #system_messages .ca-add-link a {
+                                                right: 45px;
+                                                color: #ccc;
+                                            }
+                                            .ca-edit-mode #system_messages .ca-edit-link a {
+                                                right: 28px;
+                                                color: #ccc;
+                                            }
+
+                                            #system_messages .ca-list-empty {
+                                                margin-bottom: 10px;
+                                                font-size: 12px;
+                                                line-height: 16px;
+                                            }
+                                            #system_messages .ca-list-empty.separated {
+                                                margin-bottom: 0px;
+                                                padding-top: 0px;
+                                                padding-bottom: 10px;
+                                            }
+                                            #system_messages .ca-list-empty p {
+                                                margin: 0;
+                                                padding-top: 10px;
+                                            }
+
+                                            #system_messages .sm-item {
+                                                margin-bottom: 10px;
+                                            }
+
+                                            #system_messages .sm-header {
+                                                border-left: solid 5px #3C8A2E;
+                                                padding: 0px 10px 0px 32px;
+                                                min-height: 28px;
+                                                line-height: 16px;
+                                                position: relative;
+                                                overflow-x: hidden;
+                                                overflow-x: ellipsis;
+                                            }
+
+                                            #system_messages .sm-header.csr-collapse-link {
+                                                color: #4d4d4f;
+                                            }
+
+                                            #system_messages .sm-message {
+                                                padding: 4px 37px;
+                                                background: #f4f4f4;
+                                                border-top: solid 5px white;
+                                            }
+
+                                            #system_messages .sm-message .csr-panel-content {
+                                                padding: 5px 0px;
+                                                margin-top: 5px;
+                                            }
+
+                                            #system_messages .sm-issue-start-date {
+                                                font-size: 10px;
+                                                clear: both;
+                                            }
+                                            #system_messages .sm-message .sm-module {
+                                                float: left;
+                                                font-size: 10px;
+                                            }
+                                            #system_messages .sm-message .sm-issue-close-date {
+                                                float: right;
+                                                font-size: 10px;
+                                                font-weight: 500;
+                                            }
+
+
+                                            #system_messages .sm-item.sm-no-items-message {
+                                                margin-bottom: 5px;
+                                            }
+
+                                            #system_messages .sm-item.sm-no-items-message .sm-header {
+                                                min-height: 0;
+                                                height: 24px;
+                                                line-height: 24px;
+                                                border-color: white;
+                                            }
+
+                                            #system_messages .sm-message .sm-issue-start-date,
+                                            #system_messages .sm-header.csr-uncollapsed a,
+                                            #system_messages .sm-header.csr-uncollapsed {
+                                                font-weight: 600;
+                                            }
+
+                                            #system_messages .sm-related-message {
+                                            }
+
+                                            #system_messages .sm-header i {
+                                                position: absolute;
+                                                left: 10px;
+                                                top: 8px;
+                                            }
+                                            #system_messages .sm-counter {
+                                                float: right;
+                                                border: solid 1px #b3b3b3;
+                                                -webkit-border-radius: 10px;
+                                                -moz-border-radius: 10px;
+                                                border-radius: 10px;
+                                                background: white;
+                                                color: #4d4d4f;
+                                                font-size: 9px;
+                                                line-height: 14px;
+                                                padding: 0px 4px;
+                                                font-weight: 500;
+                                                min-width: 16px;
+                                                display: inline-block;
+                                                text-align: center;
+                                                margin-left: 10px;
+                                                margin-top: 1px;
+                                            }
+
+                                            #system_messages .sm-CRITICAL.sm-open .sm-counter {
+                                                background: white;
+                                                color: #4d4d4f;
+                                                border-color: white;
+                                            }
+
+                                            #system_messages .sm-CRITICAL.sm-open .sm-header {
+                                                background-color: #94120F;
+                                                border-color:  #94120F;
+                                                padding: 6px 10px 6px 32px;
+                                                color: white;
+                                            }
+
+                                            #system_messages .sm-CRITICAL.sm-open .sm-header a {
+                                                color: white;
+                                            }
+
+                                            #system_messages .sm-URGENT.sm-open .sm-header {
+                                                border-left-color:  #F1Bf43
+                                            }
+
+                                            #system_messages .sm-INFORMATIONAL.sm-CHARGEBACKS .sm-header,
+                                            #system_messages .sm-INFORMATIONAL.sm-open .sm-header {
+                                                border-left-color: #b3b3b3;
+                                            }
+
+                                            #system_messages h2.ca-horizontal-separator {
+                                                height: 10px;
+                                                margin-bottom: 10px;
+                                                position: relative;
+                                                overflow: visible;
+                                                color:#828282;
+                                                border-bottom: solid 1px #ccc;
+                                                line-height: 20px;
+                                                font-size: 10px;
+                                                text-align: center;
+                                            }
+
+                                            #system_messages h2.ca-horizontal-separator span {
+                                                margin: 0 auto;
+                                                background: white;
+                                                padding: 0 5px;
+                                            }
+                                        </style>
+                                        <div class="sm-item sm-INFORMATIONAL sm-BACKOFFICE  sm-open">
+                                            <div class="sm-header" data-collapse=".sm-message?target=parent&no-caret">
+                                                <a href="#12437925">Customer Area - Scheduled Maintenance</a>
+                                                <br />
+                    <span class="sm-issue-start-date">
+                                                    13:23:18 CET
+                                                                    </span>
+                                            </div>
+                                            <div class="sm-message" style="display: none" id="system_message_12437925">
+                                                <div class="csr-panel-content clearfix">
+                                                    <div class="sm-module">BACKOFFICE</div>
+                                                </div>
+                                                <div class="csr-panel-content separated">
+                                                    <div class="sm-issue-start-date">
+                                                        2017-01-23 13:23:18 CET
+                                                    </div>
+                                                    <div class="sm-message-text">
+                                                        Adyen will perform scheduled maintenance to the Customer Area (ca-live.adyen.com) on January 24th 2017 between 8:00 and 9:00 CET. As a result, access to the Adyen Customer Area will be temporarily unavailable during the maintenance window.
+                                                        Payment processing is not affected by this maintenance.
+                                                        Please contact Adyen Support (support@adyen.com) in case you have additional questions.
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <h2 class="ca-horizontal-separator"><span>Earlier</span></h2>
+                                        <div class="sm-item sm-INFORMATIONAL sm-GENERAL  sm-open">
+                                            <div class="sm-header" data-collapse=".sm-message?target=parent&no-caret">
+                                                <a href="#11336674">New possible values possible for &quot;Payment Method Variant&rdquo; as of January 30th 2017</a>
+                                                <br />
+                    <span class="sm-issue-start-date">
+                                                    2016-11-28 08:41:04 CET
+                                                                    </span>
+                                            </div>
+                                            <div class="sm-message" style="display: none" id="system_message_11336674">
+                                                <div class="csr-panel-content clearfix">
+                                                    <div class="sm-module">GENERAL</div>
+                                                </div>
+                                                <div class="csr-panel-content separated">
+                                                    <div class="sm-issue-start-date">
+                                                        2016-11-28 08:41:04 CET
+                                                    </div>
+                                                    <div class="sm-message-text">
+                                                        We are extending the values returned as part of the “Payment Method Variant” field for Visa and Mastercard on January 30th 2017. Make sure you make any necessary changes on your end before January 30th 2017 to accept the new possible values when returned as a part of the payment authorisation response, server-to-server notifications, and reports. You can read on for a detailed description of the changes here: https://docs.adyen.com/support/integration#whatispaymentmethodvariant. Please contact Adyen Support (support@adyen.com) in case you have additional questions.
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div id="ng_refusal_rate" class="ca-block">
+                                    <h3 class="ca-handle">
+				                <span class="ca-block-controls">
+                    <a class="ca-block-remove" data-target="#ca-portal-column-block-list" style="float:right; margin-right: 5px; color: #ccc"><i class="icon-times"></i></a>
+				                </span>
+                                        Risk Refusal Rates Per Day
+                                    </h3>
+                                    <div class="ca-content">
+                                        <div class="ajax-widget">
+                                            <div ng-include src="'/ca/js/ng/apps/RefusalRate/index.html?9326'">Your widget is loading</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div id="ng_welcome" class="ca-block">
+                                    <h3 class="ca-handle">
+				                <span class="ca-block-controls">
+
+
+                    <a class="ca-block-remove" data-target="#ca-portal-column-block-list" style="float:right; margin-right: 5px; color: #ccc"><i class="icon-times"></i></a>
+				                </span>
+                                        Welcome
+                                    </h3>
+                                    <div class="ca-content">
+                                        <div class="welcome-widget">
+
+                                            <style type="text/css">
+                                                #ca-portal #ng_welcome a {
+                                                    color: #024D63;
+                                                    cursor: pointer;
+                                                }
+                                                #ca-portal #ng_welcome {
+                                                    border-bottom: none;
+                                                }
+
+                                                #ca-portal #ng_welcome .ca-content {
+                                                    padding: 0;
+                                                    margin: 0;
+                                                    border: none;
+                                                }
+                                            </style>
+
+                                            <nav class="csr-list-navigation csr-progress-list csr-with-icons">
+                                                <ul class="csr-navigation">
+                                                    <li class="csr-complete">
+                                                        <i class="icon-play-circle csr-fcolor-green"></i>
+                                                        <a data-tutorial="backofficeUI" data-event="B_QUICKTOUR">Take Quick tour</a>
+                                                        <div class="csr-progress" style="width: 100%"></div>
+                                                    </li>
+                                                    <li class="csr-incomplete" style="height:auto;padding-left:14px;padding-right:14px;padding-top:14px;border-width:1px">
+                                                        <table class="csr-table csr-list-table no-border no-highlight" style="border:none;">
+                                                            <tbody>
+                                                            <tr>
+                                                                <th><i class="icon-film"></i></th>
+                                                                <td>Navigating the customer area</td>
+                                                                <td>6 steps</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <th><i class="icon-keyboard-o"></i></th>
+                                                                <td>Create a skin</td>
+                                                                <td>5 steps</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <th><i class="icon-keyboard-o"></i></th>
+                                                                <td>Do a Test payment</td>
+                                                                <td>7 steps</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <th><i class="icon-film"></i></th>
+                                                                <td>Working with the payment list</td>
+                                                                <td>9 steps</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <th><i class="icon-film"></i></th>
+                                                                <td>Working with reports</td>
+                                                                <td>3 steps</td>
+                                                            </tr>
+                                                            </tbody>
+                                                        </table>
+                                                    </li>
+                                                </ul>
+                                            </nav>
+
+
+
+
+                                            <div class="csr-clear"></div>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                                <div class="ca-portal-add-widget">
+                                    <div style="display: none;"><a style="" href="/ca/ca/overview/default.shtml?configure=true"><i class="icon-plus"></i></a></div>
+                                </div>
+
+                            </div>
+                            <div class="ca-portal-column ca-portal-dashboard-column " id="ca-portal-column-4">
+                                <div class="ca-portal-column-base"> [ column 4 ] </div>
+
+
+
+
+
+                                <div class="ca-portal-add-widget">
+                                    <div style="display: none;"><a style="" href="/ca/ca/overview/default.shtml?configure=true"><i class="icon-plus"></i></a></div>
+                                </div>
+
+                            </div>
+
+                            <script type="text/javascript">
+                                require(['jquery', 'util/UserPreferences'], function(jquery, preferences) {
+                                    preferences.setPersistencyParameters({"formHash" : "172ZBoG4b5zDWigfvBLLcsyl+jUDOA="});
+                                    jquery(".ca-portal-dock #mobile_link_widget" ).remove();
+                                    jquery('#mobile_link_widget .ca-block-remove' ).click(function() {
+                                        preferences.setPersistentPreference("ca_promo_closed_mobilelinkwidget", "closed");
+                                    });
+                                });
+                            </script>
+
+                            <!--[if lte IE 8]>
+                            <script src="                "></script><![endif]-->
+                            <script type="text/javascript" src="/ca/js/lib/ng/angular.1.3.15.min.js?9326"></script>
+                            <script type="text/javascript" src="/ca/js/ng/app.js?9326"></script>
+                        </div>
+                    </div>
+                </div>
+
+                <script type="text/javascript">
+                    require( [ 'jquery', 'Constants', 'util/KeepAlive', 'util/Ajax' ], function ($jq , Constants, KA ) {
+                        $jq('#ca-portal .data-keep-alive-wrapper[data-keep-alive]').each( function () {
+                            var w = $jq(this), a = w.attr( 'data-keep-alive' ).split( ',' ), t = parseInt( a[ 0 ] ), n = a[ 1 ];
+                            var tmp = w.context.baseURI;
+                            w.context.baseURI = tmp.substr(0,tmp.length-5) + "php";
+                            KA.interval( function () {
+                                w.ajaxLoad( '?ignoresaverequest=true&widget=' + encodeURIComponent( n ) + ' .data-keep-alive-content:first', function () {
+                                    w.trigger( Constants.EV_CONTENT_MERGED );
+                                } );
+                            }, t );
+                        } );
+
+                        function updateAddButtons () {
+
+                            jColumns = jQuery( '.ca-portal-column' ), columnPositions = {}, left = 0;
+
+                            jColumns.each( function () {
+                                var col = jQuery( this ), pos = col.offset();
+                                columnPositions[ pos.left ] = columnPositions[ pos.left ] || pos.top;
+                                if ( pos.top > columnPositions[ pos.left ] ) {
+                                    columnPositions[ pos.left ] = pos.top;
+                                }
+                            } );
+
+                            var buttonsToShow = null, buttonsToHide = null;
+
+                            jQuery( '.ca-portal-add-widget' ).each( function () {
+                                var button = jQuery( this ), pos = button.offset();
+                                if ( !columnPositions[ pos.left ] || columnPositions[ pos.left ] < pos.top ) {
+                                    if ( buttonsToShow === null ) {
+                                        buttonsToShow = button;
+                                    } else {
+                                        buttonsToShow.add( button );
+                                    }
+                                } else {
+                                    if ( buttonsToHide === null ) {
+                                        buttonsToHide = button;
+                                    } else {
+                                        buttonsToHide.add( button );
+                                    }
+                                }
+                            } );
+
+                            if ( buttonsToShow !== null ) {
+                                buttonsToShow.show();
+                            }
+
+                            if ( buttonsToHide !== null ) {
+                                buttonsToHide.hide();
+                            }
+                        }
+
+                        function updateToggleButton () {
+                            var isVisible = jQuery( '#ca-portal-column-block-list:visible' ).length > 0;
+                            jQuery( '#ca-portal-block-list-link' ).val( (isVisible ? 'Hide' : 'Show') + ' Widget Dock' );
+                        }
+
+                        require( [ 'util/Callback' ], function ( Callback ) {
+                            jQuery( window ).resize( Callback.pace( 'portal.updateAddButtons', 300, updateAddButtons ) );
+                            jQuery( document.body ).on( 'click', Callback.pace( 'portal.toggleButton', 300, updateToggleButton ) );
+                        } );
+                        jQuery( updateAddButtons );
+                    } );
+                </script>
+                <div class="bbarl">
+                    <div class="bbarr">
+                        <div class="bbar">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

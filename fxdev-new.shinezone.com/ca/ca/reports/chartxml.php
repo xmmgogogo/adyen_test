@@ -923,6 +923,203 @@ return <<<EOF
 EOF;
 }
 
+
+//https://ca-live.adyen.com/ca/ca/reports/chartxml.shtml?
+//statsType=TRANSACTION_BREAKDOWN_PER_TIME_INTERVAL&granularity=day&
+//bdate=2017-01-09&showLabels=false&showValues=false&showPercentValues=false&
+//showPercentInToolTip=false&enableRotation=false&showZeroPies=false
+function transactionBreakDownPerTimeInterval()
+{
+    return '<?xml version="1.0" encoding="UTF-8" ?>
+<chart animation="1" palette="3" aboutMenuItemLabel="Adyen chart" aboutMenuItemLink="http://www.adyen.com" showLabels="1" showValues="0" caption="Chargeback and Refusal Rates" showBorder="0" bgColor="FFFFFF" bgAlpha="0" canvasBorderColor="FFFFFF" plotBorderAlpha="0" baseFontColor="555555" showToolTip="1" yAxisMaxValue="0" showPercentValues="0" showPercentInToolTip="0" enableSmartLabels="1" plotGradientColor=" " decimals="1" numberSuffix="%" use3DLighting="0" overlapColumns="0" showSum="0" showCanvasBg="0" divLineColor="666666" showLegend="1" useRoundEdges="1">
+    <styles>
+        <definition>
+            <style name="myHTMLFont" type="Font" Color="555555" isHTML="1"/>
+            <style name="captionFont" type="Font" size="12" Color="555555"/>
+            <style name="subCaptionFont" type="Font" size="10" Color="555555"/>
+            <style name="dataLablesFont" type="Font" size="10" Color="555555"/>
+        </definition>
+        <application>
+            <apply toObject="TOOLTIP" styles="myHTMLFont"/>
+            <apply toObject="CAPTION" styles="captionFont"/>
+            <apply toObject="SUBCAPTION" styles="subCaptionFont"/>
+            <apply toObject="DATALABLES" styles="dataLabelsFont"/>
+        </application>
+    </styles>
+    <header>Sessions</header>
+    <categories>
+        <category label="wk46"/>
+        <category label="wk47"/>
+        <category label="wk48"/>
+        <category label="wk49"/>
+        <category label="wk50"/>
+        <category label="wk51"/>
+        <category label="wk52"/>
+        <category label="wk01"/>
+        <category label="wk02"/>
+        <category label="wk03"/>
+    </categories>
+    <dataset seriesName="Chargeback Rate" color="F6780F" showValues="0" includeInLegend="1" parentYAxis="P" renderAs="Line">
+        <set value="0.00"/>
+        <set value="0.00"/>
+        <set value="0.00"/>
+        <set value="0.00"/>
+        <set value="0.00"/>
+        <set value="0.00"/>
+        <set value="0.00"/>
+        <set value="0.00"/>
+        <set value="0.00"/>
+        <set value="0.00"/>
+    </dataset>
+    <dataset seriesName="RefusedByRisk Rate" color="ffde00" showValues="0" includeInLegend="1" parentYAxis="P" renderAs="Line">
+        <set value="0.00"/>
+        <set value="0.00"/>
+        <set value="0.00"/>
+        <set value="0.00"/>
+        <set value="0.00"/>
+        <set value="0.00"/>
+        <set value="0.00"/>
+        <set value="0.00"/>
+        <set value="0.00"/>
+        <set value="0.00"/>
+    </dataset>
+    <dataset seriesName="RefusedByBank Rate" color="91B2FF" showValues="0" includeInLegend="1" parentYAxis="P" renderAs="Line">
+        <set value="0.00"/>
+        <set value="0.00"/>
+        <set value="0.00"/>
+        <set value="0.00"/>
+        <set value="0.00"/>
+        <set value="0.00"/>
+        <set value="0.00"/>
+        <set value="0.00"/>
+        <set value="0.00"/>
+        <set value="0.00"/>
+    </dataset>
+    <dataset seriesName="Authorisations" color="8DDA00" showValues="0" includeInLegend="1" parentYAxis="S" renderAs="Area">
+        <set value="0"/>
+        <set value="0"/>
+        <set value="0"/>
+        <set value="0"/>
+        <set value="0"/>
+        <set value="1"/>
+        <set value="0"/>
+        <set value="0"/>
+        <set value="0"/>
+        <set value="0"/>
+    </dataset>
+</chart>';die;
+}
+//https://ca-live.adyen.com/ca/ca/reports/chartxml.shtml?
+//statsType=ECP_PER_TIME_INTERVAL&granularity=day&
+//bdate=2017-01-09&lang=$lang&showLabels=false&showValues=false&
+//showPercentValues=false&showPercentInToolTip=false&enableRotation=false&showZeroPies=false
+function ecpPerTimeInterval()
+{
+    return '<?xml version="1.0" encoding="UTF-8" ?>
+<chart animation="1" palette="3" aboutMenuItemLabel="Adyen stacked column chart" aboutMenuItemLink="http://www.adyen.com" showLabels="1" showValues="0" caption="ECP Levels" showBorder="0" bgColor="FFFFFF" bgAlpha="0" canvasBorderColor="FFFFFF" plotBorderAlpha="0" baseFontColor="555555" showToolTip="1" yAxisMaxValue="0" showPercentValues="0" showPercentInToolTip="0" enableSmartLabels="1" plotGradientColor=" " decimals="1" numberSuffix="%" use3DLighting="0" overlapColumns="0" showSum="0" showCanvasBg="0" divLineColor="666666" showLegend="1" useRoundEdges="1" yAxisName="Excessive Chargeback Program Rate">
+  <styles>
+    <definition>
+      <style name="myHTMLFont" type="Font" Color="555555" isHTML="1"/>
+      <style name="captionFont" type="Font" size="12" Color="555555"/>
+      <style name="subCaptionFont" type="Font" size="10" Color="555555"/>
+      <style name="dataLablesFont" type="Font" size="10" Color="555555"/>
+    </definition>
+    <application>
+      <apply toObject="TOOLTIP" styles="myHTMLFont"/>
+      <apply toObject="CAPTION" styles="captionFont"/>
+      <apply toObject="SUBCAPTION" styles="subCaptionFont"/>
+      <apply toObject="DATALABLES" styles="dataLabelsFont"/>
+    </application>
+  </styles>
+  <header>Sessions</header>
+  <categories>
+    <category label="Jan 9"/>
+    <category label="Jan 10"/>
+    <category label="Jan 11"/>
+    <category label="Jan 12"/>
+    <category label="Jan 13"/>
+    <category label="Jan 14"/>
+    <category label="Jan 15"/>
+    <category label="Jan 16"/>
+    <category label="Jan 17"/>
+    <category label="Jan 18"/>
+    <category label="Jan 19"/>
+    <category label="Jan 20"/>
+    <category label="Jan 21"/>
+    <category label="Jan 22"/>
+    <category label="Jan 23"/>
+  </categories>
+  <dataset seriesName="MasterCard ECP" color="F6780F" showValues="0" includeInLegend="1" parentYAxis="P" renderAs="Line">
+    <set value="0.0" toolText="Jan 9: 0.00% MasterCard ECP (0 program chargebacks / 0 program settlements)"/>
+    <set value="0.0" toolText="Jan 10: 0.00% MasterCard ECP (0 program chargebacks / 0 program settlements)"/>
+    <set value="0.0" toolText="Jan 11: 0.00% MasterCard ECP (0 program chargebacks / 0 program settlements)"/>
+    <set value="0.0" toolText="Jan 12: 0.00% MasterCard ECP (0 program chargebacks / 0 program settlements)"/>
+    <set value="0.0" toolText="Jan 13: 0.00% MasterCard ECP (0 program chargebacks / 0 program settlements)"/>
+    <set value="0.0" toolText="Jan 14: 0.00% MasterCard ECP (0 program chargebacks / 0 program settlements)"/>
+    <set value="0.0" toolText="Jan 15: 0.00% MasterCard ECP (0 program chargebacks / 0 program settlements)"/>
+    <set value="0.0" toolText="Jan 16: 0.00% MasterCard ECP (0 program chargebacks / 0 program settlements)"/>
+    <set value="0.0" toolText="Jan 17: 0.00% MasterCard ECP (0 program chargebacks / 0 program settlements)"/>
+    <set value="0.0" toolText="Jan 18: 0.00% MasterCard ECP (0 program chargebacks / 0 program settlements)"/>
+    <set value="0.0" toolText="Jan 19: 0.00% MasterCard ECP (0 program chargebacks / 0 program settlements)"/>
+    <set value="0.0" toolText="Jan 20: 0.00% MasterCard ECP (0 program chargebacks / 0 program settlements)"/>
+    <set value="0.0" toolText="Jan 21: 0.00% MasterCard ECP (0 program chargebacks / 0 program settlements)"/>
+    <set value="0.0" toolText="Jan 22: 0.00% MasterCard ECP (0 program chargebacks / 0 program settlements)"/>
+    <set value="0.0" toolText="Jan 23: 0.00% MasterCard ECP (0 program chargebacks / 0 program settlements)"/>
+  </dataset>
+  <dataset seriesName="Visa International ECP" color="AFD8F8" showValues="0" includeInLegend="1" parentYAxis="P" renderAs="Line">
+    <set value="0.0" toolText="Jan 9: 0.00% Visa International ECP (0 program chargebacks / 0 program settlements)"/>
+    <set value="0.0" toolText="Jan 10: 0.00% Visa International ECP (0 program chargebacks / 0 program settlements)"/>
+    <set value="0.0" toolText="Jan 11: 0.00% Visa International ECP (0 program chargebacks / 0 program settlements)"/>
+    <set value="0.0" toolText="Jan 12: 0.00% Visa International ECP (0 program chargebacks / 0 program settlements)"/>
+    <set value="0.0" toolText="Jan 13: 0.00% Visa International ECP (0 program chargebacks / 0 program settlements)"/>
+    <set value="0.0" toolText="Jan 14: 0.00% Visa International ECP (0 program chargebacks / 0 program settlements)"/>
+    <set value="0.0" toolText="Jan 15: 0.00% Visa International ECP (0 program chargebacks / 0 program settlements)"/>
+    <set value="0.0" toolText="Jan 16: 0.00% Visa International ECP (0 program chargebacks / 0 program settlements)"/>
+    <set value="0.0" toolText="Jan 17: 0.00% Visa International ECP (0 program chargebacks / 0 program settlements)"/>
+    <set value="0.0" toolText="Jan 18: 0.00% Visa International ECP (0 program chargebacks / 0 program settlements)"/>
+    <set value="0.0" toolText="Jan 19: 0.00% Visa International ECP (0 program chargebacks / 0 program settlements)"/>
+    <set value="0.0" toolText="Jan 20: 0.00% Visa International ECP (0 program chargebacks / 0 program settlements)"/>
+    <set value="0.0" toolText="Jan 21: 0.00% Visa International ECP (0 program chargebacks / 0 program settlements)"/>
+    <set value="0.0" toolText="Jan 22: 0.00% Visa International ECP (0 program chargebacks / 0 program settlements)"/>
+    <set value="0.0" toolText="Jan 23: 0.00% Visa International ECP (0 program chargebacks / 0 program settlements)"/>
+  </dataset>
+  <dataset seriesName="Visa Domestic ECP" color="ffde00" showValues="0" includeInLegend="1" parentYAxis="P" renderAs="Line">
+    <set value="0.0" toolText="Jan 9: 0.00% Visa Domestic ECP (0 program chargebacks / 0 program settlements)"/>
+    <set value="0.0" toolText="Jan 10: 0.00% Visa Domestic ECP (0 program chargebacks / 0 program settlements)"/>
+    <set value="0.0" toolText="Jan 11: 0.00% Visa Domestic ECP (0 program chargebacks / 0 program settlements)"/>
+    <set value="0.0" toolText="Jan 12: 0.00% Visa Domestic ECP (0 program chargebacks / 0 program settlements)"/>
+    <set value="0.0" toolText="Jan 13: 0.00% Visa Domestic ECP (0 program chargebacks / 0 program settlements)"/>
+    <set value="0.0" toolText="Jan 14: 0.00% Visa Domestic ECP (0 program chargebacks / 0 program settlements)"/>
+    <set value="0.0" toolText="Jan 15: 0.00% Visa Domestic ECP (0 program chargebacks / 0 program settlements)"/>
+    <set value="0.0" toolText="Jan 16: 0.00% Visa Domestic ECP (0 program chargebacks / 0 program settlements)"/>
+    <set value="0.0" toolText="Jan 17: 0.00% Visa Domestic ECP (0 program chargebacks / 0 program settlements)"/>
+    <set value="0.0" toolText="Jan 18: 0.00% Visa Domestic ECP (0 program chargebacks / 0 program settlements)"/>
+    <set value="0.0" toolText="Jan 19: 0.00% Visa Domestic ECP (0 program chargebacks / 0 program settlements)"/>
+    <set value="0.0" toolText="Jan 20: 0.00% Visa Domestic ECP (0 program chargebacks / 0 program settlements)"/>
+    <set value="0.0" toolText="Jan 21: 0.00% Visa Domestic ECP (0 program chargebacks / 0 program settlements)"/>
+    <set value="0.0" toolText="Jan 22: 0.00% Visa Domestic ECP (0 program chargebacks / 0 program settlements)"/>
+    <set value="0.0" toolText="Jan 23: 0.00% Visa Domestic ECP (0 program chargebacks / 0 program settlements)"/>
+  </dataset>
+  <dataset seriesName="Discover ECP" color="598900" showValues="0" includeInLegend="1" parentYAxis="P" renderAs="Line">
+    <set value="0.0" toolText="Jan 9: 0.00% Discover ECP (0 program chargebacks / 0 program settlements)"/>
+    <set value="0.0" toolText="Jan 10: 0.00% Discover ECP (0 program chargebacks / 0 program settlements)"/>
+    <set value="0.0" toolText="Jan 11: 0.00% Discover ECP (0 program chargebacks / 0 program settlements)"/>
+    <set value="0.0" toolText="Jan 12: 0.00% Discover ECP (0 program chargebacks / 0 program settlements)"/>
+    <set value="0.0" toolText="Jan 13: 0.00% Discover ECP (0 program chargebacks / 0 program settlements)"/>
+    <set value="0.0" toolText="Jan 14: 0.00% Discover ECP (0 program chargebacks / 0 program settlements)"/>
+    <set value="0.0" toolText="Jan 15: 0.00% Discover ECP (0 program chargebacks / 0 program settlements)"/>
+    <set value="0.0" toolText="Jan 16: 0.00% Discover ECP (0 program chargebacks / 0 program settlements)"/>
+    <set value="0.0" toolText="Jan 17: 0.00% Discover ECP (0 program chargebacks / 0 program settlements)"/>
+    <set value="0.0" toolText="Jan 18: 0.00% Discover ECP (0 program chargebacks / 0 program settlements)"/>
+    <set value="0.0" toolText="Jan 19: 0.00% Discover ECP (0 program chargebacks / 0 program settlements)"/>
+    <set value="0.0" toolText="Jan 20: 0.00% Discover ECP (0 program chargebacks / 0 program settlements)"/>
+    <set value="0.0" toolText="Jan 21: 0.00% Discover ECP (0 program chargebacks / 0 program settlements)"/>
+    <set value="0.0" toolText="Jan 22: 0.00% Discover ECP (0 program chargebacks / 0 program settlements)"/>
+    <set value="0.0" toolText="Jan 23: 0.00% Discover ECP (0 program chargebacks / 0 program settlements)"/>
+  </dataset>
+</chart>';
+}
+
 $params  = getInfo();
 $referer = isset($params['Referer']) ? $params['Referer'] : '';
 $filename = $referer ? parseUrl($referer) : '';
@@ -983,6 +1180,13 @@ $filename = $referer ? parseUrl($referer) : '';
             break;
         case 'CONVERSION_PER_ACQUIRER_ACCOUNT':
             $return = conversionPerAcquiperAccount();
+            break;
+        //overview default
+        case 'TRANSACTION_BREAKDOWN_PER_TIME_INTERVAL':
+            $return = transactionBreakDownPerTimeInterval();
+            break;
+        case 'ECP_PER_TIME_INTERVAL' :
+            $return = ecpPerTimeInterval();
             break;
         default:
             return $return = '';

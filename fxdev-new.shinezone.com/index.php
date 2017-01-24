@@ -18,11 +18,11 @@ $totalInfo = statGetAllIncome();
 $remainInfo= statGetRemainIncome();
 
 $remain    = $totalInfo['total'] - $remainInfo['amount'];
-$remain    = empty($remain) ? "\$$remain" : "≈\$$remain";
+$remain    = empty($remain) ? "\$USD $remain" : "≈\$USD $remain";
 
-$todayTotal= ($todayInfo['approximate']==1) ? "≈\${$todayInfo['total']}" : "\${$todayInfo['total']}";
-$monthTotal= ($monthInfo['approximate']==1) ? "≈\${$monthInfo['total']}" : "\${$monthInfo['total']}";
-$allTotal  = ($totalInfo['approximate']==1) ? "≈\${$totalInfo['total']}" : "\${$totalInfo['total']}";
+$todayTotal= ($todayInfo['approximate']==1) ? "≈\$USD {$todayInfo['total']}" : "\$USD {$todayInfo['total']}";
+$monthTotal= ($monthInfo['approximate']==1) ? "≈\$USD {$monthInfo['total']}" : "\$USD {$monthInfo['total']}";
+$allTotal  = ($totalInfo['approximate']==1) ? "≈\$USD {$totalInfo['total']}" : "\$USD {$totalInfo['total']}";
 
 ?>
 
@@ -85,12 +85,9 @@ $allTotal  = ($totalInfo['approximate']==1) ? "≈\${$totalInfo['total']}" : "\$
   <!-- Start: Main -->
   <div id="main">
     <!-- Start: Header -->
-      <script>
-  window.intercomSettings = {
-    app_id: "fjcxobf2", name: "lili", email: "lili@shinezone.com", phone: "13073381142", environment: "Live", created_at: 1476859724, state: "Active", app_status: "Active", app_created_at: 1477058099, balance_changed_at: 1479205430// Signup date as a Unix timestamp
-  };
-</script>
-<script>(function(){var w=window;var ic=w.Intercom;if(typeof ic==="function"){ic('reattach_activator');ic('update',intercomSettings);}else{var d=document;var i=function(){i.c(arguments)};i.q=[];i.c=function(args){i.q.push(args)};w.Intercom=i;function l(){var s=d.createElement('script');s.type='text/javascript';s.async=true;s.src='https://widget.intercom.io/widget/fjcxobf2';var x=d.getElementsByTagName('script')[0];x.parentNode.insertBefore(s,x);}if(w.attachEvent){w.attachEvent('onload',l);}else{w.addEventListener('load',l,false);}}})()</script>
+  <script>
+    (function(){var w=window;var ic=w.Intercom;if(typeof ic==="function"){ic('reattach_activator');ic('update',intercomSettings);}else{var d=document;var i=function(){i.c(arguments)};i.q=[];i.c=function(args){i.q.push(args)};w.Intercom=i;function l(){var s=d.createElement('script');s.type='text/javascript';s.async=true;s.src='https://widget.intercom.io/widget/fjcxobf2';var x=d.getElementsByTagName('script')[0];x.parentNode.insertBefore(s,x);}if(w.attachEvent){w.attachEvent('onload',l);}else{w.addEventListener('load',l,false);}}})()
+  </script>
       <!-- End: Header -->
 
     <!-----------------------------------------------------------------+ 
@@ -211,7 +208,7 @@ $allTotal  = ($totalInfo['approximate']==1) ? "≈\${$totalInfo['total']}" : "\$
                   <div class="panel">
                     <div class="panel-title" style="background-color: #f9f9f9;height: 50px;padding-left:15px;line-height: 50px;border: 1px solid #eee;border-bottom: 0px;font-size: 14px;">
                     <span style="font-weight:bold;">最近10笔交易</span>
-                    <button onclick="parent.location.href='https://payssion.com/account/payments'" class="btn btn-default pull-right" style="margin: 8px 15px ;padding: 5px 12px;">所有交易</button>
+                    <button onclick="window.location.href='payments.php'" class="btn btn-default pull-right" style="margin: 8px 15px ;padding: 5px 12px;">所有交易</button>
                     </div>
                     <div class="panel-body pn">
                       <div class="box-body table-responsive no-padding" style="padding: 0px;margin:0px;">

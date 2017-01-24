@@ -1,0 +1,29 @@
+<table class="txs-report-tooltip">
+    <tr>
+        <td rowspan="2">
+            {{#isImproved}}
+            <h3 class="csr-fcolor-green">
+                <i class="icon-caret-up"></i>
+                <em>{{percentDiff}}</em>
+            </h3>
+            {{/isImproved}}
+            {{^isImproved}}
+            <h3 class="csr-fcolor-red">
+                <i class="icon-caret-down"></i>
+                <em>{{percentDiff}}</em>
+            </h3>
+            {{/isImproved}}
+        </td>
+        <td class="tip-rate"><em><i class="icon-minus" style="color: #03486d;"></i> {{selRate}}</em></td><td>{{selDate}}</td><td>{{selMonth}}</td><td>{{selYear}}</td>
+        {{#timeGranularity}}
+        <td>{{selTime}}</td>
+        {{/timeGranularity}}
+    </tr>
+
+    <tr>
+        <td class="tip-rate"><em><i class="icon-minus" style="color: #a9d6a6;"></i> {{prevRate}}</em></td><td>{{prevDate}}</td><td>{{prevMonth}}</td><td>{{prevYear}}</td>
+        {{#timeGranularity}}
+        <td>{{prevTime}}</td>
+        {{/timeGranularity}}
+    </tr>
+</table>

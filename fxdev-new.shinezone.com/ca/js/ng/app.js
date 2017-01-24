@@ -98,9 +98,9 @@
         acquirerConversionService: chartsXML + "?statsType=CONVERSION_PER_ACQUIRER&granularity=day&lang=$lang",
         defendableChargebackServiceUrl: adyen.base + "/ca/disputes/summaryJSON.shtml",
         disputesPageUrl: adyen.base + "/disputes/showList.shtml",
-        bookmarksUrl: adyen.base + "/ca/accounts/bookmarksJSON.shtml",
-        speedometerUrl: adyen.base + "/ca/reports/chartdata/speedometer.shtml?random=" + new Date().getTime(),
-        weekHistoryUrl: adyen.base + "/ca/reports/chartdata/chart_weekhistory.shtml?random=" + new Date().getTime(),
+        bookmarksUrl: adyen.base + "/ca/accounts/bookmarksJSON.php",
+        speedometerUrl: adyen.base + "/ca/reports/chartdata/speedometer.php?random=" + new Date().getTime(),
+        weekHistoryUrl: adyen.base + "/ca/reports/chartdata/chart_weekhistory.php?random=" + new Date().getTime(),
         ecpPerTimeInterval: chartsXML + "?statsType=ECP_PER_TIME_INTERVAL&granularity=day&bdate=" + dateMin14 + "&lang=$lang" + QS_PIE,
         transactionBreakdownPerTimeIntervalUrl: {
             days: chartsXML + "?statsType=TRANSACTION_BREAKDOWN_PER_TIME_INTERVAL&granularity=day&bdate=" + dateMin14 + QS_PIE,

@@ -1,7 +1,7 @@
 <?php
 error_reporting(E_ALL);
 ini_set('display_errors', 'On');
-date_default_timezone_set("Asia/shanghai");
+date_default_timezone_set("ETC");
 
 /**
  * 添加公用方法类
@@ -24,7 +24,7 @@ class common {
 
     public function initConn($mysql_server_name, $mysql_database, $mysql_username, $mysql_password) {
         if($this->DB === null) {
-            $this->DB = new Db($mysql_server_name, $mysql_database, $mysql_username, $mysql_password);
+            $this->DB = new PDO_DB($mysql_server_name, $mysql_database, $mysql_username, $mysql_password);
         }
     }
 
@@ -152,6 +152,20 @@ class common {
             }
         }
 
+        //这里加上时间判断
+        $where .= " and BookingDate <= '" . date('Y-m-d H:i:s') . "'";
+
+        return $this->sqlQuery('select * from payment where ' . $where, $parameters);
+    }
+
+
+    /**
+     * 传入条件，进行筛选|特殊情况处理
+     * @param $parameters
+     * @param $where
+     * @return mixed
+     */
+    public function getOrderListByConditionAndSql($where, $parameters) {
         return $this->sqlQuery('select * from payment where ' . $where, $parameters);
     }
 
@@ -166,7 +180,7 @@ class common {
     public function getAreaSession($filterKey = 'area', $searchKey = 'session', $doubleFilterKey = '') {
         //1，按照世界每个州来分
         //2，按照国家来分
-        $keySave = ['area', 'country', 'method', 'amount', 'status', 'account', 'channel'];
+        $keySave = ['area', 'country', 'method', 'amount', 'status', 'account', 'channel', 'categoryId'];
         if(!in_array($filterKey, $keySave)) {
             die('common.php -> key send error!');
         }
@@ -200,6 +214,16 @@ class common {
         if(isset($_REQUEST['region']) && $_REQUEST['region']) {
             $conditions['region'] = $_REQUEST['region'];
             $sql .= ' and area = :region';
+        }
+
+        if(isset($_REQUEST['reportstartdate']) && $_REQUEST['reportstartdate']) {
+            $conditions['reportstartdate'] = $_REQUEST['reportstartdate'];
+            $sql .= ' and date >= :reportstartdate';
+        }
+
+        if(isset($_REQUEST['reportenddate']) && $_REQUEST['reportenddate']) {
+            $conditions['reportenddate'] = $_REQUEST['reportenddate'];
+            $sql .= ' and date <= :reportenddate';
         }
 
         //3，处理结果
@@ -330,6 +354,23 @@ class common {
         return $sessions;
     }
 }
+
+/**
+ * 工具类
+ * Class ToolFunction
+ */
+class ToolFunction{
+    public  static function export_csv($filename, $data)
+    {
+        header("Content-type:text/csv");
+        header("Content-Disposition:attachment;filename=".$filename);
+        header('Cache-Control:must-revalidate,post-check=0,pre-check=0');
+        header('Expires:0');
+        header('Pragma:public');
+        echo $data;
+    }
+}
+
 
 //test
 //$test = new common();

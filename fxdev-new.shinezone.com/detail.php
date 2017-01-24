@@ -1,19 +1,14 @@
 <?php
 require_once "functions/Functions.php";
 
-$TransactionId    =  isset($_GET['id'])?$_GET['id']:'';
-$orderid          =  isset($_GET['orderid'])?$_GET['orderid']:'';
-$TransactionInfo  = getOnePayInfo($TransactionId,$orderid);
+$TransactionId    = isset($_GET['id'])?$_GET['id']:'';
+$TransactionInfo  = getOnePayInfo($TransactionId);
 $Currency         = isset($TransactionInfo['Currency'])?$TransactionInfo['Currency']:'USD';
 $Symbol           = getCurrencySymbol($Currency);
-
-//echo $TransactionId;
-//console.log($TransactionId);
-ECHO $orderid;
-//console.log($orderid);
 ?>
 
 <!DOCTYPE html>
+<!-- saved from url=(0064)https://payssion.com/account/payments/detail?id=GB22860711857814 -->
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -51,7 +46,7 @@ ECHO $orderid;
  Results: Sidebar left Open, Sidebar right Closed
 --------------------------------------------------------------->
     <!-- Start: Main -->
-<div id="main">
+    <div id="main">
     <!-- Start: Header -->
     <script>(function(){var w=window;var ic=w.Intercom;if(typeof ic==="function"){ic('reattach_activator');ic('update',intercomSettings);}else{var d=document;var i=function(){i.c(arguments)};i.q=[];i.c=function(args){i.q.push(args)};w.Intercom=i;function l(){var s=d.createElement('script');s.type='text/javascript';s.async=true;s.src='https://widget.intercom.io/widget/fjcxobf2';var x=d.getElementsByTagName('script')[0];x.parentNode.insertBefore(s,x);}if(w.attachEvent){w.attachEvent('onload',l);}else{w.addEventListener('load',l,false);}}})()</script>
     <!-- End: Header -->
@@ -71,17 +66,16 @@ ECHO $orderid;
        Results: Fixed Left Sidebar with light/white background
     ------------------------------------------------------------------->
     <!-- Start: Content-Wrapper -->
-  <section id="content_wrapper" style="margin-left:0">
-       <!-- Start: Topbar -->
-<!--      <header id="topbar" class="alt">
-          <div class="topbar-left inner_title">
-              <span class="inner_title_1"><span style="display: block;float: left;margin-top: 10px;">交易详情</span></span>
-          </div>
-      </header>
-
-      <!-- Begin: Content -->
+    <section id="content_wrapper">
+        <!-- Start: Topbar -->
+        <header id="topbar" class="alt">
+            <div class="topbar-left inner_title">
+                <span class="inner_title_1"><span style="display: block;float: left;margin-top: 10px;">交易详情</span></span>
+            </div>
+        </header>
+        <!-- Begin: Content -->
         <section id="content" class="table-layout" style="background-color: #fff;">
-            <div class="section row" style="padding:0">
+            <div class="section row">
                 <div class="content" style="border-bottom: 1px solid #eee;font-size: 14px;color: #888;padding:15px;">
                     <div class="col-xs-5 col-md-2" style=" text-align: right;padding: 0px;">创建时间：</div>
                     <div class="col-xs-7 col-md-10"><?php echo $TransactionInfo['CreateDate'];?></div>
@@ -166,8 +160,8 @@ ECHO $orderid;
             </div>
         </section>
         <!-- End: Content -->
-           </section>
-            <!-- End: Content-Wrapper -->
+    </section>
+    <!-- End: Content-Wrapper -->
 </div>
 <!-- End: Main -->
 

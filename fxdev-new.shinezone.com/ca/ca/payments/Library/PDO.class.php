@@ -12,7 +12,7 @@
 * A PHP MySQL PDO class similar to the the Python MySQLdb.
 */
 require(dirname(__FILE__) . "/PDO.Log.class.php");
-class DB
+class PDO_DB
 {
     private $Host;
     private $DBName;

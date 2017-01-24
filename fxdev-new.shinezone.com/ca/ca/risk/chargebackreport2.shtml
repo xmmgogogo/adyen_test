@@ -39,7 +39,7 @@
                     setTimeout(printMe, 500);
                 }
             }
-            printMe();
+            //printMe();
         }(window.console));
         (function(w) {
             try {var c = console; Object.defineProperty(w, "console", {get: function() { if(c._commandLineAPI) {throw "[JSS-SX02] Sorry, the script console is deactivated";} return c;},set: function(nc) {c = nc;}});} catch (ignore) {}})(window);
@@ -61,7 +61,6 @@
         adyen.config.navToCompany = "/ca/ca/reports/dashboard.shtml";
         adyen.config.navToMerchantAccount = "/ca/ca/reports/dashboard.shtml";
 
-
         adyen.searchmodes= [
             {
                 description: "Payment Search",
@@ -79,8 +78,6 @@
             }
         ];
     </script>
-
-
 
     <!--[if lte IE 8]>
     <script type="text/javascript">
@@ -447,13 +444,13 @@
     <div class="power-search-suggestions auto_complete" id="ps-suggestions"></div>
 </div>
 <div id="ca-merchantlogo">
-    <a href="/ca/ca/accounts/manage.shtml"><img height="30" width="130" src="/ca/ca/image.shtml?name=accountLogo&amp;mimeType=image%2Fpng&amp;cachingId=Company.ShineZone" alt="merchantlogo"/></a>
+    <a href="/ca/ca/accounts/manage.shtml"><img height="30" width="130" src="/ca/ca/image.php?name=accountLogo&amp;mimeType=image%2Fpng&amp;cachingId=Company.ShineZone" alt="merchantlogo"/></a>
 </div>
 <div id="ca-notification-icon-dock">
 </div>
 
 <div class="csr-back" id="backlink">
-    <a href="/ca/ca/reports/dashboard.shtml" data-event="MAINNAVBACK">
+    <a href="/web1/ca/ca/reports/dashboard.shtml" data-event="MAINNAVBACK">
         <i class="icon-chevron-left"></i>
         <span>Back</span>
     </a>
@@ -490,7 +487,7 @@
 
                 <div class="ca-topnav-button-wrapper with-panel ">
 
-                    <a class="csr-button-2 border with-panel " href="/ca/ca/reports/dashboard.shtml?setActiveAccountKey=Company.ShineZone">
+                    <a class="csr-button-2 border with-panel " href="/web1/ca/ca/reports/dashboard.shtml?setActiveAccountKey=Company.ShineZone">
 
 
 
@@ -509,7 +506,7 @@
 
 
                         <div>
-                            <a href="/ca/ca/reports/dashboard.shtml?setActiveAccountKey=MerchantAccount.ShineZoneHK">
+                            <a href="/web1/ca/ca/reports/dashboard.shtml?setActiveAccountKey=MerchantAccount.ShineZoneHK">
                                 ShineZoneHK
                             </a>
                         </div>
@@ -555,7 +552,7 @@
 
                 <li ><a href="/ca/ca/accounts/choose.shtml">Accounts</a></li>
 
-                <li   class="activelink"  ><a href="/ca/ca/reports/dashboard.shtml">Reports</a></li>
+                <li   class="activelink"  ><a href="/web1/ca/ca/reports/dashboard.shtml">Reports</a></li>
 
 
 
@@ -604,11 +601,11 @@
                     adyen.config = adyen.config || {};
                     adyen.formHash = '289Izn7V3AYdc6QweNbxD5ufKVv0T0=';
 
-                    adyen.config.chargebackReportUrl = '/ca/ca/data/chargebackreportdata.shtml?ignoresaverequest=true';
-                    adyen.config.issueCountry_chargebackReportUrl = '/ca/ca/data/chargebackreportdata.shtml?ignoresaverequest=true';
+                    adyen.config.chargebackReportUrl = '/ca/ca/data/chargebackreportdata.php?ignoresaverequest=true';
+                    adyen.config.issueCountry_chargebackReportUrl = '/ca/ca/data/chargebackreportdata.php?ignoresaverequest=true';
 
-                    adyen.config.activeIssuerCountriesUrl = '/ca/ca/risk/riskreport!getActiveIssuerCountries.shtml?ignoresaverequest=true';
-                    adyen.config.activePaymentMethodsUrl = '/ca/ca/risk/riskreport!getActivePaymentMethods.shtml?ignoresaverequest=true';
+                    adyen.config.activeIssuerCountriesUrl = '/ca/ca/risk/riskreport!getActiveIssuerCountries.php?ignoresaverequest=true';
+                    adyen.config.activePaymentMethodsUrl = '/ca/ca/risk/riskreport!getActivePaymentMethods.php?ignoresaverequest=true';
 
                 </script>
 

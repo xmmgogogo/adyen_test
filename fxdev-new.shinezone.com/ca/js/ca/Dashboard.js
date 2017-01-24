@@ -1,0 +1,14 @@
+define("ca/Dashboard",["jqueryExtended","Constants","ui/Collapse","util/Ajax","jquery.ui"],function(d,b,e,a){function c(f){this.isCollapsed=true;
+this.api=f;this.saveUrl=this.api.getNode().attr("data-save-url");var h=this,g=this.api.getNode();this.columns=g.find(".ca-portal-column").filter(":not([data-sortable=no])");
+if(f.parameters.allowDrag!=="no"){this.columns.sortable({items:".ca-block",handle:".ca-handle",connectWith:".ca-portal-column",change:function(i,j){j.placeholder.css({visibility:"visible"});
+}}).disableSelection();g.on("sortstop",function(i,j){h.save();h.updateUI();});}g.find(".ca-portal-dock").draggable({handle:"h2,h3"});
+g.on("click",".ca-expand",function(i){h.expandWidgetList(i.target);});g.on("click",".ca-block i[data-target], .ca-block a[data-target]",function(l){var j=d(l.target).closest("[data-target]"),k=j.closest(".ca-block"),m=j.attr("data-target"),i=g.findOne(m);
+if(i.length===1){k.appendTo(i);h.save();}});g.find(".ca-block-control").each(function(){var j=d(this),i=j.closest(".ca-block").find(".ca-block-controls");
+if(i.length===1){j.prependTo(i);}});f.ready();this.state=this.getState();this.updateUI();}c.prototype.getState=function(){var f={};
+this.columns.each(function(){var i=d(this),h=i.find(".ca-block"),j=[],g={};h.each(function(){if(typeof g[this.id]==="undefined"){g[this.id]=true;
+j.push(this.id);}});f[this.id]=j.join(",");});return f;};c.prototype.save=function(){var g=this.state,h=this.getState();for(var f in g){if(g.hasOwnProperty(f)){if(g[f]!==h[f]){a.post(this.saveUrl,{value:f+":"+h[f]});
+}}}this.state=h;this.updateUI();};c.prototype.updateUI=function(){this.columns.each(function(){var f=d(this);if(f.findOne(".ca-block").length==0){f.addClass("ca-empty-column");
+}else{f.removeClass("ca-empty-column");}});this.columns.filter("[data-visible-widgets]").each(function(){var g=d(this),h=g.find(".ca-block"),f=parseInt(g.attr("data-visible-widgets"),10);
+if(g.is(".ca-expanded")){f=9999;}else{if(g.is(".ca-collapsed")){f=0;}}h.slice(0,f).show();if(h.length>f){if(g.findOne(".ca-expand").show().length==0){g.append('<div class="ca-expand">Show full list</div>');
+}h.slice(f).hide();}else{g.findOne(".ca-expand").hide();}});};c.prototype.expandWidgetList=function(f){this.columns.filter("[data-visible-widgets]").addClass("ca-expanded");
+this.updateUI();};return c;});

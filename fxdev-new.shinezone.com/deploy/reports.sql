@@ -68,6 +68,16 @@ CREATE TABLE `payment` (
 
 -- --------------------------------------------------------
 
+INSERT INTO `payment` (`CompanyAccount`, `MerchantAccount`, `PspReferenceId`, `MerchantReferenceId`, `PaymentMethod`,
+                         `BookingDate`, `TimeZone`, `MainCurrency`, `MainAmount`, `RecordType`, `PaymentCurrency`, `ReceivedPC`,
+                         `AuthorisedPC`, `CapturedPC`, `SettlementCurrency`, `PayableSC`, `CommissionSC`,
+                         `MarkupSC`, `SchemeFeesSC`, `InterchangeSC`, `ProcessingFeeCurrency`, `ProcessingFeeFC`,
+                         `UserName`, `PaymentMethodVariant`,`ModificationMerchantReference`,
+                         `Reserved3`, `Reserved4`, `Reserved5`, `Reserved6`, `Reserved7`,`Reserved8`,`Reserved9`,`Reserved10`
+) VALUES
+(),
+
+
 --
 -- Indexes for dumped tables
 --
@@ -132,6 +142,100 @@ INSERT INTO `dashboard` (`CreateDate`, `API`, `HPP`, `Abandoned`, `Received`, `R
   ('2017-01-21 00:00:00', 17, 11533, 917, 10633, 58, 0, 10575, 0, 0, 10575, 12577, 0, 0, 0, 0, 12577),
   ('2016-12-01 00:00:00', 335, 9851, 708, 9478, 45, 0, 9433, 0, 0, 9433, 5402, 0, 0, 0, 0, 5402),
   ('2016-11-01 00:00:00', 670, 19702, 1416, 18956, 90, 0, 18866, 0, 0, 18866, 10804, 0, 0, 0, 0, 10804);
+
+
+CREATE TABLE `risk` (
+  `Id` int(11) NOT NULL AUTO_INCREMENT,
+  `totalCount` int(11) DEFAULT 0 COMMENT '总交易量',
+  `riskTransactionCount` int(11) DEFAULT 0 COMMENT '风险交易量',
+  `authorisedCount` int(11) DEFAULT 0 COMMENT '授权量',
+  `authorisedEurAmount` int(11) DEFAULT 0 COMMENT '授权欧元区量',
+  `refusedByRiskCount` int(11) DEFAULT 0 COMMENT '拒绝的风险计算',
+  `refusedByRiskEurAmount` int(11) DEFAULT 0 COMMENT '欧元拒绝的风险值',
+  `refusedByBankCount` int(11) DEFAULT 0 COMMENT '银行拒绝量',
+  `refusedByBankEurAmount` int(11) DEFAULT 0 COMMENT '欧元区银行拒绝量',
+  `chargebackCount` int(11) DEFAULT 0 COMMENT '退款数',
+  `cancelledByRiskCount` int(11) DEFAULT 0 COMMENT '取消的风险计算',
+  `cancelledByRiskAmount` int(11) DEFAULT 0 COMMENT '风险取消量',
+  `chargebackEurAmount` int(11) DEFAULT 0 COMMENT '欧元区退款量',
+  `fraudNotificationsEurAmount` int(11) DEFAULT 0 COMMENT '欺诈通知欧元金额',
+  `fraudNotificationsCount` int(11) DEFAULT 0 COMMENT '欧元欺诈通知量',
+  `CreateDate` date DEFAULT NULL,
+  PRIMARY KEY (`Id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+INSERT INTO `risk` (`CreateDate`,`totalCount`,`riskTransactionCount`,`authorisedCount`,`authorisedEurAmount`,
+                    `refusedByRiskCount`,`refusedByRiskEurAmount`,`refusedByBankCount`,`refusedByBankEurAmount`,
+                    `chargebackCount`,`cancelledByRiskCount`,`cancelledByRiskAmount`,`chargebackEurAmount`,
+                    `fraudNotificationsEurAmount`,`fraudNotificationsCount`) VALUES
+  ('2016-12-01',1000,0,0,0,0,0,0,0,0,0,0,0,0,0),
+  ('2016-12-02',1033,0,0,0,0,0,0,0,0,0,0,0,0,0),
+  ('2016-12-03',1066,0,0,0,0,0,0,0,0,0,0,0,0,0),
+  ('2016-12-04',1099,0,0,0,0,0,0,0,0,0,0,0,0,0),
+  ('2016-12-05',1132,0,0,0,0,0,0,0,0,0,0,0,0,0),
+  ('2016-12-06',1165,0,0,0,0,0,0,0,0,0,0,0,0,0),
+  ('2016-12-07',1198,0,0,0,0,0,0,0,0,0,0,0,0,0),
+  ('2016-12-08',1231,0,0,0,0,0,0,0,0,0,0,0,0,0),
+  ('2016-12-09',1264,0,0,0,0,0,0,0,0,0,0,0,0,0),
+  ('2016-12-10',1297,0,0,0,0,0,0,0,0,0,0,0,0,0),
+  ('2016-12-11',1330,0,0,0,0,0,0,0,0,0,0,0,0,0),
+  ('2016-12-12',1363,0,0,0,0,0,0,0,0,0,0,0,0,0),
+  ('2016-12-13',1396,0,0,0,0,0,0,0,0,0,0,0,0,0),
+  ('2016-12-14',1429,0,0,0,0,0,0,0,0,0,0,0,0,0),
+  ('2016-12-15',1462,0,0,0,0,0,0,0,0,0,0,0,0,0),
+  ('2016-12-16',1495,0,0,0,0,0,0,0,0,0,0,0,0,0),
+  ('2016-12-17',1528,0,0,0,0,0,0,0,0,0,0,0,0,0),
+  ('2016-12-18',1561,0,0,0,0,0,0,0,0,0,0,0,0,0),
+  ('2016-12-19',1594,0,0,0,0,0,0,0,0,0,0,0,0,0),
+  ('2016-12-20',1627,0,0,0,0,0,0,0,0,0,0,0,0,0),
+  ('2016-12-21',1660,0,0,0,0,0,0,0,0,0,0,0,0,0),
+  ('2016-12-22',1693,0,0,0,0,0,0,0,0,0,0,0,0,0),
+  ('2016-12-23',1726,0,0,0,0,0,0,0,0,0,0,0,0,0),
+  ('2016-12-24',1759,0,0,0,0,0,0,0,0,0,0,0,0,0),
+  ('2016-12-25',1792,0,0,0,0,0,0,0,0,0,0,0,0,0),
+  ('2016-12-26',1825,0,0,0,0,0,0,0,0,0,0,0,0,0),
+  ('2016-12-27',1858,0,0,0,0,0,0,0,0,0,0,0,0,0),
+  ('2016-12-28',1891,0,0,0,0,0,0,0,0,0,0,0,0,0),
+  ('2016-12-29',1924,0,0,0,0,0,0,0,0,0,0,0,0,0),
+  ('2016-12-30',1957,0,0,0,0,0,0,0,0,0,0,0,0,0),
+  ('2016-12-31',1990,0,0,0,0,0,0,0,0,0,0,0,0,0),
+  ('2017-01-01',2023,0,0,0,0,0,0,0,0,0,0,0,0,0),
+  ('2017-01-02',2056,0,0,0,0,0,0,0,0,0,0,0,0,0),
+  ('2017-01-03',2089,0,0,0,0,0,0,0,0,0,0,0,0,0),
+  ('2017-01-04',2122,0,0,0,0,0,0,0,0,0,0,0,0,0),
+  ('2017-01-05',2155,0,0,0,0,0,0,0,0,0,0,0,0,0),
+  ('2017-01-06',2188,0,0,0,0,0,0,0,0,0,0,0,0,0),
+  ('2017-01-07',2221,0,0,0,0,0,0,0,0,0,0,0,0,0),
+  ('2017-01-08',2254,0,0,0,0,0,0,0,0,0,0,0,0,0),
+  ('2017-01-09',2287,0,0,0,0,0,0,0,0,0,0,0,0,0),
+  ('2017-01-10',2320,0,0,0,0,0,0,0,0,0,0,0,0,0),
+  ('2017-01-11',2353,0,0,0,0,0,0,0,0,0,0,0,0,0),
+  ('2017-01-12',2386,0,0,0,0,0,0,0,0,0,0,0,0,0),
+  ('2017-01-13',2419,0,0,0,0,0,0,0,0,0,0,0,0,0),
+  ('2017-01-14',2452,0,0,0,0,0,0,0,0,0,0,0,0,0),
+  ('2017-01-15',2485,0,0,0,0,0,0,0,0,0,0,0,0,0),
+  ('2017-01-16',2518,0,0,0,0,0,0,0,0,0,0,0,0,0),
+  ('2017-01-17',2551,0,0,0,0,0,0,0,0,0,0,0,0,0),
+  ('2017-01-18',2584,0,0,0,0,0,0,0,0,0,0,0,0,0),
+  ('2017-01-19',2617,0,0,0,0,0,0,0,0,0,0,0,0,0),
+  ('2017-01-20',2650,0,0,0,0,0,0,0,0,0,0,0,0,0),
+  ('2017-01-21',2683,0,0,0,0,0,0,0,0,0,0,0,0,0);
+
+ALTER TABLE `risk` ADD `Country` VARCHAR(32) NOT NULL AFTER `fraudNotificationsCount`, ADD INDEX `Country` (`Country`);
+ALTER TABLE `risk` ADD `PaymentMethod` VARCHAR(32) NOT NULL AFTER `Country`, ADD INDEX `PaymentMethod` (`PaymentMethod`);
+ALTER TABLE `risk` ADD `nofCount` INT NOT NULL COMMENT 'Notifications of fraud 通知的欺诈' AFTER `fraudNotificationsCount`;
+ALTER TABLE `risk` ADD `nofEurAmount` INT(11) NOT NULL COMMENT 'Notifications of fraud 通知的欺诈额' AFTER `nofCount`;
+
+CREATE TABLE `download` (
+  `Id` int(11) NOT NULL,
+  `FileName` varchar(64) DEFAULT '' COMMENT '文件名',
+  `Type` varchar(32) DEFAULT '' COMMENT 'HPP ...',
+  `Status` TINYINT(4) DEFAULT 0 COMMENT '0 生成 1 下载',
+  `CreateDate` datetime DEFAULT NULL COMMENT '时间',
+  PRIMARY KEY (`Id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='下载信息';
+
+
 
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

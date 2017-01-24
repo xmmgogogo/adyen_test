@@ -85,7 +85,7 @@ $postInfo = getPostInfo();
     <!-- Start: Sidebar -->
     <!-- End: Sidebar Left -->    <!-- End: Sidebar Left -->
     <!-- Start: Content-Wrapper -->
-    <section id="content_wrapper" style="margin-left:0">
+    <section id="content_wrapper">
         <!-- Start: Topbar -->
         <!-- Begin: Content -->
         <section id="content" class="table-layout" style="background-color: #fff;">
@@ -93,19 +93,15 @@ $postInfo = getPostInfo();
                 <div class="admin-form theme-primary mw1000 center-block">
                     <form id="search" method="post" action="payments.php">
                         <!-- .section-divider -->
-                        <div class="section row">
-                            <div class="col-lg-6 col-md-6 col-xs-12">
-                                <div class="input-daterange input-group" id="datepicker" style="height: 42px;">
-                                    <span class="input-group-addon" id="sizing-addon1" style="background-color: #fff; color: #999">
-                                        <span class="glyphicon glyphicon-calendar"></span>
-                                    </span>
-                                    <input type="text" class="input-sm form-control" id="date_start"
+
+                                    <input type="text" id="date_start" class="input-sm form-control"
                                            name="date_start" style="height: 42px"
                                            value="<?php echo getCurDate()['date_start']?>" placeholder="开始日期" >
-                                    <span class="input-group-addon" style="border-left: 0px; border-right: 0px; color: #999;">to</span>
-                                    <input type="text" class="input-sm form-control" id="date_end"
-                                           name="date_end" style="height: 42px"
+                                    <
+                                    <input type="text" id="date_end"
+                                           name="date_end" style="height: 42px" class="input-sm form-control"
                                            value="<?php echo getCurDate()['date_end']?>" placeholder="结束日期" >
+                        </form>
                                 </div>
                             </div>
                             <div class="col-lg-3 col-md-4 col-xs-12">
@@ -257,7 +253,6 @@ $postInfo = getPostInfo();
                 }
             }
         });
-
         $( "#downloadbtn" ).click(function() {
             $( "#CMD" ).val('DOWNLOAD_TRANS_CSV');
             $( "#search" ).submit();

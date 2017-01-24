@@ -41,9 +41,7 @@ $statCountry = statGetCountryRevenue();
     </div>
     <div class="panel  moreTabs">
         <form action="international.php" method="GET">
-            <input type="hidden"
-                                                                                                         name="search[common]"
-                                                                                                         value="">
+            <input type="hidden" name="search[common]" value="">
             <table border="0" cellpadding="0" cellspacing="0" class="table4 mob_table international">
                 <thead>
                 <tr>

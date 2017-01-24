@@ -1,0 +1,57 @@
+<div class="d3-tip e no-arrow top">
+    <div class="tooltip-holder">
+        <table>
+
+            <tbody >
+
+            <tr>
+                <td>&nbsp;</td>
+                <td class="d3-tip-title tip-dark tip-bold" colspan="7">{{formattedTimespan}}</td>
+            </tr>
+
+            <tr>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td style="text-align: right;">Rate</td>
+                <td>&nbsp;&nbsp;</td>
+                <td style="text-align: right;">Count</td>
+                <td>&nbsp;&nbsp;</td>
+                <td style="text-align: right;">Amount</td>
+            </tr>
+
+            <tr>
+                <td><div class="legend legend-refused-by-bank line" style="height: 2px;"></div></td>
+                <td>Refused by bank:</td>
+                <td>&nbsp;</td>
+                <td class="tip-dark tip-bold" style="text-align: right;">{{refusedBankTT}} %</td>
+                <td>&nbsp;&nbsp;</td>
+                <td class="tip-dark tip-bold" style="text-align: right;">{{refusedByBankCountTT}}</td>
+                <td>&nbsp;&nbsp;</td>
+                <td class="tip-dark tip-bold" style="text-align: right;">{{refusedByBankAmountTT}} EUR</td>
+            </tr>
+
+            <tr>
+                <td><div class="legend legend-refused-by-revPro line" style="height: 2px;"></div></td>
+                <td>Refused by RevenueProtect:</td>
+                <td>&nbsp;</td>
+                <td class="tip-dark tip-bold" style="text-align: right;">{{refusedRevProTT}} %</td>
+                <td>&nbsp;&nbsp;</td>
+                <td class="tip-dark tip-bold" style="text-align: right;">{{refusedByRevProCountTT}}</td>
+                <td>&nbsp;&nbsp;</td>
+                <td class="tip-dark tip-bold" style="text-align: right;">{{refusedByRevProAmountTT}} EUR</td>
+            </tr>
+
+            <tr class="chargeback-line-tooltip {{chargebackVisClassTT}}">
+                <td><div class="legend legend-chargebacks line" style="height: 2px;"></div></td>
+                <td>Chargebacks:</td>
+                <td>&nbsp;</td>
+                <td class="tip-dark tip-bold" style="text-align: right;">{{chargebacksTT}} %</td>
+            </tr>
+
+            </tbody>
+
+        </table>
+    </div>
+
+</div>

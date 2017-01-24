@@ -1,0 +1,1 @@
+<?phpheader("Content-type: image/png;charset=UTF-8");header("Accept-Ranges: bytes");$file  = file_get_contents("accountLogo.png");header("Accept-Length: ".strlen($file));echo $file;die;//header("Content-Disposition: attachment; filename=" . "fusion_chart.xml");

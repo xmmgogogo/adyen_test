@@ -3,7 +3,8 @@ require_once __DIR__ . "/XLog.php";
 
 function logError( $num, $str, $file, $line, $context = null )
 {
-    XLog::formatLog("logError","error number:$num, msg:$str $file:$line". PHP_EOL,"/tmp/error.log");
+    $filename  = XLog::processFileName("/tmp/error.log", XLog::getSystemType());
+    XLog::formatLog("logError","error number:$num, msg:$str $file:$line". PHP_EOL, $filename);
     return true;
 }
 function logException( Exception $e )

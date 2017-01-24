@@ -11377,7 +11377,7 @@ define("ui/ToggleRow", ["jqueryExtended", "Constants", "util/Console"], function
                                 action: "search_autocomplete",
                                 label: c + k.type
                             }).then(function () {
-                                document.location.href = adyen.base + "ca/accounts/choose.shtml?setActiveAccountKey=" + encodeURIComponent(B[1] + "." + C.value);
+                                document.location.href = adyen.base + "ca/accounts/choose.php?setActiveAccountKey=" + encodeURIComponent(B[1] + "." + C.value);
                             });
                         }
                     }

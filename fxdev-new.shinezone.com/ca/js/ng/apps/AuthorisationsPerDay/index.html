@@ -1,0 +1,155 @@
+<div class="app-authorisationsperday" style="padding-bottom:10px">
+
+    <style type="text/css">
+        .app-authorisationsperday .yaxis {
+            position: absolute;
+            border-bottom: solid 1px #f0f0f0;
+            left: -50px;
+            width: 125%;
+            height: 12px;
+            font-size: 10px;
+            font-weight: 500;
+            text-align: left;
+            x: #f0f0f0;
+        }
+
+        .app-authorisationsperday .yaxis-label {
+            display: block;
+            width: 40px;
+            text-align: right;
+        }
+
+        .app-authorisationsperday .tpd {
+            position: absolute;
+            border-bottom: solid 1px #3C8A2E;
+            left: 0;
+            width: 100%;
+            padding-left: 90px;
+            height: 22px;
+            font-size: 18px;
+            font-weight: 500;
+            text-align: right;
+            color: #3C8A2E;
+        }
+
+        .csr-t-smartpay .app-authorisationsperday .tpd {
+            border-bottom-color: #0192d3;
+            color: #0192d3;
+        }
+
+        .app-authorisationsperday .tpd-label {
+            text-align: left;
+        }
+        .app-authorisationsperday label.toggle-mode {
+            margin-right: 20px;
+            cursor:pointer;
+            color: #024D63;
+            height: 20px;
+            z-index: 500;
+            position: relative;
+        }
+
+        .app-authorisationsperday label.toggle-mode.selected {
+            font-weight: 600;
+        }
+        .app-authorisationsperday label.toggle-mode input {
+            display: none;
+        }
+
+        .csr-t-adyen .app-authorisationsperday .csr-button-2.active {
+            border-color: #024D63;
+        }
+        .csr-t-smartpay .app-authorisationsperday .csr-button-2.active {
+            border-color: #00A1E4
+        }
+    </style>
+
+    <div ng-controller="AuthorisationsPerDayController as control" ng-init="mode='chart'" ady-user-preferences="ngAPD:mode" style="padding-top: 10px">
+
+        <div class="csr-col three b">
+            <label class="csr-button-2 border" ng-class="mode=='chart'?'active':''"><input type="radio" name="mode" style="display:none" ng-model="mode" value="chart">Overview</label>
+            <label class="csr-button-2 border" ng-class="mode=='daybyday'?'active':''"><input type="radio" name="mode" style="display:none" ng-model="mode" value="daybyday">Day by day</label>
+        </div>
+
+        <div class="csr-col three a" style="text-align:right; line-height: 30px;">
+            <a style="text-decoration:underline" href="../risk/riskreport.shtml?uxEvent=AUTHORISATIONSPERDAY_WIDGET">Main risk report</a>
+        </div>
+
+        <div class="csr-clear"><br /></div>
+
+        <div ng-if="mode=='chart'"
+             style="background: white; margin: 4px; height: 100px; position: relative; margin-bottom: 15px; margin-right: 100px; margin-left: 50px">
+
+            <div
+                    style="position: absolute; bottom: -15px; right:-90px; text-align: right; font-size: 12px;">
+                last 24h</div>
+
+            <div ng-repeat="item in vol" class="yaxis" ng-style="{display:item.left > 100 ? 'none' : '', bottom: (item.left || 0) + '%', height: item.left > 88 ? 100 - item.left : 12}">
+                <span class="yaxis-label">{{item.value}}</span>
+            </div>
+
+            <div class="yaxis" style="bottom: 0; border: none">
+                <span class="yaxis-label">{{vol[0].multiplier}}</span>
+            </div>
+
+            <div ng-repeat="item in history">
+                <div class="animate-size"
+                     style="position: absolute; height: 10px; background: transparent; bottom: 0"
+                     ng-style="{width:100/history.length + '%', left : 100 / history.length * item.totalIndex + '%', height: 95 / (chartMax - min) * (item.value - min) + '%'}">
+                    <div
+                            style="position: absolute; bottom: 0; left: 50%; margin-left: -4px; width: 8px; height: 100%;"
+                            title="{{item.value | numberWithCommas }}"
+                            ng-class="item.week == 1 ? 'csr-color-authorised-light' : 'csr-color-authorised'">
+                    </div>
+                    <div
+                            style="position: absolute; bottom: -15px; font-size: 9px; text-align: center; width: 100%;">{{item.name.substring(0,1)}}</div>
+                </div>
+            </div>
+
+            <div class="tpd"
+                 ng-style="{bottom: 95 / (chartMax - min) * (TPD - min) + '%'}">
+                <span class="tpd-label" style="position: relative"
+                      ng-style="{ top: (TPD > ((chartMax - min) * 0.75)) ? '23px' : ''}">{{
+                    TPD | numberWithCommas }}</span>
+            </div>
+
+        </div>
+
+        <table class="csr-table-2 csr-list-table-2 condensed" ng-if="mode=='daybyday'" style="min-width:0;">
+            <colgroup>
+                <col style="width: 10%; text-align: left" />
+                <col style="width: 20%; text-align: right" />
+                <col style="width: 20%; text-align: right" />
+                <col style="width: 25%; text-align: left" />
+            </colgroup>
+            <thead>
+            <td>D</td>
+            <td>Last week</td>
+            <td>This week</td>
+            <td>%</td>
+            </thead>
+            <tbody>
+            <tr ng-repeat="item in history.slice(0,7)">
+                <td>
+                    {{item.name.substring(0,3)}}
+                </td>
+                <td>
+                    {{item.value | numberWithCommas}}
+                </td>
+                <td>
+                    {{history[$index+7].value | numberWithCommas}}
+                </td>
+                <td>
+                        <span ng-if="item.value > 0">
+                        <i ng-if="history[$index+7].value != item.value" ng-class="history[$index+7].value > item.value ? 'icon-caret-up' : 'icon-caret-down'"></i>
+                        {{100/item.value*history[$index+7].value-100|percentage:1}}%
+                        </span>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+
+
+
+    </div>
+</div>

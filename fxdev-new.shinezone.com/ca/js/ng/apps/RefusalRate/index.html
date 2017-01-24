@@ -1,0 +1,105 @@
+<div class="app-refusalrate">
+
+    <style type="text/css">
+        .app-refusalrate .linechart-canvas-container {
+            background: white;
+            height: 100px;
+            margin: 0px 4px;
+            position: relative;
+        }
+        .app-refusalrate .linechart-canvas {
+            background: white;
+            margin: 0px 4px 4px 4px;
+            border: none;
+            solid 1px #ccc;
+            height: 100px;
+            position: relative;
+            margin-bottom: 15px;
+            margin-right: 4px;
+            width: 280px;
+            float: left;
+        }
+        .app-refusalrate .linechart-label-container {
+            float: left;
+            white-space: nowrap;
+            height: 100px;
+            position: relative;
+            background: white;
+            font-size: 11px;
+            line-height: 11px;
+        }
+        .app-refusalrate .linechart-label{
+            position: absolute;
+            left: 0;
+        }
+        .app-refusalrate .linechart-xaxis-label {
+            position: absolute;
+            height: 10px;
+            background: transparent;
+            bottom: -5px;
+            text-align: center;
+        }
+        .app-refusalrate .linechart-xaxis-label-value {
+            position: absolute;
+            bottom: -13px;
+            font-size: 9px;
+            text-align: center;
+            width: 100%;
+        }
+    </style>
+
+    <div ng-controller="RefusalRatesController as control" style="padding: 10px 0px">
+
+        <div class="csr-col four c">
+            <div style="font-weight: 400; font-size: 11px; text-align:center">
+                <div class="csr-col two a">Refused by risk</div>
+                <div class="csr-col two a">Refused by bank</div>
+            </div>
+
+            <div style="text-align:center;font-size: 20px; line-height: 32px;">
+                <div class="csr-col two a csr-fcolor-refused-risk"><i
+                        ng-class="recent.refusedbyrisk.delta==0 ? '' : (recent.refusedbyrisk.delta > 0 ? 'icon-caret-up' : 'icon-caret-down')"></i>
+                    {{recent.refusedbyrisk.value}} %</div>
+                <div class="csr-col two a csr-fcolor-refused-bank"><i
+                        ng-class="recent.refusedbybank.delta==0 ? '' : (recent.refusedbybank.delta > 0 ? 'icon-caret-up' : 'icon-caret-down')"></i>
+                    {{recent.refusedbybank.value}} %</div>
+            </div>
+            <div class="csr-clear"></div>
+        </div>
+        <div class="csr-col four a">
+            <div style="text-align:right; font-size: 11px; font-weight: 400">
+                <a style="text-decoration: underline" href="../risk/riskreport.shtml?uxEvent=REFUSALRATE_WIDGET">Main risk report</a>
+            </div>
+        </div>
+
+
+        <div class="csr-clear"><br /></div>
+
+
+        <div class="linechart-canvas-container">
+
+            <div class="linechart-canvas">
+
+                <div ady-spark-line
+                     data-items="refusedbyrisk,refusedbybank"
+                     data-palette='{"refusedbyrisk": {"lineColor" : "csr.palette.refusedRisk"}, "refusedbybank" : {"lineColor" : "csr.palette.refusedBank"}}'></div>
+
+                <div ng-repeat="item in chargeback">
+                    <div class="animate-size linechart-xaxis-label"
+
+                         ng-style="{width:100/items.length + '%', left : 100 / chargeback.length * item.totalIndex + '%'}">
+                        <div class="linechart-xaxis-label-value"
+                             style="">{{item.name.split(' ').pop()}}</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="linechart-label-container">
+                <div class="linechart-label csr-fcolor-refused-risk" ng-style="{ bottom: recent.refusedbyrisk.section + '%'}">Refused by risk</div>
+                <div class="linechart-label csr-fcolor-refused-bank" ng-style="{ bottom: recent.refusedbybank.section + '%'}">Refused by bank</div>
+            </div>
+        </div>
+
+        <br />
+    </div>
+</div>

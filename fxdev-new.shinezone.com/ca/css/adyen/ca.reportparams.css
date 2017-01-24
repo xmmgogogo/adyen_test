@@ -1,0 +1,14 @@
+.ca-report-params-popup .ca-format-button{height:100px;width:76px;background:white;border-radius:3px;border:solid 2px #dadada;position:relative;vertical-align:top;display:inline-block;margin-right:10px;cursor:pointer}
+.ca-report-params-popup label{color:#999;font-weight:400}.ca-report-params-popup .ca-format-button .ca-icon{font-size:44px;vertical-align:top;color:#808080;position:absolute;top:12px;left:0;width:76px}
+.ca-report-params-popup .ca-format-button .ca-icon-file-format{display:inline-block;color:white;border-style:solid;border-width:1px;border-radius:2px;font-weight:500;padding:2px 4px}
+.ca-report-params-popup .ca-format-button .ca-icon-file-format-container{display:inline-block;min-width:45px;font-size:9px;text-align:right;position:absolute;z-index:2;top:21px;left:0}
+span.ca-icon-file-format{background:#4d4d4f;border-color:#4d4d4f}.ca-format-button span.ca-icon-file-xml{background-color:#6ea15d;border-color:#6ea15d}
+.ca-format-button span.ca-icon-file-csv{background-color:#1c6191;border-color:#1c6191}.ca-format-button span.ca-icon-file-tsv{background-color:#ae5202;border-color:#ae5202}
+.ca-format-button span.ca-icon-file-xls_gen,.ca-format-button span.ca-icon-file-xls,.ca-format-button span.ca-icon-file-xlsx{background-color:#145c38;border-color:#145c38}
+.ca-format-button span.ca-icon-file-pdf{background-color:#b32c32;border-color:#b32c32}.ca-format-button span.ca-icon-file-xhtml{background-color:#3b8887;border-color:#3b8887}
+.ca-report-params-popup .ca-format-button i span.ca-icon-file-format.format-length-3{left:10px;min-width:20px}.ca-report-params-popup .ca-format-button i span.icon-hide-contents{position:absolute;top:11px;right:25px;width:12px;height:27px;background:#eaeaea;z-index:1}
+.ca-report-params-popup .ca-format-button i span.icon-hide-contents:before{content:' ';position:absolute;top:4px;right:12px;width:12px;height:26px;background:#eaeaea;z-index:1}
+.ca-report-params-popup .ca-format-button .label{background:#3e8b41;border:solid 1px #3e8b41;position:absolute;width:100%;text-align:center;bottom:-2px;height:28px;line-height:28px;font-weight:500;left:-1px;color:white;border-bottom-right-radius:3px;border-bottom-left-radius:3px}
+.ca-report-params-popup .ca-queue-message{background:#eaeaea;padding:12px;margin:10px 0;font-size:12px;color:#4d4d4f}.csr-dialog .ca-earlier-reports{border-top:dashed 1px #dadada;margin-top:30px;margin-left:-20px;margin-right:-20px;padding:0 20px}
+.csr-dialog .ca-earlier-reports .csr-collapse-caret{background:0;float:right}.csr-dialog .ca-earlier-reports .csr-collapse-link{font-weight:400;color:black}
+.csr-dialog .ca-earlier-reports .ca-noreport-found{color:#4d4d4f}

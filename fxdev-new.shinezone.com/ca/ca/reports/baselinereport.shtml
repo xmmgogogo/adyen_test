@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" class="csr-t-adyen csr csr-condensed ajax-false ajax- csr-level-2" data-csr-level="2">
 <head>
     <title>Baseline Report - Adyen PSP System</title>
@@ -7,7 +6,6 @@
     <meta http-equiv="content-style-type" content="text/css" />
     <meta http-equiv="imagetoolbar" content="no" />
     <meta content="TRUE" name="MSSmartTagsPreventParsing" />
-
 
     <link rel="shortcut icon" href="/ca/img/adyen/favicon.ico" type="image/ico"/>
     <link rel="stylesheet" type="text/css" href="/ca/css/adyen/style.css?9326" />
@@ -39,7 +37,7 @@
                     setTimeout(printMe, 500);
                 }
             }
-            printMe();
+            //printMe();
         }(window.console));
         (function(w) {
             try {var c = console; Object.defineProperty(w, "console", {get: function() { if(c._commandLineAPI) {throw "[JSS-SX02] Sorry, the script console is deactivated";} return c;},set: function(nc) {c = nc;}});} catch (ignore) {}})(window);
@@ -447,7 +445,7 @@
     <div class="power-search-suggestions auto_complete" id="ps-suggestions"></div>
 </div>
 <div id="ca-merchantlogo">
-    <a href="/ca/ca/accounts/manage.shtml"><img height="30" width="130" src="/ca/ca/image.shtml?name=accountLogo&amp;mimeType=image%2Fpng&amp;cachingId=Company.ShineZone" alt="merchantlogo"/></a>
+    <a href="/ca/ca/accounts/manage.shtml"><img height="30" width="130" src="/ca/ca/image.php?name=accountLogo&amp;mimeType=image%2Fpng&amp;cachingId=Company.ShineZone" alt="merchantlogo"/></a>
 </div>
 <div id="ca-notification-icon-dock">
 </div>
@@ -598,7 +596,7 @@
 
                 <script type="text/javascript">
                     adyen.config                =   {};
-                    adyen.config.baseLineURL    =   'ca/reports/generate.shtml?ignoresaverequest=true';
+                    adyen.config.baseLineURL    =   'ca/reports/generate.php?ignoresaverequest=true';
                     adyen.formHash	            =	'8889VXusSjpUgeNQstOGnpxdZ9YQ6k=';
                 </script>
 

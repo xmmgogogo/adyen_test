@@ -476,14 +476,14 @@
 </div>
 <div id="ca-merchantlogo">
     <a href="/ca/ca/accounts/manage.shtml"><img height="30" width="130"
-                                                src="/ca/ca/image.shtml?name=accountLogo&amp;mimeType=image%2Fpng&amp;cachingId=Company.ShineZone"
+                                                src="/ca/ca/image.php?name=accountLogo&amp;mimeType=image%2Fpng&amp;cachingId=Company.ShineZone"
                                                 alt="merchantlogo"/></a>
 </div>
 <div id="ca-notification-icon-dock">
 </div>
 
 <div class="csr-back" id="backlink">
-    <a href="/ca/ca/reports/dashboard.shtml" data-event="MAINNAVBACK">
+    <a href="/web1/ca/ca/reports/dashboard.shtml" data-event="MAINNAVBACK">
         <i class="icon-chevron-left"></i>
         <span>Back</span>
     </a>
@@ -501,7 +501,7 @@
             <div class="ca-topnav-account-level  no-alternatives" style="z-index:0">
                 <div class="ca-topnav-button-wrapper with-panel ">
                     <a class="csr-button-2 border with-panel "
-                       href="/ca/ca/reports/dashboard.shtml?setActiveAccountKey=Company.ShineZone">
+                       href="/web1/ca/ca/reports/dashboard.shtml?setActiveAccountKey=Company.ShineZone">
                         ShineZone
                         <i class="icon-chevron-right"></i>
                     </a>
@@ -509,7 +509,7 @@
                 <div class="ca-topnav-panel ">
                     <div class="ca-topnav-panel-column">
                         <div>
-                            <a href="/ca/ca/reports/dashboard.shtml?setActiveAccountKey=MerchantAccount.ShineZoneHK">
+                            <a href="/web1/ca/ca/reports/dashboard.shtml?setActiveAccountKey=MerchantAccount.ShineZoneHK">
                                 ShineZoneHK
                             </a>
                         </div>
@@ -546,7 +546,7 @@
 
                 <li><a href="/ca/ca/accounts/choose.shtml">Accounts</a></li>
 
-                <li class="activelink"><a href="/ca/ca/reports/dashboard.shtml">Reports</a></li>
+                <li class="activelink"><a href="/web1/ca/ca/reports/dashboard.shtml">Reports</a></li>
 
 
                 <li><a href="/ca/ca/disputes/showList.shtml">Disputes</a></li>
@@ -583,14 +583,9 @@
 
                 <script type="text/javascript">
                     adyen.config = adyen.config || {};
-
                     adyen.trackRewriteEvents = false;
-
                     adyen.formHash = '648VVbzvV2RJpH560bQbHOL3lOlmBk=';
-
-                    adyen.config.funnelDataUrl = '/ca/ca/data/funnel/report.shtml';
-
-
+                    adyen.config.funnelDataUrl = '/ca/ca/data/funnel/report.php';
                 </script>
 
                 <div id="subcontent">

@@ -477,7 +477,7 @@
 </div>
 <div id="ca-merchantlogo">
     <a href="/ca/ca/accounts/manage.shtml"><img height="30" width="130"
-                                                src="/ca/ca/image.shtml?name=accountLogo&amp;mimeType=image%2Fpng&amp;cachingId=Company.ShineZone"
+                                                src="/ca/ca/image.php?name=accountLogo&amp;mimeType=image%2Fpng&amp;cachingId=Company.ShineZone"
                                                 alt="merchantlogo"/></a>
 </div>
 <div id="ca-notification-icon-dock">

@@ -193,7 +193,7 @@ function getNavPageInfo($total)
             $curPage = $page - 1;
             $start   = $curPage;
             $end     = min(($start + 5), $pageNum);
-        } else if ($nextFlag ) {
+        } else if ($nextFlag) {
             $curPage = min(($page + 1), $pageNum);
             $start   = $curPage;
             $end     = min(($start + 5), $pageNum);
@@ -261,7 +261,6 @@ function getNavPageInfo($total)
 
     return $navPageInfo;
 }
-
 function getCurDate()
 {
     $post     = getPostInfo();
@@ -284,8 +283,10 @@ function download($pageInfo)
     $header   = 'Transaction ID,Create Date,App Name,Payer,Status,Payment Method,Currency,Total amount,Fee amount,Net amount,track_id,subtrack_id';
     $output   = '';
     $statusArr= [
-        0     => 'Complete' ,
-        1     => '' ,
+        0     => 'Failed' ,
+        1     => 'Complete' ,
+        2     => 'Pending' ,
+        3     => ''
     ];
     foreach($pageInfo as $value)
     {
@@ -322,10 +323,10 @@ function getPayPages()
     return $pageInfo;
 }
 
-function getOnePayInfo($id,$orderid)
+function getOnePayInfo($id)
 {
     $curTime  = date('Y-m-d H:i:s');
-    $pageInfo = DB::fetchRow(DB_NUMBER, "SELECT * FROM pay WHERE `CreateDate` <= '{$curTime}' AND `TransactionId`='{$id}' AND `Id`='{$orderid}'");
+    $pageInfo = DB::fetchRow(DB_NUMBER, "SELECT * FROM pay WHERE `CreateDate` <= '{$curTime}' AND `TransactionId`='{$id}'");
 
     if ($pageInfo == false) {
         return array();
@@ -455,7 +456,7 @@ function httpGet($url)
     return $output;
 }
 
-define('EXCHANGE_RATE_FILE', '/tmp/exchangeRate.cron');
+define('EXCHANGE_RATE_FILE', XLog::processFileName('/tmp/exchangeRate.cron', XLog::getSystemType()));
 
 // 汇率定时刷新
 function setExchangeRate()
@@ -534,7 +535,7 @@ function displayList($result)
         $displayStr .= '<td>'.$value['AppName'].'</td>';
         $displayStr .= '<td>'.getPaymentTypes()[$value['PaymentMethod']].'</td>';
         $displayStr .= '<td><a href="https://payssion.com/account/payments/detail?id='.
-            $value['TransactionId'].'&orderid='.$value['Id'].'" target="_parent">'.
+            $value['TransactionId'].'" target="_parent">'.
             getCurrencySymbol($value['Currency']) .
             $value['TotalAmount'].' '.
             $value['Currency'].'</a></td>';
@@ -568,7 +569,7 @@ function displayDetailList($result)
         $displayStr .= '<td>'.getPaymentTypes()[$value['PaymentMethod']].'</td>';
         $displayStr .= '<td>'.getCurrencySymbol($value['Currency'])."{$value['TotalAmount']} {$value['Currency']}".'</td>';
         $displayStr .= '<td>'.getCurrencySymbol($value['Currency'])."{$value['FeeAmount']} {$value['Currency']}".'</td>';
-        $displayStr .= '<td><a href="https://payssion.com/account/payments/detail?id='.$value['TransactionId'].'&orderid='.$value['Id'].'" target="_parent">'.getCurrencySymbol($value['Currency']) .
+        $displayStr .= '<td><a href="https://payssion.com/account/payments/detail?id='.$value['TransactionId'].'" target="_parent">'.getCurrencySymbol($value['Currency']) .
                         $value['NetAmount'].' '.$value['Currency'].'</a></td>';
         // 支付状态
         if ($value['Status']==1)
@@ -624,53 +625,7 @@ function getPaymentTypes()
         'sofort'    => 'SOFORT' ,
         'tenpay_cn' => 'Tenpay' ,
         'webmoney'  => 'WebMoney',
-        'yamoney'   => 'Yandex.Money',
-        'sofort'=>'Sofort',
-        'tenpay_cn'=>'Tenpay',
-        'webmoney'=>'Webmoney',
-        'yamoney'=>'Yandex Money',
-        'molpay'=>'MOLPay',
-        'cherrycredits'=>'CherryCredits',
-        'molpoints'=>'MOLPoints',
-        'fpx_my'=>'Myclear FPX',
-        'hlb_my'=>'Hong Leong',
-        'maybank2u_my'=>'Maybank2u',
-        'cimb_my'=>'CIMB Clicks',
-        'affinepg_my'=>'Affin Bank',
-        'amb_my'=>'Am online',
-        'rhb_my'=>'RHB Now',
-        'webcash_my'=>'Webcash',
-        '7eleven_my'=>'7-eleven',
-        'esapay_my'=>'Esapay',
-        'epay_my'=>'epay',
-        'enets_sg'=>'eNets',
-        'singpost_sg'=>'SAM by SingPost',
-        'atmva_id'=>'ATMVA',
-        'paysbuy_th'=>'Paysbuy',
-        'dragonpay_ph'=>'Dragonpay',
-        'paysafecard'=>'Paysafecard',
-        'sofort'=>'Sofort',
-        'sofort'=>'Sofort',
-        'trustpay'=>'Trustpay',
-        'neosurf'=>'Neosurf',
-        'giropay_de'=>'Giropay',
-        'eps_at'=>'EPS',
-        'bancontact_be'=>'Bancontact/Mistercash',
-        'p24_pl'=>'P24',
-        'ideal_nl'=>'iDeal',
-        'teleingreso_es'=>'Teleingreso',
-        'multibanco_pt'=>'Multibanco',
-        'molpay'=>'MOLPay',
-        'paysafecard'=>'Paysafecard',
-        'visacard'=>'Visa',
-        'mastercard'=>'Master',
-        'visacard'=>'Visa',
-        'mastercard'=>'Master',
-        'visacard'=>'Visa',
-        'mastercard'=>'Master',
-        'cashu'=>'Cashu',
-        'visacard'=>'Master'
-        
+        'yamoney'   => 'Yandex.Money'
     );
 }
 function getPostInfo()

@@ -58,7 +58,7 @@
         adyen.config.bookmarksUrl = "/ca/ca/accounts/bookmarksJSON.shtml?accountCode=ShineZone&amp;ignoresaverequest=true"
         adyen.config.bookmarksUrlWithVolumes = "/ca/ca/accounts/bookmarksJSON.shtml?accountCode=ShineZone&ignoresaverequest=true&retrieveStats=true";
 
-        adyen.config.navToDefault = "/ca/ca/accounts/choose.shtml";
+        adyen.config.navToDefault = "/ca/ca/accounts/choose.php";
         adyen.config.navToPsp = "/ca/ca/reports/dashboard.shtml";
         adyen.config.navToCompany = "/ca/ca/reports/dashboard.shtml";
         adyen.config.navToMerchantAccount = "/ca/ca/reports/dashboard.shtml";
@@ -81,7 +81,6 @@
             }
         ];
     </script>
-
 
 
 
@@ -323,7 +322,7 @@
         submitButton.on( 'click', function () {
 
             var data = {
-                "formHash" : "667cOG1/EAVdOiQ+b63ZLOkyJ8qV9U=",
+                "formHash" : "144A5NHPwP23nVSzpd/gFN6Gn87Ix4=",
                 "pageUrl" : "/ca/ca/reports/dashboard.shtml"
             };
             commentsContainer.hide();
@@ -388,7 +387,7 @@
                     <a class="icon" href="/ca/logoff.shtml" title="Sign Out"> <i class="icon-sign-out"></i> <span>Sign out</span> </a>
                 </li>
                 <li class="version-reference">
-                    <a class="icon" href="/ca/ca/accounts/choose.shtml?chooseUserAccount=true"> <i class="icon-bookmark"></i><span>Bookmarks</span></a>
+                    <a class="icon" href="/ca/ca/accounts/choose.php?chooseUserAccount=true"> <i class="icon-bookmark"></i><span>Bookmarks</span></a>
                 </li>
             </ul>
         </li>
@@ -397,7 +396,7 @@
 
 <div id="power-search">
     <form action="#" class="power-search-container" method="post">
-        <input type="hidden" name="formHash" value="453omCq8E4K3lX0BnlUSApjBjZNSLc=" />
+        <input type="hidden" name="formHash" value="295aEg3wyn0kQ1rmB68h/k8QpFkqwU=" />
         <div class="power-search-query">
             <input type="search" accesskey="q" name="query" class="ps-new-query csr-input-2" id="ps-query" />
                         <span class="when-opened">
@@ -451,7 +450,7 @@
     <div class="power-search-suggestions auto_complete" id="ps-suggestions"></div>
 </div>
 <div id="ca-merchantlogo">
-    <a href="/ca/ca/accounts/manage.shtml"><img height="30" width="130" src="/ca/ca/image.shtml?name=accountLogo&amp;mimeType=image%2Fpng&amp;cachingId=Company.ShineZone" alt="merchantlogo"/></a>
+    <a href="/ca/ca/accounts/manage.shtml"><img height="30" width="130" src="/ca/ca/image.php?name=accountLogo&amp;mimeType=image%2Fpng&amp;cachingId=Company.ShineZone" alt="merchantlogo"/></a>
 </div>
 <div id="ca-notification-icon-dock">
 </div>
@@ -469,7 +468,7 @@
     <div id="ca-top-navigation">
 
         <form action="/ca/ca/accounts/preferences/save.shtml" method="post" data-widget="ui/SavePreference">
-            <input type="hidden" name="formHash" value="341QuHJTLb7Oe9MjB0leAMuJ/5+RbY=" />
+            <input type="hidden" name="formHash" value="153XTFJrIJZ9euiP0w05ZpuGI0keSA=" />
 
 
 
@@ -564,33 +563,14 @@
 
 
                 <li ><a href="/ca/ca/disputes/showList.shtml">Disputes</a></li>
-
-
-
                 <li ><a href="/ca/ca/skin/skinslive.shtml">Skins</a></li>
-
                 <li ><a href="/ca/ca/config/choose.shtml">Settings</a></li>
-
                 <li ><a href="/ca/ca/risk/choose.shtml">RevenueProtect</a></li>
-
-
                 <li ><a href="/ca/ca/pos/posoverview.shtml?accountCode=ShineZone&amp;accountTypeCode=Company">Point of sale</a></li>
-
                 <li ><a href="/ca/ca/revenueaccelerate/overview.shtml">RevenueAccelerate</a></li>
-
                 <li ><a href="/ca/ca/support/start.shtml">Support</a></li>
-
-
-
             </ul>
-
-
-
-
         </div>			</div>
-
-
-
     <div id="contentbg">
         <div id="content">
             <div id="contentwrapper">
@@ -616,7 +596,7 @@
 
 
 
-                        <div data-widget="ui/Favorites?sortable=favorites" data-save-url="/ca/ca/reports/dashboard/submit.shtml?formHash=468yE3x97SDFgSufHjpd8Z6sUG7MyE%3D" class="ca-portal csr-2">
+                        <div data-widget="ui/Favorites?sortable=favorites" data-save-url="/ca/ca/reports/dashboard/submit.shtml?formHash=674nVENmP2SX3XgUey026axjuJKmzs%3D" class="ca-portal csr-2">
 
                             <div class="ca-report-selected">
                                 <div class="ca-report-selected-margin clearfix" data-favorites="selectedFavorites" data-area-id="ca-reports-column">
@@ -628,20 +608,13 @@
 
                             <script type="text/javascript">
                                 adyen.config = adyen.config || {};
-
-                                adyen.formHash = '524tpT0f5DpNviD3xxAOTDUaIninCE=';
-
+                                adyen.formHash = '652pvDsYRW0NsqrPgrrYMsG+cgEH1U=';
                                 adyen.config.funnelDataUrl = '/ca/ca/data/funnel/report.php';
-
                             </script>
-
-
                             <section class="ca-report-with-sidepanel funnel">
-
                                 <div data-widget="chart/widgetFramework/composed/funnel/FunnelMediator" id="funnelMediator"
                                      class="funnel-mediator-widget"
                                      data-actions=''>
-
                                     <div id="actionCommander" data-widget="chart/widgetFramework/core/ActionCommander"
                                          data-actions='[
                                         {"source":"timeline1", "event":"timelineTimespanSet", "target":"funnelDataFetcher", "callMethod":"onTimeData"}
@@ -822,15 +795,15 @@
                                             </div>
 
                                             <div class="report-group settlement-group">
-                                                <a href="/ca/ca/reports/choose.shtml?reportCode=exchange_rate_report&amp;configure=true" data-dialog="yes" class="report-item exchange-rate" data-journalType="settled">Exchange Rate Report</a>
+                                                <a href="/ca/ca/reports/choose.php?reportCode=exchange_rate_report&amp;configure=true" data-dialog="yes" class="report-item exchange-rate" data-journalType="settled">Exchange Rate Report</a>
                                                 <a class="report-item chargeback-report" data-journalType="chargeback" href="/ca/ca/risk/chargebackreport2.shtml">Chargeback Report</a>
                                                 <a href="/ca/ca/risk/ecpreport.shtml"  class="report-item ecp-report" data-journalType="chargeback">ECP Report</a>
                                                 <a href="/ca/ca/risk/mfpreport.shtml"  class="report-item mfp-report" data-journalType="chargeback">MFP Report</a>
                                             </div>
 
                                             <div class="report-group final-group">
-                                                <a href="/ca/ca/reports/queue.shtml?reportCode=daily_finance_report&amp;configure=true" data-dialog="yes" class="report-item daily-finance" data-journalType="final-settled">Daily Finance Report</a>
-                                                <a href="/ca/ca/reports/queue.shtml?reportCode=monthly_finance_report&amp;configure=true" data-dialog="yes" class="report-item monthly-finance" data-journalType="final-settled">Monthly Finance Report</a>
+                                                <a href="/ca/ca/reports/queue.php?reportCode=daily_finance_report&amp;configure=true" data-dialog="yes" class="report-item daily-finance" data-journalType="final-settled">Daily Finance Report</a>
+                                                <a href="/ca/ca/reports/queue.php?reportCode=monthly_finance_report&amp;configure=true" data-dialog="yes" class="report-item monthly-finance" data-journalType="final-settled">Monthly Finance Report</a>
                                             </div>
 
                                         </div>
@@ -862,7 +835,7 @@
                                         <div data-id="accountupdate_report" class="ca-report-widget ca-reportgroup-Performance">
 
                                             <h3 class="ca-report-name" title="Account updater">
-                                                <a href="/ca/ca/reports/choose.shtml?configure=true&amp;reportCode=accountupdate_report" data-dialog="yes">
+                                                <a href="/ca/ca/reports/choose.php?configure=true&amp;reportCode=accountupdate_report" data-dialog="yes">
                                                     Account updater
                                                 </a>
 
@@ -877,7 +850,7 @@
 
 
 
-                                                <a class="csr-button ca-report-button" href="/ca/ca/reports/choose.shtml?configure=true&amp;reportCode=accountupdate_report" data-dialog="yes">
+                                                <a class="csr-button ca-report-button" href="/ca/ca/reports/choose.php?configure=true&amp;reportCode=accountupdate_report" data-dialog="yes">
                                                     Download
                                                 </a>
 
@@ -971,7 +944,7 @@
 
 
 
-                                            <a class="csr-button ca-report-button" data-dialog="yes" href="/ca/ca/reports/queue.shtml?reportCode=hpp_conversion_detail_report&amp;configure=true">
+                                            <a class="csr-button ca-report-button" data-dialog="yes" href="/ca/ca/reports/queue.php?reportCode=hpp_conversion_detail_report&amp;configure=true">
                                                 Download <span class="csr-fcolor-medium-grey ca-number-of-available-reports" data-download-available="hpp_conversion_detail_report"></span>
                                             </a>
 
@@ -1136,7 +1109,7 @@
 
 
 
-                                            <a class="csr-button ca-report-button" data-dialog="yes" href="/ca/ca/reports/queue.shtml?reportCode=dispute_report&amp;configure=true">
+                                            <a class="csr-button ca-report-button" data-dialog="yes" href="/ca/ca/reports/queue.php?reportCode=dispute_report&amp;configure=true">
                                                 Download <span class="csr-fcolor-medium-grey ca-number-of-available-reports" data-download-available="dispute_report"></span>
                                             </a>
 
@@ -1234,7 +1207,7 @@
                                     Downloads
                                 </h2>
 
-                                <a style="position:absolute;right: 40px; top: 0px;z-index:100; line-height: 32px; font-size: 12px" href="/ca/ca/reports/download.shtml" data-dialog="yes">Show all downloads</a>
+                                <a style="position:absolute;right: 40px; top: 0px;z-index:100; line-height: 32px; font-size: 12px" href="/ca/ca/reports/download.php" data-dialog="yes">Show all downloads</a>
 
                                 <div  class="ca-report-widget-container clearfix" id="Downloads-5" data-favorites="Downloads">
 
@@ -1257,7 +1230,7 @@
 
 
 
-                                                <a class="csr-button ca-report-button" data-dialog="yes" href="/ca/ca/reports/download.shtml?reportSet=Invoice-PDF">
+                                                <a class="csr-button ca-report-button" data-dialog="yes" href="/ca/ca/reports/download.php?reportSet=Invoice-PDF">
                                                     Download <span class="csr-fcolor-medium-grey ca-number-of-available-reports" data-download-available="Invoice-PDF"></span>
                                                 </a>
 
@@ -1323,7 +1296,7 @@
 
 
 
-                                            <a class="csr-button ca-report-button" data-dialog="yes" href="/ca/ca/reports/queue.shtml?reportCode=daily_finance_report&amp;configure=true">
+                                            <a class="csr-button ca-report-button" data-dialog="yes" href="/ca/ca/reports/queue.php?reportCode=daily_finance_report&amp;configure=true">
                                                 Download <span class="csr-fcolor-medium-grey ca-number-of-available-reports" data-download-available="daily_finance_report"></span>
                                             </a>
 
@@ -1340,7 +1313,7 @@
                                     </div>                                                                                            <div data-id="exchange_rate_report" class="ca-report-widget ca-reportgroup-Finance">
 
                                         <h3 class="ca-report-name" title="Exchange rate">
-                                            <a href="/ca/ca/reports/choose.shtml?configure=true&amp;reportCode=exchange_rate_report" data-dialog="yes">
+                                            <a href="/ca/ca/reports/choose.php?configure=true&amp;reportCode=exchange_rate_report" data-dialog="yes">
                                                 Exchange rate
                                             </a>
 
@@ -1355,7 +1328,7 @@
 
 
 
-                                            <a class="csr-button ca-report-button" href="/ca/ca/reports/choose.shtml?configure=true&amp;reportCode=exchange_rate_report" data-dialog="yes">
+                                            <a class="csr-button ca-report-button" href="/ca/ca/reports/choose.php?configure=true&amp;reportCode=exchange_rate_report" data-dialog="yes">
                                                 Download
                                             </a>
 
@@ -1368,7 +1341,7 @@
                                         <div data-id="payments_accounting_report_filtered" class="ca-report-widget ca-reportgroup-Finance">
 
                                             <h3 class="ca-report-name" title="Interactive payment accounting">
-                                                <a href="/ca/ca/reports/choose.shtml?configure=true&amp;reportCode=payments_accounting_report_filtered" data-dialog="yes">
+                                                <a href="/ca/ca/reports/choose.php?configure=true&amp;reportCode=payments_accounting_report_filtered" data-dialog="yes">
                                                     Interactive payment accounting
                                                 </a>
 
@@ -1383,7 +1356,7 @@
 
 
 
-                                                <a class="csr-button ca-report-button" href="/ca/ca/reports/choose.shtml?configure=true&amp;reportCode=payments_accounting_report_filtered" data-dialog="yes">
+                                                <a class="csr-button ca-report-button" href="/ca/ca/reports/choose.php?configure=true&amp;reportCode=payments_accounting_report_filtered" data-dialog="yes">
                                                     Download
                                                 </a>
 
@@ -1406,7 +1379,7 @@
 
 
 
-                                            <a class="csr-button ca-report-button" data-dialog="yes" href="/ca/ca/reports/queue.shtml?reportCode=monthly_finance_report&amp;configure=true">
+                                            <a class="csr-button ca-report-button" data-dialog="yes" href="/ca/ca/reports/queue.php?reportCode=monthly_finance_report&amp;configure=true">
                                                 Download <span class="csr-fcolor-medium-grey ca-number-of-available-reports" data-download-available="monthly_finance_report"></span>
                                             </a>
 
@@ -1423,7 +1396,7 @@
                                     </div>                                                                                            <div data-id="netfx" class="ca-report-widget ca-reportgroup-Finance">
 
                                         <h3 class="ca-report-name" title="NETFX">
-                                            <a href="/ca/ca/reports/choose.shtml?configure=true&amp;reportCode=netfx" data-dialog="yes">
+                                            <a href="/ca/ca/reports/choose.php?configure=true&amp;reportCode=netfx" data-dialog="yes">
                                                 NETFX
                                             </a>
 
@@ -1438,7 +1411,7 @@
 
 
 
-                                            <a class="csr-button ca-report-button" data-dialog="yes" href="/ca/ca/reports/download.shtml?reportSet=netfx">
+                                            <a class="csr-button ca-report-button" data-dialog="yes" href="/ca/ca/reports/download.php?reportSet=netfx">
                                                 Download <span class="csr-fcolor-medium-grey ca-number-of-available-reports" data-download-available="netfx"></span>
                                             </a>
 
@@ -1463,7 +1436,7 @@
 
 
 
-                                                <a class="csr-button ca-report-button" data-dialog="yes" href="/ca/ca/reports/queue.shtml?reportCode=payments_accounting_report&amp;configure=true">
+                                                <a class="csr-button ca-report-button" data-dialog="yes" href="/ca/ca/reports/queue.php?reportCode=payments_accounting_report&amp;configure=true">
                                                     Download <span class="csr-fcolor-medium-grey ca-number-of-available-reports" data-download-available="payments_accounting_report"></span>
                                                 </a>
 
@@ -1521,7 +1494,7 @@
                                         <div data-id="company_users" class="ca-report-widget ca-reportgroup-UserManagement">
 
                                             <h3 class="ca-report-name" title="Users within a company">
-                                                <a href="/ca/ca/reports/choose.shtml?configure=true&amp;reportCode=company_users" data-dialog="yes">
+                                                <a href="/ca/ca/reports/choose.php?configure=true&amp;reportCode=company_users" data-dialog="yes">
                                                     Users within a company
                                                 </a>
 
@@ -1536,7 +1509,7 @@
 
 
 
-                                                <a class="csr-button ca-report-button" href="/ca/ca/reports/choose.shtml?configure=true&amp;reportCode=company_users" data-dialog="yes">
+                                                <a class="csr-button ca-report-button" href="/ca/ca/reports/choose.php?configure=true&amp;reportCode=company_users" data-dialog="yes">
                                                     Download
                                                 </a>
 
@@ -1570,7 +1543,7 @@
                                         <div data-id="conversionoptimization_report" class="ca-report-widget ca-reportgroup-Deprecated">
 
                                             <h3 class="ca-report-name" title="Conversion optimization report">
-                                                <a href="/ca/ca/reports/choose.shtml?configure=true&amp;reportCode=conversionoptimization_report" data-dialog="yes">
+                                                <a href="/ca/ca/reports/choose.php?configure=true&amp;reportCode=conversionoptimization_report" data-dialog="yes">
                                                     Conversion optimization report
                                                 </a>
 
@@ -1585,7 +1558,7 @@
 
 
 
-                                                <a class="csr-button ca-report-button" href="/ca/ca/reports/choose.shtml?configure=true&amp;reportCode=conversionoptimization_report" data-dialog="yes">
+                                                <a class="csr-button ca-report-button" href="/ca/ca/reports/choose.php?configure=true&amp;reportCode=conversionoptimization_report" data-dialog="yes">
                                                     Download
                                                 </a>
 
@@ -1655,7 +1628,7 @@
 
                 <script type="text/javascript">
                     adyen.config = adyen.config || {};
-                    adyen.config.downloadableReportsUrl = "/ca/ca/reports/download/json.shtml";
+                    adyen.config.downloadableReportsUrl = "/ca/ca/reports/download/json.php";
                     require(['ca/reports/ReportsAvailableForDownload'], function(ad) {
                         ad.init();
                     });
@@ -1701,8 +1674,6 @@
         </div>
     </div>
 </div>
-
-
 </body>
 </html>
 

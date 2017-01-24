@@ -1,0 +1,58 @@
+<div class="atv-tooltip d3-tip e">
+    <div class="tooltip-holder">
+        <table>
+            <tbody>
+
+            <tr>
+                <td>&nbsp;</td>
+                <td class="d3-tip-title"><strong>{{date}}</strong></td>
+            </tr>
+            <tr><td>&nbsp;</td></tr>
+
+            <tr>
+                <td>&nbsp;</td>
+                <td><strong>Chargeback</strong></td>
+            </tr>
+
+            <tr>
+                <td><i class="legend legend-chargeback"></i></td>
+
+                {{#chargebackVol}}
+                <td>Count: <strong>{{chargebackVol}}</strong></td>
+                {{/chargebackVol}}
+
+                {{#chargebackAmt}}
+                <td>Amount: <strong>{{chargebackAmt}}</strong></td>
+                {{/chargebackAmt}}
+
+                <td><i class="legend legend-chargeback line" style="height: 2px;"></i></td>
+                <td>Rate: <strong>{{chargebackRate}}%</strong></td>
+            </tr>
+
+            <tr><td>&nbsp;</td></tr>
+
+            <tr>
+                <td>&nbsp;</td>
+                <td><strong>Notifications of fraud</strong></td>
+            </tr>
+
+            <tr>
+                <td><i class="legend legend-notifications-of-fraud"></i></td>
+
+                {{#nofVol}}
+                <td>Count: <strong>{{nofVol}}</strong></td>
+                {{/nofVol}}
+
+                {{#nofAmt}}
+                <td>Amount: <strong>{{nofAmt}}</strong></td>
+                {{/nofAmt}}
+
+                <td><i class="legend legend-notifications-of-fraud line" style="height: 2px;"></i></td>
+                <td>Rate: <strong>{{nofRate}}%</strong></td>
+            </tr>
+
+            </tbody>
+        </table>
+    </div>
+
+</div>

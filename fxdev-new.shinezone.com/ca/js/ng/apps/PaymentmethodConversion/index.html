@@ -1,0 +1,159 @@
+<div class="app-paymentmethodconversion">
+
+    <style type="text/css">
+        .app-paymentmethodconversion label {
+            cursor:pointer;
+        }
+    </style>
+
+    <div ng-controller="ChartEngine as chartengine"
+         ng-init="init('paymentmethodconversion')"
+         class="ng-chartengine animate-size"
+         ady-user-preferences="ngPmC:order"
+         style="line-height: 20px; color: #828282; width: 100%;">
+
+        <div>
+            <span ng-if="loaded && items.length == 0">There is no
+                conversion data available .</span> <span
+                ng-if="!loaded && items.length == 0">Data is
+                being loaded.</span>
+        </div>
+
+        <div class="columns thee c" ng-init="outerScope=$scope">
+            <div ng-style="{display: loaded && items.length != 0 ? 'block' : 'none'}">
+
+                <div style="position: relative;">
+                    <label
+                            style="margin-right: 25px; white-space: nowrap; color: #024D63; display: block; float: left; height: 50px; width: 20%;"
+                            ng-style="{fontWeight: order=='name' ? 600 : 400}">
+                        <input type="radio" name="order"
+                               ng-model="order" value="name"
+                               style="display: none;" /> Method
+                    </label><label
+                        style="margin-right: 10px; white-space: nowrap; color: #024D63; padding-left: 1px"
+                        ng-style="{fontWeight: order=='-volume' ? 600 : 400}"><input
+                        type="radio" name="order" ng-model="order"
+                        value="-volume" style="display: none; color:" />
+                    Volume ({{chartengine.vol[0].multiplier}}
+                    transactions)</label> <br /> <label
+                        style="margin-right: 5px; white-space: nowrap; color: #024D63; border-left: solid 10px #bad980; padding-left: 3px; font-size: 11px;"
+                        ng-style="{fontWeight: order=='-authorised_p' ? 600 : 400, borderLeftColor: csr.palette.authorised}"><input
+                        type="radio" name="order" ng-model="order"
+                        value="-authorised_p" style="display: none;" />
+                    Authorised %</label> <label
+                        style="margin-right: 5px; white-space: nowrap; color: #024D63; border-left: solid 10px #e1e3e3; padding-left: 3px; font-size: 11px;"
+                        ng-style="{fontWeight: order=='-completed_p' ? 600 : 400, borderLeftColor: csr.palette.completed}"><input
+                        type="radio" name="order" ng-model="order"
+                        value="-completed_p" style="display: none;" />
+                    Completed %</label> <label
+                        style="margin-right: 5px; white-space: nowrap; color: #024D63; border-left: solid 10px #cfd1d1; padding-left: 3px; font-size: 11px;"
+                        ng-style="{fontWeight: order=='-abandoned_p' ? 600 : 400, borderLeftColor: csr.palette.abandonned}"><input
+                        type="radio" name="order" ng-model="order"
+                        value="-abandoned_p" style="display: none;" />
+                    Abandoned %</label>
+                </div>
+                <div style="padding: 2px 4px; background: white;  font-size: 10px;"
+                     class="clear">
+                    <div style="position: relative;"
+                         ng-style="{height: (items.length * 20) + 'px'}">
+
+                        <div class="columns eight f"
+                             style="float: right">
+
+                            <div
+                                    ng-if="order == '-volume' || order == 'name' ">
+                                <div
+                                        style="position: relative; line-height: 10px; font-size: 10px; text-indent: 4px;">
+                                    <div
+                                            ng-repeat="row in chartengine.vol"
+                                            style="position: absolute; top: 0px; left: 020%; border-left: solid 1px #e0e0e0; color: #4d4d4f; line-height: 0;"
+                                            ng-style="{left: (row.left + '%'), paddingTop:items.length * 20 + 'px', visibility : row.left < 100 ? 'visible' : 'hidden'}">
+                                        <div
+                                                style="position: relative; left: -10px; right: -10px; top: 15px; text-align: center">{{
+                                            row.value }} {{ row.unit }}</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div
+                                    ng-if="order != '-volume' && order != 'name'"
+                                    style="position: relative; line-height: 10px; font-size: 10px; top: 0px; text-indent: 4px;">
+                                <div
+                                        style="position: absolute; top: 0px; left: 000%; border-left: solid 1px #e0e0e0; color: #4d4d4f;"
+                                        ng-style="{paddingTop:items.length * 20 + 'px'}">
+                                    <div
+                                            style="position: relative; left: -10px; right: -10px; top: 15px; text-align: center">0%</div>
+                                </div>
+                                <div
+                                        style="position: absolute; top: 0px; left: 020%; border-left: solid 1px #e0e0e0; color: #4d4d4f;"
+                                        ng-style="{paddingTop:items.length * 20 + 'px'}">
+                                    <div
+                                            style="position: relative; left: -10px; right: -10px; top: 15px; text-align: center">20</div>
+                                </div>
+                                <div
+                                        style="position: absolute; top: 0px; left: 040%; border-left: solid 1px #e0e0e0; color: #4d4d4f;"
+                                        ng-style="{paddingTop:items.length * 20 + 'px'}">
+                                    <div
+                                            style="position: relative; left: -10px; right: -10px; top: 15px; text-align: center">40</div>
+                                </div>
+                                <div
+                                        style="position: absolute; top: 0px; left: 060%; border-left: solid 1px #e0e0e0; color: #4d4d4f;"
+                                        ng-style="{paddingTop:items.length * 20 + 'px'}">
+                                    <div
+                                            style="position: relative; left: -10px; right: -10px; top: 15px; text-align: center">60</div>
+                                </div>
+                                <div
+                                        style="position: absolute; top: 0px; left: 080%; border-left: solid 1px #e0e0e0; color: #4d4d4f;"
+                                "
+                                ng-style="{paddingTop:items.length * 20 + 'px'}">
+                                <div
+                                        style="position: relative; left: -10px; right: -10px; top: 15px; text-align: center">80</div>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                    <div ng-repeat="item in items"
+                         style="height: 20px; position: absolute; height: 20px; width: 100%"
+                         ng-style="{top: 20 * item.order + 'px'}"
+                         class="clear animate-position">
+                        <div class="columns eight b clear">{{item.name}}</div>
+
+                        <div class="columns eight f"
+                             style="height: 100%; padding-top: 5px;">
+                            <div class="animate-size"
+                                 style="position: relative; height: 10px;"
+                                 ng-style="{width: ((order=='-volume' || order == 'name') ? ((95 / chartengine.maxVolume() * item.volume) + '%') : '100%')}">
+                                <div class="animate-position csr-color-authorised" title="{{item.authorised|numberWithCommas}} transaction, {{item.authorised_p}}%"
+                                     ng-style="{width: (item.authorised_p + '%'), left: (item.authorised_l + '%')}"
+                                     style="height: 100%; position: absolute;">
+                                    <span style="display: none">{{item.authorised}}</span>
+                                </div>
+                                <div class="animate-position csr-color-completed" title="{{item.completed|numberWithCommas}} transaction, {{item.completed_p}}%"
+                                     ng-style="{width: (item.completed_p + '%'), left: (item.completed_l + '%')}"
+                                     style="height: 100%; position: absolute;">
+                                    <span style="display: none">{{item.completed}}</span>
+                                </div>
+                                <div class="animate-position csr-color-abandonned" title="{{item.abandoned|numberWithCommas}} transaction, {{item.abandoned_p}}%"
+                                     ng-style="{width: (item.abandoned_p + '%'), left: (item.abandoned_l + '%')}"
+                                     style="height: 100%; position: absolute;">
+                                    <span style="display: none">{{item.abandoned}}</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div style="clear: both">
+        <br />
+    </div>
+</div>
+<div ng-controller="Configuration as config">
+    Review in detail at the <a href="{{config.base}}/ca/conversion/paymentmethods2.shtml?uxEvent=HPPPAYMENTMETHOD_WIDGET">Payment
+    Method Conversion Comparison</a>
+</div>
+</div>

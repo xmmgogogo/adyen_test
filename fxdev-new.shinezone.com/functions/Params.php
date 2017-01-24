@@ -1,7 +1,7 @@
 <?php
 return [
-    'rowsPerPage'  =>  10 ,
+    'rowsPerPage'  =>  1 ,
     'displayPages' =>  6 ,
     'chartRowsPP'  =>  50 ,
-    'chartDP'      =>  50
+    'chartDP'      =>  100
 ];

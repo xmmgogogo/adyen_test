@@ -448,13 +448,13 @@
     <div class="power-search-suggestions auto_complete" id="ps-suggestions"></div>
 </div>
 <div id="ca-merchantlogo">
-    <a href="/ca/ca/accounts/manage.shtml"><img height="30" width="130" src="/ca/ca/image.shtml?name=accountLogo&amp;mimeType=image%2Fpng&amp;cachingId=Company.ShineZone" alt="merchantlogo"/></a>
+    <a href="/ca/ca/accounts/manage.shtml"><img height="30" width="130" src="/ca/ca/image.php?name=accountLogo&amp;mimeType=image%2Fpng&amp;cachingId=Company.ShineZone" alt="merchantlogo"/></a>
 </div>
 <div id="ca-notification-icon-dock">
 </div>
 
 <div class="csr-back" id="backlink">
-    <a href="/ca/ca/reports/choose.shtml" data-event="MAINNAVBACK">
+    <a href="/ca/ca/reports/choose.php" data-event="MAINNAVBACK">
         <i class="icon-chevron-left"></i>
         <span>Back</span>
     </a>
@@ -462,62 +462,24 @@
 
 <div id="ca-accountnavigation" class="size-2" data-widget="ca/TopNavigation" data-add-bookmark="/ca/ca/config/modifyuseraccount.shtml?modification=add" data-remove-bookmark="/ca/ca/config/modifyuseraccount.shtml?modification=remove">
     <link rel="stylesheet" href="/ca/css/topnavigation.css?9326" type="text/css" />
-
     <div id="ca-top-navigation">
-
         <form action="/ca/ca/accounts/preferences/save.shtml" method="post" data-widget="ui/SavePreference">
             <input type="hidden" name="formHash" value="859ym2Pj7YhDTROVUZnN33Nynl6IaI=" />
-
-
-
-
-
-
-
-
-
-
-
-
             <div class="ca-topnav-account-level  no-alternatives" style="z-index:0">
-
-
-
-
-
-
-
-
-
                 <div class="ca-topnav-button-wrapper with-panel ">
-
                     <a class="csr-button-2 border with-panel " href="/ca/ca/reports/dashboard.shtml?setActiveAccountKey=Company.ShineZone">
-
-
-
-
                         ShineZone
-
                         <i class="icon-chevron-right"></i>
                     </a>
                 </div>
-
-
                 <div class="ca-topnav-panel ">
-
-
                     <div class="ca-topnav-panel-column">
-
-
                         <div>
                             <a href="/ca/ca/reports/dashboard.shtml?setActiveAccountKey=MerchantAccount.ShineZoneHK">
                                 ShineZoneHK
                             </a>
                         </div>
                     </div>
-
-
-
                     <div class="ca-toggle-stickynavigation csr-panel-content separated" id="ca-toggle-stickynavigation">
                         <input type="hidden" name="preferences.ca_sticky_navigation" value="yes" />
                         <button type="submit" class="csr-button csr-link-button">
@@ -525,35 +487,16 @@
                             Stay in the same section when I change accounts
                         </button>
                     </div>
-
                 </div>
-
             </div>
         </form>
     </div>                </div>
-
-
 <div id="ca-maincontent">
     <div id="ca-boxleft">
-
-
-
         <div id="menu">
             <ul class="nav">
-
-
                 <li ><a href="/ca/ca/overview/default.shtml">Home</a></li>
-
-
                 <li ><a href="/ca/ca/payments/showList.shtml">Payments</a></li>
-
-
-
-
-
-
-
-
                 <li ><a href="/ca/ca/accounts/choose.shtml">Accounts</a></li>
 
                 <li   class="activelink"  ><a href="/ca/ca/reports/dashboard.shtml">Reports</a></li>
