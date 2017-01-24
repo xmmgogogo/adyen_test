@@ -343,7 +343,8 @@ if($totalOrderNum > $common->returnPageNum() * $pageFromNumber) {
                     foreach($filterResultTmp as $row)
                     {
                         echo "<tr>";
-                        echo "<td>" . $row['PspReferenceId'] . "</td>";
+                        //<a href="showTx.php?txType=Payment&pspReference=4714851753119565&accountKey=MerchantAccount.ShineZoneHK">
+                        echo "<td><a href='showTx.php?txType=Payment&pspReference=" . $row['PspReferenceId'] . "&accountKey=MerchantAccount." . $row['MerchantAccount'] . "'>" . $row['PspReferenceId'] . "</a></td>";
                         echo "<td>" . $row['MerchantReferenceId'] . "</td>";
                         echo "<td>" . $row['CompanyAccount'] . "</td>";
                         echo "<td>" . $row['BookingDate'] . "</td>";

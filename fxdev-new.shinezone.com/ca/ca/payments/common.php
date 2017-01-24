@@ -136,6 +136,26 @@ class common {
     }
 
     /**
+     * 传入条件，进行筛选
+     * @param $parameters
+     * @return mixed
+     */
+    public function getOrderListByCondition($parameters) {
+        $where = 1;
+        if($parameters) {
+            foreach($parameters as $key => $value) {
+                if($value || $value === 0) {
+                    $where .= ' and ' . $key . '=:' . $key;
+                } else {
+                    unset($parameters[$key]);
+                }
+            }
+        }
+
+        return $this->sqlQuery('select * from payment where ' . $where, $parameters);
+    }
+
+    /**
      * 1，根据URL传入的地区和日期选择出当前数据查询结果
      * 2，表结构：daydata
      * @param string $filterKey 匹配字段
@@ -146,7 +166,7 @@ class common {
     public function getAreaSession($filterKey = 'area', $searchKey = 'session', $doubleFilterKey = '') {
         //1，按照世界每个州来分
         //2，按照国家来分
-        $keySave = ['area', 'country', 'method', 'amount', 'status', 'account'];
+        $keySave = ['area', 'country', 'method', 'amount', 'status', 'account', 'channel'];
         if(!in_array($filterKey, $keySave)) {
             die('common.php -> key send error!');
         }
@@ -164,6 +184,92 @@ class common {
 
         //1，查询语句
         $sql = 'select ' . $mysqlKey . ' from daydata where 1';
+
+        //2，筛选条件
+        $conditions = [];
+        if(isset($_REQUEST['bdate']) && $_REQUEST['bdate']) {
+            $conditions['bdate'] = $_REQUEST['bdate'];
+            $sql .= ' and date >= :bdate';
+        }
+
+        if(isset($_REQUEST['edate']) && $_REQUEST['edate']) {
+            $conditions['edate'] = $_REQUEST['edate'];
+            $sql .= ' and date <= :edate';
+        }
+
+        if(isset($_REQUEST['region']) && $_REQUEST['region']) {
+            $conditions['region'] = $_REQUEST['region'];
+            $sql .= ' and area = :region';
+        }
+
+        //3，处理结果
+        $sessions = [];
+        $data = $this->sqlQuery($sql, $conditions);
+
+        if($doubleFilterKey) {
+            //有2个匹配字段，比如，查询所有alipay的下面的类型=完成状态的总额
+            foreach($data as $row) {
+                $areaKey = $row[$filterKey];
+                $areaKey2 = $row[$doubleFilterKey];
+
+                //若不指定累加的值，则直接返回数组
+                if($searchKey) {
+                    if(isset($sessions[$areaKey][$areaKey2])) {
+                        $sessions[$areaKey][$areaKey2] += $row[$searchKey];
+                    } else {
+                        $sessions[$areaKey][$areaKey2] = $row[$searchKey];
+                    }
+                } else {
+                    $sessions[$areaKey][$areaKey2][] = $row;
+                }
+            }
+        } else {
+            //只有一个匹配字段，比如，查询所有alipay的总额
+            foreach($data as $row) {
+                $areaKey = $row[$filterKey];
+
+                //若不指定累加的值，则直接返回数组
+                if($searchKey) {
+                    if(isset($sessions[$areaKey])) {
+                        $sessions[$areaKey] += $row[$searchKey];
+                    } else {
+                        $sessions[$areaKey] = $row[$searchKey];
+                    }
+                } else {
+                    $sessions[$areaKey][] = $row;
+                }
+            }
+        }
+
+        return $sessions;
+    }
+
+    /**
+     * ==============这里临时区分方法，防止特殊变数=========================
+     * 1，根据URL传入的地区和日期选择出当前数据查询结果
+     * 2，表结构：acquirer
+     * @param string $filterKey 匹配字段
+     * @param string $searchKey 累加字段
+     * @param string $doubleFilterKey 2段匹配字段
+     * @return array
+     */
+    public function getAcquirerAccount($filterKey = 'method', $searchKey = 'account', $doubleFilterKey = '') {
+        //1，按照世界每个州来分
+        //2，按照国家来分
+
+        //TODO 优化，看能否直接查询
+        $mysqlKey = [$filterKey];
+        $searchKey          && $mysqlKey[] = $searchKey;
+        $doubleFilterKey    && $mysqlKey[] = $doubleFilterKey;
+
+        if($searchKey) {
+            $mysqlKey = implode($mysqlKey, ',');
+        } else {
+            $mysqlKey = '*';
+        }
+
+        //1，查询语句
+        $sql = 'select ' . $mysqlKey . ' from acquirer where 1';
 
         //2，筛选条件
         $conditions = [];

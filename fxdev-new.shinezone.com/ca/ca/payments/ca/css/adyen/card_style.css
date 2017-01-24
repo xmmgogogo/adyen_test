@@ -1,0 +1,22 @@
+.csr-label b,.csr-value b{font-weight:300}.csr-label{color:#929295;clear:left}.csr-value{overflow-x:hidden;color:#4d4d4f;word-wrap:break-word}
+.csr-value span{display:none}.csr-value .preview{display:inline}.ca-pd-head{height:56px;padding:10px;font-size:13px;background-color:#eaeaea;margin-bottom:20px;width:920px;float:left;box-sizing:border-box}
+.ca-pd-col-left,.ca-pd-col-right{float:left;box-sizing:border-box;width:440px}.ca-pd-col-left{margin-right:40px}.ca-pd-amount{font-weight:400;font-size:16px}
+.ca-pd-amount-extra .csr-value,.ca-pd-amount-extra .csr-label{display:inline}.ca-pd-fieldstyle-heading-caption{display:inline-block;margin-left:15px;font-size:12px}
+.ca-pd-flag{vertical-align:middle;width:19px;margin-top:-3px}.ca-pd-clipped-value{display:block;width:165px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;cursor:pointer}
+.ca-pd-clipped-value:hover{width:auto;overflow:visible;text-overflow:initial;white-space:inherit;cursor:text}.ca-pd-widget{background:#fff;border-bottom:solid 1px #eaeaea;border-right:solid 1px #eaeaea;border-left:solid 1px #eaeaea;margin-bottom:20px;padding-bottom:15px;font-size:12px;line-height:20px}
+.ca-pd-widget h3,.ca-pd-status-widget{height:30px;background:#eaeaea;color:#4d4d4f;font-size:16px;margin:0 0 5px 0;box-sizing:border-box;font-weight:300}
+.ca-pd-widget h3 i{padding:0 5px 0 10px}.ca-pd-status-widget{padding-left:10px;margin-bottom:20px;height:auto}.ca-pd-widget-heading{line-height:30px}
+.ca-pd-widget-content{padding:10px 20px}.ca-pd-widget i{position:relative;top:2px}.ca-pd-auth-status{border-top:1px solid #e6e7e8;clear:both}
+.ca-pd-auth-status i{font-size:15px}.ca-pd-auth-status .columns.three.a{margin-right:0;width:33.3333%;height:45px;border-right:1px solid #eaeaea;text-align:center;box-sizing:border-box}
+.ca-pd-card{box-sizing:border-box;border:1px solid #eaeaea;border-radius:16px;padding:15px 15px 15px 20px;min-height:230px}
+.ca-pd-widget.ca-pd-txtype.ca-pd-txtype-ideal,.ca-pd-widget.ca-pd-txtype.ca-pd-txtype-c_invoice,.ca-pd-widget.ca-pd-txtype.ca-pd-txtype-c_cash,.ca-pd-widget.ca-pd-txtype.ca-pd-txtype-directdebit_NL,.ca-pd-widget.ca-pd-txtype.ca-pd-txtype-sepadirectdebit,.ca-pd-widget.ca-pd-txtype.ca-pd-txtype-directEbanking{border-radius:0 16px 16px 0}
+.ca-pd-txtype-icon{margin-bottom:13px;display:inline-block;height:25px}.ca-pd-card-details{margin-bottom:40px}.ca-pd-card-details label{display:block}
+.ca-pd-bin-info{text-align:right}.floatRight a img{width:12px;padding-top:5px}.ca-pd-shopper-locale{position:absolute;color:#929295;right:10px}
+.ca-pd-find-icon:hover>img{opacity:.7}.ca-pd-find-icon img{vertical-align:middle}.ca-pd-shopper-country{float:right;margin-right:10px;font-size:12px;line-height:30px}
+.ca-pd-tx-variant-code{text-align:center;font-size:13px;width:130px;height:20px}.ca-pd-button-link{padding:0;background:0;border:0;font-size:11px;color:#024d63;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
+.ca-pd-button-link:hover{text-decoration:underline;cursor:pointer}.ca-pd-secure-tooltip,.ca-pd-liability-tooltip{position:absolute;bottom:-1px;max-width:325px;padding:10px;font-size:12px;border:5px solid #ddd;background:#eee;color:#4d4d4f;text-align:left}
+.ca-pd-secure-tooltip{left:22px}.ca-pd-liability-tooltip{left:37px}.ca-pd-secure-tooltip:before,.ca-pd-liability-tooltip:before{content:'';display:inline-block;border:8px solid transparent;border-top-color:#ddd;position:absolute;bottom:-20px}
+.ca-pd-secure-tooltip:before{left:38px}.ca-pd-liability-tooltip:before{left:50%;margin-left:-4px}.ca-tac{text-align:center}
+.ca-db{display:block}.ca-por{position:relative}.ca-pd-toggle-classic{overflow:auto}.ca-pd-toggle-classic i,.ca-pd-toggle-classic button,.ca-pd-toggle-classic h2{background:#024d63;float:left;-webkit-appearance:none;text-align:center;display:inline-block;border:0;line-height:1em;font-weight:bold;cursor:pointer;margin:2px 0;font-size:12px;color:white;margin-right:0;padding:8px 8px;padding-right:0}
+.ca-pd-toggle-classic button,.ca-pd-toggle-classic h2{padding:8px 16px;margin-right:8px;color:#d0d0d0}.ca-pd-toggle-classic i:hover,.ca-pd-toggle-classic button:hover,.ca-pd-toggle-classic h2:hover{color:white}
+.ca-pd-toggle-classic .ca-pd-button-wrapper:hover h2,.ca-pd-toggle-classic .ca-pd-button-wrapper:hover i,.ca-pd-toggle-classic button:hover{box-shadow:inset 0 0 60px rgba(255,255,255,0.3);-webkit-box-shadow:inset 0 0 60px rgba(255,255,255,0.3);-moz-box-shadow:inset 0 0 60px rgba(255,255,255,.3);-ms-box-shadow:inset 0 0 60px rgba(255,255,255,.3)}
