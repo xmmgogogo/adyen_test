@@ -243,7 +243,7 @@ if($totalOrderNum > $common->returnPageNum() * $pageFromNumber) {
                 Page <?php echo $curPage;?>
                                 <?php
                                 if($isPageNext) {
-                                    echo '<a style="padding:0 5px;" href="showList_pos.php?pos&pageNumber=' . $isPageNext . '"><i class="icon-caret-right"></i></a>';
+                                    echo '<a style="padding:0 5px;" href="showList_pos.php?pos&pageNumber=' . $isPageNext . '&' .  $_SERVER['QUERY_STRING'] . '"><i class="icon-caret-right"></i></a>';
                                 }
                                 ?>
                             <b> | </b>
@@ -337,6 +337,8 @@ if($totalOrderNum > $common->returnPageNum() * $pageFromNumber) {
                     //排序
                     if(isset($_REQUEST['sortDirection'])) {
                         $orderBy = ' order by BookingDate ' . $_REQUEST['sortDirection'];
+                    } else {
+                        $orderBy = ' order by BookingDate desc';
                     }
 
                     //查询
@@ -386,7 +388,7 @@ if($totalOrderNum > $common->returnPageNum() * $pageFromNumber) {
                     Page <?php echo $curPage;?>
                     <?php
                     if($isPageNext) {
-                        echo '<a style="padding:0 5px;" href="showList_pos.php?pos&pageNumber=' . $isPageNext . '"><i class="icon-caret-right"></i></a>';
+                        echo '<a style="padding:0 5px;" href="showList_pos.php?pos&pageNumber=' . $isPageNext . '&' .  $_SERVER['QUERY_STRING'] . '"><i class="icon-caret-right"></i></a>';
                     }
                     ?>
                 </div>

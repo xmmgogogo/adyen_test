@@ -1571,6 +1571,7 @@ if ($reportCode == 'hpp_conversion_detail_report')
         //生成文件
 
 
+        //存入文件log
         $fileExtension = generateFileExtension($format);
         $data = [
             'FileName' => 'daily_finance_report_'.date('Y_m_d').'.'. $fileExtension,

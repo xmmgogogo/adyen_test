@@ -1,7 +1,7 @@
 <?php
 error_reporting(E_ALL);
 ini_set('display_errors', 'On');
-date_default_timezone_set("ETC");
+date_default_timezone_set("Asia/shanghai");
 
 /**
  * 添加公用方法类
@@ -33,18 +33,18 @@ class common {
      * @param $del
      * @return array
      */
-    public function getRecentListByDate($del = -114) {
+    public function getRecentListByDate($del = -14) {
         $curDay = strtotime($del . 'day');
 
         $data = [];
         $lastDay = date('Y-m-d', $curDay);
-        $nowDay = date('Y-m-d', time()) . ' 23:59:59';
+        $nowDay = date('Y-m-d', $curDay) . ' 23:59:59';
 
-        $where = "select * from payment WHERE BookingDate < :creationDate_l and BookingDate > :creationDate_b";
+        $where = "select MainAmount from payment WHERE BookingDate <= :creationDate_l and BookingDate >= :creationDate_b";
         $result = $this->DB->query($where, array('creationDate_l' => $nowDay, 'creationDate_b' => $lastDay));
 
         foreach($result as $row) {
-            $data[] = $row['Value'];
+            $data[] = $row['MainAmount'];
         }
 
         return $data;
@@ -56,19 +56,24 @@ class common {
      * @return array
      */
     public function getRecentListOrderByDate($limit = 10) {
-        $data = [];
+//        $data = [];
 
-        $where = "select * from payment WHERE 1 ORDER BY BookingDate DESC limit " . $limit;
+        $todayTime = date('Y-m-d H:i:s');
+        $where = "select RecordType,BookingDate,paymentMethod,MainAmount,MainCurrency from payment WHERE 1 ORDER BY BookingDate DESC limit " . $limit;
         $result = $this->DB->query($where, array());
 
-        foreach($result as $row)
-        {
-            $data[] = $row;
-        }
+//        foreach($result as $row)
+//        {
+//            $data[] = $row;
+//        }
 
-        return $data;
+        return $result;
     }
 
+    /**
+     * 默认页数
+     * @return int
+     */
     public function returnPageNum() {
         return self::PAGE_NUM;
     }
@@ -86,7 +91,7 @@ class common {
     public function getOrderList($sql, $parameters = array(), $orderBy = '', $limitFrom = 1) {
         $todayTime = date('Y-m-d H:i:s');
         $sql .= ' and ' . "BookingDate <= '" . $todayTime . "' " . $orderBy . " limit " . ($limitFrom - 1) * self::PAGE_NUM . ", " . self::PAGE_NUM;
-//        var_dump($sql);1
+
         return $this->DB->query($sql, $parameters);
     }
 
@@ -175,9 +180,10 @@ class common {
      * @param string $filterKey 匹配字段
      * @param string $searchKey 累加字段
      * @param string $doubleFilterKey 2段匹配字段
+     * @param int $limit 限制匹配条数
      * @return array
      */
-    public function getAreaSession($filterKey = 'area', $searchKey = 'session', $doubleFilterKey = '') {
+    public function getAreaSession($filterKey = 'area', $searchKey = 'session', $doubleFilterKey = '', $limit = 0) {
         //1，按照世界每个州来分
         //2，按照国家来分
         $keySave = ['area', 'country', 'method', 'amount', 'status', 'account', 'channel', 'categoryId'];
@@ -315,6 +321,56 @@ class common {
         //3，处理结果
         $sessions = [];
         $data = $this->sqlQuery($sql, $conditions);
+
+        if($doubleFilterKey) {
+            //有2个匹配字段，比如，查询所有alipay的下面的类型=完成状态的总额
+            foreach($data as $row) {
+                $areaKey = $row[$filterKey];
+                $areaKey2 = $row[$doubleFilterKey];
+
+                //若不指定累加的值，则直接返回数组
+                if($searchKey) {
+                    if(isset($sessions[$areaKey][$areaKey2])) {
+                        $sessions[$areaKey][$areaKey2] += $row[$searchKey];
+                    } else {
+                        $sessions[$areaKey][$areaKey2] = $row[$searchKey];
+                    }
+                } else {
+                    $sessions[$areaKey][$areaKey2][] = $row;
+                }
+            }
+        } else {
+            //只有一个匹配字段，比如，查询所有alipay的总额
+            foreach($data as $row) {
+                $areaKey = $row[$filterKey];
+
+                //若不指定累加的值，则直接返回数组
+                if($searchKey) {
+                    if(isset($sessions[$areaKey])) {
+                        $sessions[$areaKey] += $row[$searchKey];
+                    } else {
+                        $sessions[$areaKey] = $row[$searchKey];
+                    }
+                } else {
+                    $sessions[$areaKey][] = $row;
+                }
+            }
+        }
+
+        return $sessions;
+    }
+
+    /**
+     * 1，根据条件，操作数据结构
+     * 2，表结构：通用
+     * @param array $data 原始数据
+     * @param string $filterKey 匹配字段
+     * @param string $searchKey 累加字段
+     * @param string $doubleFilterKey 2段匹配字段
+     * @return array
+     */
+    public function formatArrayByCondition($data, $filterKey = 'area', $searchKey = 'session', $doubleFilterKey = '') {
+        $sessions = [];
 
         if($doubleFilterKey) {
             //有2个匹配字段，比如，查询所有alipay的下面的类型=完成状态的总额

@@ -160,14 +160,21 @@ EOF;
 function conversionPerPaymentMethod() {
     //引入通用库
     $common = new common();
-    $sessionFetchAllMethod = $common->getAreaSession('method', 'session');//共多少比
-    $sessionFetchAllMethodStatus = $common->getAreaSession('method', 'session', 'status');//共多少满足条件的数量
+    $sessionFetchAllMethodStatus = $common->getAreaSession('country', 'session', 'status');//共多少满足条件的数量
 
-//    $common->dump($sessionFetchAllMethod);
+    //按照总数排序，限制显示条数
+    $newSession = [];
+    foreach($sessionFetchAllMethodStatus as $key => $info) {
+        $newSession[$key] = array_sum($info);
+    }
+
+    arsort($newSession);
+    $newSession = array_slice($newSession, 0, 10);
+
 //    $common->dump($sessionFetchAllMethodStatus);
 
     $categoriesStr = $AuthorisedStr = $CompletedStr = $AbandonedStr = '';
-    foreach($sessionFetchAllMethod as $key => $val) {
+    foreach($newSession as $key => $val) {
         //计算条数
         $categoriesStr .= '<category label="' . $key . '"/>';
 
